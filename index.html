@@ -4,289 +4,177 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kalvis Lejasmeiers — Arhitekts</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Favicon will be added later when real logo is available -->
-    <!-- <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico"> -->
+    <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <!-- Fixed Navigation -->
-    <nav class="nav">
-      <div class="nav-container">
-        <a href="#" class="nav-logo">kalvis lejasmeiers</a>
-        <div class="nav-menu">
-          <a href="#projects">projekti</a>
-          <a href="#about">par mani</a>
-          <a href="#contact">kontakti</a>
-        </div>
-      </div>
+    <!-- NAVIGATION -->
+    <nav id="main-nav">
+      <a href="/" class="nav-name">kalvis lejasmeiers</a>
+      <ul class="nav-links">
+        <li><a href="#projekti" class="active">projekti</a></li>
+        <li><a href="#par-mani">par mani</a></li>
+        <li><a href="#kontakti">kontakti</a></li>
+      </ul>
     </nav>
 
-    <!-- Featured Projects -->
-    <section id="projects" class="projects">
-      <div class="projects-header">
-        <span class="projects-label">Projekti</span>
-      </div>
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img
-              src="https://placehold.co/800x500/e8e8e8/999999?text=Private+Residence%2C+Liepāja"
-              alt="Private Residence, Liepāja"
-              loading="lazy"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-name">Private Residence, Liepāja</h3>
-            <div class="project-meta">
-              <span class="project-type">New build</span>
-              <span class="project-location">Liepāja</span>
-              <span class="project-year">2022</span>
+    <!-- FEATURED PROJECTS -->
+    <section class="featured-section" id="projekti">
+      <span class="section-label reveal">Izvēlētie projekti</span>
+
+      <div class="featured-grid reveal">
+        <!-- Primary featured project -->
+        <div class="featured-card">
+          <div class="featured-card-inner">
+            <div class="img-placeholder img-1">
+              <div class="plan-overlay"></div>
             </div>
           </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img
-              src="https://placehold.co/800x500/e8e8e8/999999?text=Apartment+Renovation%2C+Rīga"
-              alt="Apartment Renovation, Rīga"
-              loading="lazy"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-name">Apartment Renovation, Rīga</h3>
-            <div class="project-meta">
-              <span class="project-type">Renovation</span>
-              <span class="project-location">Rīga</span>
-              <span class="project-year">2021</span>
+          <div class="featured-card-meta">
+            <div class="featured-card-title">Private Residence, Liepāja</div>
+            <div class="featured-card-tags">
+              <span>Jaunbūve</span>
+              <span>Liepāja</span>
+              <span>2022</span>
             </div>
           </div>
-        </article>
+        </div>
 
-        <!-- Project 3 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img
-              src="https://placehold.co/800x500/e8e8e8/999999?text=4-storey+Residential+Building%2C+Liepāja"
-              alt="4-storey Residential Building, Liepāja"
-              loading="lazy"
-            />
+        <!-- Secondary projects -->
+        <div class="featured-card">
+          <div class="featured-card-inner">
+            <div class="img-placeholder img-2"></div>
           </div>
-          <div class="project-info">
-            <h3 class="project-name">4-storey Residential Building, Liepāja</h3>
-            <div class="project-meta">
-              <span class="project-type">New build</span>
-              <span class="project-location">Liepāja</span>
-              <span class="project-year">2020</span>
+          <div class="featured-card-meta">
+            <div class="featured-card-title">Apartment Renovation, Rīga</div>
+            <div class="featured-card-tags">
+              <span>Renovācija</span>
+              <span>Rīga</span>
+              <span>2021</span>
             </div>
           </div>
-        </article>
+        </div>
 
-        <!-- Project 4 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img
-              src="https://placehold.co/800x500/e8e8e8/999999?text=Office+Conversion%2C+Liepāja"
-              alt="Office Conversion, Liepāja"
-              loading="lazy"
-            />
+        <div class="featured-card">
+          <div class="featured-card-inner">
+            <div class="img-placeholder img-3"></div>
           </div>
-          <div class="project-info">
-            <h3 class="project-name">Office Conversion, Liepāja</h3>
-            <div class="project-meta">
-              <span class="project-type">Change of use</span>
-              <span class="project-location">Liepāja</span>
-              <span class="project-year">2019</span>
+          <div class="featured-card-meta">
+            <div class="featured-card-title">Summer House, Jūrmala</div>
+            <div class="featured-card-tags">
+              <span>Jaunbūve</span>
+              <span>Jūrmala</span>
+              <span>2023</span>
             </div>
           </div>
-        </article>
-
-        <!-- Project 5 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img
-              src="https://placehold.co/800x500/e8e8e8/999999?text=Summer+House%2C+Jūrmala"
-              alt="Summer House, Jūrmala"
-              loading="lazy"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-name">Summer House, Jūrmala</h3>
-            <div class="project-meta">
-              <span class="project-type">New build</span>
-              <span class="project-location">Jūrmala</span>
-              <span class="project-year">2023</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 6 -->
-        <article class="project-card">
-          <div class="project-image">
-            <img
-              src="https://placehold.co/800x500/e8e8e8/999999?text=Restaurant+Interior%2C+Liepāja"
-              alt="Restaurant Interior, Liepāja"
-              loading="lazy"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-name">Restaurant Interior, Liepāja</h3>
-            <div class="project-meta">
-              <span class="project-type">Interior design</span>
-              <span class="project-location">Liepāja</span>
-              <span class="project-year">2022</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- All Work Text List -->
-    <section class="all-work">
-      <h2 class="section-title">Atlasītie darbi</h2>
-      <div class="work-list">
-        <div class="work-item">
-          <span class="work-name">Private Residence, Liepāja</span>
-          <span class="work-meta">New build, Liepāja, 2022</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Apartment Renovation, Rīga</span>
-          <span class="work-meta">Renovation, Rīga, 2021</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">4-storey Residential Building, Liepāja</span>
-          <span class="work-meta">New build, Liepāja, 2020</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Office Conversion, Liepāja</span>
-          <span class="work-meta">Change of use, Liepāja, 2019</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Summer House, Jūrmala</span>
-          <span class="work-meta">New build, Jūrmala, 2023</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Restaurant Interior, Liepāja</span>
-          <span class="work-meta">Interior design, Liepāja, 2022</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Multi-family Housing, Ventspils</span>
-          <span class="work-meta">New build, Ventspils, 2021</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Historic Building Restoration, Kuldīga</span>
-          <span class="work-meta">Restoration, Kuldīga, 2020</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Warehouse Conversion, Liepāja</span>
-          <span class="work-meta">Change of use, Liepāja, 2018</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Private Villa, Rīga</span>
-          <span class="work-meta">New build, Rīga, 2022</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Apartment Building Façade, Liepāja</span>
-          <span class="work-meta">Renovation, Liepāja, 2021</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Retail Space, Ventspils</span>
-          <span class="work-meta">Commercial, Ventspils, 2020</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Private Residence Extension, Liepāja</span>
-          <span class="work-meta">Extension, Liepāja, 2019</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Office Interior, Rīga</span>
-          <span class="work-meta">Interior design, Rīga, 2023</span>
-        </div>
-        <div class="work-item">
-          <span class="work-name">Residential Complex, Liepāja</span>
-          <span class="work-meta">New build, Liepāja, 2022</span>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-      <h2 class="section-title">Par mani</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            Esmu arhitekts, kas strādā Liepājā un kurš ir gūjis vairāk nekā 10
-            gadu pieredzi dzīvojamo un komerciālo projektu jomā. Strādāju ar
-            privātiem klientiem no koncepta līdz būvatļaujas saņemšanai.
-          </p>
-          <p>
-            Mans pieeja koncentrējas uz telpu veidošanu, kas ir gan
-            funkcionālas, gan mūžīgas, rūpīgi pievēršot uzmanību detaļām,
-            materiāliem un attiecībām starp iekšējo un ārējo vidi.
-          </p>
+    <!-- ALL PROJECTS LIST -->
+    <section class="list-section">
+      <span class="section-label reveal">Atlasītie darbi</span>
+
+      <ul class="project-list">
+        <li>
+          <a class="project-item reveal" href="#">
+            <span class="project-item-title">Private Residence, Liepāja</span>
+            <span class="project-item-meta">Jaunbūve, Liepāja, 2022</span>
+          </a>
+        </li>
+        <li>
+          <a class="project-item reveal" href="#">
+            <span class="project-item-title">Apartment Renovation, Rīga</span>
+            <span class="project-item-meta">Renovācija, Rīga, 2021</span>
+          </a>
+        </li>
+        <li>
+          <a class="project-item reveal" href="#">
+            <span class="project-item-title"
+              >4-stāvu dzīvojamā ēka, Liepāja</span
+            >
+            <span class="project-item-meta">Jaunbūve, Liepāja, 2020</span>
+          </a>
+        </li>
+        <li>
+          <a class="project-item reveal" href="#">
+            <span class="project-item-title">Office Conversion, Liepāja</span>
+            <span class="project-item-meta"
+              >Lietojuma maiņa, Liepāja, 2019</span
+            >
+          </a>
+        </li>
+        <li>
+          <a class="project-item reveal" href="#">
+            <span class="project-item-title">Summer House, Jūrmala</span>
+            <span class="project-item-meta">Jaunbūve, Jūrmala, 2023</span>
+          </a>
+        </li>
+        <li>
+          <a class="project-item reveal" href="#">
+            <span class="project-item-title">Restaurant Interior, Liepāja</span>
+            <span class="project-item-meta">Interjers, Liepāja, 2022</span>
+          </a>
+        </li>
+        <li>
+          <a class="project-item reveal" href="#">
+            <span class="project-item-title"
+              >Multi-family Housing, Ventspils</span
+            >
+            <span class="project-item-meta">Jaunbūve, Ventspils, 2021</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ABOUT STRIP -->
+    <section class="about-strip" id="par-mani">
+      <div>
+        <span class="section-label">Par mani</span>
+        <p class="about-text">
+          Arhitekts ar vairāk nekā 10 gadu pieredzi dzīvojamo un komerciālo
+          projektu jomā. Strādāju ar privātiem klientiem no koncepta līdz
+          būvatļaujas saņemšanai. Mans pieeja koncentrējas uz telpām, kas ir gan
+          funkcionālas, gan mūžīgas.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Gadi praksē</span>
         </div>
-        <div class="about-image">
-          <img
-            src="https://placehold.co/400x500/ffffff/111111?text=Portrait"
-            alt="Kalvis Lejasmeiers portrait"
-            loading="lazy"
-          />
+        <div class="stat-item">
+          <span class="stat-number">40+</span>
+          <span class="stat-label">Realizēti projekti</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">LV</span>
+          <span class="stat-label">Liepāja, Latvija</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Tipoloģijas</span>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <h2 class="section-title">Kontakti</h2>
-      <div class="contact-content">
-        <div class="contact-info">
-          <h3 class="contact-subtitle">Sazināties</h3>
-          <div class="contact-details">
-            <p>
-              <strong>E-pasts:</strong>
-              <a href="mailto:kalvis.lejasmeiers@gmail.com"
-                >kalvis.lejasmeiers@gmail.com</a
-              >
-            </p>
-            <p>
-              <strong>Telefons:</strong>
-              <a href="tel:+37129218775">+371 29218775</a>
-            </p>
-            <p><strong>Atrašanās vieta:</strong> Liepāja, Latvija</p>
-          </div>
-        </div>
-        <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <label for="name">Vārds</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">E-pasts</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Ziņa</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Nosūtīt ziņu</button>
-        </form>
+    <!-- FOOTER / CONTACT -->
+    <footer id="kontakti">
+      <div class="footer-contact">
+        <a href="mailto:kalvis.lejasmeiers@gmail.com"
+          >kalvis.lejasmeiers@gmail.com</a
+        >
+        <a href="tel:+37129218775">+371 29218775</a>
+        <span>Liepāja, Latvija</span>
       </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <p class="footer-copyright">© 2026 Kalvis Lejasmeiers</p>
-        <p class="footer-note">Arhitekts, Liepāja, Latvija</p>
-      </div>
+      <span class="footer-copy">© Kalvis Lejasmeiers</span>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalvis Lejasmeiers — Arhitekts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white:   #F5F4F0;
+    --black:   #1A1A18;
+    --stone:   #C8C4BB;
+    --rust:    #8B4B2E;
+    --ink:     #3D3D3A;
+    --mist:    #E8E6E1;
+    --font-sans: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html { font-size: 15px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px;
+    background: var(--white);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  nav.scrolled { border-bottom-color: var(--mist); }
+
+  .nav-name {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--black); }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 48px;
+    display: block;
+    text-align: center;
+  }
+
+  /* ── PROJECT GRID (Featured) ── */
+  .featured-section {
+    padding: 120px 40px 80px;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+
+  .featured-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--mist);
+  }
+
+  .featured-card:first-child {
+    grid-row: span 2;
+  }
+
+  .featured-card-inner {
+    aspect-ratio: 4/3;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .featured-card:first-child .featured-card-inner {
+    aspect-ratio: unset;
+    height: 100%;
+    min-height: 540px;
+  }
+
+  /* Simulated architectural imagery using CSS */
+  .img-placeholder {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .featured-card:hover .img-placeholder { transform: scale(1.02); }
+
+  .img-1 {
+    background: linear-gradient(160deg, #C8C4BB 0%, #A8A49C 30%, #8E8A83 60%, #6E6A64 100%);
+  }
+
+  .img-2 {
+    background: linear-gradient(200deg, #D4CFC8 0%, #B8B3AB 40%, #9A958E 100%);
+  }
+
+  .img-3 {
+    background: linear-gradient(140deg, #BDC4C8 0%, #9DADB5 40%, #7D9099 100%);
+  }
+
+  /* Architectural grid overlay on placeholders */
+  .img-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(26,26,24,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,26,24,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .img-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,26,24,0.35) 0%, transparent 60%);
+  }
+
+  /* Plan drawing placeholder */
+  .plan-overlay {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    height: 40%;
+    border: 1px solid rgba(245,244,240,0.4);
+    z-index: 1;
+  }
+
+  .plan-overlay::before {
+    content: '';
+    position: absolute;
+    top: 20%; left: 0; right: 0;
+    height: 1px;
+    background: rgba(245,244,240,0.3);
+  }
+
+  .plan-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 35%;
+    width: 1px;
+    background: rgba(245,244,240,0.3);
+  }
+
+  .featured-card-meta {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 24px;
+    z-index: 2;
+    color: var(--white);
+  }
+
+  .featured-card-title {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .featured-card:first-child .featured-card-title {
+    font-size: 28px;
+  }
+
+  .featured-card-tags {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,244,240,0.6);
+    display: flex;
+    gap: 12px;
+  }
+
+  .featured-card-tags span::before {
+    content: '·';
+    margin-right: 12px;
+    opacity: 0.5;
+  }
+
+  .featured-card-tags span:first-child::before { display: none; }
+
+  /* ── PROJECT LIST ── */
+  .list-section {
+    padding: 80px 40px 120px;
+    border-top: 1px solid var(--mist);
+  }
+
+  .project-list {
+    list-style: none;
+  }
+
+  .project-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--mist);
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project-item:first-child { border-top: 1px solid var(--mist); }
+
+  .project-item:hover .project-item-title { color: var(--black); }
+  .project-item:hover .project-item-meta { color: var(--rust); }
+
+  .project-item-title {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--ink);
+    transition: color 0.2s;
+    letter-spacing: -0.01em;
+  }
+
+  .project-item-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--stone);
+    letter-spacing: 0.06em;
+    text-align: right;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  /* ── ABOUT STRIP ── */
+  .about-strip {
+    background: var(--black);
+    padding: 80px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-strip .section-label { color: rgba(200,196,187,0.4); margin-bottom: 32px; text-align: left; }
+
+  .about-text {
+    color: var(--stone);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 400px;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding-top: 4px;
+  }
+
+  .stat-item {}
+
+  .stat-number {
+    font-family: var(--font-mono);
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--white);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(200,196,187,0.4);
+  }
+
+  /* ── CONTACT FOOTER ── */
+  footer {
+    padding: 48px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--mist);
+  }
+
+  .footer-contact {
+    display: flex;
+    gap: 48px;
+  }
+
+  .footer-contact a,
+  .footer-contact span {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--stone);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .footer-contact a:hover { color: var(--rust); }
+
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--mist);
+  }
+
+  /* ── SCROLL ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 18px 20px; }
+
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.08em; }
+
+    .featured-section { padding: 100px 20px 60px; }
+
+    .featured-grid { grid-template-columns: 1fr; gap: 2px; }
+    .featured-card:first-child { grid-row: span 1; }
+    .featured-card:first-child .featured-card-inner { min-height: 340px; }
+
+    .list-section { padding: 60px 20px 80px; }
+
+    .project-item-title { font-size: 15px; }
+    .project-item-meta { font-size: 10px; }
+
+    .about-strip {
+      grid-template-columns: 1fr;
+      gap: 48px;
+      padding: 60px 20px;
+    }
+
+    .about-stats { grid-template-columns: 1fr 1fr; }
+
+    footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 32px 20px;
+    }
+
+    .footer-contact { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav id="main-nav">
+  <a href="/" class="nav-name">kalvis lejasmeiers</a>
+  <ul class="nav-links">
+    <li><a href="#projekti" class="active">projekti</a></li>
+    <li><a href="#par-mani">par mani</a></li>
+    <li><a href="#kontakti">kontakti</a></li>
+  </ul>
+</nav>
+
+
+<!-- FEATURED PROJECTS -->
+<section class="featured-section" id="projekti">
+  <span class="section-label reveal">Izvēlētie projekti</span>
+
+  <div class="featured-grid reveal">
+    <!-- Primary featured project -->
+    <div class="featured-card">
+      <div class="featured-card-inner">
+        <div class="img-placeholder img-1">
+          <div class="plan-overlay"></div>
+        </div>
+      </div>
+      <div class="featured-card-meta">
+        <div class="featured-card-title">Private Residence, Liepāja</div>
+        <div class="featured-card-tags">
+          <span>Jaunbūve</span>
+          <span>Liepāja</span>
+          <span>2022</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secondary projects -->
+    <div class="featured-card">
+      <div class="featured-card-inner">
+        <div class="img-placeholder img-2"></div>
+      </div>
+      <div class="featured-card-meta">
+        <div class="featured-card-title">Apartment Renovation, Rīga</div>
+        <div class="featured-card-tags">
+          <span>Renovācija</span>
+          <span>Rīga</span>
+          <span>2021</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="featured-card-inner">
+        <div class="img-placeholder img-3"></div>
+      </div>
+      <div class="featured-card-meta">
+        <div class="featured-card-title">Summer House, Jūrmala</div>
+        <div class="featured-card-tags">
+          <span>Jaunbūve</span>
+          <span>Jūrmala</span>
+          <span>2023</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ALL PROJECTS LIST -->
+<section class="list-section">
+  <span class="section-label reveal">Atlasītie darbi</span>
+
+  <ul class="project-list">
+    <li><a class="project-item reveal" href="#">
+      <span class="project-item-title">Private Residence, Liepāja</span>
+      <span class="project-item-meta">Jaunbūve, Liepāja, 2022</span>
+    </a></li>
+    <li><a class="project-item reveal" href="#">
+      <span class="project-item-title">Apartment Renovation, Rīga</span>
+      <span class="project-item-meta">Renovācija, Rīga, 2021</span>
+    </a></li>
+    <li><a class="project-item reveal" href="#">
+      <span class="project-item-title">4-stāvu dzīvojamā ēka, Liepāja</span>
+      <span class="project-item-meta">Jaunbūve, Liepāja, 2020</span>
+    </a></li>
+    <li><a class="project-item reveal" href="#">
+      <span class="project-item-title">Office Conversion, Liepāja</span>
+      <span class="project-item-meta">Lietojuma maiņa, Liepāja, 2019</span>
+    </a></li>
+    <li><a class="project-item reveal" href="#">
+      <span class="project-item-title">Summer House, Jūrmala</span>
+      <span class="project-item-meta">Jaunbūve, Jūrmala, 2023</span>
+    </a></li>
+    <li><a class="project-item reveal" href="#">
+      <span class="project-item-title">Restaurant Interior, Liepāja</span>
+      <span class="project-item-meta">Interjers, Liepāja, 2022</span>
+    </a></li>
+    <li><a class="project-item reveal" href="#">
+      <span class="project-item-title">Multi-family Housing, Ventspils</span>
+      <span class="project-item-meta">Jaunbūve, Ventspils, 2021</span>
+    </a></li>
+  </ul>
+</section>
+
+
+<!-- ABOUT STRIP -->
+<section class="about-strip" id="par-mani">
+  <div>
+    <span class="section-label">Par mani</span>
+    <p class="about-text">
+      Arhitekts ar vairāk nekā 10 gadu pieredzi dzīvojamo un komerciālo projektu jomā. 
+      Strādāju ar privātiem klientiem no koncepta līdz būvatļaujas saņemšanai. 
+      Mans pieeja koncentrējas uz telpām, kas ir gan funkcionālas, gan mūžīgas.
+    </p>
+  </div>
+  <div class="about-stats">
+    <div class="stat-item">
+      <span class="stat-number">10+</span>
+      <span class="stat-label">Gadi praksē</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">40+</span>
+      <span class="stat-label">Realizēti projekti</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">LV</span>
+      <span class="stat-label">Liepāja, Latvija</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">5</span>
+      <span class="stat-label">Tipoloģijas</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER / CONTACT -->
+<footer id="kontakti">
+  <div class="footer-contact">
+    <a href="mailto:kalvis.lejasmeiers@gmail.com">kalvis.lejasmeiers@gmail.com</a>
+    <a href="tel:+37129218775">+371 29218775</a>
+    <span>Liepāja, Latvija</span>
+  </div>
+  <span class="footer-copy">© Kalvis Lejasmeiers</span>
+</footer>
+
+
+<script>
+  // Scroll observer for reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Trigger above-fold items immediately
+  window.addEventListener('load', () => {
+    reveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  });
+
+  // Nav scroll state
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>

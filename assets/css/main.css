@@ -1,0 +1,821 @@
+/* ==========================================================================
+   DESIGN SYSTEM — Kalvis Lejasmeiers Portfolio
+   ========================================================================== */
+
+/* CSS Custom Properties (Design Tokens) */
+:root {
+  /* Color Palette */
+  --white: #f5f4f0; /* warm off-white ground */
+  --black: #1a1a18; /* near-black, slight warmth */
+  --stone: #c8c4bb; /* fog, Baltic limestone */
+  --rust: #8b4b2e; /* single accent — Liepāja ironwork, copper oxide */
+  --ink: #3d3d3a; /* body text */
+  --mist: #e8e6e1; /* borders, dividers */
+
+  /* Typography */
+  --font-sans: "DM Sans", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --space-3xl: 80px;
+  --space-4xl: 120px;
+}
+
+/* ==========================================================================
+   CSS Reset & Base Styles
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 15px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* ==========================================================================
+   Typography Scale
+   ========================================================================== */
+
+/* Section labels: 10px / DM Mono / uppercase / letter-spacing: 0.18em / color: --stone */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+  display: block;
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+/* Body text: 15px / DM Sans / weight 300 / line-height 1.7 */
+.body-text {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Project titles: 17–28px / DM Sans / weight 300 / letter-spacing: -0.01em */
+.project-title {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Large titles: 40–64px / DM Sans / weight 300 / letter-spacing: -0.02em */
+.large-title {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Mono metadata: 11px / DM Mono / weight 400 / letter-spacing: 0.06–0.12em */
+.mono-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--stone);
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 40px;
+  background: var(--white);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+nav.scrolled {
+  border-bottom-color: var(--mist);
+}
+
+.nav-name {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--black);
+}
+
+/* ==========================================================================
+   Featured Projects Grid (Homepage)
+   ========================================================================== */
+
+.featured-section {
+  padding: var(--space-4xl) 40px var(--space-2xl);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+.featured-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--mist);
+}
+
+.featured-card:first-child {
+  grid-row: span 2;
+}
+
+.featured-card-inner {
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-card:first-child .featured-card-inner {
+  aspect-ratio: unset;
+  height: 100%;
+  min-height: 540px;
+}
+
+/* Image placeholders with architectural gradients */
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.featured-card:hover .img-placeholder {
+  transform: scale(1.02);
+}
+
+.img-1 {
+  background: linear-gradient(
+    160deg,
+    #c8c4bb 0%,
+    #a8a49c 30%,
+    #8e8a83 60%,
+    #6e6a64 100%
+  );
+}
+
+.img-2 {
+  background: linear-gradient(200deg, #d4cfc8 0%, #b8b3ab 40%, #9a958e 100%);
+}
+
+.img-3 {
+  background: linear-gradient(140deg, #bdc4c8 0%, #9dadb5 40%, #7d9099 100%);
+}
+
+/* Architectural grid overlay */
+.img-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26, 26, 24, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 24, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.img-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26, 26, 24, 0.35) 0%,
+    transparent 60%
+  );
+}
+
+/* Plan drawing placeholder */
+.plan-overlay {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+  height: 40%;
+  border: 1px solid rgba(245, 244, 240, 0.4);
+  z-index: 1;
+}
+
+.plan-overlay::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(245, 244, 240, 0.3);
+}
+
+.plan-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 35%;
+  width: 1px;
+  background: rgba(245, 244, 240, 0.3);
+}
+
+.featured-card-meta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-md);
+  z-index: 2;
+  color: var(--white);
+}
+
+.featured-card-title {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: var(--space-xs);
+}
+
+.featured-card:first-child .featured-card-title {
+  font-size: 28px;
+}
+
+.featured-card-tags {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 244, 240, 0.6);
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.featured-card-tags span::before {
+  content: "·";
+  margin-right: var(--space-sm);
+  opacity: 0.5;
+}
+
+.featured-card-tags span:first-child::before {
+  display: none;
+}
+
+/* ==========================================================================
+   Project List (Homepage)
+   ========================================================================== */
+
+.list-section {
+  padding: var(--space-2xl) 40px var(--space-4xl);
+  border-top: 1px solid var(--mist);
+}
+
+.project-list {
+  list-style: none;
+}
+
+.project-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--mist);
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-item:first-child {
+  border-top: 1px solid var(--mist);
+}
+
+.project-item:hover .project-item-title {
+  color: var(--black);
+}
+
+.project-item:hover .project-item-meta {
+  color: var(--rust);
+}
+
+.project-item-title {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--ink);
+  transition: color 0.2s;
+  letter-spacing: -0.01em;
+}
+
+.project-item-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--stone);
+  letter-spacing: 0.06em;
+  text-align: right;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   About Strip (Homepage)
+   ========================================================================== */
+
+.about-strip {
+  background: var(--black);
+  padding: var(--space-2xl) 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.about-strip .section-label {
+  color: rgba(200, 196, 187, 0.4);
+  margin-bottom: var(--space-lg);
+  text-align: left;
+}
+
+.about-text {
+  color: var(--stone);
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 400px;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  padding-top: 4px;
+}
+
+.stat-number {
+  font-family: var(--font-mono);
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--white);
+  display: block;
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(200, 196, 187, 0.4);
+}
+
+/* ==========================================================================
+   Footer / Contact
+   ========================================================================== */
+
+footer {
+  padding: var(--space-xl) 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--mist);
+}
+
+.footer-contact {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.footer-contact a,
+.footer-contact span {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--stone);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.footer-contact a:hover {
+  color: var(--rust);
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--mist);
+}
+
+/* ==========================================================================
+   Scroll Animations
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* Navigation */
+  nav {
+    padding: 18px 20px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Featured Section */
+  .featured-section {
+    padding: 100px 20px 60px;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .featured-card:first-child {
+    grid-row: span 1;
+  }
+
+  .featured-card:first-child .featured-card-inner {
+    min-height: 340px;
+  }
+
+  /* List Section */
+  .list-section {
+    padding: 60px 20px 80px;
+  }
+
+  .project-item-title {
+    font-size: 15px;
+  }
+
+  .project-item-meta {
+    font-size: 10px;
+  }
+
+  /* About Strip */
+  .about-strip {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding: 60px 20px;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Footer */
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: var(--space-lg) 20px;
+  }
+
+  .footer-contact {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}
+
+/* ==========================================================================
+   Projects Archive Page
+   ========================================================================== */
+
+.projects-archive {
+  padding: var(--space-4xl) 40px var(--space-4xl);
+  margin-top: 80px;
+}
+
+.archive-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.filter-tabs {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  color: var(--rust);
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.archive-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.archive-card-inner {
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+  background: var(--mist);
+}
+
+.archive-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.archive-card-title {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.archive-card-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--stone);
+  letter-spacing: 0.06em;
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.archive-card-type::after,
+.archive-card-location::after {
+  content: "·";
+  margin-left: var(--space-sm);
+  opacity: 0.5;
+}
+
+.archive-card-type:last-child::after,
+.archive-card-location:last-child::after {
+  display: none;
+}
+
+/* ==========================================================================
+   About Page
+   ========================================================================== */
+
+.about-page {
+  padding: var(--space-4xl) 40px var(--space-4xl);
+  margin-top: 80px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-page-content {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.about-page-content p {
+  margin-bottom: var(--space-lg);
+}
+
+.about-page-list {
+  list-style: none;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.about-page-list li {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--stone);
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-sm);
+}
+
+/* ==========================================================================
+   Contact Page
+   ========================================================================== */
+
+.contact-page {
+  padding: var(--space-4xl) 40px var(--space-4xl);
+  margin-top: 80px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-form-simple {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.form-group-simple {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-group-simple label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--stone);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form-group-simple input,
+.form-group-simple textarea {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--ink);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--mist);
+  padding: var(--space-xs) 0;
+  transition: border-color 0.2s;
+}
+
+.form-group-simple input:focus,
+.form-group-simple textarea:focus {
+  outline: none;
+  border-bottom-color: var(--rust);
+}
+
+.form-group-simple textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-btn-simple {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black);
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: opacity 0.2s;
+}
+
+.submit-btn-simple:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}

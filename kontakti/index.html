@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakti — Kalvis Lejasmeiers</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav id="main-nav">
+      <a href="../" class="nav-name">kalvis lejasmeiers</a>
+      <ul class="nav-links">
+        <li><a href="../#projekti">projekti</a></li>
+        <li><a href="../#par-mani">par mani</a></li>
+        <li><a href="../#kontakti" class="active">kontakti</a></li>
+      </ul>
+    </nav>
+
+    <main class="contact-page">
+      <span class="section-label">Kontakti</span>
+
+      <div class="about-page-content">
+        <p>
+          Ja vēlaties apspriest projektu iespējas vai saņemt papildus
+          informāciju, lūdzu sazinieties ar mani.
+        </p>
+
+        <div
+          class="footer-contact"
+          style="
+            justify-content: flex-start;
+            gap: var(--space-xl);
+            margin: var(--space-xl) 0;
+          "
+        >
+          <a href="mailto:kalvis.lejasmeiers@gmail.com"
+            >kalvis.lejasmeiers@gmail.com</a
+          >
+          <a href="tel:+37129218775">+371 29218775</a>
+          <span>Liepāja, Latvija</span>
+        </div>
+
+        <hr
+          style="
+            border: none;
+            border-top: 1px solid var(--mist);
+            margin: var(--space-xl) 0;
+          "
+        />
+
+        <form class="contact-form-simple" id="contactForm">
+          <div class="form-group-simple">
+            <label for="name">Vārds</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group-simple">
+            <label for="email">E-pasts</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group-simple">
+            <label for="message">Ziņojums</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn-simple">Nosūtīt ziņu</button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-contact">
+        <a href="mailto:kalvis.lejasmeiers@gmail.com"
+          >kalvis.lejasmeiers@gmail.com</a
+        >
+        <a href="tel:+37129218775">+371 29218775</a>
+        <span>Liepāja, Latvija</span>
+      </div>
+      <span class="footer-copy">© Kalvis Lejasmeiers</span>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+      // Simple form handling
+      document.addEventListener("DOMContentLoaded", () => {
+        const contactForm = document.getElementById("contactForm");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+
+            // In a real implementation, you would send this to a server
+            // For now, just show a confirmation
+            alert("Paldies par ziņu! Es sazināšos ar Jums drīz.");
+            contactForm.reset();
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
