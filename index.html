@@ -15,9 +15,15 @@
   <body>
     <!-- NAVIGATION -->
     <nav id="main-nav">
-      <a href="/" class="nav-name">kalvis lejasmeiers</a>
+      <div class="nav-left">
+        <a href="/" class="nav-name">kalvis lejasmeiers</a>
+        <div class="nav-logo">
+          <img src="kllogo/kl.png" alt="Kalvis Lejasmeiers Logo" />
+        </div>
+      </div>
       <ul class="nav-links">
         <li><a href="#projekti" class="active">projekti</a></li>
+        <li><a href="#pieredze">pieredze</a></li>
         <li><a href="#par-mani">par mani</a></li>
         <li><a href="#kontakti">kontakti</a></li>
       </ul>
@@ -31,16 +37,30 @@
         <!-- Primary featured project -->
         <div class="featured-card">
           <div class="featured-card-inner">
-            <div class="img-placeholder img-1">
-              <div class="plan-overlay"></div>
+            <div class="project-image-slider">
+              <img
+                src="projekti/Brivibas%2097a/1.png"
+                alt="Brīvības 97a projekts - 1. daļa"
+                class="slider-image active"
+                loading="lazy"
+              />
+              <img
+                src="projekti/Brivibas%2097a/2.png"
+                alt="Brīvības 97a projekts - 2. daļa"
+                class="slider-image"
+                loading="lazy"
+              />
+              <button class="slider-next" aria-label="Nākamais attēls">
+                →
+              </button>
             </div>
           </div>
           <div class="featured-card-meta">
-            <div class="featured-card-title">Private Residence, Liepāja</div>
+            <div class="featured-card-title">Brīvības 97a, Rīga</div>
             <div class="featured-card-tags">
               <span>Jaunbūve</span>
-              <span>Liepāja</span>
-              <span>2022</span>
+              <span>Rīga</span>
+              <span>2023</span>
             </div>
           </div>
         </div>
@@ -48,28 +68,38 @@
         <!-- Secondary projects -->
         <div class="featured-card">
           <div class="featured-card-inner">
-            <div class="img-placeholder img-2"></div>
+            <img
+              src="projekti/Sarmites/2025-12-02-11-28-55.png"
+              alt="Sarmites projekts"
+              class="project-image"
+              loading="lazy"
+            />
           </div>
           <div class="featured-card-meta">
-            <div class="featured-card-title">Apartment Renovation, Rīga</div>
+            <div class="featured-card-title">Sarmites, Jūrmala</div>
             <div class="featured-card-tags">
-              <span>Renovācija</span>
-              <span>Rīga</span>
-              <span>2021</span>
+              <span>Jaunbūve</span>
+              <span>Jūrmala</span>
+              <span>2025</span>
             </div>
           </div>
         </div>
 
         <div class="featured-card">
           <div class="featured-card-inner">
-            <div class="img-placeholder img-3"></div>
+            <img
+              src="projekti/Sabri Jurmalciems/Enscape_2024-12-12-15-54-34.png"
+              alt="Sabri Jurmalciems projekts"
+              class="project-image"
+              loading="lazy"
+            />
           </div>
           <div class="featured-card-meta">
-            <div class="featured-card-title">Summer House, Jūrmala</div>
+            <div class="featured-card-title">Sabri Jurmalciems</div>
             <div class="featured-card-tags">
               <span>Jaunbūve</span>
               <span>Jūrmala</span>
-              <span>2023</span>
+              <span>2024</span>
             </div>
           </div>
         </div>
@@ -132,12 +162,80 @@
       </ul>
     </section>
 
+    <!-- PIEREDZE SUMMARY -->
+    <section class="pieredze-summary" id="pieredze">
+      <div class="pieredze-summary-content">
+        <span class="section-label reveal">Profesionālā pieredze</span>
+        <h2 class="pieredze-title reveal">213 projekti kopš 2018. gada</h2>
+        <p class="pieredze-text reveal">
+          Visaptverošs pārskats par visiem realizētajiem projektiem, to
+          ģeogrāfiju, tipoloģiju un attīstību laikā.
+        </p>
+
+        <div class="pieredze-stats reveal">
+          <div class="pieredze-stat">
+            <span class="pieredze-stat-number">213</span>
+            <span class="pieredze-stat-label">Projekti</span>
+          </div>
+          <div class="pieredze-stat">
+            <span class="pieredze-stat-number">14</span>
+            <span class="pieredze-stat-label">Pilsētas un pagasti</span>
+          </div>
+          <div class="pieredze-stat">
+            <span class="pieredze-stat-number">5</span>
+            <span class="pieredze-stat-label">Būvniecības veids</span>
+          </div>
+          <div class="pieredze-stat">
+            <span class="pieredze-stat-number">8+</span>
+            <span class="pieredze-stat-label">Gadi praksē</span>
+          </div>
+        </div>
+
+        <!-- Simple timeline visualization -->
+        <div class="pieredze-timeline reveal">
+          <div class="timeline-years">
+            <span class="timeline-year">2018</span>
+            <span class="timeline-year">2019</span>
+            <span class="timeline-year">2020</span>
+            <span class="timeline-year">2021</span>
+            <span class="timeline-year">2022</span>
+            <span class="timeline-year">2023</span>
+            <span class="timeline-year">2024</span>
+            <span class="timeline-year">2025</span>
+          </div>
+          <div class="timeline-bars">
+            <div class="timeline-bar" style="height: 100%"></div>
+            <div class="timeline-bar" style="height: 85%"></div>
+            <div class="timeline-bar" style="height: 70%"></div>
+            <div class="timeline-bar" style="height: 90%"></div>
+            <div class="timeline-bar" style="height: 95%"></div>
+            <div class="timeline-bar" style="height: 80%"></div>
+            <div class="timeline-bar" style="height: 75%"></div>
+            <div class="timeline-bar" style="height: 65%"></div>
+          </div>
+        </div>
+
+        <a href="pieredze/" class="pieredze-link reveal">
+          <span>Pilns pieredzes pārskats</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M3 8H13M13 8L9 4M13 8L9 12"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+
     <!-- ABOUT STRIP -->
     <section class="about-strip" id="par-mani">
       <div>
         <span class="section-label">Par mani</span>
         <p class="about-text">
-          Arhitekts ar vairāk nekā 10 gadu pieredzi dzīvojamo un komerciālo
+          Arhitekts ar vairāk nekā 8 gadu pieredzi dzīvojamo un komerciālo
           projektu jomā. Strādāju ar privātiem klientiem no koncepta līdz
           būvatļaujas saņemšanai. Mans pieeja koncentrējas uz telpām, kas ir gan
           funkcionālas, gan mūžīgas.
@@ -145,11 +243,11 @@
       </div>
       <div class="about-stats">
         <div class="stat-item">
-          <span class="stat-number">10+</span>
+          <span class="stat-number">8+</span>
           <span class="stat-label">Gadi praksē</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">40+</span>
+          <span class="stat-number">213</span>
           <span class="stat-label">Realizēti projekti</span>
         </div>
         <div class="stat-item">
@@ -158,7 +256,7 @@
         </div>
         <div class="stat-item">
           <span class="stat-number">5</span>
-          <span class="stat-label">Tipoloģijas</span>
+          <span class="stat-label">Būvniecības veids</span>
         </div>
       </div>
     </section>

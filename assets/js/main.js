@@ -129,4 +129,32 @@ document.addEventListener("DOMContentLoaded", () => {
       el.style.animation = "none";
     });
   }
+
+  // Image slider functionality for featured projects
+  const sliders = document.querySelectorAll(".project-image-slider");
+  sliders.forEach((slider) => {
+    const images = slider.querySelectorAll(".slider-image");
+    const nextButton = slider.querySelector(".slider-next");
+    let currentIndex = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener("click", nextImage);
+    }
+
+    // Auto-advance every 5 seconds (only if not reduced motion)
+    if (!mediaQuery.matches) {
+      setInterval(nextImage, 5000);
+    }
+  });
 });
