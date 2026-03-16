@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pieredze — Kalvis Lejasmeiers</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Additional styles for pieredze page */
+      .pieredze-page {
+        padding: var(--space-4xl) 40px var(--space-4xl);
+        margin-top: 80px;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .page-header {
+        margin-bottom: var(--space-2xl);
+        border-bottom: 1px solid var(--mist);
+        padding-bottom: var(--space-xl);
+      }
+
+      .page-title {
+        font-family: var(--font-sans);
+        font-size: 36px;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        color: var(--black);
+        line-height: 1.1;
+        margin-bottom: var(--space-sm);
+      }
+
+      .page-subtitle {
+        font-size: 14px;
+        color: var(--stone);
+        line-height: 1.6;
+        max-width: 480px;
+      }
+
+      /* Stats Row */
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        margin-bottom: var(--space-2xl);
+      }
+
+      .stat-block {
+        background: var(--black);
+        padding: 28px 24px;
+      }
+
+      .stat-block:first-child {
+        background: var(--rust);
+      }
+
+      .stat-num {
+        font-family: var(--font-mono);
+        font-size: 40px;
+        font-weight: 300;
+        color: var(--white);
+        display: block;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .stat-lbl {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(245, 244, 240, 0.45);
+      }
+
+      /* Filter Bar */
+      .filter-bar {
+        display: flex;
+        gap: 4px;
+        margin-bottom: var(--space-xl);
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        border: 1px solid var(--mist);
+        background: transparent;
+        color: var(--stone);
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+
+      .filter-btn:hover {
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+
+      .filter-btn.active {
+        background: var(--black);
+        border-color: var(--black);
+        color: var(--white);
+      }
+
+      /* Project Table */
+      .project-table {
+        width: 100%;
+      }
+
+      .table-header {
+        display: grid;
+        grid-template-columns: 1fr 160px 100px 90px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--black);
+        margin-bottom: 0;
+      }
+
+      .th {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--stone);
+      }
+
+      .th:not(:first-child) {
+        text-align: right;
+      }
+
+      .project-row {
+        display: grid;
+        grid-template-columns: 1fr 160px 100px 90px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--mist);
+        align-items: baseline;
+        transition: background 0.1s;
+        cursor: default;
+      }
+
+      .project-row:hover {
+        background: rgba(26, 26, 24, 0.025);
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .proj-name {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--black);
+        line-height: 1.3;
+      }
+
+      .proj-type,
+      .proj-location,
+      .proj-year {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        text-align: right;
+      }
+
+      /* Type tag colors */
+      .tag-jaunbuve {
+        color: var(--rust) !important;
+      }
+
+      .tag-renovacija {
+        color: #4b7b8b !important;
+      }
+
+      .tag-parbuve {
+        color: #6b7b4b !important;
+      }
+
+      .tag-fasade {
+        color: #7b6b4b !important;
+      }
+
+      .tag-interjers {
+        color: #8b5b7b !important;
+      }
+
+      .tag-cits {
+        color: var(--stone) !important;
+      }
+
+      .proj-street {
+        font-size: 12px;
+        color: var(--stone);
+        font-family: var(--font-mono);
+        font-weight: 300;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* Timeline */
+      .timeline-section {
+        margin-top: var(--space-2xl);
+      }
+
+      .timeline-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 2px;
+      }
+
+      .year-col {
+      }
+
+      .year-lbl {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        color: var(--stone);
+        margin-bottom: 8px;
+        letter-spacing: 0.06em;
+      }
+
+      .year-bar-wrap {
+        background: var(--mist);
+        height: 120px;
+        position: relative;
+      }
+
+      .year-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--black);
+        transition: background 0.2s;
+      }
+
+      .year-col:hover .year-bar {
+        background: var(--rust);
+      }
+
+      .year-count {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        margin-top: 6px;
+        text-align: center;
+      }
+
+      /* Geography */
+      .geo-section {
+        margin-top: var(--space-xl);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+      }
+
+      .geo-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .geo-name {
+        font-size: 14px;
+        color: var(--ink);
+        min-width: 80px;
+      }
+
+      .geo-bar-wrap {
+        flex: 1;
+        height: 3px;
+        background: var(--mist);
+      }
+
+      .geo-bar {
+        height: 100%;
+        background: var(--black);
+      }
+
+      .geo-num {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        min-width: 24px;
+        text-align: right;
+      }
+
+      .typology-list {
+      }
+
+      .typo-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--mist);
+      }
+
+      .typo-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
+
+      .typo-name {
+        font-size: 14px;
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+      }
+
+      .typo-num {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--stone);
+      }
+
+      @media (max-width: 768px) {
+        .pieredze-page {
+          padding: 100px 20px 80px;
+          margin-top: 60px;
+        }
+
+        .stats-row {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .table-header,
+        .project-row {
+          grid-template-columns: 1fr 80px;
+        }
+
+        .th:nth-child(3),
+        .th:nth-child(4),
+        .proj-type,
+        .proj-location {
+          display: none;
+        }
+
+        .timeline-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .geo-section {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav id="main-nav">
+      <a href="../" class="nav-name">kalvis lejasmeiers</a>
+      <ul class="nav-links">
+        <li><a href="../#projekti">projekti</a></li>
+        <li><a href="../#par-mani">par mani</a></li>
+        <li><a href="index.html" class="active">pieredze</a></li>
+        <li><a href="../#kontakti">kontakti</a></li>
+      </ul>
+    </nav>
+
+    <main class="pieredze-page">
+      <!-- HEADER -->
+      <div class="page-header">
+        <span class="section-label">Profesionālā pieredze</span>
+        <h1 class="page-title">Projektēšanas prakse<br />kopš 2018. gada</h1>
+        <p class="page-subtitle">
+          Visi projekti realizēti Latvijā. Darbs aptver dzīvojamo, komerciālo un
+          rūpniecisko tipoloģiju, no koncepta līdz būvatļaujai.
+        </p>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-row">
+        <div class="stat-block">
+          <span class="stat-num" id="stat-total">213</span>
+          <span class="stat-lbl">Projekti kopā</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">7+</span>
+          <span class="stat-lbl">Gadi praksē</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">14</span>
+          <span class="stat-lbl">Pilsētas un pagasti</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">5</span>
+          <span class="stat-lbl">Tipoloģijas</span>
+        </div>
+      </div>
+
+      <!-- FILTER -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">
+          Visi projekti
+        </button>
+        <button class="filter-btn" data-filter="jaunbuve">Jaunbūve</button>
+        <button class="filter-btn" data-filter="renovacija">
+          Renovācija / Atjaunošana
+        </button>
+        <button class="filter-btn" data-filter="parbuve">Pārbūve</button>
+        <button class="filter-btn" data-filter="fasade">Fasāde / Jumts</button>
+        <button class="filter-btn" data-filter="cits">Cits</button>
+      </div>
+
+      <!-- TABLE -->
+      <div class="project-table">
+        <div class="table-header">
+          <span class="th">Projekts</span>
+          <span class="th">Tips</span>
+          <span class="th">Vieta</span>
+          <span class="th">Gads</span>
+        </div>
+        <div id="project-list"></div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="timeline-section">
+        <span class="section-label">Projektu aktivitāte pa gadiem</span>
+        <div class="timeline-grid" id="timeline"></div>
+      </div>
+
+      <!-- GEO + TYPOLOGY -->
+      <div class="geo-section">
+        <div>
+          <span class="section-label">Ģeogrāfija</span>
+          <div id="geo-bars"></div>
+        </div>
+        <div>
+          <span class="section-label">Tipoloģija</span>
+          <div class="typology-list" id="typo-list"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-contact">
+        <a href="/cdn-cgi/l/email-protection#d3b8b2bfa5baa0fdbfb6b9b2a0beb6bab6a1a093b4beb2babffdb0bcbe"><span class="__cf_email__" data-cfemail="2249434e544b510c4e474843514f474b47505162454f434b4e0c414d4f">[email&#160;protected]</span></a
+        >
+        <a href="tel:+37129218775">+371 29218775</a>
+        <span>Liepāja, Latvija</span>
+      </div>
+      <span class="footer-copy">© Kalvis Lejasmeiers</span>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+      // Full projects array from work experience
+      const projects = [
+        { name: "Dzīvojamās mājas jaunbūve", location: "Liepāja", street: "Ganību iela 190A", year: 2018, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Bāriņu iela 37", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Kokmateriālu noliktavas ēkas būvniecība", location: "Limbaži", street: "Meliorācijas iela 17A", year: 2018, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Atmodas bulvāris 10A", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas jaunbūve", location: "Grobiņa", street: "Celtnieku iela 1", year: 2018, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Rūpnieciskās ražošanas ēkas pārbūve ar lietošanas veida maiņu Cukura ielā 1, Liepājā", location: "Grobiņa", street: "Celtnieku iela 1", year: 2018, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas un saimniecības ēkas būvniecība", location: "Rucava", street: "\"Dambenieki\"", year: 2018, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvokļa vienkāršotai atjaunošana", location: "Liepāja", street: "Daugavas iela 12", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotai atjaunošana", location: "Liepāja", street: "Eduarda Tisē ielā 52", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Koplietošanas telpas vienkāršotā atjaunošana", location: "Liepāja", street: "Eduarda Tisē ielā 83", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Ēkas vienkāršotā fasādes atjaunošana ar jumta seguma maiņu", location: "Liepāja", street: "\"Āmuļi\"", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Telpu vienkāršotā atjaunošana ar lietošanas veida maiņu", location: "Liepāja", street: "\"Āmuļi\"", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Noliktavas ēkas būvniecība", location: "Nīca", street: "\"Gruntnieki\"", year: 2018, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Divu dzīvokļu apvienošana", location: "Liepāja", street: "Ģenerāļa Baloža iela 59; 59", year: 2018, type: "parbuve", label: "Pārbūve" },
+        { name: "Garāžas ēku vienkāršotā fasādes atjaunošana - Jumta seguma maiņa", location: "Liepāja", street: "Jūrmalas iela 2", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas un palīgēkas būvniecība", location: "Nīca", street: "\"Pliedarīši\" Jūrmalciems", year: 2018, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Klaipēdas iela 96", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas jaunbūve", location: "Grobiņa", street: "\"Lejiņas\"", year: 2018, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzelzceļa stacijas “Liepāja” stacijas ēkas jumta seguma maiņa", location: "Liepāja", street: "Rīgas iela 71", year: 2018, type: "fasade", label: "Fasāde" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Liepu iela 25", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Loku iela 11", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Ludviķa iela 12", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Būvprojekts minimālā sastāvā: divu dzīvokļu apvienošana", location: "Liepāja", street: "Mežu iela 55", year: 2018, type: "parbuve", label: "Pārbūve" },
+        { name: "Atpūtas ēkas, viesu mājas un brīvdienu mājas būvniecība", location: "Nīca", street: "Nīcas novads", year: 2018, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Telpu grupas , , (dzīvoklis , , ) un koplietošanas telpu grupas (telpu , , ) Pārbūve un telpu grupu apvienošana", location: "Liepāja", street: "Peldu iela 32/34", year: 2018, type: "parbuve", label: "Pārbūve" },
+        { name: "Telpu grupas , vienkāršotā atjaunošana un telpu grupu sadalīšana", location: "Liepāja", street: "Peldu ielā 41", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās ēkas daļas pārbūve, terases būvniecība", location: "Liepāja", street: "Peldu ielā 41", year: 2018, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Piltenes iela 3", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Rīgas iela 47", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Rīgas iela 29", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Kantora ēkas vienkāršotā fasādes atjaunošana - Jumta seguma maiņa", location: "Liepāja", street: "Rīgas iela 54A", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Sakņu iela 6/8", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Salaspils", street: "Dienvidu iela 7 k", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Siguldas iela 23", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Tirgus iela 35", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Turaidas iela 20", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Ēkas vienkāršotā fasādes atjaunošana - Jumta seguma maiņa", location: "Liepāja", street: "Ūdens iela 3", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Telpu grupas vienkāršotā atjaunošana un telpu grupu sadalīšana", location: "Liepāja", street: "Krišjāņa Valdemāra ielā 17", year: 2018, type: "renovacija", label: "Atjaunošana" },
+        { name: "Noliktavas jaunbūve", location: "Tērvete", street: "\"Vīgriezes\" Tērvetes pagasts Tērvetes nov", year: 2018, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Telpu grupas lietošanas veida maiņa bez pārbūves", location: "Liepāja", street: "Zemnieku iela 32", year: 2018, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Aldaru iela 41/43", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve un divu palīgēku nojaukšana", location: "Grobiņa", street: "Celtnieku iela 51", year: 2019, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Dārza iela 3", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Dārza iela 9", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Daugavas iela 12", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Dunikas iela 23", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Dārza iela 9", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Dzērves iela 25", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Būvprojekts: Divu dzīvokļu ((Kad.) un (Kad.)) apvienošana un vienkāršotā atjaunošana", location: "Liepāja", street: "Esperanto iela 11", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Attīstības priekšlikums “Ezermalas iela 1A, Liepāja”", location: "Liepāja", street: "Ezermalas iela 1A", year: 2019, type: "cits", label: "Cits" },
+        { name: "Administratīvās ēkas vienkāršotā atjaunošana ar lietošanas veida maiņu", location: "Grobiņa", street: "\"Inesīši\"", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Jēkaba Janševska iela 18", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Šķūņa (kad.apz. 17000350196002) nojaukšana un nojaukšanas teritorijas rekultivācija", location: "Liepāja", street: "\"Jūrmalas parks 2\" Liepāja", year: 2019, type: "cits", label: "Cits" },
+        { name: "Dzīvojamās mājas pārbūve un pirts ēkas būvniecība", location: "Liepāja", street: "Kalēju iela 34", year: 2020, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Kalvenes iela 4", year: 2019, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Klaipēdas iela 92", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Klaipēdas iela 120", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Telpu grupas vienkāršotā atjaunošana", location: "Liepāja", street: "Krišjāņa Valdemāra iela 20/24", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Daudzdzīvokļu dzīvojamās mājas vienkāršotā fasādes atjaunošana ar jumta seguma maiņu", location: "Liepāja", street: "Kungu iela 25", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Daudzdzīvokļu dzīvojamās mājas vienkāršotā fasādes atjaunošana ar jumta seguma maiņu", location: "Liepāja", street: "Kurzemes iela 4/6", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Lielā iela 12", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Mirdzas Ķempes iela 28", year: 2019, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Matrožu iela 2", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Mirdzas Ķempes iela 13", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļa vienkāršotā atjaunošana", location: "Liepāja", street: "Mirdzas Ķempes iela 13", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Darza", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Darza", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Daugavas", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Dunikas", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Dzerves", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Dzerves", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Dzintaru", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Būvprojekts: Divu dzīvokļu apvienošana", location: "Liepāja", street: "Esperanto", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Administratīvās ēkas vienkāršotā atjaunošana ar lietošanas veida maiņu", location: "Grobiņa", street: "\"Inesīši\"", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Jekaba Jansevska", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Šķūņa nojaukšana un nojaukšanas teritorijas rekultivācija", location: "Liepāja", street: "Liepājā", year: null, type: "cits", label: "Cits" },
+        { name: "Dzīvojamās mājas pārbūve ar lietošanas veida maiņu", location: "Liepāja", street: "Kalēju ielā 34", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Kalvenes iela 4", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Klaipēdas iela 92", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Klaipedas iela 120", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Krišjāņa Valdemāra ielā 20/24", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Daudzdzīvokļu dzīvojamās mājas vienkāršotā fasādes atjaunošana ar jumta seguma maiņu", location: "Liepāja", street: "Kungu iela25", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Latvija", street: "Lielā iela 12", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Latvija", street: "Mirdzas Ķempes iela 28", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Matrožu iela 2", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Mirdzas Ķempes iela 13", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Latvija", street: "Oskara Kalpaka iela 52/56", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Piltenes iela 2", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Reiņu meža iela 2", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Republikas iela 10", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Siļķu iela 13", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Siļķu iela 14", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Šķēdes iela 7", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Darbnīcas ēkas pārbūve", location: "Liepāja", street: "Strazdu iela 7", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Turaidas ielā 3", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Ugāles iela 4", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Uliha ielā 65", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Vānes iela 15", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Viršu iela 1", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Izmaiņas akceptētā būvprojektā Dzīvojamās ēkas pārbūve", location: "Grobiņa", street: "Vītolu iela 3", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Vītolu iela 22/26", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās ēkas un saimniecības ēkas būvniecība", location: "Grobiņa", street: "\"Vivitas\"", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Zāļu iela 16A", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Zirņu ielā 123A", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Zvejnieku aleja 7", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Alejas iela 30", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "vienkāršotā atjaunošana", location: "Liepāja", street: "Atmodas bulvāris 12A", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Baznīcas iela 28", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Bernātu ielā 46", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "ražošanas ēkas vienkāršotā fasādes atjaunošana – ēkas jumta ieseguma nomaiņu", location: "Liepāja", street: "Brīvības iela 23", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Rucava", street: "Rucavas pag.", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas pārbūve, šķūņa un kūts ēkas pārbūve par garāžas ēku un saimniecības ēkas būvniecība", location: "Aizpute", street: "Aizputes pag.", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Dzērves iela 13", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Eduarda Tisē iela 69", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Eduarda Tisē iela 48", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas, saimniecības ēkas, lapenes un pagraba būvniecība", location: "Nīca", street: "Nīcas nov. Nīcas pag", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Daudzdzīvokļu dzīvojamās ēkas pārbūve", location: "Ventspils", street: "Ganību ielā", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Ģenerāļa Baloža iela 39", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Jāņa iela 6", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Jelgavas iela 7", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Ēkas atjaunošana pielāgošana slimnīcas vajadzībām", location: "Liepāja", street: "Jūrmalas iela 2", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Klaipēda iela 110", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas vienkāršotā fasādes atjaunošana ar jumta ieseguma maiņu", location: "Liepāja", street: "Klaipēdas iela 29", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Krūmu iela 55", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Nākotnes iela 15", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Oskara Kalpaka iela 109", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Atpūtas ēkas būvniecība", location: "Pāvilosta", street: "Sakas pag.", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "kūts ēkas un šķūņa ēkas nojaukšanu", location: "Rucava", street: "Nida", year: null, type: "cits", label: "Cits" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Reiņu meža iela 2", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Siguldas iela 15", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Šķēdes iela 21", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Spīdolas iela 12", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Strautu iela 6", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas, saimniecības ēkas un divu atpūtas ēku būvniecība", location: "Rucava", street: "Pape", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Biroja ēkas vienkāršotā atjaunošana ar lietošanas veida maiņu", location: "Liepāja", street: "Tirgus iela 15", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Eduarda Tisē iela 83", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Turaidas ielā 18", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Biroja ēkas vienkāršotā atjaunošana", location: "Liepāja", street: "Ziemeļu iela 19B", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās ēkas vienkāršotā atjaunošana ar lietošanas veida maiņu uz biroja ēku", location: "Liepāja", street: "Zirņu ielā 7", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Aldaru iela 31/33", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Brīvības iela 97", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Celmu iela 3", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Celtnieku 12", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Eduarda Tisē iela 46", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Egļu iela 38", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Graudu 43", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Klaipēdas iela 108", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Klaipēdas iela 90", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Klāva Ukstiņa iela 3", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Krūmu iela 59", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Noliktavas iela 8b", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Raiņa iela 10", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Šķedes iela 11", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvokļu apvienošana", location: "Liepāja", street: "Toma ielā 7", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvokļu apvienošana", location: "Liepāja", street: "Klāva Ukstiņa iela 33", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Uliha iela 30", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Uliha iela 130", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Vītolu iela 30", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Ganību iela 58", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Ganību iela 151A", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Atpūtas ēkas būvniecība", location: "Nīca", street: "Nīcas pag.", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Ventspils", street: "Katoļu iela 61", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas būvniecība", location: "Nīca", street: "Nīcas pag.", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Kokmateriālu noliktavas ēkas būvniecība", location: "Limbaži", street: "Meliorācijas ielā 17A", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Saimniecības ēkas būvniecība", location: "Dienvidkurzeme", street: "Rude", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvojamās mājas vienkāršotā atjaunošana", location: "Nīca", street: "Bernāti", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Teritorijas labiekārtojums", location: "Dienvidkurzeme", street: "Otaņķu pag.", year: null, type: "cits", label: "Cits" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Pīļu iela 34", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Saimniecības ēkas pārbūve un pagraba pārbūve par saimniecības ēku", location: "Nīca", street: "Nīca", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Darbnīcas ēkas pārbūve par daudzdzīvokļu dzīvojamo māju un noliktavas ēkas nojaukšana", location: "Liepāja", street: "Vaļņu iela", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Durbe", street: "Durbes pagasts", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas būvniecība", location: "Grobiņa", street: "Zviedru iela", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Vienkāršotā atjaunošana", location: "Ventspils", street: "J.Poruka iela 7", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Ventspils", street: "Lielais prospekts 38", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Vienkāršotā atjaunošana", location: "Ventspils", street: "Tārgales pag.", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Alejas iela", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas novietošana", location: "Nīca", street: "Nīcas pag.", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Četru dzīvokļu apvienošana un pārbūve", location: "Liepāja", street: "Ganību iela", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Darbnīcas pārbūve par dzīvojamo telpu grupām", location: "Liepāja", street: "Graudu ielā 43", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas būvniecība", location: "Grobiņa", street: "Kastaņu iela", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Metāla apstrādes ēkas būvniecība", location: "Grobiņa", street: "Lauktehnikas iela", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Telpu grupas atjaunošana un lietošanas veida maiņa", location: "Liepāja", street: "Lielā iela 1", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Teritorijas labiekārtojums – žoga būvniecība", location: "Dienvidkurzeme", street: "Lažas pag.", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Saimniecības ēkas apvienošana un pārbūve", location: "Liepāja", street: "Salmu iela", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Viesu mājas, saimniecības ēkas, brīvdienu mājas un pirts ēkas būvniecība", location: "Nīca", street: "Nīcas pag.", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Vienkāršotā atjaunošana", location: "Liepāja", street: "Krišjāņa Valdemāra iela 18", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas bēniņu pārbūve par atsevišķu telpu grupu", location: "Liepāja", street: "Alejas iela", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Daudzdzīvokļu dzīvojamās mājas fasāžu atjaunošana", location: "Liepāja", street: "Avotu iela 11", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas pārbūve", location: "Liepāja", street: "Brīvības iela 9", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas būvniecība", location: "Grobiņa", street: "Grobiņas pagasts", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Nojumes būvniecība", location: "Liepāja", street: "Ezermalas iela 11", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Garāžas ēkas pārbūve un garāžas ēku nojaukšana", location: "Liepāja", street: "Ezermalas iela 11", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Saimniecības ēkas būvniecība", location: "Grobiņa", street: "Grobiņas pag.", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvojamās ēkas apvienošana un pārbūve saimniecības ēkas un divu šķūņu nojaukšana", location: "Liepāja", street: "Klaipēdas iela 33", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Daudzdzīvokļu dzīvojamās mājas jumta seguma nomaiņa", location: "Liepāja", street: "Kurzemes iela", year: null, type: "fasade", label: "Fasāde" },
+        { name: "Dzīvojamās mājas, atpūtas ēkas un garāžas ēkas būvniecība", location: "Nīca", street: "Nīcas pag.", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvojamās ēkas un saimniecības ēkas pārbūve", location: "Liepāja", street: "Pļavu iela", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Daudzdzīvokļu mājas būvniecība", location: "Liepāja", street: "Pupu iela", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvojamās mājas būvniecība", location: "Nīca", street: "Jūrmalciems", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Kafejnīcas ēkas pārbūve par daudzdzīvokļu dzīvojamo māju", location: "Liepāja", street: "Avotu iela 5", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās mājas būvniecība", location: "Liepāja", street: "Ezerlīču iela 4A", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dārza mājas, saimniecības ēkas, lapenes un dīķa būvniecība", location: "Dienvidkurzeme", street: "Jāņogu iela", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvojamās ēkas būvniecība", location: "Liepāja", street: "Kazdangas iela", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvojamās mājas pārbūve un saimniecības ēkas pārbūve par nojumi", location: "Liepāja", street: "Muitas iela", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Saimniecības ēkas būvniecība", location: "Ventspils", street: "Pieneņu iela", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Saimniecības ēkas pārbūve", location: "Grobiņa", street: "\"Ķīvītes\"", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās ēkas un auto nojumes būvniecība", location: "Nīca", street: "Jūrmalciems", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Veikala ēkas lietošanas veida maiņa un vienkāršotā pārbūve", location: "Liepāja", street: "Skuju iela", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Ceha ēkas vienkāršotā atjaunošana - jumta seguma nomaiņa; logu, druvju nomaiņa un vienkāršotā pārbūve", location: "Liepāja", street: "Brīvības iela", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Ceha ēkas vienkāršotā atjaunošana - jumta seguma nomaiņa; logu, druvju nomaiņa un vienkāršotā pārbūve", location: "Liepāja", street: "Darbnīcu iela 5", year: null, type: "renovacija", label: "Atjaunošana" },
+        { name: "Dzīvojamās mājas būvniecība", location: "Mārupe", street: "Gerberu iela 4", year: null, type: "jaunbuve", label: "Jaunbūve" },
+        { name: "Dzīvojamās mājas, pagraba nojaukšana, kūts pārbūve par saimniecības ēku un saimniecības ēkas pārbūve par dzīvojamo māju", location: "Nīca", street: "Pērkone", year: null, type: "parbuve", label: "Pārbūve" },
+        { name: "Dzīvojamās ēkas pārbūve", location: "Nīca", street: "Nīcas pag.", year: null, type: "parbuve", label: "Pārbūve" },
+      ];
+
+      // ── RENDER TABLE ──
+      function renderTable(filter) {
+        const list = document.getElementById("project-list");
+        const filtered =
+          filter === "all"
+            ? projects
+            : projects.filter((p) => p.type === filter);
+        list.innerHTML = filtered
+          .map(
+            (p) => `
+          <div class="project-row" data-type="${p.type}">
+            <span class="proj-name">${p.name}<span class="proj-street"> — ${p.street}</span></span>
+            <span class="proj-type tag-${p.type}">${p.label}</span>
+            <span class="proj-location">${p.location}</span>
+            <span class="proj-year">${p.year || '—'}</span>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+      // ── FILTERS ──
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderTable(btn.dataset.filter);
+        });
+      });
+
+      // ── TIMELINE ──
+      function renderTimeline() {
+        const years = {};
+        projects.forEach((p) => {
+          years[p.year] = (years[p.year] || 0) + 1;
+        });
+        const max = Math.max(...Object.values(years));
+        const sorted = Object.keys(years).sort();
+        const tl = document.getElementById("timeline");
+        tl.innerHTML = sorted
+          .map((yr) => {
+            const count = years[yr];
+            const pct = (count / max) * 100;
+            return `<div class="year-col">
+            <div class="year-lbl">${yr}</div>
+            <div class="year-bar-wrap"><div class="year-bar" style="height:${pct}%"></div></div>
+            <div class="year-count">${count}</div>
+          </div>`;
+          })
+          .join("");
+      }
+
+      // ── GEO BARS ──
+      function renderGeo() {
+        const locs = {};
+        projects.forEach((p) => {
+          locs[p.location] = (locs[p.location] || 0) + 1;
+        });
+        const sorted = Object.entries(locs).sort((a, b) => b[1] - a[1]);
+        const max = sorted[0][1];
+        const geo = document.getElementById("geo-bars");
+        geo.innerHTML = sorted
+          .map(
+            ([loc, n]) => `
+          <div class="geo-row">
+            <span class="geo-name">${loc}</span>
+            <div class="geo-bar-wrap"><div class="geo-bar" style="width:${(n / max) * 100}%"></div></div>
+            <span class="geo-num">${n}</span>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+      // ── TYPOLOGY ──
+      function renderTypo() {
+        const types = {};
+        projects.forEach((p) => {
+          types[p.label] = (types[p.label] || 0) + 1;
+        });
+        const sorted = Object.entries(types).sort((a, b) => b[1] - a[1]);
+        const colors = {
+          Jaunbūve: "var(--rust)",
+          Atjaunošana: "var(--black)",
+          Pārbūve: "#4b7b8b",
+          "Fasāde / Jumts": "#7b6b4b",
+          "Lietošanas maiņa": "#6b7b4b",
+          Vizualizācija: "#8b5b7b",
+          Teritorija: "#5b8b7b",
+        };
+        const typo = document.getElementById("typo-list");
+        typo.innerHTML = sorted
+          .map(
+            ([lbl, n]) => `
+          <div class="typo-row">
+            <span class="typo-name"><span class="typo-dot" style="background:${colors[lbl] || "var(--stone)"}"></span>${lbl}</span>
+            <span class="typo-num">

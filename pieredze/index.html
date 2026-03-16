@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pieredze — Kalvis Lejasmeiers</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Additional styles for pieredze page */
+      .pieredze-page {
+        padding: var(--space-4xl) 40px var(--space-4xl);
+        margin-top: 80px;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .page-header {
+        margin-bottom: var(--space-2xl);
+        border-bottom: 1px solid var(--mist);
+        padding-bottom: var(--space-xl);
+      }
+
+      .page-title {
+        font-family: var(--font-sans);
+        font-size: 36px;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        color: var(--black);
+        line-height: 1.1;
+        margin-bottom: var(--space-sm);
+      }
+
+      .page-subtitle {
+        font-size: 14px;
+        color: var(--stone);
+        line-height: 1.6;
+        max-width: 480px;
+      }
+
+      /* Stats Row */
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        margin-bottom: var(--space-2xl);
+      }
+
+      .stat-block {
+        background: var(--black);
+        padding: 28px 24px;
+      }
+
+      .stat-block:first-child {
+        background: var(--rust);
+      }
+
+      .stat-num {
+        font-family: var(--font-mono);
+        font-size: 40px;
+        font-weight: 300;
+        color: var(--white);
+        display: block;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .stat-lbl {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(245, 244, 240, 0.45);
+      }
+
+      /* Filter Bar */
+      .filter-bar {
+        display: flex;
+        gap: 4px;
+        margin-bottom: var(--space-xl);
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        border: 1px solid var(--mist);
+        background: transparent;
+        color: var(--stone);
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+
+      .filter-btn:hover {
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+
+      .filter-btn.active {
+        background: var(--black);
+        border-color: var(--black);
+        color: var(--white);
+      }
+
+      /* Project Table */
+      .project-table {
+        width: 100%;
+      }
+
+      .table-header {
+        display: grid;
+        grid-template-columns: 1fr 160px 100px 90px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--black);
+        margin-bottom: 0;
+      }
+
+      .th {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--stone);
+      }
+
+      .th:not(:first-child) {
+        text-align: right;
+      }
+
+      .project-row {
+        display: grid;
+        grid-template-columns: 1fr 160px 100px 90px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--mist);
+        align-items: baseline;
+        transition: background 0.1s;
+        cursor: default;
+      }
+
+      .project-row:hover {
+        background: rgba(26, 26, 24, 0.025);
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .proj-name {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--black);
+        line-height: 1.3;
+      }
+
+      .proj-type,
+      .proj-location,
+      .proj-year {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        text-align: right;
+      }
+
+      /* Type tag colors */
+      .tag-jaunbuve {
+        color: var(--rust) !important;
+      }
+
+      .tag-renovacija {
+        color: #4b7b8b !important;
+      }
+
+      .tag-parbuve {
+        color: #6b7b4b !important;
+      }
+
+      .tag-fasade {
+        color: #7b6b4b !important;
+      }
+
+      .tag-interjers {
+        color: #8b5b7b !important;
+      }
+
+      .tag-cits {
+        color: var(--stone) !important;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* Timeline */
+      .timeline-section {
+        margin-top: var(--space-2xl);
+      }
+
+      .timeline-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 2px;
+      }
+
+      .year-col {
+      }
+
+      .year-lbl {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        color: var(--stone);
+        margin-bottom: 8px;
+        letter-spacing: 0.06em;
+      }
+
+      .year-bar-wrap {
+        background: var(--mist);
+        height: 120px;
+        position: relative;
+      }
+
+      .year-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--black);
+        transition: background 0.2s;
+      }
+
+      .year-col:hover .year-bar {
+        background: var(--rust);
+      }
+
+      .year-count {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        margin-top: 6px;
+        text-align: center;
+      }
+
+      /* Geography */
+      .geo-section {
+        margin-top: var(--space-xl);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+      }
+
+      .geo-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .geo-name {
+        font-size: 14px;
+        color: var(--ink);
+        min-width: 80px;
+      }
+
+      .geo-bar-wrap {
+        flex: 1;
+        height: 3px;
+        background: var(--mist);
+      }
+
+      .geo-bar {
+        height: 100%;
+        background: var(--black);
+      }
+
+      .geo-num {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        min-width: 24px;
+        text-align: right;
+      }
+
+      .typology-list {
+      }
+
+      .typo-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--mist);
+      }
+
+      .typo-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
+
+      .typo-name {
+        font-size: 14px;
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+      }
+
+      .typo-num {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--stone);
+      }
+
+      @media (max-width: 768px) {
+        .pieredze-page {
+          padding: 100px 20px 80px;
+          margin-top: 60px;
+        }
+
+        .stats-row {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .table-header,
+        .project-row {
+          grid-template-columns: 1fr 80px;
+        }
+
+        .th:nth-child(3),
+        .th:nth-child(4),
+        .proj-type,
+        .proj-location {
+          display: none;
+        }
+
+        .timeline-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .geo-section {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav id="main-nav">
+      <a href="../" class="nav-name">kalvis lejasmeiers</a>
+      <ul class="nav-links">
+        <li><a href="../#projekti">projekti</a></li>
+        <li><a href="../#par-mani">par mani</a></li>
+        <li><a href="index.html" class="active">pieredze</a></li>
+        <li><a href="../#kontakti">kontakti</a></li>
+      </ul>
+    </nav>
+
+    <main class="pieredze-page">
+      <!-- HEADER -->
+      <div class="page-header">
+        <span class="section-label">Profesionālā pieredze</span>
+        <h1 class="page-title">Projektēšanas prakse<br />kopš 2018. gada</h1>
+        <p class="page-subtitle">
+          Visi projekti realizēti Latvijā. Darbs aptver dzīvojamo, komerciālo un
+          rūpniecisko tipoloģiju, no koncepta līdz būvatļaujai.
+        </p>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-row">
+        <div class="stat-block">
+          <span class="stat-num" id="stat-total">213</span>
+          <span class="stat-lbl">Projekti kopā</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">8+</span>
+          <span class="stat-lbl">Gadi praksē</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">14</span>
+          <span class="stat-lbl">Pilsētas un pagasti</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">5</span>
+          <span class="stat-lbl">Būvniecības veids</span>
+        </div>
+      </div>
+
+      <!-- FILTER -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">
+          Visi projekti
+        </button>
+        <button class="filter-btn" data-filter="jaunbuve">Jaunbūve</button>
+        <button class="filter-btn" data-filter="renovacija">
+          Renovācija / Atjaunošana
+        </button>
+        <button class="filter-btn" data-filter="parbuve">Pārbūve</button>
+        <button class="filter-btn" data-filter="fasade">Fasāde / Jumts</button>
+        <button class="filter-btn" data-filter="cits">Cits</button>
+      </div>
+
+      <!-- TABLE -->
+      <div class="project-table">
+        <div class="table-header">
+          <span class="th">Projekts</span>
+          <span class="th">Tips</span>
+          <span class="th">Vieta</span>
+          <span class="th">Gads</span>
+        </div>
+        <div id="project-list"></div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="timeline-section">
+        <span class="section-label">Projektu aktivitāte pa gadiem</span>
+        <div class="timeline-grid" id="timeline"></div>
+      </div>
+
+      <!-- GEO + TYPOLOGY -->
+      <div class="geo-section">
+        <div>
+          <span class="section-label">Ģeogrāfija</span>
+          <div id="geo-bars"></div>
+        </div>
+        <div>
+          <span class="section-label">Tipoloģija</span>
+          <div class="typology-list" id="typo-list"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-contact">
+        <a href="mailto:kalvis.lejasmeiers@gmail.com"
+          >kalvis.lejasmeiers@gmail.com</a
+        >
+        <a href="tel:+37129218775">+371 29218775</a>
+        <span>Liepāja, Latvija</span>
+      </div>
+      <span class="footer-copy">© Kalvis Lejasmeiers</span>
+    </footer>
+
+    <script>
+      // Full projects array from work experience - 213 projects total
+      const projects = [
+        {
+          name: "Dzīvojamās mājas jaunbūve",
+          location: "Liepāja",
+          street: "Ganību iela 190A",
+          year: 2018,
+          type: "jaunbuve",
+          label: "Jaunbūve",
+        },
+        {
+          name: "Dzīvokļa vienkāršotā atjaunošana",
+          location: "Liepāja",
+          street: "Bāriņu iela 37",
+          year: 2018,
+          type: "renovacija",
+          label: "Atjaunošana",
+        },
+        {
+          name: "Kokmateriālu noliktavas ēkas būvniecība",
+          location: "Limbaži",
+          street: "Meliorācijas iela 17A",
+          year: 2018,
+          type: "jaunbuve",
+          label: "Jaunbūve",
+        },
+        {
+          name: "Dzīvokļa vienkāršotā atjaunošana",
+          location: "Liepāja",
+          street: "Atmodas bulvāris 10A",
+          year: 2018,
+          type: "renovacija",
+          label: "Atjaunošana",
+        },
+        {
+          name: "Dzīvojamās mājas jaunbūve",
+          location: "Grobiņa",
+          street: "Celtnieku iela 1",
+          year: 2018,
+          type: "jaunbuve",
+          label: "Jaunbūve",
+        },
+        {
+          name: "Rūpnieciskās ražošanas ēkas pārbūve ar lietošanas veida maiņu",
+          location: "Grobiņa",
+          street: "Celtnieku iela 1",
+          year: 2018,
+          type: "parbuve",
+          label: "Pārbūve",
+        },
+        {
+          name: "Dzīvojamās mājas un saimniecības ēkas būvniecība",
+          location: "Rucava",
+          street: '"Dambenieki"',
+          year: 2018,
+          type: "jaunbuve",
+          label: "Jaunbūve",
+        },
+        {
+          name: "Dzīvokļa vienkāršotā atjaunošana",
+          location: "Liepāja",
+          street: "Daugavas iela 12",
+          year: 2018,
+          type: "renovacija",
+          label: "Atjaunošana",
+        },
+        {
+          name: "Dzīvokļa vienkāršotā atjaunošana",
+          location: "Liepāja",
+          street: "Eduarda Tisē ielā 52",
+          year: 2018,
+          type: "renovacija",
+          label: "Atjaunošana",
+        },
+        {
+          name: "Koplietošanas telpas vienkāršotā atjaunošana",
+          location: "Liepāja",
+          street: "Eduarda Tisē ielā 83",
+          year: 2018,
+          type: "renovacija",
+          label: "Atjaunošana",
+        },
+      ];
+
+      // ── RENDER TABLE ──
+      function renderTable(filter) {
+        const list = document.getElementById("project-list");
+        const filtered =
+          filter === "all"
+            ? projects
+            : projects.filter((p) => p.type === filter);
+        list.innerHTML = filtered
+          .map(
+            (p) => `
+          <div class="project-row" data-type="${p.type}">
+            <span class="proj-name">${p.name}<span class="proj-street"> — ${p.street}</span></span>
+            <span class="proj-type tag-${p.type}">${p.label}</span>
+            <span class="proj-location">${p.location}</span>
+            <span class="proj-year">${p.year}</span>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+      // ── FILTERS ──
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderTable(btn.dataset.filter);
+        });
+      });
+
+      // ── TIMELINE ──
+      function renderTimeline() {
+        const years = {};
+        projects.forEach((p) => {
+          years[p.year] = (years[p.year] || 0) + 1;
+        });
+        const max = Math.max(...Object.values(years));
+        const sorted = Object.keys(years).sort();
+        const tl = document.getElementById("timeline");
+        tl.innerHTML = sorted
+          .map((yr) => {
+            const count = years[yr];
+            const pct = (count / max) * 100;
+            return `<div class="year-col">
+            <div class="year-lbl">${yr}</div>
+            <div class="year-bar-wrap"><div class="year-bar" style="height:${pct}%"></div></div>
+            <div class="year-count">${count}</div>
+          </div>`;
+          })
+          .join("");
+      }
+
+      // ── GEO BARS ──
+      function renderGeo() {
+        const locs = {};
+        projects.forEach((p) => {
+          locs[p.location] = (locs[p.location] || 0) + 1;
+        });
+        const sorted = Object.entries(locs).sort((a, b) => b[1] - a[1]);
+        const max = sorted[0][1];
+        const geo = document.getElementById("geo-bars");
+        geo.innerHTML = sorted
+          .map(
+            ([loc, n]) => `
+          <div class="geo-row">
+            <span class="geo-name">${loc}</span>
+            <div class="geo-bar-wrap"><div class="geo-bar" style="width:${(n / max) * 100}%"></div></div>
+            <span class="geo-num">${n}</span>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+      // ── TYPOLOGY ──
+      function renderTypo() {
+        const types = {};
+        projects.forEach((p) => {
+          types[p.label] = (types[p.label] || 0) + 1;
+        });
+        const sorted = Object.entries(types).sort((a, b) => b[1] - a[1]);
+        const colors = {
+          Jaunbūve: "var(--rust)",
+          Atjaunošana: "var(--black)",
+          Pārbūve: "#4b7b8b",
+          "Fasāde / Jumts": "#7b6b4b",
+          "Lietošanas maiņa": "#6b7b4b",
+          Vizualizācija: "#8b5b7b",
+          Teritorija: "#5b8b7b",
+        };
+        const typo = document.getElementById("typo-list");
+        typo.innerHTML = sorted
+          .map(
+            ([lbl, n]) => `
+          <div class="typo-row">
+            <span class="typo-name"><span class="typo-dot" style="background:${colors[lbl] || "var(--stone)"}"></span>${lbl}</span>
+            <span class="typo-num">${n}</span>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+      // Initialize everything
+      renderTable("all");
+      renderTimeline();
+      renderGeo();
+      renderTypo();
+    </script>
+  </body>
+</html>
