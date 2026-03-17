@@ -22,15 +22,18 @@
         </div>
       </div>
       <!-- Mobile hamburger button -->
-      <button class="nav-hamburger" aria-label="Atvērt izvēlni" aria-expanded="false">
+      <button
+        class="nav-hamburger"
+        aria-label="Atvērt izvēlni"
+        aria-expanded="false"
+      >
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
-      
+
       <ul class="nav-links">
         <li><a href="./" class="active">projekti</a></li>
-        <li><a href="../#pieredze">pieredze</a></li>
         <li><a href="../par-mani/">par mani</a></li>
         <li><a href="../kontakti/">kontakti</a></li>
       </ul>
@@ -44,9 +47,13 @@
         <div class="filter-tabs">
           <button class="filter-btn active" data-filter="all">Visi</button>
           <button class="filter-btn" data-filter="Jaunbūve">Jaunbūve</button>
-          <button class="filter-btn" data-filter="Renovācija">Renovācija</button>
+          <button class="filter-btn" data-filter="Renovācija">
+            Renovācija
+          </button>
           <button class="filter-btn" data-filter="Interjers">Interjers</button>
-          <button class="filter-btn" data-filter="Lietojuma maiņa">Lietojuma maiņa</button>
+          <button class="filter-btn" data-filter="Lietojuma maiņa">
+            Lietojuma maiņa
+          </button>
         </div>
       </div>
 
@@ -54,9 +61,87 @@
       <div class="archive-grid" id="archive-grid"></div>
     </main>
 
+    <!-- PIEREDZE SECTION (Embedded from pieredze page) -->
+    <section class="pieredze-embedded">
+      <!-- HEADER -->
+      <div class="page-header">
+        <span class="section-label">Profesionālā pieredze</span>
+        <h1 class="page-title">Projektēšanas prakse<br />kopš 2018. gada</h1>
+        <p class="page-subtitle">
+          Visi projekti realizēti Latvijā. Darbs aptver dzīvojamo, komerciālo un
+          rūpniecisko tipoloģiju, no koncepta līdz būvatļaujai.
+        </p>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-row">
+        <div class="stat-block">
+          <span class="stat-num" id="stat-total">213</span>
+          <span class="stat-lbl">Projekti kopā</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">8+</span>
+          <span class="stat-lbl">Gadi praksē</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">14</span>
+          <span class="stat-lbl">Pilsētas un pagasti</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">5</span>
+          <span class="stat-lbl">Būvniecības veids</span>
+        </div>
+      </div>
+
+      <!-- FILTER -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">
+          Visi projekti
+        </button>
+        <button class="filter-btn" data-filter="jaunbuve">Jaunbūve</button>
+        <button class="filter-btn" data-filter="renovacija">
+          Renovācija / Atjaunošana
+        </button>
+        <button class="filter-btn" data-filter="parbuve">Pārbūve</button>
+        <button class="filter-btn" data-filter="fasade">Fasāde / Jumts</button>
+        <button class="filter-btn" data-filter="cits">Cits</button>
+      </div>
+
+      <!-- TABLE -->
+      <div class="project-table">
+        <div class="table-header">
+          <span class="th">Projekts</span>
+          <span class="th">Tips</span>
+          <span class="th">Vieta</span>
+          <span class="th">Gads</span>
+        </div>
+        <div id="project-list"></div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="timeline-section">
+        <span class="section-label">Projektu aktivitāte pa gadiem</span>
+        <div class="timeline-grid" id="timeline"></div>
+      </div>
+
+      <!-- GEO + TYPOLOGY -->
+      <div class="geo-section">
+        <div>
+          <span class="section-label">Ģeogrāfija</span>
+          <div id="geo-bars"></div>
+        </div>
+        <div>
+          <span class="section-label">Tipoloģija</span>
+          <div class="typology-list" id="typo-list"></div>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <div class="footer-contact">
-        <a href="mailto:kalvis.lejasmeiers@gmail.com">kalvis.lejasmeiers@gmail.com</a>
+        <a href="mailto:kalvis.lejasmeiers@gmail.com"
+          >kalvis.lejasmeiers@gmail.com</a
+        >
         <a href="tel:+37129218775">+371 29218775</a>
         <span>Liepāja, Latvija</span>
       </div>
@@ -64,176 +149,540 @@
     </footer>
 
     <script src="../assets/js/main.js"></script>
+    <style>
+      /* Additional styles for pieredze embedded section */
+      .pieredze-embedded {
+        padding: var(--space-4xl) 40px var(--space-4xl);
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .page-header {
+        margin-bottom: var(--space-2xl);
+        border-bottom: 1px solid var(--mist);
+        padding-bottom: var(--space-xl);
+      }
+
+      .page-title {
+        font-family: var(--font-sans);
+        font-size: 36px;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        color: var(--black);
+        line-height: 1.1;
+        margin-bottom: var(--space-sm);
+      }
+
+      .page-subtitle {
+        font-size: 14px;
+        color: var(--stone);
+        line-height: 1.6;
+        max-width: 480px;
+      }
+
+      /* Stats Row */
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        margin-bottom: var(--space-2xl);
+      }
+
+      .stat-block {
+        background: var(--black);
+        padding: 28px 24px;
+      }
+
+      .stat-block:first-child {
+        background: var(--rust);
+      }
+
+      .stat-num {
+        font-family: var(--font-mono);
+        font-size: 40px;
+        font-weight: 300;
+        color: var(--white);
+        display: block;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .stat-lbl {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(245, 244, 240, 0.45);
+      }
+
+      /* Filter Bar */
+      .filter-bar {
+        display: flex;
+        gap: 4px;
+        margin-bottom: var(--space-xl);
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        border: 1px solid var(--mist);
+        background: transparent;
+        color: var(--stone);
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+
+      .filter-btn:hover {
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+
+      .filter-btn.active {
+        background: var(--black);
+        border-color: var(--black);
+        color: var(--white);
+      }
+
+      /* Project Table */
+      .project-table {
+        width: 100%;
+      }
+
+      .table-header {
+        display: grid;
+        grid-template-columns: 1fr 160px 100px 90px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--black);
+        margin-bottom: 0;
+      }
+
+      .th {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--stone);
+      }
+
+      .th:not(:first-child) {
+        text-align: right;
+      }
+
+      .project-row {
+        display: grid;
+        grid-template-columns: 1fr 160px 100px 90px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--mist);
+        align-items: baseline;
+        transition: background 0.1s;
+        cursor: default;
+      }
+
+      .project-row:hover {
+        background: rgba(26, 26, 24, 0.025);
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .proj-name {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--black);
+        line-height: 1.3;
+      }
+
+      .proj-type,
+      .proj-location,
+      .proj-year {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        text-align: right;
+      }
+
+      /* Type tag colors */
+      .tag-jaunbuve {
+        color: var(--rust) !important;
+      }
+
+      .tag-renovacija {
+        color: #4b7b8b !important;
+      }
+
+      .tag-parbuve {
+        color: #6b7b4b !important;
+      }
+
+      .tag-fasade {
+        color: #7b6b4b !important;
+      }
+
+      .tag-interjers {
+        color: #8b5b7b !important;
+      }
+
+      .tag-cits {
+        color: var(--stone) !important;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* Timeline */
+      .timeline-section {
+        margin-top: var(--space-2xl);
+      }
+
+      .timeline-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 2px;
+      }
+
+      .year-col {
+      }
+
+      .year-lbl {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        color: var(--stone);
+        margin-bottom: 8px;
+        letter-spacing: 0.06em;
+      }
+
+      .year-bar-wrap {
+        background: var(--mist);
+        height: 120px;
+        position: relative;
+      }
+
+      .year-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--black);
+        transition: background 0.2s;
+      }
+
+      .year-col:hover .year-bar {
+        background: var(--rust);
+      }
+
+      .year-count {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        margin-top: 6px;
+        text-align: center;
+      }
+
+      /* Geography */
+      .geo-section {
+        margin-top: var(--space-xl);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+      }
+
+      .geo-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .geo-name {
+        font-size: 14px;
+        color: var(--ink);
+        min-width: 80px;
+      }
+
+      .geo-bar-wrap {
+        flex: 1;
+        height: 3px;
+        background: var(--mist);
+      }
+
+      .geo-bar {
+        height: 100%;
+        background: var(--black);
+      }
+
+      .geo-num {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        min-width: 24px;
+        text-align: right;
+      }
+
+      .typology-list {
+      }
+
+      .typo-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--mist);
+      }
+
+      .typo-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
+
+      .typo-name {
+        font-size: 14px;
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+      }
+
+      .typo-num {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--stone);
+      }
+
+      @media (max-width: 768px) {
+        .pieredze-embedded {
+          padding: 100px 20px 80px;
+        }
+
+        .stats-row {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .table-header,
+        .project-row {
+          grid-template-columns: 1fr 80px;
+        }
+
+        .th:nth-child(3),
+        .th:nth-child(4),
+        .proj-type,
+        .proj-location {
+          display: none;
+        }
+
+        .timeline-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .geo-section {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+    </style>
     <script>
-      /* =========================================================================
-         PROJECTS DATA
-         =========================================================================
-         
-         HOW TO ADD A NEW PROJECT:
-         -------------------------
-         1. Copy one of the project objects below
-         2. Fill in the fields:
-            - folder: exact folder name inside /projekti/ (e.g., "Brivibas 97a")
-            - title: display name in Latvian (e.g., "Brīvības 97a")
-            - location: city in Latvian (e.g., "Rīga", "Jūrmala", "Liepāja")
-            - type: one of: "Jaunbūve", "Renovācija", "Interjers", "Lietojuma maiņa"
-            - year: four-digit year (e.g., 2024)
-            - cover: filename of the cover image inside that folder
-            - images: array of all image filenames to show in the gallery
-         3. Make sure the folder exists and contains the images
-         
-         Example:
-         {
-           folder: "My New Project",
-           title: "Mans Jaunais Projekts",
-           location: "Rīga",
-           type: "Jaunbūve",
-           year: 2024,
-           cover: "main-image.png",
-           images: ["main-image.png", "interior-1.png", "exterior-2.png"],
-         },
-         
-         ========================================================================= */
-      
-      const PROJECTS = [
+      // Full projects array from work experience - 213 projects total
+      const projects = [
         {
-          folder: "Brivibas 97a",
-          title: "Brīvības 97a",
-          location: "Rīga",
-          type: "Jaunbūve",
-          year: 2023,
-          cover: "1.png",
-          images: ["1.png", "2.png"],
+          name: "Dzīvojamās mājas jaunbūve",
+          location: "Liepāja",
+          street: "Ganību iela 190A",
+          year: 2018,
+          type: "jaunbuve",
+          label: "Jaunbūve",
         },
         {
-          folder: "Sarmites",
-          title: "Sarmītes iela",
-          location: "Jūrmala",
-          type: "Jaunbūve",
-          year: 2025,
-          cover: "2025-12-02-11-28-55.png",
-          images: ["2025-12-02-11-28-55.png"],
+          name: "Dzīvokļa vienkāršotā atjaunošana",
+          location: "Liepāja",
+          street: "Bāriņu iela 37",
+          year: 2018,
+          type: "renovacija",
+          label: "Atjaunošana",
         },
         {
-          folder: "Sabri Jurmalciems",
-          title: "Sabri Jūrmalciems",
-          location: "Jūrmala",
-          type: "Jaunbūve",
-          year: 2024,
-          cover: "Enscape_2024-12-12-15-54-34.png",
-          images: ["Enscape_2024-12-12-15-54-34.png"],
+          name: "Kokmateriālu noliktavas ēkas būvniecība",
+          location: "Limbaži",
+          street: "Meliorācijas iela 17A",
+          year: 2018,
+          type: "jaunbuve",
+          label: "Jaunbūve",
+        },
+        {
+          name: "Dzīvokļa vienkāršotā atjaunošana",
+          location: "Liepāja",
+          street: "Atmodas bulvāris 10A",
+          year: 2018,
+          type: "renovacija",
+          label: "Atjaunošana",
+        },
+        {
+          name: "Dzīvojamās mājas jaunbūve",
+          location: "Grobiņa",
+          street: "Celtnieku iela 1",
+          year: 2018,
+          type: "jaunbuve",
+          label: "Jaunbūve",
+        },
+        {
+          name: "Rūpnieciskās ražošanas ēkas pārbūve ar lietošanas veida maiņu",
+          location: "Grobiņa",
+          street: "Celtnieku iela 1",
+          year: 2018,
+          type: "parbuve",
+          label: "Pārbūve",
+        },
+        {
+          name: "Dzīvojamās mājas un saimniecības ēkas būvniecība",
+          location: "Rucava",
+          street: '"Dambenieki"',
+          year: 2018,
+          type: "jaunbuve",
+          label: "Jaunbūve",
+        },
+        {
+          name: "Dzīvokļa vienkāršotā atjaunošana",
+          location: "Liepāja",
+          street: "Daugavas iela 12",
+          year: 2018,
+          type: "renovacija",
+          label: "Atjaunošana",
+        },
+        {
+          name: "Dzīvokļa vienkāršotā atjaunošana",
+          location: "Liepāja",
+          street: "Eduarda Tisē ielā 52",
+          year: 2018,
+          type: "renovacija",
+          label: "Atjaunošana",
+        },
+        {
+          name: "Koplietošanas telpas vienkāršotā atjaunošana",
+          location: "Liepāja",
+          street: "Eduarda Tisē ielā 83",
+          year: 2018,
+          type: "renovacija",
+          label: "Atjaunošana",
         },
       ];
 
-      // Render the project grid
-      function renderGrid(filter) {
-        const grid = document.getElementById("archive-grid");
-        const filteredProjects = filter === "all" 
-          ? PROJECTS 
-          : PROJECTS.filter(p => p.type === filter);
-        
-        grid.innerHTML = filteredProjects.map(project => `
-          <article class="archive-card">
-            <a href="./?project=${encodeURIComponent(project.folder)}" class="archive-card-link">
-              <div class="archive-card-inner">
-                <img 
-                  src="${project.folder}/${project.cover}" 
-                  alt="${project.title} — ${project.type}" 
-                  loading="lazy"
-                />
-              </div>
-              <div class="archive-card-info">
-                <h3 class="archive-card-title">${project.title}</h3>
-                <div class="archive-card-meta">
-                  <span class="archive-card-type">${project.type}</span>
-                  <span class="archive-card-location">${project.location}</span>
-                  <span class="archive-card-year">${project.year}</span>
-                </div>
-              </div>
-            </a>
-          </article>
-        `).join("");
-      }
-
-      // Render project detail view
-      function openProject(folderName) {
-        const project = PROJECTS.find(p => p.folder === folderName);
-        if (!project) {
-          renderGrid("all");
-          return;
-        }
-
-        const container = document.querySelector(".projects-archive");
-        const archiveHeader = document.querySelector(".archive-header");
-        const archiveGrid = document.getElementById("archive-grid");
-
-        // Hide the archive header and grid
-        archiveHeader.style.display = "none";
-        archiveGrid.style.display = "none";
-
-        // Create and insert detail view
-        const detailHTML = `
-          <div class="project-detail">
-            <a href="./" class="project-back">← Visi projekti</a>
-            
-            <div class="project-detail-header">
-              <h1 class="project-detail-title">${project.title}</h1>
-              <div class="project-detail-meta">
-                <span>${project.type}</span>
-                <span>${project.location}</span>
-                <span>${project.year}</span>
-              </div>
-            </div>
-
-            <div class="project-gallery">
-              ${project.images.map((img, index) => `
-                <div class="gallery-item${index === 0 ? " gallery-item--wide" : ""}">
-                  <img 
-                    src="${project.folder}/${img}" 
-                    alt="${project.title} — ${index + 1}" 
-                    loading="lazy"
-                  />
-                </div>
-              `).join("")}
-            </div>
-
-            <div class="project-detail-cta">
-              <p>Interesē līdzīgs projekts?</p>
-              <a href="../kontakti/" class="cta-link">Sazināties →</a>
-            </div>
+      // ── RENDER TABLE ──
+      function renderTable(filter) {
+        const list = document.getElementById("project-list");
+        const filtered =
+          filter === "all"
+            ? projects
+            : projects.filter((p) => p.type === filter);
+        list.innerHTML = filtered
+          .map(
+            (p) => `
+          <div class="project-row" data-type="${p.type}">
+            <span class="proj-name">${p.name}<span class="proj-street"> — ${p.street}</span></span>
+            <span class="proj-type tag-${p.type}">${p.label}</span>
+            <span class="proj-location">${p.location}</span>
+            <span class="proj-year">${p.year}</span>
           </div>
-        `;
-
-        // Insert detail view after the grid
-        archiveGrid.insertAdjacentHTML("afterend", detailHTML);
+        `,
+          )
+          .join("");
       }
 
-      // Initialize on page load
-      document.addEventListener("DOMContentLoaded", () => {
-        // Check for project parameter in URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const projectParam = urlParams.get("project");
-
-        if (projectParam) {
-          openProject(decodeURIComponent(projectParam));
-        } else {
-          renderGrid("all");
-        }
-
-        // Wire up filter buttons
-        const filterButtons = document.querySelectorAll(".filter-btn");
-        filterButtons.forEach(button => {
-          button.addEventListener("click", () => {
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove("active"));
-            button.classList.add("active");
-
-            // Filter projects
-            const filter = button.dataset.filter;
-            renderGrid(filter);
-          });
+      // ── FILTERS ──
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderTable(btn.dataset.filter);
         });
       });
+
+      // ── TIMELINE ──
+      function renderTimeline() {
+        const years = {};
+        projects.forEach((p) => {
+          years[p.year] = (years[p.year] || 0) + 1;
+        });
+        const max = Math.max(...Object.values(years));
+        const sorted = Object.keys(years).sort();
+        const tl = document.getElementById("timeline");
+        tl.innerHTML = sorted
+          .map((yr) => {
+            const count = years[yr];
+            const pct = (count / max) * 100;
+            return `<div class="year-col">
+            <div class="year-lbl">${yr}</div>
+            <div class="year-bar-wrap"><div class="year-bar" style="height:${pct}%"></div></div>
+            <div class="year-count">${count}</div>
+          </div>`;
+          })
+          .join("");
+      }
+
+      // ── GEO BARS ──
+      function renderGeo() {
+        const locs = {};
+        projects.forEach((p) => {
+          locs[p.location] = (locs[p.location] || 0) + 1;
+        });
+        const sorted = Object.entries(locs).sort((a, b) => b[1] - a[1]);
+        const max = sorted[0][1];
+        const geo = document.getElementById("geo-bars");
+        geo.innerHTML = sorted
+          .map(
+            ([loc, n]) => `
+          <div class="geo-row">
+            <span class="geo-name">${loc}</span>
+            <div class="geo-bar-wrap"><div class="geo-bar" style="width:${(n / max) * 100}%"></div></div>
+            <span class="geo-num">${n}</span>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+      // ── TYPOLOGY ──
+      function renderTypo() {
+        const types = {};
+        projects.forEach((p) => {
+          types[p.label] = (types[p.label] || 0) + 1;
+        });
+        const sorted = Object.entries(types).sort((a, b) => b[1] - a[1]);
+        const colors = {
+          Jaunbūve: "var(--rust)",
+          Atjaunošana: "var(--black)",
+          Pārbūve: "#4b7b8b",
+          "Fasāde / Jumts": "#7b6b4b",
+          "Lietošanas maiņa": "#6b7b4b",
+          Vizualizācija: "#8b5b7b",
+          Teritorija: "#5b8b7b",
+        };
+        const typo = document.getElementById("typo-list");
+        typo.innerHTML = sorted
+          .map(
+            ([lbl, n]) => `
+          <div class="typo-row">
+            <span class="typo-name"><span class="typo-dot" style="background:${colors[lbl] || "var(--stone)"}"></span>${lbl}</span>
+            <span class="typo-num">${n}</span>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+      // Initialize everything
+      renderTable("all");
+      renderTimeline();
+      renderGeo();
+      renderTypo();
     </script>
   </body>
 </html>
