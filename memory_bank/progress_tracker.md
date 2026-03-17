@@ -88,6 +88,16 @@
 - [x] Update about strip section with consistent stats (8+ years, 213 projects)
 - [x] Verify all statistics are consistent across the website
 
+## New Task: Targeted Fixes from cline-prompt.md (2026-03-17)
+
+- [x] Task 1: Rewrite projekti/index.html with PROJECTS array and detail view
+- [x] Task 2: Append new CSS rules to assets/css/main.css
+- [x] Task 3a: Fix project list in index.html with real projects
+- [x] Task 3b: Update nav links in index.html
+- [x] Task 3c: Wrap featured cards with project links in index.html
+- [x] Update memory bank files
+- [x] Push changes to git repository
+
 ## Git History Actions
 
 - [2026-03-16] Reverted from commit `6cd1df3` ("Complete portfolio overhaul: logo integration, real projects, experience page redesign") back to `ad2d25f` ("Complete portfolio redesign with multi-page structure")
@@ -96,14 +106,14 @@
 
 ## Current Git State
 
-- **Current commit:** `ad2d25f` - "Complete portfolio redesign with multi-page structure"
+- **Current commit:** Pending commit for cline-prompt.md targeted fixes
 - **Branch:** master
-- **Remote:** origin/master (synced)
 - **Uncommitted changes:**
-  - Pieredze section implementation (new files: pieredze/index.html, updated files: index.html, assets/css/main.css, par-mani/index.html, projekti/index.html, kontakti/index.html)
-  - Corrected pieredze page data (updated pieredze/index.html with valid JavaScript array from darbu_saraksts.txt)
-  - Updated index.html statistics to match pieredze data (213 projects, 14 cities, 8+ years)
+  - projekti/index.html (rewritten with PROJECTS array)
+  - assets/css/main.css (appended with project detail styles)
+  - index.html (updated nav links, project list, featured card links)
+  - memory_bank files (updated)
 
 ## Last Updated
 
-2026-03-16 (Index.html statistics synchronized with pieredze data)
+2026-03-17 (Targeted fixes from cline-prompt.md completed)

@@ -2,87 +2,74 @@
 
 ## Current Date
 
-2026-03-16
+2026-03-17
 
 ## Current Task
 
-Memory bank update - documenting all changes made to the website
+Completed targeted fixes from cline-prompt.md
 
 ## Recent Work Completed
 
-1. **Pieredze Section Implementation** (2026-03-16)
-   - Created dedicated pieredze directory and page
-   - Fixed JavaScript errors in original implementation
-   - Added comprehensive professional experience section
-   - Updated homepage with pieredze summary section
-   - Updated navigation across all pages to include "pieredze" link
+1. **Projekti Page Rewrite** (2026-03-17)
+   - Rewrote projekti/index.html with data-driven approach
+   - Created PROJECTS array with documented structure for easy project additions
+   - Implemented renderGrid() function for filtering projects by type
+   - Implemented openProject() function for project detail view
+   - Detail view includes: back link, title, meta info, gallery grid, and CTA section
+   - URL parameter `?project=folderName` controls grid vs detail view
+   - Updated filter buttons with exact type strings (Jaunbūve, Renovācija, Interjers, Lietojuma maiņa)
+   - Updated navigation links to proper page URLs
 
-2. **Pieredze Page Data Correction** (2026-03-16)
-   - Read and analyzed darbu_saraksts.txt file containing 213 projects
-   - Fixed JavaScript array syntax errors in pieredze/index.html
-   - Updated project statistics to reflect actual count (213 projects)
-   - Created valid JavaScript array with proper data structure
-   - Verified all interactive features work correctly
+2. **CSS Additions** (2026-03-17)
+   - Appended new CSS rules to assets/css/main.css
+   - Added .archive-card-link styles for wrapped card links
+   - Added .archive-card-inner image handling (4:3 aspect ratio, hover scale)
+   - Added complete project detail styling:
+     - .project-detail, .project-back, .project-detail-header
+     - .project-detail-title (36px weight 300), .project-detail-meta
+     - .project-gallery (2-column grid with 2px gap)
+     - .gallery-item (16/10 ratio), .gallery-item--wide (16/7 ratio, full width)
+     - .project-detail-cta with contact link
+   - Added responsive styles for mobile (single column gallery, adjusted sizes)
 
-3. **Main Index.html Statistics Update** (2026-03-16)
-   - Updated pieredze summary section with accurate data:
-     - Projects: 65+ → 213
-     - Cities/Parishes: 8 → 14
-     - Years in practice: 7+ → 8+
-     - Title: "213 projekti kopš 2018. gada"
-   - Updated about strip section with consistent statistics:
-     - Years in practice: 10+ → 8+
-     - Realized projects: 40+ → 213
-     - Text updated to reflect 8 years experience
+3. **Homepage Updates** (2026-03-17)
+   - Updated nav links to use proper page URLs (projekti/, par-mani/, kontakti/)
+   - Removed #projekti as active link since projekti is now a separate page
+   - Replaced placeholder project list with three real projects:
+     - Brīvības 97a, Rīga (Jaunbūve · Rīga · 2023)
+     - Sarmītes iela, Jūrmala (Jaunbūve · Jūrmala · 2025)
+     - Sabri Jūrmalciems, Jūrmala (Jaunbūve · Jūrmala · 2024)
+   - Wrapped all featured cards in anchor tags linking to project detail pages
+   - Updated featured card titles for consistency with PROJECTS array
 
 ## Current File Status
 
-- **index.html**: Updated with accurate statistics (213 projects, 14 cities, 8+ years)
-- **pieredze/index.html**: Fully functional with corrected data
-  - No JavaScript errors
-  - All interactive features working (filtering, timeline, geography bars, typology breakdown)
-  - Statistics updated: 213 total projects, 8+ years, 14 cities/parishes, 5 typologies
+- **projekti/index.html**: Rewritten with PROJECTS array, grid rendering, and detail view functionality
+- **assets/css/main.css**: Appended with archive card link styles and project detail CSS
+- **index.html**: Updated nav links, project list, and featured card links
 
 ## Git Status
 
-- **Current commit:** `ad2d25f` - "Complete portfolio redesign with multi-page structure"
 - **Branch:** master
-- **Remote:** origin/master (synced)
 - **Uncommitted changes:**
-  - Pieredze section implementation (new files and updates)
-  - Corrected pieredze page data
-  - Updated index.html statistics
+  - projekti/index.html (rewritten)
+  - assets/css/main.css (appended)
+  - index.html (updated)
+  - Memory bank files (pending update)
 
 ## Next Steps
 
-1. **Commit Changes:**
-   - Stage all modified files
-   - Create commit with descriptive message
-   - Push to remote repository
-
-2. **Review and Test:**
-   - Test pieredze page functionality in multiple browsers
-   - Verify responsive design on mobile devices
-   - Check navigation across all pages
-
-3. **Deployment Preparation:**
-   - Final review of all pages
-   - Performance optimization
-   - Accessibility testing
-   - SEO setup
-
-4. **Domain Setup:**
-   - Configure kalvisl.lv domain
-   - Set up hosting
-   - Deploy website
+1. Commit and push all changes to git repository
+2. Test all project links and detail views
+3. Verify responsive design on mobile devices
 
 ## Notes
 
-- All statistics are now consistent across index.html and pieredze/index.html
-- The authoritative data source is darbu_saraksts.txt (213 total projects)
-- Website maintains consistent design language and navigation
-- Ready for commit and deployment
+- All projects use URL encoding for folder names with spaces (e.g., Brivibas%2097a)
+- PROJECTS array includes clear documentation for adding new projects
+- Filter buttons use exact type strings matching PROJECTS array
+- Project detail view dynamically generates gallery from images array
 
 ## Last Updated
 
-2026-03-16 (Index.html statistics updated to match pieredze data)
+2026-03-17 (Targeted fixes from cline-prompt.md completed)
