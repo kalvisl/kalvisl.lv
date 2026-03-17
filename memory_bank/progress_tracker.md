@@ -119,7 +119,29 @@
 - [x] Make featured project images full-bleed (remove horizontal padding/margin)
 - [x] Fix: First project images not visible
 - [x] Update memory bank documentation
-- [ ] Push changes to git repository
+- [x] Push changes to git repository
+
+## New Task: UI/UX Improvements & Cleanup (2026-03-17)
+
+- [x] Navigation styles: Changed all nav links from uppercase/lowercase to normal case
+- [x] Navigation styles: Set font-weight 300, font-size 13px consistently
+- [x] Background: Changed from beige to pure white #ffffff
+- [x] Homepage: Removed 'Atlasītie darbi' text list section (redundant)
+- [x] Mobile: Updated project grids to change from 2 columns to 1 column on mobile
+- [x] Mobile: Ensured images are full width on mobile devices
+- [x] Par-mani page: Removed duplicate contact block mid-page
+- [x] Par-mani page: Kept only footer contact section
+- [x] Updated memory bank documentation
+
+## New Task: Embed Pieredze Content into Projekti Page (2026-03-17)
+
+- [x] Read current projekti/index.html to understand structure
+- [x] Read pieredze/index.html to get content to embed
+- [x] Copy pieredze content (heading, statistics, table, timeline, geography, typology) into projekti page below project grid
+- [x] Fix JavaScript errors in projekti/index.html (renderTypo function was incomplete)
+- [x] Remove "pieredze" from header navigation on all pages (index.html, projekti/index.html, par-mani/index.html, kontakti/index.html, pieredze/index.html)
+- [x] Push changes to git repository
+- [x] Update memory bank documentation
 
 ## Git History Actions
 
@@ -129,14 +151,15 @@
 
 ## Current Git State
 
-- **Current commit:** Pending commit for desktop navigation fixes
-- **Branch:** master
-- **Uncommitted changes:**
-  - assets/css/main.css (updated navigation styles, background color, featured section padding)
-  - index.html (simplified first featured project card structure)
-  - memory_bank/decisions_log.md (updated documentation)
-  - memory_bank/progress_tracker.md (updated progress tracking)
+- **Current commit:** `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation
+- **Branch:** master (up to date with origin/master)
+- **Latest changes:**
+  - projekti/index.html: Added embedded pieredze section with full CSS and JavaScript
+  - index.html: Removed "pieredze" from navigation
+  - par-mani/index.html: Removed "pieredze" from navigation
+  - kontakti/index.html: Removed "pieredze" from navigation
+  - pieredze/index.html: Removed "pieredze" from navigation (page remains standalone)
 
 ## Last Updated
 
-2026-03-17 (Desktop navigation fixes completed)
+2026-03-17 (Pieredze embedding and navigation cleanup completed)

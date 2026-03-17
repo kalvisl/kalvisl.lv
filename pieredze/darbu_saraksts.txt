@@ -2,268 +2,268 @@ KALVIS LEJASMEIERS — DARBU SARAKSTS
 ============================================================
 Kopā: 213 projekti
 
-1.    Dzīvojamās mājas jaunbūve
+   Dzīvojamās mājas jaunbūve
       Vieta : Ganību iela 190A, Liepāja, Liepāja
       Tips  : Jaunbūve
       Gads  : 2018
 
-2.    Dzīvokļa vienkāršotā atjaunošana
+   Dzīvokļa vienkāršotā atjaunošana
       Vieta : Bāriņu iela 37, Liepāja, Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-3.    Kokmateriālu noliktavas ēkas būvniecība
-      Vieta : Meliorācijas iela 17A, Limbaži, Limbažu nov, Limbaži
+   Kokmateriālu noliktavas ēkas būvniecība
+      Vieta : Meliorācijas iela, Limbaži, Limbažu nov, Limbaži
       Tips  : Jaunbūve
       Gads  : 2018
 
-4.    Dzīvokļa vienkāršotā atjaunošana
+    Dzīvokļa vienkāršotā atjaunošana
       Vieta : Atmodas bulvāris 10A, Liepāja, Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-5.    Dzīvojamās mājas jaunbūve
-      Vieta : Celtnieku iela 1, Grobiņa, Grobiņas nov, Grobiņa
+    Dzīvojamās mājas jaunbūve
+      Vieta : Celtnieku iela, Grobiņa, Grobiņas nov, Grobiņa
       Tips  : Jaunbūve
       Gads  : 2018
 
-6.    Rūpnieciskās ražošanas ēkas pārbūve ar lietošanas veida maiņu Cukura ielā 1, Liepājā
-      Vieta : Celtnieku iela 1, Grobiņa, Grobiņas nov, Grobiņa
+   Rūpnieciskās ražošanas ēkas pārbūve ar lietošanas veida maiņu
+      Vieta : Celtnieku iela, Grobiņa, Grobiņas nov, Grobiņa
       Tips  : Pārbūve
       Gads  : 2018
 
-7.    Dzīvojamās mājas un saimniecības ēkas būvniecība
+   Dzīvojamās mājas un saimniecības ēkas būvniecība
       Vieta : "Dambenieki", Dunikas pag., Rucavas nov, Rucava
       Tips  : Jaunbūve
       Gads  : 2018
 
-8.    Dzīvokļa vienkāršotai atjaunošana
+   Dzīvokļa vienkāršotai atjaunošana
       Vieta : Daugavas iela 12, Liepāja, Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-9.    Dzīvokļa vienkāršotai atjaunošana
+   Dzīvokļa vienkāršotai atjaunošana
       Vieta : Eduarda Tisē ielā 52, Liepājā, Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-10.   Koplietošanas telpas vienkāršotā atjaunošana
+  Koplietošanas telpas vienkāršotā atjaunošana
       Vieta : Eduarda Tisē ielā 83, Liepājā, Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-11.   Ēkas vienkāršotā fasādes atjaunošana ar jumta seguma maiņu
+  Ēkas vienkāršotā fasādes atjaunošana ar jumta seguma maiņu
       Vieta : "Āmuļi", Grobiņas pag., Liepājas raj, Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-12.   Telpu vienkāršotā atjaunošana ar lietošanas veida maiņu
+  Telpu vienkāršotā atjaunošana ar lietošanas veida maiņu
       Vieta : "Āmuļi", Grobiņas pag., Liepājas raj, Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-13.   Noliktavas ēkas būvniecība
-      Vieta : "Gruntnieki", Otaņķu pag., Nīcas nov, Nīca
+   Noliktavas ēkas būvniecība
+      Vieta : Otaņķu pag., Nīcas nov, Nīca
       Tips  : Jaunbūve
       Gads  : 2018
 
-14.   Divu dzīvokļu apvienošana
-      Vieta : Ģenerāļa Baloža iela 59; 59, Liepāja, Liepāja
+   Divu dzīvokļu apvienošana
+      Vieta : Ģenerāļa Baloža iela, Liepāja, Liepāja
       Tips  : Pārbūve
       Gads  : 2018
 
-15.   Garāžas ēku vienkāršotā fasādes atjaunošana - Jumta seguma maiņa
-      Vieta : Jūrmalas iela 2, Liepāja, Liepāja
+   Garāžas ēku vienkāršotā fasādes atjaunošana - Jumta seguma maiņa
+      Vieta : Jūrmalas iela, Liepāja, Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-16.   Dzīvojamās mājas un palīgēkas būvniecība
-      Vieta : "Pliedarīši" Jūrmalciems, Nīcas pag., Nīcas nov, Nīca
+   Dzīvojamās mājas un palīgēkas būvniecība
+      Vieta : Jūrmalciems, Nīcas pag., Nīcas nov, Nīca
       Tips  : Jaunbūve
       Gads  : 2018
 
-17.   Dzīvokļa vienkāršotā atjaunošana
+   Dzīvokļa vienkāršotā atjaunošana
       Vieta : Klaipēdas iela 96, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-18.   Dzīvojamās mājas jaunbūve
-      Vieta : "Lejiņas", Grobiņas pag., Grobiņas nov, Grobiņa
+  Dzīvojamās mājas jaunbūve
+      Vieta : Grobiņas pag., Grobiņas nov, Grobiņa
       Tips  : Jaunbūve
       Gads  : 2018
 
-19.   Dzelzceļa stacijas “Liepāja” stacijas ēkas jumta seguma maiņa
+  Dzelzceļa stacijas “Liepāja” stacijas ēkas jumta seguma maiņa
       Vieta : Rīgas iela 71, Liepāja, Liepāja
       Tips  : Fasāde
       Gads  : 2018
 
-20.   Dzīvokļa vienkāršotā atjaunošana
+  Dzīvokļa vienkāršotā atjaunošana
       Vieta : Liepu iela 25, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-21.   Dzīvokļa vienkāršotā atjaunošana
+  Dzīvokļa vienkāršotā atjaunošana
       Vieta : Loku iela 11, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-22.   Dzīvokļa vienkāršotā atjaunošana
+   Dzīvokļa vienkāršotā atjaunošana
       Vieta : Ludviķa iela 12, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-23.   Būvprojekts minimālā sastāvā: divu dzīvokļu apvienošana
+   Būvprojekts minimālā sastāvā: divu dzīvokļu apvienošana
       Vieta : Mežu iela 55, Liepāja, Liepāja
       Tips  : Pārbūve
       Gads  : 2018
 
-24.   Atpūtas ēkas, viesu mājas un brīvdienu mājas būvniecība
-      Vieta : Nīcas novads, Nīcas pagasts, "PARALĒLES", Nīca
+   Atpūtas ēkas, viesu mājas un brīvdienu mājas būvniecība
+      Vieta : Nīcas novads, Nīcas pagasts, Nīca
       Tips  : Jaunbūve
       Gads  : 2018
 
-25.   Telpu grupas , , (dzīvoklis , , ) un koplietošanas telpu grupas (telpu , , ) Pārbūve un telpu grupu apvienošana
-      Vieta : Peldu iela 32/34, Liepāja, Liepāja
+   Koplietošanas telpu grupas pārbūve un telpu grupu apvienošana
+      Vieta : Peldu iela, Liepāja, Liepāja
       Tips  : Pārbūve
       Gads  : 2018
 
-26.   Telpu grupas , vienkāršotā atjaunošana un telpu grupu sadalīšana
+   Telpu grupas , vienkāršotā atjaunošana un telpu grupu sadalīšana
       Vieta : Peldu ielā 41, Liepāja, Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-27.   Dzīvojamās ēkas daļas pārbūve, terases būvniecība
-      Vieta : Peldu ielā 41, Liepāja, Liepāja
+   Dzīvojamās ēkas daļas pārbūve, terases būvniecība
+      Vieta : Peldu ielā, Liepāja, Liepāja
       Tips  : Jaunbūve
       Gads  : 2018
 
-28.   Dzīvokļa vienkāršotā atjaunošana
+  Dzīvokļa vienkāršotā atjaunošana
       Vieta : Piltenes iela 3, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-29.   Dzīvokļa vienkāršotā atjaunošana
+  Dzīvokļa vienkāršotā atjaunošana
       Vieta : Rīgas iela 47, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-30.   Dzīvokļa vienkāršotā atjaunošana
+  Dzīvokļa vienkāršotā atjaunošana
       Vieta : Rīgas iela 29, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-31.   Kantora ēkas vienkāršotā fasādes atjaunošana - Jumta seguma maiņa
+   Kantora ēkas vienkāršotā fasādes atjaunošana - Jumta seguma maiņa
       Vieta : Rīgas iela 54A, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-32.   Dzīvokļa vienkāršotā atjaunošana
+   Dzīvokļa vienkāršotā atjaunošana
       Vieta : Sakņu iela 6/8, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-33.   Dzīvokļa vienkāršotā atjaunošana
-      Vieta : Dienvidu iela 7 k, Salaspils, Salaspils nov, Salaspils
+   Dzīvokļa vienkāršotā atjaunošana
+      Vieta : Dienvidu iela 7, Salaspils, Salaspils nov, Salaspils
       Tips  : Atjaunošana
       Gads  : 2018
 
-34.   Dzīvokļa vienkāršotā atjaunošana
+   Dzīvokļa vienkāršotā atjaunošana
       Vieta : Siguldas iela 23, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-35.   Dzīvokļa vienkāršotā atjaunošana
+   Dzīvokļa vienkāršotā atjaunošana
       Vieta : Tirgus iela 35, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-36.   Dzīvokļa vienkāršotā atjaunošana
+   Dzīvokļa vienkāršotā atjaunošana
       Vieta : Turaidas iela 20, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-37.   Ēkas vienkāršotā fasādes atjaunošana - Jumta seguma maiņa
+   Ēkas vienkāršotā fasādes atjaunošana - Jumta seguma maiņa
       Vieta : Ūdens iela 3, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-38.   Telpu grupas vienkāršotā atjaunošana un telpu grupu sadalīšana
+   Telpu grupas vienkāršotā atjaunošana un telpu grupu sadalīšana
       Vieta : Krišjāņa Valdemāra ielā 17, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2018
 
-39.   Noliktavas jaunbūve
-      Vieta : "Vīgriezes" Tērvetes pagasts Tērvetes nov, Tērvete
+   Noliktavas jaunbūve
+      Vieta : Tērvetes pagasts Tērvetes nov, Tērvete
       Tips  : Jaunbūve
       Gads  : 2018
 
-40.   Telpu grupas lietošanas veida maiņa bez pārbūves
+   Telpu grupas lietošanas veida maiņa bez pārbūves
       Vieta : Zemnieku iela 32, Liepāja , Liepāja
       Tips  : Pārbūve
       Gads  : 2018
 
-41.   Dzīvokļa vienkāršotā atjaunošana
+   Dzīvokļa vienkāršotā atjaunošana
       Vieta : Aldaru iela 41/43, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2019
 
-42.   Dzīvojamās mājas pārbūve un divu palīgēku nojaukšana
-      Vieta : Celtnieku iela 51, Grobiņa, Grobiņas nov, Grobiņa
+   Dzīvojamās mājas pārbūve un divu palīgēku nojaukšana
+      Vieta : Celtnieku iela, Grobiņa, Grobiņas nov, Grobiņa
       Tips  : Pārbūve
       Gads  : 2019
 
-43.   Dzīvokļa vienkāršotā atjaunošana
+	Dzīvokļa vienkāršotā atjaunošana
       Vieta : Dārza iela 3, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2019
 
-44.   Dzīvokļa vienkāršotā atjaunošana
+	Dzīvokļa vienkāršotā atjaunošana
       Vieta : Dārza iela 9, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2019
 
-45.   Dzīvokļa vienkāršotā atjaunošana
+	Dzīvokļa vienkāršotā atjaunošana
       Vieta : Daugavas iela 12, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2019
 
-46.   Dzīvokļa vienkāršotā atjaunošana
+	Dzīvokļa vienkāršotā atjaunošana
       Vieta : Dunikas iela 23, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2019
 
-47.   Dzīvokļa vienkāršotā atjaunošana
+	Dzīvokļa vienkāršotā atjaunošana
       Vieta : Dārza iela 9, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2019
 
-48.   Dzīvokļa vienkāršotā atjaunošana
+	Dzīvokļa vienkāršotā atjaunošana
       Vieta : Dzērves iela 25, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2019
 
-49.   Būvprojekts: Divu dzīvokļu ((Kad.) un (Kad.)) apvienošana un vienkāršotā atjaunošana
-      Vieta : Esperanto iela 11, Liepāja , Liepāja
+	Būvprojekts: Divu dzīvokļu pvienošana un vienkāršotā atjaunošana
+      Vieta : Esperanto iela, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2019
 
-50.   Attīstības priekšlikums “Ezermalas iela 1A, Liepāja”
-      Vieta : Ezermalas iela 1A, Liepāja , Liepāja
+	 Attīstības priekšlikums
+      Vieta : Ezermalas iela, Liepāja , Liepāja
       Tips  : Cits
       Gads  : 2019
 
-51.   Administratīvās ēkas vienkāršotā atjaunošana ar lietošanas veida maiņu
-      Vieta : "Inesīši", Grobiņas pag., Grobiņas nov, Grobiņa
+	Administratīvās ēkas vienkāršotā atjaunošana ar lietošanas veida maiņu
+      Vieta : Grobiņas pag., Grobiņas nov, Grobiņa
       Tips  : Atjaunošana
       Gads  : 2019
 
-52.   Dzīvokļa vienkāršotā atjaunošana
+	Dzīvokļa vienkāršotā atjaunošana
       Vieta : Jēkaba Janševska iela 18, Liepāja , Liepāja
       Tips  : Atjaunošana
       Gads  : 2019
 
-Šķūņa (kad.apz. 17000350196002) nojaukšana un nojaukšanas teritorijas rekultivācija
-      Vieta : "Jūrmalas parks 2" Liepāja, Liepāja
+	Šķūņa nojaukšana un nojaukšanas teritorijas rekultivācija
+      Vieta : Jūrmalas parks Liepāja, Liepāja
       Tips  : Cits
       Gads  : 2019
 
@@ -368,7 +368,7 @@ Kopā: 213 projekti
       Gads  : 2019
 
       Administratīvās ēkas vienkāršotā atjaunošana ar lietošanas veida maiņu
-      Vieta : "Inesīši", Grobiņas pag., Grobiņas nov, Grobiņa
+      Vieta : Grobiņas pag., Grobiņas nov, Grobiņa
       Tips  : Atjaunošana
       Gads  : 2019
 
@@ -408,7 +408,7 @@ Kopā: 213 projekti
       Gads  : 2019
 
       Daudzdzīvokļu dzīvojamās mājas vienkāršotā fasādes atjaunošana ar jumta seguma maiņu
-      Vieta : Kungu iela25, Liepāja, Liepāja
+      Vieta : Kungu iela 5, Liepāja, Liepāja
       Tips  : Atjaunošana
       Gads  : 2019
 
@@ -518,7 +518,7 @@ Kopā: 213 projekti
       Gads  : 2019
 
       Dzīvojamās mājas pārbūve
-      Vieta : Zirņu ielā 123A, Liepāja, Liepāja
+      Vieta : Zirņu ielā, Liepāja, Liepāja
       Tips  : Pārbūve
       Gads  : 2019
 
@@ -543,12 +543,12 @@ Kopā: 213 projekti
       Gads  : 2020
 
       Dzīvojamās mājas pārbūve
-      Vieta : Bernātu ielā 46, Liepāja, Liepāja
+      Vieta : Bernātu ielā, Liepāja, Liepāja
       Tips  : Pārbūve
       Gads  : 2020
 
       ražošanas ēkas vienkāršotā fasādes atjaunošana – ēkas jumta ieseguma nomaiņu
-      Vieta : Brīvības iela 23, Liepāja, Liepāja
+      Vieta : Brīvības iela, Liepāja, Liepāja
       Tips  : Atjaunošana
       Gads  : 2020
 
