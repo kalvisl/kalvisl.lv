@@ -232,7 +232,10 @@ nav.scrolled {
   width: 24px;
   height: 1px;
   background: var(--black);
-  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    width 0.3s ease;
 }
 
 /* Transform to × when menu is open */
@@ -262,7 +265,10 @@ nav.scrolled {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease,
+    padding 0.3s ease;
   z-index: 100;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
@@ -287,10 +293,10 @@ nav.scrolled {
   display: block;
   padding: 20px 0;
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 300;
   letter-spacing: 0.02em;
-  text-transform: lowercase;
+  text-transform: none;
   color: var(--ink);
 }
 
@@ -305,6 +311,8 @@ nav.scrolled {
 
 .featured-section {
   padding: var(--space-4xl) 0 var(--space-2xl);
+  width: 100%;
+  overflow: hidden;
 }
 
 .featured-grid {
@@ -312,6 +320,7 @@ nav.scrolled {
   grid-template-columns: 1fr;
   gap: 2px;
   margin-bottom: 2px;
+  width: 100%;
 }
 
 .featured-card {
@@ -319,11 +328,27 @@ nav.scrolled {
   overflow: hidden;
   cursor: pointer;
   background: var(--mist);
+  width: 100%;
 }
 
 .featured-card:first-child {
   grid-column: 1;
   grid-row: 1;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.featured-card:first-child .featured-card-inner {
+  width: 100%;
+}
+
+.featured-card:first-child .project-image {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
 }
 
 .featured-card-inner {
@@ -674,13 +699,7 @@ footer {
   }
 
   .nav-logo {
-    position: static;
-    transform: none;
-    margin: 0 auto;
-  }
-
-  .nav-logo img {
-    height: 40px; /* Larger on mobile too */
+    display: none; /* Hide logo on mobile - takes too much space */
   }
 
   /* Mobile hamburger menu */
@@ -701,7 +720,10 @@ footer {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.3s ease,
+      padding 0.3s ease;
     z-index: 99;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     list-style: none;
@@ -726,10 +748,10 @@ footer {
     display: block;
     padding: 20px 0;
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 300;
     letter-spacing: 0.02em;
-    text-transform: lowercase;
+    text-transform: none;
     color: var(--ink);
   }
 
@@ -1288,6 +1310,20 @@ footer {
     gap: 32px;
   }
 
+  /* Ensure all project grids are single column on mobile */
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item--wide {
+    grid-column: 1;
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery-item {
+    aspect-ratio: 4 / 3;
+  }
+
   .slider-next {
     width: 36px;
     height: 36px;
@@ -1372,9 +1408,13 @@ footer {
   margin-bottom: var(--space-2xl);
 }
 
-.project-back:hover { color: var(--rust); }
+.project-back:hover {
+  color: var(--rust);
+}
 
-.project-detail-header { margin-bottom: var(--space-2xl); }
+.project-detail-header {
+  margin-bottom: var(--space-2xl);
+}
 
 .project-detail-title {
   font-family: var(--font-sans);
@@ -1401,7 +1441,9 @@ footer {
   opacity: 0.4;
 }
 
-.project-detail-meta span:first-child::before { display: none; }
+.project-detail-meta span:first-child::before {
+  display: none;
+}
 
 .project-gallery {
   display: grid;
@@ -1429,7 +1471,9 @@ footer {
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.gallery-item:hover img { transform: scale(1.02); }
+.gallery-item:hover img {
+  transform: scale(1.02);
+}
 
 .project-detail-cta {
   padding: var(--space-3xl) 0;
@@ -1458,12 +1502,26 @@ footer {
   white-space: nowrap;
 }
 
-.cta-link:hover { opacity: 0.7; }
+.cta-link:hover {
+  opacity: 0.7;
+}
 
 @media (max-width: 768px) {
-  .project-gallery { grid-template-columns: 1fr; }
-  .gallery-item--wide { grid-column: 1; aspect-ratio: 4 / 3; }
-  .gallery-item { aspect-ratio: 4 / 3; }
-  .project-detail-cta { flex-direction: column; gap: var(--space-md); }
-  .project-detail-title { font-size: 26px; }
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+  .gallery-item--wide {
+    grid-column: 1;
+    aspect-ratio: 4 / 3;
+  }
+  .gallery-item {
+    aspect-ratio: 4 / 3;
+  }
+  .project-detail-cta {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .project-detail-title {
+    font-size: 26px;
+  }
 }
