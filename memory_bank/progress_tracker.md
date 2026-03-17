@@ -98,6 +98,29 @@
 - [x] Update memory bank files
 - [x] Push changes to git repository
 
+## New Task: Mobile Hamburger Menu Implementation (2026-03-17)
+
+- [x] Analyze current mobile navigation HTML structure
+- [x] Analyze current CSS styles for mobile navigation
+- [x] Analyze current JavaScript for mobile menu
+- [x] Update hamburger icon to 3 thin lines (1px stroke)
+- [x] Make hamburger right-aligned with 44x44px tap target
+- [x] Create slide-down menu with CSS transition (0.3s ease)
+- [x] Style menu: full width, white background, 20px padding, small lowercase text
+- [x] Add × close icon when menu is open
+- [x] Add JavaScript for menu toggle
+- [x] Test and verify implementation
+- [x] Update memory bank documentation
+
+## New Task: Desktop Navigation Fixes (2026-03-17)
+
+- [x] Fix desktop navigation link styles (normal case, font-weight 300, font-size 13px)
+- [x] Change background color to pure white #ffffff
+- [x] Make featured project images full-bleed (remove horizontal padding/margin)
+- [x] Fix: First project images not visible
+- [x] Update memory bank documentation
+- [ ] Push changes to git repository
+
 ## Git History Actions
 
 - [2026-03-16] Reverted from commit `6cd1df3` ("Complete portfolio overhaul: logo integration, real projects, experience page redesign") back to `ad2d25f` ("Complete portfolio redesign with multi-page structure")
@@ -106,14 +129,14 @@
 
 ## Current Git State
 
-- **Current commit:** Pending commit for cline-prompt.md targeted fixes
+- **Current commit:** Pending commit for desktop navigation fixes
 - **Branch:** master
 - **Uncommitted changes:**
-  - projekti/index.html (rewritten with PROJECTS array)
-  - assets/css/main.css (appended with project detail styles)
-  - index.html (updated nav links, project list, featured card links)
-  - memory_bank files (updated)
+  - assets/css/main.css (updated navigation styles, background color, featured section padding)
+  - index.html (simplified first featured project card structure)
+  - memory_bank/decisions_log.md (updated documentation)
+  - memory_bank/progress_tracker.md (updated progress tracking)
 
 ## Last Updated
 
-2026-03-17 (Targeted fixes from cline-prompt.md completed)
+2026-03-17 (Desktop navigation fixes completed)

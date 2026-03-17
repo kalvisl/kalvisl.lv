@@ -5,7 +5,7 @@
 /* CSS Custom Properties (Design Tokens) */
 :root {
   /* Color Palette */
-  --white: #f5f4f0; /* warm off-white ground */
+  --white: #ffffff; /* pure white */
   --black: #1a1a18; /* near-black, slight warmth */
   --stone: #c8c4bb; /* fog, Baltic limestone */
   --rust: #8b4b2e; /* single accent — Liepāja ironwork, copper oxide */
@@ -191,12 +191,12 @@ nav.scrolled {
 }
 
 .nav-links a {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--stone);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -207,11 +207,104 @@ nav.scrolled {
 }
 
 /* ==========================================================================
+   Mobile Hamburger Menu
+   ========================================================================== */
+
+.nav-hamburger {
+  display: none; /* Hidden on desktop */
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 110;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+  margin-left: auto; /* Push to right */
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--black);
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+}
+
+/* Transform to × when menu is open */
+.nav-hamburger.open .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+.nav-hamburger.open .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu panel */
+.nav-links.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 80px 20px 20px; /* Top padding for nav bar clearance */
+  flex-direction: column;
+  gap: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nav-links.mobile-menu.open {
+  max-height: 100vh;
+  opacity: 1;
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+
+.nav-links.mobile-menu li {
+  width: 100%;
+  border-bottom: 1px solid var(--mist);
+}
+
+.nav-links.mobile-menu li:last-child {
+  border-bottom: none;
+}
+
+.nav-links.mobile-menu a {
+  display: block;
+  padding: 20px 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--ink);
+}
+
+.nav-links.mobile-menu a:hover,
+.nav-links.mobile-menu a.active {
+  color: var(--rust);
+}
+
+/* ==========================================================================
    Featured Projects Grid (Homepage)
    ========================================================================== */
 
 .featured-section {
-  padding: var(--space-4xl) 40px var(--space-2xl);
+  padding: var(--space-4xl) 0 var(--space-2xl);
 }
 
 .featured-grid {
@@ -242,7 +335,7 @@ nav.scrolled {
 .featured-card:first-child .featured-card-inner {
   aspect-ratio: 16/9; /* Wide landscape ratio for Brīvības 97a */
   height: auto;
-  min-height: 500px;
+  min-height: 540px;
   max-height: 70vh;
 }
 
@@ -590,13 +683,64 @@ footer {
     height: 40px; /* Larger on mobile too */
   }
 
+  /* Mobile hamburger menu */
+  .nav-hamburger {
+    display: flex;
+  }
+
   .nav-links {
-    display: none; /* Hide links on mobile for now, can be added to hamburger menu later */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background: #ffffff;
+    padding: 0 20px;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    z-index: 99;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    list-style: none;
+  }
+
+  .nav-links.open {
+    max-height: 100vh;
+    opacity: 1;
+    padding: 76px 20px 20px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid var(--mist);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 20px 0;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+    color: var(--ink);
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--rust);
   }
 
   /* Featured Section */
   .featured-section {
-    padding: 100px 20px 60px;
+    padding: 100px 0 60px;
   }
 
   .featured-grid {
@@ -1068,6 +1212,7 @@ footer {
   height: 100%;
   overflow: hidden;
   background: var(--mist); /* Fallback background while loading */
+  min-height: 300px; /* Ensure minimum height */
 }
 
 .slider-image {
@@ -1083,7 +1228,7 @@ footer {
 }
 
 .slider-image.active {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .slider-next {
@@ -1168,14 +1313,8 @@ footer {
 }
 
 /* Prevent layout shift when images load */
-.featured-card-inner,
 .archive-card-inner {
   aspect-ratio: 4/3;
-}
-
-.featured-card:first-child .featured-card-inner {
-  aspect-ratio: unset;
-  min-height: 540px;
 }
 
 @media (max-width: 768px) {

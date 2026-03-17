@@ -35,6 +35,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Mobile hamburger menu toggle
+  const hamburger = document.querySelector(".nav-hamburger");
+  const mobileNavLinks = document.querySelector(".nav-links");
+  
+  if (hamburger && mobileNavLinks) {
+    hamburger.addEventListener("click", () => {
+      const isOpen = hamburger.classList.contains("open");
+      
+      // Toggle hamburger icon
+      hamburger.classList.toggle("open");
+      hamburger.setAttribute("aria-expanded", !isOpen);
+      
+      // Toggle menu visibility
+      mobileNavLinks.classList.toggle("open");
+      
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = isOpen ? "" : "hidden";
+    });
+
+    // Close menu when clicking on a link
+    mobileNavLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+        mobileNavLinks.classList.remove("open");
+        document.body.style.overflow = "";
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (mobileNavLinks.classList.contains("open") && 
+          !mobileNavLinks.contains(e.target) && 
+          !hamburger.contains(e.target)) {
+        hamburger.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+        mobileNavLinks.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+    });
+
+    // Close menu with Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileNavLinks.classList.contains("open")) {
+        hamburger.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+        mobileNavLinks.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+    });
+  }
+
   // Smooth scroll for nav links (only for same-page anchors)
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener("click", (e) => {
