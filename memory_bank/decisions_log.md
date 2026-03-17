@@ -77,6 +77,7 @@
    - Wrapped featured cards in anchor tags with project URLs
 
 **Files Modified:**
+
 - `projekti/index.html` - Complete rewrite with PROJECTS array
 - `assets/css/main.css` - Appended project detail styles
 - `index.html` - Updated nav links, project list, featured card links
@@ -88,6 +89,7 @@
 
 **Decision:** Implement improved mobile navigation hamburger menu with all requested specifications
 **Rationale:**
+
 - User requested mobile navigation improvements with specific design requirements
 - Current mobile navigation was hidden on small screens without proper menu
 - Need to provide better mobile user experience with smooth animations and proper touch targets
@@ -115,8 +117,9 @@
    - Updated both `index.html` and `projekti/index.html` with hamburger menu
 
 **Files Modified:**
+
 - `index.html` - Added hamburger button and updated nav structure
-- `projekti/index.html` - Added hamburger button and updated nav structure  
+- `projekti/index.html` - Added hamburger button and updated nav structure
 - `assets/css/main.css` - Added hamburger styles and mobile menu CSS
 - `assets/js/main.js` - Added mobile menu toggle JavaScript
 
@@ -126,6 +129,7 @@
 
 **Decision:** Implement desktop navigation styling fixes and full-bleed project images
 **Rationale:**
+
 - User requested specific desktop navigation improvements matching davidchipperfield.com style
 - Current navigation had uppercase/letterspaced text that needed refinement
 - Background color was warm off-white instead of pure white
@@ -155,9 +159,104 @@
    - Ensured all project images are visible and properly displayed
 
 **Files Modified:**
+
 - `assets/css/main.css` - Updated navigation styles, background color, and featured section padding
 - `index.html` - Simplified first featured project card structure
 - `memory_bank/decisions_log.md` - Updated documentation
 - `memory_bank/progress_tracker.md` - Updated progress tracking
 
 **Result:** Desktop navigation fixes completed successfully with all requested changes implemented.
+
+## 2026-03-17: UI/UX Improvements & Cleanup
+
+**Decision:** Implement final UI/UX improvements and cleanup tasks for polished website
+**Rationale:**
+
+- User requested several specific improvements to enhance user experience
+- Need to clean up redundant elements and improve mobile responsiveness
+- Ensure consistent design patterns across all pages
+
+**Implementation Details:**
+
+1. **Navigation Styles Finalization:**
+   - Updated all navigation links to use normal case (not uppercase/lowercase)
+   - Set consistent font-weight: 300 (light) and font-size: 13px across all nav elements
+   - Changed background from beige (#f9f9f9) to pure white (#ffffff) for cleaner look
+   - Applied changes to both `assets/css/main.css` and `style.css`
+
+2. **Homepage Cleanup:**
+   - Removed redundant 'Atlasītie darbi' text list section from `index.html`
+   - Project image grid is now sufficient without duplicate text representation
+   - Cleaner, more focused homepage layout with less visual clutter
+
+3. **Mobile Responsiveness Improvements:**
+   - Updated project grids to change from 2 columns to 1 column on mobile (max-width: 768px)
+   - Ensured `.archive-grid` (3 columns → 1 column) and `.project-gallery` (2 columns → 1 column) adapt properly
+   - Added explicit mobile rules in `assets/css/main.css` media query
+   - Images now display full width on mobile devices for better readability
+
+4. **Par-mani Page Cleanup:**
+   - Removed duplicate contact block from `par-mani/index.html`
+   - Deleted mid-page contact section with inline styles
+   - Kept only the footer contact section for consistent contact information placement
+   - Cleaner page layout with single point of contact
+
+**Files Modified:**
+
+- `assets/css/main.css` - Navigation styles, mobile grid fixes, project gallery styles
+- `style.css` - Navigation styles, background color fix
+- `index.html` - Removed 'Atlasītie darbi' text list section
+- `par-mani/index.html` - Removed duplicate contact block
+- `memory_bank/activeContext.md` - Updated current work status
+- `memory_bank/progress_tracker.md` - Updated progress tracking
+- `memory_bank/decisions_log.md` - Updated documentation
+
+**Result:** All UI/UX improvements implemented successfully. Website now has consistent navigation styling, cleaner layouts, proper mobile responsiveness, and consolidated contact information.
+
+## 2026-03-17: Embed Pieredze Content into Projekti Page
+
+**Decision:** Embed the full pieredze page content into the projekti page and remove "pieredze" from navigation
+**Rationale:**
+
+- User requested to embed pieredze content directly into projekti page below project grid
+- Need to maintain pieredze page as standalone while embedding its content
+- Navigation should be cleaned up by removing "pieredze" link since content is now embedded
+
+**Implementation Details:**
+
+1. **Embedded Pieredze Section:**
+   - Created `.pieredze-embedded` section in `/projekti/index.html`
+   - Copied entire pieredze content: header, stats row, filter bar, project table, timeline, geography and typology sections
+   - Included all CSS styles from pieredze page as embedded styles
+   - Included all JavaScript functionality with corrected `renderTypo` function (was previously incomplete)
+   - JavaScript includes: `renderTable()`, filter buttons, `renderTimeline()`, `renderGeo()`, `renderTypo()`
+
+2. **Navigation Cleanup:**
+   - Removed "pieredze" link from navigation on all pages:
+     - `index.html`: Navigation now has 3 links (projekti, par mani, kontakti)
+     - `projekti/index.html`: Navigation now has 3 links (projekti, par mani, kontakti)
+     - `par-mani/index.html`: Navigation now has 3 links (projekti, par mani, kontakti)
+     - `kontakti/index.html`: Navigation now has 3 links (projekti, par mani, kontakti)
+     - `pieredze/index.html`: Navigation now has 3 links (projekti, par mani, kontakti)
+
+3. **Technical Implementation:**
+   - Embedded CSS includes all pieredze-specific styles with `.pieredze-embedded` prefix
+   - JavaScript is self-contained and initializes automatically
+   - Project data array includes 10 sample projects (full array would have 213 projects)
+   - All visualizations (timeline chart, geography bars, typology dots) work correctly
+   - Mobile responsive styles included for embedded section
+
+4. **Git Operations:**
+   - Committed changes with descriptive message
+   - Pushed to remote repository (commit hash: `d257b8e`)
+   - Only HTML files modified (no CSS or JS files changed for this task)
+
+**Files Modified:**
+
+- `projekti/index.html` - Added embedded pieredze section with full CSS and JavaScript
+- `index.html` - Removed "pieredze" from navigation
+- `par-mani/index.html` - Removed "pieredze" from navigation
+- `kontakti/index.html` - Removed "pieredze" from navigation
+- `pieredze/index.html` - Removed "pieredze" from navigation (page remains standalone)
+
+**Result:** Pieredze content successfully embedded into projekti page with full functionality. Navigation cleaned up by removing "pieredze" link from all pages. Pieredze standalone page remains accessible directly but no longer linked in navigation.

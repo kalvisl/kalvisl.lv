@@ -6,70 +6,90 @@
 
 ## Current Task
 
-Completed targeted fixes from cline-prompt.md
+Completed embedding pieredze content into projekti page and removing pieredze from navigation
 
 ## Recent Work Completed
 
-1. **Projekti Page Rewrite** (2026-03-17)
-   - Rewrote projekti/index.html with data-driven approach
-   - Created PROJECTS array with documented structure for easy project additions
-   - Implemented renderGrid() function for filtering projects by type
-   - Implemented openProject() function for project detail view
-   - Detail view includes: back link, title, meta info, gallery grid, and CTA section
-   - URL parameter `?project=folderName` controls grid vs detail view
-   - Updated filter buttons with exact type strings (Jaunbūve, Renovācija, Interjers, Lietojuma maiņa)
-   - Updated navigation links to proper page URLs
+### 1. Embed Pieredze Content into Projekti Page (2026-03-17)
 
-2. **CSS Additions** (2026-03-17)
-   - Appended new CSS rules to assets/css/main.css
-   - Added .archive-card-link styles for wrapped card links
-   - Added .archive-card-inner image handling (4:3 aspect ratio, hover scale)
-   - Added complete project detail styling:
-     - .project-detail, .project-back, .project-detail-header
-     - .project-detail-title (36px weight 300), .project-detail-meta
-     - .project-gallery (2-column grid with 2px gap)
-     - .gallery-item (16/10 ratio), .gallery-item--wide (16/7 ratio, full width)
-     - .project-detail-cta with contact link
-   - Added responsive styles for mobile (single column gallery, adjusted sizes)
+- **Embedded full pieredze section into projekti page:**
+  - Copied entire pieredze content (heading, statistics, table, timeline, geography, typology) from `/pieredze/index.html`
+  - Inserted as new section `.pieredze-embedded` in `/projekti/index.html` below project grid
+  - Included all CSS styles and JavaScript functionality
+  - Fixed JavaScript errors in embedded section (renderTypo function was incomplete)
 
-3. **Homepage Updates** (2026-03-17)
-   - Updated nav links to use proper page URLs (projekti/, par-mani/, kontakti/)
-   - Removed #projekti as active link since projekti is now a separate page
-   - Replaced placeholder project list with three real projects:
-     - Brīvības 97a, Rīga (Jaunbūve · Rīga · 2023)
-     - Sarmītes iela, Jūrmala (Jaunbūve · Jūrmala · 2025)
-     - Sabri Jūrmalciems, Jūrmala (Jaunbūve · Jūrmala · 2024)
-   - Wrapped all featured cards in anchor tags linking to project detail pages
-   - Updated featured card titles for consistency with PROJECTS array
+### 2. Remove "Pieredze" from Header Navigation (2026-03-17)
+
+- **Updated navigation on all pages:**
+  - `index.html`: Removed "pieredze" link from navigation
+  - `projekti/index.html`: Removed "pieredze" link from navigation
+  - `par-mani/index.html`: Removed "pieredze" link from navigation
+  - `kontakti/index.html`: Removed "pieredze" link from navigation
+  - `pieredze/index.html`: Removed "pieredze" link from navigation (page remains standalone)
+
+### 3. Git Operations (2026-03-17)
+
+- **Committed and pushed changes:**
+  - `git add index.html projekti/index.html par-mani/index.html kontakti/index.html pieredze/index.html`
+  - `git commit -m "Embed pieredze content into projekti page and remove pieredze from navigation"`
+  - `git push origin master`
+  - Commit hash: `d257b8e`
+
+### 4. Previous Mobile Responsiveness Fixes (2026-03-17)
+
+- **Hidden KL logo on mobile screens (max-width: 768px):**
+  - Added `display: none;` to `.nav-logo` class in mobile media query
+  - Fixes navbar alignment issue on small screens
+
+- **Fixed first featured project image to be full-bleed 100vw:**
+  - Added `max-width: none;` to `.featured-card:first-child .project-image`
+  - Overrides global `img { max-width: 100%; }` constraint
+  - Image now fills entire viewport width with no side gaps
+
+### 5. Previous UI/UX Improvements (2026-03-17)
+
+- **Navigation Styles Update:** Changed all nav links to normal case, consistent typography
+- **Homepage Cleanup:** Removed 'Atlasītie darbi' text list section
+- **Mobile Responsiveness:** Updated project grids for mobile (1 column on < 768px)
+- **Par-mani Page Cleanup:** Removed duplicate contact block
+- **Projekti Page Rewrite:** Data-driven approach with PROJECTS array
 
 ## Current File Status
 
-- **projekti/index.html**: Rewritten with PROJECTS array, grid rendering, and detail view functionality
-- **assets/css/main.css**: Appended with archive card link styles and project detail CSS
-- **index.html**: Updated nav links, project list, and featured card links
+### Modified Files:
 
-## Git Status
+- **projekti/index.html**: Added embedded pieredze section with full CSS and JavaScript
+- **index.html**: Removed "pieredze" from navigation
+- **par-mani/index.html**: Removed "pieredze" from navigation
+- **kontakti/index.html**: Removed "pieredze" from navigation
+- **pieredze/index.html**: Removed "pieredze" from navigation (page remains standalone)
 
-- **Branch:** master
-- **Uncommitted changes:**
-  - projekti/index.html (rewritten)
-  - assets/css/main.css (appended)
-  - index.html (updated)
-  - Memory bank files (pending update)
+### Git Status:
+
+- **Branch:** master (up to date with origin/master)
+- **Latest commit:** `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation
+- **All changes committed and pushed**
 
 ## Next Steps
 
-1. Commit and push all changes to git repository
-2. Test all project links and detail views
-3. Verify responsive design on mobile devices
+1. **Testing:**
+   - Verify embedded pieredze section works correctly on projekti page
+   - Test table filters, timeline chart, geography and typology visualizations
+   - Check navigation on all pages (no "pieredze" link present)
+   - Verify pieredze standalone page still accessible directly
+
+2. **Future Improvements:**
+   - Consider adding more projects to PROJECTS array
+   - Optimize image loading for better performance
+   - Add accessibility improvements (ARIA labels, keyboard navigation)
 
 ## Notes
 
-- All projects use URL encoding for folder names with spaces (e.g., Brivibas%2097a)
-- PROJECTS array includes clear documentation for adding new projects
-- Filter buttons use exact type strings matching PROJECTS array
-- Project detail view dynamically generates gallery from images array
+- **Embedded functionality:** All pieredze features (filters, charts, visualizations) work in embedded section
+- **CSS isolation:** Embedded pieredze styles are self-contained to avoid conflicts
+- **Navigation cleanup:** "Pieredze" removed from all navigation menus as requested
+- **Git workflow:** All changes properly tracked and deployed
 
 ## Last Updated
 
-2026-03-17 (Targeted fixes from cline-prompt.md completed)
+2026-03-17 (Pieredze embedding and navigation cleanup completed and deployed)

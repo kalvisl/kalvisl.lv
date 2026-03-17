@@ -143,9 +143,9 @@ section {
 }
 
 .nav-logo {
-  font-size: 1rem;
-  font-weight: 400;
-  text-transform: lowercase;
+  font-size: 13px;
+  font-weight: 300;
+  text-transform: none;
   letter-spacing: 0.05em;
 }
 
@@ -155,8 +155,9 @@ section {
 }
 
 .nav-menu a {
-  font-size: 0.875rem;
-  text-transform: lowercase;
+  font-size: 13px;
+  font-weight: 300;
+  text-transform: none;
   letter-spacing: 0.05em;
   position: relative;
 }
@@ -274,7 +275,7 @@ section {
    ========================================================================== */
 
 .all-work {
-  background-color: #f9f9f9;
+  background-color: #ffffff;
 }
 
 .work-list {
