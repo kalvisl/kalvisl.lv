@@ -310,7 +310,7 @@ nav.scrolled {
    ========================================================================== */
 
 .featured-section {
-  padding: var(--space-4xl) 40px var(--space-3xl);
+  padding: var(--space-4xl) 30px var(--space-3xl);
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
