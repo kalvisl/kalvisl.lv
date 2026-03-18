@@ -41,6 +41,7 @@
 
 - [x] Cross-browser testing (basic)
 - [x] Mobile testing (basic)
+- [x] Live site verification (2026-03-18) - all pages and images return 200 OK
 - [ ] Performance optimization
 - [ ] Accessibility testing
 - [x] Content review (language localization completed)
@@ -142,6 +143,14 @@
 - [x] Remove "pieredze" from header navigation on all pages (index.html, projekti/index.html, par-mani/index.html, kontakti/index.html, pieredze/index.html)
 - [x] Push changes to git repository
 - [x] Update memory bank documentation
+
+## New Task: Fix Kazdangas 35 Image Issue (2026-03-18)
+
+- [x] Investigate image not loading on kalvisl.lv
+- [x] Found: `projekti/Kazdangas 35/kazdangas 35.jpg` was untracked in git
+- [x] Added missing image file to git
+- [x] Committed and pushed to GitHub
+- [x] Verified image returns HTTP 200 OK on live site
 
 ## Git History Actions
 

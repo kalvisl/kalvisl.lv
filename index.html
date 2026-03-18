@@ -4,13 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kalvis Lejasmeiers — Arhitekts</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- DNS Prefetch & Preconnect for faster resource loading -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload critical fonts for faster text rendering -->
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwA-oBTQW0.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Google Fonts with display=swap for better performance -->
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Critical inline styles for above-the-fold content -->
+    <style>
+      /* Prevent layout shift while fonts load */
+      body {
+        font-family:
+          "DM Sans",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+      }
+
+      /* Critical nav styles to prevent FOUC */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 40px;
+        background: #ffffff;
+      }
+
+      /* Prevent CLS for featured images */
+      .chip-image-wrap {
+        position: relative;
+        background: #e8e6e1;
+        min-height: 200px;
+      }
+    </style>
   </head>
   <body>
     <!-- NAVIGATION -->
@@ -49,7 +99,8 @@
               <img
                 src="projekti/Brivibas%2097a/1.png"
                 alt="Brīvības 97a projekts"
-                loading="lazy"
+                fetchpriority="high"
+                decoding="async"
               />
             </div>
             <div class="chip-meta">
@@ -65,6 +116,7 @@
                 src="projekti/Sabri%20Jurmalciems/Enscape_2024-12-12-15-54-34.png"
                 alt="Sabri Jurmalciems projekts"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="chip-meta">
@@ -83,6 +135,7 @@
                 src="projekti/Kazdangas%2035/kazdangas%2035.jpg"
                 alt="Dzīvojamās ēkas būvniecība"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="chip-meta">
@@ -178,6 +231,6 @@
       <span class="footer-copy">© Kalvis Lejasmeiers</span>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>
