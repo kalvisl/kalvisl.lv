@@ -39,69 +39,59 @@
       </ul>
     </nav>
 
-    <!-- FEATURED PROJECTS -->
+    <!-- FEATURED PROJECTS — Chipperfield-style staggered layout -->
     <section class="featured-section" id="projekti">
-      <span class="section-label reveal">Izvēlētie projekti</span>
-
-      <div class="featured-grid reveal">
-        <!-- Primary featured project -->
-        <a href="projekti/?project=Brivibas%2097a" class="featured-card">
-          <div class="featured-card-inner">
-            <img
-              src="projekti/Brivibas%2097a/1.png"
-              alt="Brīvības 97a projekts"
-              class="project-image"
-              loading="lazy"
-            />
-          </div>
-          <div class="featured-card-meta">
-            <div class="featured-card-title">Brīvības 97a, Rīga</div>
-            <div class="featured-card-tags">
-              <span>Jaunbūve</span>
-              <span>Rīga</span>
-              <span>2023</span>
+      <div class="chipperfield-grid reveal">
+        <!-- Left column -->
+        <div class="chip-col chip-col-left">
+          <a href="projekti/?project=Brivibas%2097a" class="chip-project">
+            <div class="chip-image-wrap">
+              <img
+                src="projekti/Brivibas%2097a/1.png"
+                alt="Brīvības 97a projekts"
+                loading="lazy"
+              />
             </div>
-          </div>
-        </a>
-
-        <!-- Secondary projects -->
-        <a href="projekti/?project=Kazdangas%2035" class="featured-card">
-          <div class="featured-card-inner">
-            <img
-              src="projekti/Kazdangas%2035/kazdangas%2035.jpg"
-              alt="Dzīvojamās ēkas būvniecība"
-              class="project-image"
-              loading="lazy"
-            />
-          </div>
-          <div class="featured-card-meta">
-            <div class="featured-card-title">Dzīvojamās ēkas būvniecība</div>
-            <div class="featured-card-tags">
-              <span>Jaunbūve</span>
-              <span>Kazdangas iela, Liepāja</span>
-              <span>2024</span>
+            <div class="chip-meta">
+              <span class="chip-label">Projekts</span>
+              <span class="chip-title">Brīvības 97a, Rīga</span>
+              <span class="chip-date">2023</span>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <a href="projekti/?project=Sabri%20Jurmalciems" class="featured-card">
-          <div class="featured-card-inner">
-            <img
-              src="projekti/Sabri Jurmalciems/Enscape_2024-12-12-15-54-34.png"
-              alt="Sabri Jurmalciems projekts"
-              class="project-image"
-              loading="lazy"
-            />
-          </div>
-          <div class="featured-card-meta">
-            <div class="featured-card-title">Sabri Jūrmalciems</div>
-            <div class="featured-card-tags">
-              <span>Jaunbūve</span>
-              <span>Jūrmala</span>
-              <span>2024</span>
+          <a href="projekti/?project=Sabri%20Jurmalciems" class="chip-project">
+            <div class="chip-image-wrap">
+              <img
+                src="projekti/Sabri Jurmalciems/Enscape_2024-12-12-15-54-34.png"
+                alt="Sabri Jurmalciems projekts"
+                loading="lazy"
+              />
             </div>
-          </div>
-        </a>
+            <div class="chip-meta">
+              <span class="chip-label">Projekts</span>
+              <span class="chip-title">Sabri Jūrmalciems</span>
+              <span class="chip-date">2024</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Right column — offset down -->
+        <div class="chip-col chip-col-right">
+          <a href="projekti/?project=Kazdangas%2035" class="chip-project">
+            <div class="chip-image-wrap">
+              <img
+                src="projekti/Kazdangas%2035/kazdangas%2035.jpg"
+                alt="Dzīvojamās ēkas būvniecība"
+                loading="lazy"
+              />
+            </div>
+            <div class="chip-meta">
+              <span class="chip-label">Projekts</span>
+              <span class="chip-title">Kazdangas 35, Liepāja</span>
+              <span class="chip-date">2024</span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
