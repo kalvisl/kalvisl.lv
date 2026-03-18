@@ -2,15 +2,25 @@
 
 ## Current Date
 
-2026-03-17
+2026-03-18
 
 ## Current Task
 
-Completed embedding pieredze content into projekti page and removing pieredze from navigation
+Live site verification testing - completed successfully
 
 ## Recent Work Completed
 
-### 1. Embed Pieredze Content into Projekti Page (2026-03-17)
+### 1. Fix Kazdangas 35 Image Issue (2026-03-18)
+
+- **Problem:** Second featured project "Kazdangas 35" image was not loading on kalvisl.lv
+- **Root cause:** The file `projekti/Kazdangas 35/kazdangas 35.jpg` existed locally but was not tracked in git (untracked file)
+- **Solution:**
+  - Added `projekti/Kazdangas 35/kazdangas 35.jpg` to git
+  - Committed and pushed the file to GitHub
+  - Verified image returns HTTP 200 OK on live site
+- **Commit:** `96aacb5` - Add missing kazdangas 35.jpg image and restore original path
+
+### 2. Embed Pieredze Content into Projekti Page (2026-03-17)
 
 - **Embedded full pieredze section into projekti page:**
   - Copied entire pieredze content (heading, statistics, table, timeline, geography, typology) from `/pieredze/index.html`
@@ -18,7 +28,7 @@ Completed embedding pieredze content into projekti page and removing pieredze fr
   - Included all CSS styles and JavaScript functionality
   - Fixed JavaScript errors in embedded section (renderTypo function was incomplete)
 
-### 2. Remove "Pieredze" from Header Navigation (2026-03-17)
+### 3. Remove "Pieredze" from Header Navigation (2026-03-17)
 
 - **Updated navigation on all pages:**
   - `index.html`: Removed "pieredze" link from navigation
@@ -26,14 +36,6 @@ Completed embedding pieredze content into projekti page and removing pieredze fr
   - `par-mani/index.html`: Removed "pieredze" link from navigation
   - `kontakti/index.html`: Removed "pieredze" link from navigation
   - `pieredze/index.html`: Removed "pieredze" link from navigation (page remains standalone)
-
-### 3. Git Operations (2026-03-17)
-
-- **Committed and pushed changes:**
-  - `git add index.html projekti/index.html par-mani/index.html kontakti/index.html pieredze/index.html`
-  - `git commit -m "Embed pieredze content into projekti page and remove pieredze from navigation"`
-  - `git push origin master`
-  - Commit hash: `d257b8e`
 
 ### 4. Previous Mobile Responsiveness Fixes (2026-03-17)
 
@@ -58,25 +60,22 @@ Completed embedding pieredze content into projekti page and removing pieredze fr
 
 ### Modified Files:
 
+- **projekti/Kazdangas 35/kazdangas 35.jpg**: Added to git (was untracked)
 - **projekti/index.html**: Added embedded pieredze section with full CSS and JavaScript
-- **index.html**: Removed "pieredze" from navigation
-- **par-mani/index.html**: Removed "pieredze" from navigation
-- **kontakti/index.html**: Removed "pieredze" from navigation
-- **pieredze/index.html**: Removed "pieredze" from navigation (page remains standalone)
+- **index.html**: Homepage with correct image paths
 
 ### Git Status:
 
 - **Branch:** master (up to date with origin/master)
-- **Latest commit:** `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation
+- **Latest commit:** `96aacb5` - Add missing kazdangas 35.jpg image and restore original path
 - **All changes committed and pushed**
 
 ## Next Steps
 
 1. **Testing:**
-   - Verify embedded pieredze section works correctly on projekti page
+   - Verify all featured project images load correctly on live site
    - Test table filters, timeline chart, geography and typology visualizations
-   - Check navigation on all pages (no "pieredze" link present)
-   - Verify pieredze standalone page still accessible directly
+   - Check navigation on all pages
 
 2. **Future Improvements:**
    - Consider adding more projects to PROJECTS array
@@ -85,11 +84,10 @@ Completed embedding pieredze content into projekti page and removing pieredze fr
 
 ## Notes
 
-- **Embedded functionality:** All pieredze features (filters, charts, visualizations) work in embedded section
-- **CSS isolation:** Embedded pieredze styles are self-contained to avoid conflicts
-- **Navigation cleanup:** "Pieredze" removed from all navigation menus as requested
+- **Image issue fixed:** The Kazdangas 35 image was locally present but not tracked in git
+- **Embedded functionality:** All pieredze features work in embedded section
 - **Git workflow:** All changes properly tracked and deployed
 
 ## Last Updated
 
-2026-03-17 (Pieredze embedding and navigation cleanup completed and deployed)
+2026-03-18 (Fixed Kazdangas 35 image loading issue)
