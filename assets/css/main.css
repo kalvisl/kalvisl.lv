@@ -349,7 +349,7 @@ nav.scrolled {
   display: flex;
   flex-direction: column;
   gap: 100px;
-  margin-top: 200px; /* Vertical offset — key Chipperfield element */
+  margin-top: 400px; /* Vertical offset — key Chipperfield element */
 }
 
 /* Individual project link */
