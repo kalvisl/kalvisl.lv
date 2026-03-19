@@ -152,6 +152,33 @@
 - [x] Committed and pushed to GitHub
 - [x] Verified image returns HTTP 200 OK on live site
 
+## New Task: Featured Projects Section Redesign - David Chipperfield Layout (2026-03-18)
+
+- [x] Redesign featured projects section on homepage to match David Chipperfield website layout
+- [x] Replace 3-column grid with staggered two-column layout (55%/40% widths)
+- [x] Implement vertical offset: right column starts ~200px lower than left column
+- [x] Add Chipperfield-style metadata: small "Projekts" label, larger project title, date below
+- [x] Remove all borders, backgrounds, and shadows for clean minimal design
+- [x] Add generous whitespace (100px between projects, 5% gap between columns)
+- [x] Implement responsive mobile layout (single column, no offset)
+- [x] Push changes to git repository
+
+## New Task: Image Path Fix and Horizontal Padding Adjustment (2026-03-18)
+
+- [x] Fix broken image path for Kazdangas 35 project (remove URL encoding)
+- [x] Reduce horizontal padding in featured section from 40px to 30px
+- [x] Achieve target of images starting approximately 40-60px from left edge of viewport
+- [x] Match David Chipperfield website spacing aesthetic
+- [x] Push changes to git repository
+
+## New Task: Homepage Navigation Inconsistencies Fix (2026-03-19)
+
+- [x] Fix broken pieredze link on homepage (was pointing to `/pieredze/`)
+- [x] Update "Pilns pieredzes pārskats" link to `href="projekti/#pieredze-embedded"`
+- [x] Add `id="pieredze-embedded"` to embedded pieredze section in projekti page
+- [x] Test and verify link functionality
+- [x] Update memory bank documentation
+
 ## Git History Actions
 
 - [2026-03-16] Reverted from commit `6cd1df3` ("Complete portfolio overhaul: logo integration, real projects, experience page redesign") back to `ad2d25f` ("Complete portfolio redesign with multi-page structure")
@@ -160,15 +187,20 @@
 
 ## Current Git State
 
-- **Current commit:** `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation
+- **Current commit:** `8933bd5` - Latest pull from remote (2026-03-19)
+- **Previous commits:**
+  - `96aacb5` - Add missing kazdangas 35.jpg image and restore original path (2026-03-18)
+  - `627044f` - Reduce horizontal padding in featured section from 40px to 30px (2026-03-18)
+  - `11633ac` - Featured projects section redesign - David Chipperfield layout (2026-03-18)
+  - `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation (2026-03-17)
 - **Branch:** master (up to date with origin/master)
 - **Latest changes:**
-  - projekti/index.html: Added embedded pieredze section with full CSS and JavaScript
-  - index.html: Removed "pieredze" from navigation
-  - par-mani/index.html: Removed "pieredze" from navigation
-  - kontakti/index.html: Removed "pieredze" from navigation
-  - pieredze/index.html: Removed "pieredze" from navigation (page remains standalone)
+  - index.html: Fixed homepage navigation inconsistencies (updated pieredze link to projekti/#pieredze-embedded)
+  - projekti/index.html: Added `id="pieredze-embedded"` to embedded pieredze section
+  - index.html: Featured projects section with David Chipperfield layout (staggered two-column design)
+  - assets/css/main.css: Chipperfield grid styles and reduced horizontal padding
+  - projekti/Kazdangas 35/kazdangas 35.jpg: Added missing image file to git
 
 ## Last Updated
 
-2026-03-17 (Pieredze embedding and navigation cleanup completed)
+2026-03-19 (Homepage navigation inconsistencies fix completed)

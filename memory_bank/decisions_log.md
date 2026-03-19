@@ -349,3 +349,34 @@
 - `assets/css/main.css` - Reduced featured section horizontal padding from 40px to 30px
 
 **Result:** All project images now load correctly with proper file paths. Featured section has reduced horizontal padding, bringing images closer to viewport edges while maintaining clean layout. Implementation matches David Chipperfield website spacing aesthetic.
+
+## 2026-03-19: Homepage Navigation Inconsistencies Fix
+
+**Decision:** Fix broken pieredze link on homepage to point to embedded pieredze section in projekti page
+**Rationale:**
+
+- After embedding pieredze content into projekti page and removing "pieredze" from navigation, the homepage still had a link pointing to `/pieredze/`
+- This created a broken user experience with a dead link
+- Need to maintain consistent navigation flow where pieredze content is accessible through the projekti page
+
+**Implementation Details:**
+
+1. **Homepage Link Update:**
+   - Changed "Pilns pieredzes pārskats" link in `index.html` from `href="pieredze/"` to `href="projekti/#pieredze-embedded"`
+   - Users can now click the link to be smoothly scrolled to the embedded pieredze section
+
+2. **Anchor ID Addition:**
+   - Added `id="pieredze-embedded"` to the embedded pieredze section in `projekti/index.html`
+   - Enables proper anchor linking and smooth scrolling functionality
+
+3. **Testing and Verification:**
+   - Started local development server to test the link functionality
+   - Verified that clicking the link correctly navigates to the embedded pieredze section
+   - Confirmed all other navigation links continue to work properly
+
+**Files Modified:**
+
+- `index.html` - Updated pieredze link to point to embedded section
+- `projekti/index.html` - Added anchor ID to pieredze-embedded section
+
+**Result:** Homepage navigation is now fully consistent. The "Pilns pieredzes pārskats" link correctly navigates users to the embedded pieredze section within the projekti page, maintaining a seamless user experience without broken links.
