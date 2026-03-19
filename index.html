@@ -63,8 +63,11 @@
     </style>
   </head>
   <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Pāriet uz galveno saturu</a>
+    
     <!-- NAVIGATION -->
-    <nav id="main-nav">
+    <nav id="main-nav" aria-label="Galvenā navigācija">
       <div class="nav-left">
         <a href="/" class="nav-name">kalvis lejasmeiers</a>
         <div class="nav-logo">
@@ -76,21 +79,25 @@
         class="nav-hamburger"
         aria-label="Atvērt izvēlni"
         aria-expanded="false"
+        aria-controls="main-menu"
       >
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
 
-      <ul class="nav-links">
-        <li><a href="projekti/">projekti</a></li>
-        <li><a href="par-mani/">par mani</a></li>
-        <li><a href="kontakti/">kontakti</a></li>
+      <ul class="nav-links" id="main-menu" role="menu">
+        <li role="none"><a href="projekti/" role="menuitem">projekti</a></li>
+        <li role="none"><a href="par-mani/" role="menuitem">par mani</a></li>
+        <li role="none"><a href="kontakti/" role="menuitem">kontakti</a></li>
       </ul>
     </nav>
 
-    <!-- FEATURED PROJECTS — Chipperfield-style staggered layout -->
-    <section class="featured-section" id="projekti">
+    <main id="main-content">
+      <h1 class="visually-hidden">Kalvis Lejasmeiers — Arhitekts</h1>
+      
+      <!-- FEATURED PROJECTS — Chipperfield-style staggered layout -->
+      <section class="featured-section" id="projekti">
       <div class="chipperfield-grid reveal">
         <!-- Left column -->
         <div class="chip-col chip-col-left">
@@ -217,7 +224,8 @@
           <span class="stat-label">Būvniecības veids</span>
         </div>
       </div>
-    </section>
+      </section>
+    </main>
 
     <!-- FOOTER / CONTACT -->
     <footer id="kontakti">
