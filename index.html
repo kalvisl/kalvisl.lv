@@ -101,7 +101,13 @@
       <div class="chipperfield-grid reveal">
         <!-- Left column -->
         <div class="chip-col chip-col-left">
-          <a href="projekti/?project=Brivibas%2097a" class="chip-project">
+          <div class="chip-project" 
+               data-lightbox="true"
+               data-project-name="Brīvības iela 97a"
+               data-project-type="Projekts"
+               data-project-location="Liepāja"
+               data-project-year="2025"
+               data-images='["projekti/Brivibas%2097a/1.png","projekti/Brivibas%2097a/2.png"]'>
             <div class="chip-image-wrap">
               <img
                 src="projekti/Brivibas%2097a/1.png"
@@ -115,9 +121,15 @@
               <span class="chip-title">Brīvības iela, Liepāja</span>
               <span class="chip-date">2025</span>
             </div>
-          </a>
+          </div>
 
-          <a href="projekti/?project=Sabri%20Jurmalciems" class="chip-project">
+          <div class="chip-project"
+               data-lightbox="true"
+               data-project-name="Sabri"
+               data-project-type="Projekts"
+               data-project-location="Jūrmalciems"
+               data-project-year="2024"
+               data-images='["projekti/Sabri%20Jurmalciems/sabri.jpg"]'>
             <div class="chip-image-wrap">
               <img
                 src="projekti/Sabri%20Jurmalciems/sabri.jpg"
@@ -131,12 +143,18 @@
               <span class="chip-title">Jūrmalciems</span>
               <span class="chip-date">2024</span>
             </div>
-          </a>
+          </div>
         </div>
 
         <!-- Right column — offset down -->
         <div class="chip-col chip-col-right">
-          <a href="projekti/?project=Kazdangas%2035" class="chip-project">
+          <div class="chip-project"
+               data-lightbox="true"
+               data-project-name="Kazdangas iela 35"
+               data-project-type="Projekts"
+               data-project-location="Liepāja"
+               data-project-year="2024"
+               data-images='["projekti/Kazdangas%2035/kazdangas%2035.jpg"]'>
             <div class="chip-image-wrap">
               <img
                 src="projekti/Kazdangas%2035/kazdangas%2035.jpg"
@@ -150,10 +168,33 @@
               <span class="chip-title">Kazdangas iela, Liepāja</span>
               <span class="chip-date">2024</span>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Lightbox Overlay -->
+    <div class="lightbox-overlay" id="projectLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Projekta attēlu galerija">
+      <button class="lightbox-close" aria-label="Aizvērt galeriju">Aizvērt</button>
+      <div class="lightbox-container">
+        <button class="lightbox-arrow lightbox-prev" aria-label="Iepriekšējais attēls">&#8249;</button>
+        <div class="lightbox-content">
+          <div class="lightbox-image-wrapper">
+            <img class="lightbox-image" src="" alt="Projekta attēls" />
+          </div>
+          <div class="lightbox-info">
+            <h3 class="lightbox-title"></h3>
+            <div class="lightbox-meta">
+              <span class="lightbox-type"></span>
+              <span class="lightbox-location"></span>
+              <span class="lightbox-year"></span>
+            </div>
+            <div class="lightbox-counter"></div>
+          </div>
+        </div>
+        <button class="lightbox-arrow lightbox-next" aria-label="Nākamais attēls">&#8250;</button>
+      </div>
+    </div>
 
     <!-- PIEREDZE SUMMARY -->
     <section class="pieredze-summary">
@@ -242,4 +283,3 @@
     <script src="assets/js/main.js" defer></script>
   </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
