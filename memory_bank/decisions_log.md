@@ -260,3 +260,92 @@
 - `pieredze/index.html` - Removed "pieredze" from navigation (page remains standalone)
 
 **Result:** Pieredze content successfully embedded into projekti page with full functionality. Navigation cleaned up by removing "pieredze" link from all pages. Pieredze standalone page remains accessible directly but no longer linked in navigation.
+
+## 2026-03-18: Featured Projects Section Redesign - David Chipperfield Layout
+
+**Decision:** Redesign featured projects section on homepage to match David Chipperfield website layout
+**Rationale:**
+
+- User requested exact David Chipperfield homepage layout for featured projects
+- Current 3-column grid needed to be replaced with staggered two-column layout
+- Need to match specific design details: unequal columns, vertical offset, clean minimal styling
+
+**Implementation Details:**
+
+1. **HTML Structure Redesign:**
+   - Replaced `.featured-grid` (3-column grid) with `.chipperfield-grid` (two unequal columns)
+   - Created `.chip-col-left` (55% width) and `.chip-col-right` (40% width) columns
+   - Added `.chip-project` links with `.chip-image-wrap` and `.chip-meta` structure
+   - Implemented staggered pattern: first project in left column, second in right column (offset down), third back in left column
+
+2. **CSS Styling Updates:**
+   - Added Chipperfield-style CSS with precise column widths and vertical offset
+   - Right column has `margin-top: 200px` for vertical stagger effect
+   - Removed all borders, backgrounds, and shadows for clean minimal design
+   - Added generous whitespace: 100px gap between projects, 5% gap between columns
+   - Implemented Chipperfield-style metadata: small "Projekts" label, larger project title, date below
+   - Added subtle opacity reduction on image hover (0.85 opacity)
+
+3. **Mobile Responsive Design:**
+   - On mobile (max-width: 768px): switches to single column layout
+   - Removes vertical offset (`margin-top: 60px` instead of 200px)
+   - Reduces gap between projects to 60px for mobile screens
+   - Adjusts font sizes for better mobile readability
+
+4. **Technical Implementation:**
+   - Maintained existing design system variables (colors, typography, spacing)
+   - Used flexbox for column layout instead of CSS grid
+   - Images use `width: 100%; height: auto` for natural aspect ratio
+   - Added `.chip-label`, `.chip-title`, `.chip-date` classes for metadata styling
+
+5. **Git Operations:**
+   - Committed changes with descriptive message (commit hash: `11633ac`)
+   - Pushed to remote repository successfully
+   - Modified files: `index.html` and `assets/css/main.css`
+
+**Files Modified:**
+
+- `index.html` - Complete rewrite of featured projects section with Chipperfield layout
+- `assets/css/main.css` - Added Chipperfield grid styles and removed old featured grid styles
+
+**Result:** Featured projects section successfully redesigned with David Chipperfield-style staggered two-column layout. Implementation includes all requested features: unequal columns (55%/40%), vertical offset, clean minimal design, Chipperfield-style metadata, generous whitespace, and responsive mobile layout.
+
+## 2026-03-18: Image Path Fix and Horizontal Padding Adjustment
+
+**Decision:** Fix broken image path for Kazdangas 35 project and reduce horizontal padding in featured section
+**Rationale:**
+
+- Second project image ('Kazdangas 35, Liepāja') was not loading due to URL encoding issues
+- Horizontal padding was too large (40px), creating excessive empty space on both sides
+- Need to match David Chipperfield website where images start closer to viewport edge (40-60px)
+
+**Implementation Details:**
+
+1. **Image Path Fix:**
+   - Fixed Kazdangas 35 image path: removed URL encoding (`%20` for spaces)
+   - Changed from `src="projekti/Kazdangas%2035/kazdangas%2035.jpg"` to `src="projekti/Kazdangas 35/kazdangas 35.jpg"`
+   - Used plain spaces in file path instead of URL-encoded spaces
+   - All project images now use consistent path formatting
+
+2. **Horizontal Padding Reduction:**
+   - Reduced featured section horizontal padding from 40px to 30px
+   - Updated `.featured-section` CSS: `padding: var(--space-4xl) 30px var(--space-3xl);`
+   - Achieved target of images starting approximately 40-60px from left edge of viewport
+   - Maintains clean alignment with David Chipperfield website aesthetic
+
+3. **Technical Implementation:**
+   - Simple CSS change: reduced padding value from 40px to 30px
+   - HTML change: fixed image path syntax
+   - Both changes maintain existing design system and responsive behavior
+
+4. **Git Operations:**
+   - Committed changes with descriptive message (commit hash: `627044f`)
+   - Pushed to remote repository successfully
+   - Modified files: `index.html` and `assets/css/main.css`
+
+**Files Modified:**
+
+- `index.html` - Fixed Kazdangas 35 image path (removed URL encoding)
+- `assets/css/main.css` - Reduced featured section horizontal padding from 40px to 30px
+
+**Result:** All project images now load correctly with proper file paths. Featured section has reduced horizontal padding, bringing images closer to viewport edges while maintaining clean layout. Implementation matches David Chipperfield website spacing aesthetic.
