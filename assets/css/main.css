@@ -199,11 +199,18 @@ nav.scrolled {
   color: var(--ink);
   text-decoration: none;
   transition: color 0.2s;
+  padding: 4px 8px;
+  border-radius: 2px;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--black);
+}
+
+.nav-links a:focus {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
 }
 
 /* ==========================================================================
@@ -225,6 +232,12 @@ nav.scrolled {
   align-items: flex-end;
   gap: 6px;
   margin-left: auto; /* Push to right */
+  border-radius: 2px;
+}
+
+.nav-hamburger:focus {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
 }
 
 .hamburger-line {
@@ -906,7 +919,8 @@ footer {
 
 .form-group-simple input:focus,
 .form-group-simple textarea:focus {
-  outline: none;
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
   border-bottom-color: var(--rust);
 }
 
@@ -1099,6 +1113,29 @@ footer {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--black);
+  color: var(--white);
+  padding: 8px 16px;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 1000;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
 }
 
 .text-center {

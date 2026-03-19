@@ -42,7 +42,7 @@
 - [x] Cross-browser testing (basic)
 - [x] Mobile testing (basic)
 - [x] Live site verification (2026-03-18) - all pages and images return 200 OK
-- [ ] Performance optimization
+- [x] Performance optimization (completed in commit 22c146d - 2026-03-19)
 - [ ] Accessibility testing
 - [x] Content review (language localization completed)
 
@@ -187,8 +187,11 @@
 
 ## Current Git State
 
-- **Current commit:** `8933bd5` - Latest pull from remote (2026-03-19)
+- **Current commit:** `feae87d` - Fix homepage navigation inconsistencies and update memory bank (2026-03-19)
 - **Previous commits:**
+  - `90ab3cd` - Resolve merge conflicts in memory bank files after git pull (2026-03-19)
+  - `8933bd5` - Update Sabri Jurmalciems project image to sabri.jpg (2026-03-19)
+  - `22c146d` - Performance optimization: DNS prefetch, preconnect, critical CSS, defer scripts (2026-03-19)
   - `96aacb5` - Add missing kazdangas 35.jpg image and restore original path (2026-03-18)
   - `627044f` - Reduce horizontal padding in featured section from 40px to 30px (2026-03-18)
   - `11633ac` - Featured projects section redesign - David Chipperfield layout (2026-03-18)
@@ -197,10 +200,10 @@
 - **Latest changes:**
   - index.html: Fixed homepage navigation inconsistencies (updated pieredze link to projekti/#pieredze-embedded)
   - projekti/index.html: Added `id="pieredze-embedded"` to embedded pieredze section
-  - index.html: Featured projects section with David Chipperfield layout (staggered two-column design)
-  - assets/css/main.css: Chipperfield grid styles and reduced horizontal padding
-  - projekti/Kazdangas 35/kazdangas 35.jpg: Added missing image file to git
+  - memory_bank/activeContext.md: Updated with latest work status
+  - memory_bank/decisions_log.md: Updated with recent decisions
+  - memory_bank/progress_tracker.md: Updated with current progress
 
 ## Last Updated
 
-2026-03-19 (Homepage navigation inconsistencies fix completed)
+2026-03-19 (Homepage navigation inconsistencies fix completed, memory bank updated)
