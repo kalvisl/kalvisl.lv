@@ -209,4 +209,232 @@ document.addEventListener("DOMContentLoaded", () => {
       setInterval(nextImage, 5000);
     }
   });
+
+  // ==========================================================================
+  // Project Lightbox Gallery
+  // ==========================================================================
+
+  const lightbox = document.getElementById("projectLightbox");
+  const lightboxProjects = document.querySelectorAll('[data-lightbox="true"]');
+
+  if (lightbox && lightboxProjects.length > 0) {
+    // Lightbox elements
+    const lightboxImage = lightbox.querySelector(".lightbox-image");
+    const lightboxTitle = lightbox.querySelector(".lightbox-title");
+    const lightboxType = lightbox.querySelector(".lightbox-type");
+    const lightboxLocation = lightbox.querySelector(".lightbox-location");
+    const lightboxYear = lightbox.querySelector(".lightbox-year");
+    const lightboxCounter = lightbox.querySelector(".lightbox-counter");
+    const lightboxClose = lightbox.querySelector(".lightbox-close");
+    const lightboxPrev = lightbox.querySelector(".lightbox-prev");
+    const lightboxNext = lightbox.querySelector(".lightbox-next");
+
+    // Lightbox state
+    let currentImages = [];
+    let currentImageIndex = 0;
+
+    // Open lightbox
+    function openLightbox(projectElement) {
+      // Get project data from data attributes
+      const projectName = projectElement.dataset.projectName || "";
+      const projectType = projectElement.dataset.projectType || "";
+      const projectLocation = projectElement.dataset.projectLocation || "";
+      const projectYear = projectElement.dataset.projectYear || "";
+
+      // Parse images JSON
+      try {
+        currentImages = JSON.parse(projectElement.dataset.images || "[]");
+      } catch (e) {
+        console.error("Error parsing images:", e);
+        currentImages = [];
+      }
+
+      if (currentImages.length === 0) {
+        // Fallback to the visible image if no data-images
+        const visibleImg = projectElement.querySelector("img");
+        if (visibleImg) {
+          currentImages = [visibleImg.src];
+        }
+      }
+
+      if (currentImages.length === 0) return;
+
+      // Reset to first image
+      currentImageIndex = 0;
+
+      // Set project info
+      lightboxTitle.textContent = projectName;
+      lightboxType.textContent = projectType;
+      lightboxLocation.textContent = projectLocation;
+      lightboxYear.textContent = projectYear;
+
+      // Update image and counter
+      updateLightboxImage();
+
+      // Toggle single-image class for arrow visibility
+      lightbox.classList.toggle("single-image", currentImages.length <= 1);
+
+      // Show lightbox
+      lightbox.classList.add("active");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      // Focus close button for accessibility
+      lightboxClose.focus();
+    }
+
+    // Close lightbox
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lightboxImage.classList.remove("loaded");
+    }
+
+    // Update lightbox image
+    function updateLightboxImage() {
+      if (currentImages.length === 0) return;
+
+      // Remove loaded class for fade effect
+      lightboxImage.classList.remove("loaded");
+
+      // Decode URL-encoded path for display
+      const imageSrc = currentImages[currentImageIndex];
+      
+      // Create new image to preload
+      const preloadImg = new Image();
+      preloadImg.onload = function() {
+        lightboxImage.src = imageSrc;
+        lightboxImage.alt = `${lightboxTitle.textContent} - Attēls ${currentImageIndex + 1}`;
+        
+        // Add loaded class after brief delay for smooth fade
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            lightboxImage.classList.add("loaded");
+          });
+        });
+      };
+      preloadImg.onerror = function() {
+        // Try to load anyway even if preload fails
+        lightboxImage.src = imageSrc;
+        lightboxImage.classList.add("loaded");
+      };
+      preloadImg.src = imageSrc;
+
+      // Update counter
+      if (currentImages.length > 1) {
+        lightboxCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+      } else {
+        lightboxCounter.textContent = "";
+      }
+
+      // Update arrow states
+      updateArrowStates();
+    }
+
+    // Update arrow button states
+    function updateArrowStates() {
+      // For circular navigation, arrows are always enabled if multiple images
+      const hasMultiple = currentImages.length > 1;
+      lightboxPrev.disabled = !hasMultiple;
+      lightboxNext.disabled = !hasMultiple;
+    }
+
+    // Navigate to previous image
+    function prevImage() {
+      if (currentImages.length <= 1) return;
+      currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+      updateLightboxImage();
+    }
+
+    // Navigate to next image
+    function nextImage() {
+      if (currentImages.length <= 1) return;
+      currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+      updateLightboxImage();
+    }
+
+    // Event listeners for project cards
+    lightboxProjects.forEach((project) => {
+      project.addEventListener("click", (e) => {
+        e.preventDefault();
+        openLightbox(project);
+      });
+
+      // Keyboard accessibility
+      project.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openLightbox(project);
+        }
+      });
+
+      // Make focusable if not already
+      if (!project.hasAttribute("tabindex")) {
+        project.setAttribute("tabindex", "0");
+        project.setAttribute("role", "button");
+        project.setAttribute("aria-label", `Atvērt ${project.dataset.projectName || "projekta"} galeriju`);
+      }
+    });
+
+    // Close button click
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    // Arrow clicks
+    lightboxPrev.addEventListener("click", prevImage);
+    lightboxNext.addEventListener("click", nextImage);
+
+    // Click outside to close (on overlay background)
+    lightbox.addEventListener("click", (e) => {
+      // Close only if clicking directly on overlay or container, not on content
+      if (e.target === lightbox || e.target.classList.contains("lightbox-container")) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("active")) return;
+
+      switch (e.key) {
+        case "Escape":
+          closeLightbox();
+          break;
+        case "ArrowLeft":
+          e.preventDefault();
+          prevImage();
+          break;
+        case "ArrowRight":
+          e.preventDefault();
+          nextImage();
+          break;
+      }
+    });
+
+    // Prevent scroll on touch devices when lightbox is open
+    lightbox.addEventListener("touchmove", (e) => {
+      if (lightbox.classList.contains("active")) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    // Preload adjacent images for smoother navigation
+    function preloadAdjacentImages() {
+      if (currentImages.length <= 1) return;
+
+      const prevIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+      const nextIndex = (currentImageIndex + 1) % currentImages.length;
+
+      // Preload previous
+      const prevImg = new Image();
+      prevImg.src = currentImages[prevIndex];
+
+      // Preload next
+      const nextImg = new Image();
+      nextImg.src = currentImages[nextIndex];
+    }
+
+    // Call preload after image loads
+    lightboxImage.addEventListener("load", preloadAdjacentImages);
+  }
 });
