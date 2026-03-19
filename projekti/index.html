@@ -41,7 +41,7 @@
 
     <main class="projects-archive">
       <div class="archive-header">
-        <span class="section-label">Visi projekti</span>
+        <span class="section-label">projekti</span>
 
         <!-- Filter tabs -->
         <div class="filter-tabs">
@@ -51,14 +51,11 @@
             Renovācija
           </button>
           <button class="filter-btn" data-filter="Interjers">Interjers</button>
-          <button class="filter-btn" data-filter="Lietojuma maiņa">
-            Lietojuma maiņa
-          </button>
         </div>
       </div>
 
       <!-- Project grid - rendered by JavaScript -->
-      <div class="archive-grid" id="archive-grid"></div>
+      <div class="portfolio-grid" id="portfolio-grid"></div>
     </main>
 
     <!-- PIEREDZE SECTION (Embedded from pieredze page) -->
@@ -136,6 +133,136 @@
 
     <script src="../assets/js/main.js"></script>
     <style>
+      /* Portfolio Grid Styles */
+      .archive-header {
+        margin-bottom: var(--space-2xl);
+        text-align: center;
+      }
+
+      .archive-title {
+        font-family: var(--font-sans);
+        font-size: 48px;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        color: var(--black);
+        line-height: 1.1;
+        margin-bottom: var(--space-sm);
+      }
+
+      .archive-subtitle {
+        font-size: 15px;
+        color: var(--stone);
+        line-height: 1.6;
+        margin-bottom: var(--space-xl);
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .portfolio-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+      }
+
+      .portfolio-card-image {
+        position: relative;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: var(--mist);
+        margin-bottom: var(--space-md);
+      }
+
+      .portfolio-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:
+          transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          opacity 0.4s ease;
+      }
+
+      .portfolio-card:hover .portfolio-card-image img {
+        transform: scale(1.03);
+        opacity: 0.9;
+      }
+
+      .portfolio-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .portfolio-card-label {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--rust);
+      }
+
+      .portfolio-card-title {
+        font-family: var(--font-sans);
+        font-size: 22px;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        color: var(--black);
+      }
+
+      .portfolio-card-description {
+        font-family: var(--font-sans);
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.6;
+        color: var(--ink);
+        max-width: 400px;
+      }
+
+      .portfolio-card-meta {
+        display: flex;
+        gap: 16px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        letter-spacing: 0.06em;
+        margin-top: 4px;
+      }
+
+      .portfolio-card-meta span:not(:last-child)::after {
+        content: "·";
+        margin-left: 16px;
+        opacity: 0.5;
+      }
+
+      @media (max-width: 900px) {
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .archive-title {
+          font-size: 36px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .portfolio-card-title {
+          font-size: 18px;
+        }
+
+        .portfolio-card-description {
+          font-size: 13px;
+        }
+      }
+
       /* Additional styles for pieredze embedded section */
       .pieredze-embedded {
         padding: var(--space-4xl) 40px var(--space-4xl);
@@ -389,7 +516,156 @@
       }
     </style>
     <script>
-      // Full projects array from work experience - 213 projects total
+      // ══════════════════════════════════════════════════════════════════════
+      // PORTFOLIO PROJECTS - Featured projects with images and descriptions
+      // ══════════════════════════════════════════════════════════════════════
+      const portfolioProjects = [
+        {
+          id: "brivibas-97a",
+          name: "Brīvības iela 97a",
+          description:
+            "Daudzdzīvokļu dzīvojamās mājas fasādes atjaunošanas projekts ar mūsdienīgu arhitektonisku risinājumu.",
+          location: "Liepāja",
+          year: 2025,
+          type: "Renovācija",
+          image: "Brivibas%2097a/1.png",
+          images: ["Brivibas%2097a/1.png", "Brivibas%2097a/2.png"],
+        },
+        {
+          id: "sabri-jurmalciems",
+          name: "Sabri",
+          description:
+            "Privātmājas jaunbūves projekts piejūras zonā ar funkcionālu plānojumu un dabai draudzīgu pieeju.",
+          location: "Jūrmalciems",
+          year: 2024,
+          type: "Jaunbūve",
+          image: "Sabri%20Jurmalciems/sabri.jpg",
+          images: [
+            "Sabri%20Jurmalciems/sabri.jpg",
+            "Sabri%20Jurmalciems/2024-11-29-14-39-30.png",
+            "Sabri%20Jurmalciems/Enscape_2024-12-12-15-54-34.png",
+          ],
+        },
+        {
+          id: "kazdangas-35",
+          name: "Kazdangas iela 35",
+          description:
+            "Dzīvojamās ēkas būvniecības projekts ar racionālu telpu plānojumu un modernu fasādes dizainu.",
+          location: "Liepāja",
+          year: 2024,
+          type: "Jaunbūve",
+          image: "Kazdangas%2035/kazdangas%2035.jpg",
+          images: [
+            "Kazdangas%2035/kazdangas%2035.jpg",
+            "Kazdangas%2035/Enscape_2024-06-06-09-47-26.png",
+            "Kazdangas%2035/Enscape_2024-06-06-10-05-02.png",
+          ],
+        },
+      ];
+
+      // ── RENDER PORTFOLIO GRID ──
+      function renderPortfolioGrid(filter) {
+        const grid = document.getElementById("portfolio-grid");
+        if (!grid) return;
+
+        filter = filter || "all";
+        const filtered =
+          filter === "all"
+            ? portfolioProjects
+            : portfolioProjects.filter((p) => p.type === filter);
+
+        grid.innerHTML = filtered
+          .map(
+            (project) => `
+          <article class="portfolio-card" 
+                   data-lightbox="true"
+                   data-project-name="${project.name}"
+                   data-project-type="${project.type}"
+                   data-project-location="${project.location}"
+                   data-project-year="${project.year}"
+                   data-images='${JSON.stringify(project.images.map((img) => "../projekti/" + img))}'>
+            <div class="portfolio-card-image">
+              <img src="${project.image}" alt="${project.name}" loading="lazy" decoding="async" />
+            </div>
+            <div class="portfolio-card-content">
+              <span class="portfolio-card-label">${project.type}</span>
+              <h2 class="portfolio-card-title">${project.name}</h2>
+              <p class="portfolio-card-description">${project.description}</p>
+              <div class="portfolio-card-meta">
+                <span>${project.location}</span>
+                <span>${project.year}</span>
+              </div>
+            </div>
+          </article>
+        `,
+          )
+          .join("");
+
+        // Initialize lightbox click handlers for new cards
+        initPortfolioCardClicks();
+      }
+
+      // ── PORTFOLIO CARD CLICK HANDLERS ──
+      function initPortfolioCardClicks() {
+        const cards = document.querySelectorAll(
+          ".portfolio-card[data-lightbox]",
+        );
+        cards.forEach((card) => {
+          card.onclick = function () {
+            const images = JSON.parse(this.dataset.images);
+            const lightbox = document.getElementById("projectLightbox");
+            if (lightbox && images.length > 0) {
+              // Set up lightbox with project data
+              lightbox.setAttribute("aria-hidden", "false");
+              lightbox.classList.add("active");
+              document.body.style.overflow = "hidden";
+
+              // Update lightbox content
+              const img = lightbox.querySelector(".lightbox-image");
+              const title = lightbox.querySelector(".lightbox-title");
+              const type = lightbox.querySelector(".lightbox-type");
+              const location = lightbox.querySelector(".lightbox-location");
+              const year = lightbox.querySelector(".lightbox-year");
+              const counter = lightbox.querySelector(".lightbox-counter");
+
+              if (img) img.src = images[0];
+              if (title) title.textContent = this.dataset.projectName;
+              if (type) type.textContent = this.dataset.projectType;
+              if (location) location.textContent = this.dataset.projectLocation;
+              if (year) year.textContent = this.dataset.projectYear;
+              if (counter) counter.textContent = `1 / ${images.length}`;
+
+              // Store images for navigation
+              lightbox.dataset.images = JSON.stringify(images);
+              lightbox.dataset.currentIndex = "0";
+            }
+          };
+        });
+      }
+
+      // ── PORTFOLIO FILTERS ──
+      function initPortfolioFilters() {
+        const filterBtns = document.querySelectorAll(
+          ".archive-header .filter-btn",
+        );
+        filterBtns.forEach((btn) => {
+          btn.onclick = function () {
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            renderPortfolioGrid(this.dataset.filter);
+          };
+        });
+      }
+
+      // Initialize portfolio on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        renderPortfolioGrid();
+        initPortfolioFilters();
+      });
+
+      // ══════════════════════════════════════════════════════════════════════
+      // PIEREDZE TABLE - Full projects array from work experience - 213 total
+      // ══════════════════════════════════════════════════════════════════════
       const projects = [
         {
           name: "Dzīvojamās mājas jaunbūve",
