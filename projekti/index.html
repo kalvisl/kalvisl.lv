@@ -114,21 +114,11 @@
         <div id="project-list"></div>
       </div>
 
-      <!-- TIMELINE -->
-      <div class="timeline-section">
-        <span class="section-label">Projektu aktivitāte pa gadiem</span>
-        <div class="timeline-grid" id="timeline"></div>
-      </div>
-
-      <!-- GEO + TYPOLOGY -->
+      <!-- GEO -->
       <div class="geo-section">
         <div>
           <span class="section-label">Ģeogrāfija</span>
           <div id="geo-bars"></div>
-        </div>
-        <div>
-          <span class="section-label">Tipoloģija</span>
-          <div class="typology-list" id="typo-list"></div>
         </div>
       </div>
     </section>
@@ -331,55 +321,6 @@
         display: none;
       }
 
-      /* Timeline */
-      .timeline-section {
-        margin-top: var(--space-2xl);
-      }
-
-      .timeline-grid {
-        display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        gap: 2px;
-      }
-
-      .year-col {
-      }
-
-      .year-lbl {
-        font-family: var(--font-mono);
-        font-size: 10px;
-        color: var(--stone);
-        margin-bottom: 8px;
-        letter-spacing: 0.06em;
-      }
-
-      .year-bar-wrap {
-        background: var(--mist);
-        height: 120px;
-        position: relative;
-      }
-
-      .year-bar {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: var(--black);
-        transition: background 0.2s;
-      }
-
-      .year-col:hover .year-bar {
-        background: var(--rust);
-      }
-
-      .year-count {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--stone);
-        margin-top: 6px;
-        text-align: center;
-      }
-
       /* Geography */
       .geo-section {
         margin-top: var(--space-xl);
@@ -420,39 +361,6 @@
         text-align: right;
       }
 
-      .typology-list {
-      }
-
-      .typo-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--mist);
-      }
-
-      .typo-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        display: inline-block;
-        margin-right: 10px;
-        flex-shrink: 0;
-      }
-
-      .typo-name {
-        font-size: 14px;
-        color: var(--ink);
-        display: flex;
-        align-items: center;
-      }
-
-      .typo-num {
-        font-family: var(--font-mono);
-        font-size: 12px;
-        color: var(--stone);
-      }
-
       @media (max-width: 768px) {
         .pieredze-embedded {
           padding: 100px 20px 80px;
@@ -472,10 +380,6 @@
         .proj-type,
         .proj-location {
           display: none;
-        }
-
-        .timeline-grid {
-          grid-template-columns: repeat(4, 1fr);
         }
 
         .geo-section {
@@ -1025,28 +929,6 @@
         });
       });
 
-      // ── TIMELINE ──
-      function renderTimeline() {
-        const years = {};
-        projects.forEach((p) => {
-          years[p.year] = (years[p.year] || 0) + 1;
-        });
-        const max = Math.max(...Object.values(years));
-        const sorted = Object.keys(years).sort();
-        const tl = document.getElementById("timeline");
-        tl.innerHTML = sorted
-          .map((yr) => {
-            const count = years[yr];
-            const pct = (count / max) * 100;
-            return `<div class="year-col">
-            <div class="year-lbl">${yr}</div>
-            <div class="year-bar-wrap"><div class="year-bar" style="height:${pct}%"></div></div>
-            <div class="year-count">${count}</div>
-          </div>`;
-          })
-          .join("");
-      }
-
       // ── GEO BARS ──
       function renderGeo() {
         const locs = {};
@@ -1069,40 +951,9 @@
           .join("");
       }
 
-      // ── TYPOLOGY ──
-      function renderTypo() {
-        const types = {};
-        projects.forEach((p) => {
-          types[p.label] = (types[p.label] || 0) + 1;
-        });
-        const sorted = Object.entries(types).sort((a, b) => b[1] - a[1]);
-        const colors = {
-          Jaunbūve: "var(--rust)",
-          Atjaunošana: "var(--black)",
-          Pārbūve: "#4b7b8b",
-          "Fasāde / Jumts": "#7b6b4b",
-          "Lietošanas maiņa": "#6b7b4b",
-          Vizualizācija: "#8b5b7b",
-          Teritorija: "#5b8b7b",
-        };
-        const typo = document.getElementById("typo-list");
-        typo.innerHTML = sorted
-          .map(
-            ([lbl, n]) => `
-          <div class="typo-row">
-            <span class="typo-name"><span class="typo-dot" style="background:${colors[lbl] || "var(--stone)"}"></span>${lbl}</span>
-            <span class="typo-num">${n}</span>
-          </div>
-        `,
-          )
-          .join("");
-      }
-
       // Initialize everything
       renderTable("all");
-      renderTimeline();
       renderGeo();
-      renderTypo();
     </script>
   </body>
 </html>
