@@ -6,9 +6,16 @@
 
 ## Current Task
 
-CRITICAL FIX: Restored corrupted par-mani and kontakti pages (files were filled with null bytes)
+Navigation Focus Outline Removal - Cleaner UI for header links
 
 ## Recent Work Completed
+
+### 0. Navigation Focus Outline Removal (2026-03-19)
+
+- **Removed focus outline from header navigation links:**
+  - Changed `.nav-links a:focus` from `outline: 2px solid var(--rust)` to `outline: none`
+  - Provides cleaner, more high-tech appearance when clicking Projekti, Par mani, Kontakti links
+  - Basic outline border was considered too basic/outdated
 
 ### 1. Sitemap and Robots.txt Enhancement (2026-03-19)
 
