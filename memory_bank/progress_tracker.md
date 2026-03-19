@@ -201,10 +201,19 @@
 - [x] Update robots.txt to reference sitemap
 - [x] Commit and push changes to GitHub
 
+## New Task: Image Lazy Loading Implementation (2026-03-19)
+
+- [x] Analyze all pages for images
+- [x] CRITICAL FIX: Restore projekti/index.html (was 0 bytes, restored from commit feae87d)
+- [x] Add `decoding="async"` to logo images for better performance
+- [x] Verify existing `loading="lazy"` on below-fold images (already implemented on featured projects)
+- [x] Commit and push changes to GitHub (commit e60e43b)
+
 ## Current Git State
 
-- **Current commit:** `70e4f11` - Add SEO meta tags to all pages: description, keywords, Open Graph, Twitter Card, canonical URLs (2026-03-19)
+- **Current commit:** `e60e43b` - Implement image lazy loading: add decoding=async to logo images, restore projekti/index.html from previous commit (2026-03-19)
 - **Previous commits:**
+  - `70e4f11` - Add SEO meta tags to all pages: description, keywords, Open Graph, Twitter Card, canonical URLs (2026-03-19)
   - `440b502` - Implement accessibility improvements: skip link, proper heading hierarchy, focus styles, ARIA attributes (2026-03-19)
   - `feae87d` - Fix homepage navigation inconsistencies and update memory bank (2026-03-19)
   - `90ab3cd` - Resolve merge conflicts in memory bank files after git pull (2026-03-19)
@@ -216,12 +225,10 @@
   - `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation (2026-03-17)
 - **Branch:** master (up to date with origin/master)
 - **Latest changes:**
-  - index.html: Added comprehensive SEO meta tags (description, keywords, Open Graph, Twitter Card, canonical)
-  - projekti/index.html: Added SEO meta tags for projects page
-  - par-mani/index.html: Added SEO meta tags for about page
-  - kontakti/index.html: Added SEO meta tags for contact page
-  - memory_bank/progress_tracker.md: Updated with SEO implementation completion
+  - index.html: Added `decoding="async"` to logo image for better performance
+  - projekti/index.html: Restored from commit feae87d (was 0 bytes), added `decoding="async"` to logo
+  - memory_bank/progress_tracker.md: Updated with image lazy loading implementation completion
 
 ## Last Updated
 
-2026-03-19 (SEO meta tags implementation completed)
+2026-03-19 (Image lazy loading implementation completed)
