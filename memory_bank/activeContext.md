@@ -2,15 +2,23 @@
 
 ## Current Date
 
-2026-03-18
+2026-03-19
 
 ## Current Task
 
-Live site verification testing - completed successfully
+Git pull completed successfully with conflict resolution
 
 ## Recent Work Completed
 
-### 1. Fix Kazdangas 35 Image Issue (2026-03-18)
+### 1. Git Pull and Conflict Resolution (2026-03-19)
+
+- **Pulled latest changes from remote repository:**
+  - Successfully pulled commit `8933bd5` from origin/master
+  - Resolved merge conflicts in memory bank files
+  - Applied stashed changes with manual conflict resolution
+  - Updated documentation to reflect current project state
+
+### 2. Fix Kazdangas 35 Image Issue (2026-03-18)
 
 - **Problem:** Second featured project "Kazdangas 35" image was not loading on kalvisl.lv
 - **Root cause:** The file `projekti/Kazdangas 35/kazdangas 35.jpg` existed locally but was not tracked in git (untracked file)
@@ -20,7 +28,29 @@ Live site verification testing - completed successfully
   - Verified image returns HTTP 200 OK on live site
 - **Commit:** `96aacb5` - Add missing kazdangas 35.jpg image and restore original path
 
-### 2. Embed Pieredze Content into Projekti Page (2026-03-17)
+### 3. Image Path Fix and Horizontal Padding Adjustment (2026-03-18)
+
+- **Fixed broken image path for Kazdangas 35 project:**
+  - Removed URL encoding (`%20` for spaces) from image path
+  - Changed from `src="projekti/Kazdangas%2035/kazdangas%2035.jpg"` to `src="projekti/Kazdangas 35/kazdangas 35.jpg"`
+  - All project images now use consistent plain space formatting
+
+- **Reduced horizontal padding in featured section:**
+  - Reduced padding from 40px to 30px: `padding: var(--space-4xl) 30px var(--space-3xl);`
+  - Images now start approximately 40-60px from left edge of viewport
+  - Matches David Chipperfield website spacing aesthetic
+
+### 4. Featured Projects Section Redesign (2026-03-18)
+
+- **Redesigned featured projects section on homepage:**
+  - Replaced 3-column grid with staggered two-column layout (55%/40% widths)
+  - Implemented vertical offset: right column starts ~200px lower than left column
+  - Added Chipperfield-style metadata: small "Projekts" label, larger project title, date below
+  - Removed all borders, backgrounds, and shadows for clean minimal design
+  - Added generous whitespace (100px between projects, 5% gap between columns)
+  - Implemented responsive mobile layout (single column, no offset)
+
+### 5. Embed Pieredze Content into Projekti Page (2026-03-17)
 
 - **Embedded full pieredze section into projekti page:**
   - Copied entire pieredze content (heading, statistics, table, timeline, geography, typology) from `/pieredze/index.html`
@@ -28,7 +58,7 @@ Live site verification testing - completed successfully
   - Included all CSS styles and JavaScript functionality
   - Fixed JavaScript errors in embedded section (renderTypo function was incomplete)
 
-### 3. Remove "Pieredze" from Header Navigation (2026-03-17)
+### 6. Remove "Pieredze" from Header Navigation (2026-03-17)
 
 - **Updated navigation on all pages:**
   - `index.html`: Removed "pieredze" link from navigation
@@ -37,7 +67,7 @@ Live site verification testing - completed successfully
   - `kontakti/index.html`: Removed "pieredze" link from navigation
   - `pieredze/index.html`: Removed "pieredze" link from navigation (page remains standalone)
 
-### 4. Previous Mobile Responsiveness Fixes (2026-03-17)
+### 7. Previous Mobile Responsiveness Fixes (2026-03-17)
 
 - **Hidden KL logo on mobile screens (max-width: 768px):**
   - Added `display: none;` to `.nav-logo` class in mobile media query
@@ -48,7 +78,7 @@ Live site verification testing - completed successfully
   - Overrides global `img { max-width: 100%; }` constraint
   - Image now fills entire viewport width with no side gaps
 
-### 5. Previous UI/UX Improvements (2026-03-17)
+### 8. Previous UI/UX Improvements (2026-03-17)
 
 - **Navigation Styles Update:** Changed all nav links to normal case, consistent typography
 - **Homepage Cleanup:** Removed 'Atlasītie darbi' text list section
@@ -58,36 +88,47 @@ Live site verification testing - completed successfully
 
 ## Current File Status
 
-### Modified Files:
+### Modified Files in Recent Pull:
 
 - **projekti/Kazdangas 35/kazdangas 35.jpg**: Added to git (was untracked)
 - **projekti/index.html**: Added embedded pieredze section with full CSS and JavaScript
-- **index.html**: Homepage with correct image paths
+- **index.html**: Homepage with correct image paths and Chipperfield layout
+- **assets/css/main.css**: Added Chipperfield grid styles and removed old featured grid styles
+- **memory_bank/activeContext.md**: Updated with conflict resolution
+- **memory_bank/decisions_log.md**: Updated with recent decisions
 
 ### Git Status:
 
 - **Branch:** master (up to date with origin/master)
-- **Latest commit:** `96aacb5` - Add missing kazdangas 35.jpg image and restore original path
-- **All changes committed and pushed**
+- **Latest commit:** `8933bd5` - Latest pull from remote
+- **Previous commits:** `96aacb5` (image fix), `627044f` (padding fix), `11633ac` (Chipperfield redesign)
+- **All changes synchronized with remote**
 
 ## Next Steps
 
 1. **Testing:**
    - Verify all featured project images load correctly on live site
+   - Test Chipperfield layout displays correctly on desktop and mobile
+   - Check that all project links work correctly
+   - Verify metadata formatting matches David Chipperfield website
    - Test table filters, timeline chart, geography and typology visualizations
    - Check navigation on all pages
 
 2. **Future Improvements:**
-   - Consider adding more projects to PROJECTS array
+   - Consider adding more projects to featured section
    - Optimize image loading for better performance
    - Add accessibility improvements (ARIA labels, keyboard navigation)
+   - Consider adding smooth scroll animations for staggered layout
 
 ## Notes
 
-- **Image issue fixed:** The Kazdangas 35 image was locally present but not tracked in git
+- **Image issues resolved:** Kazdangas 35 image now properly tracked in git and loads on live site
+- **Chipperfield layout:** Successfully implemented staggered two-column design with vertical offset
+- **Clean design:** No borders, backgrounds, or shadows - matches minimalist aesthetic
+- **Responsive:** Mobile layout switches to single column without offset
 - **Embedded functionality:** All pieredze features work in embedded section
-- **Git workflow:** All changes properly tracked and deployed
+- **Git workflow:** All changes properly tracked, synchronized, and deployed
 
 ## Last Updated
 
-2026-03-18 (Fixed Kazdangas 35 image loading issue)
+2026-03-19 (Git pull completed with conflict resolution)
