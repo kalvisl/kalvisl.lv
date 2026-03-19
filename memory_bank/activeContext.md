@@ -6,11 +6,19 @@
 
 ## Current Task
 
-Git pull completed successfully with conflict resolution
+Fixed homepage navigation inconsistencies (removed pieredze link, updated navigation)
 
 ## Recent Work Completed
 
-### 1. Git Pull and Conflict Resolution (2026-03-19)
+### 1. Homepage Navigation Inconsistencies Fix (2026-03-19)
+
+- **Fixed broken pieredze link on homepage:**
+  - Changed "Pilns pieredzes pārskats" link from `href="pieredze/"` to `href="projekti/#pieredze-embedded"`
+  - Added `id="pieredze-embedded"` to the embedded pieredze section in projekti page
+  - Users can now click the link on homepage to scroll directly to the embedded pieredze section
+  - Maintains consistent navigation flow (pieredze content embedded in projekti page, not standalone)
+
+### 2. Git Pull and Conflict Resolution (2026-03-19)
 
 - **Pulled latest changes from remote repository:**
   - Successfully pulled commit `8933bd5` from origin/master
