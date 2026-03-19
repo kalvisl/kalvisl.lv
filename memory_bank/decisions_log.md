@@ -350,6 +350,33 @@
 
 **Result:** All project images now load correctly with proper file paths. Featured section has reduced horizontal padding, bringing images closer to viewport edges while maintaining clean layout. Implementation matches David Chipperfield website spacing aesthetic.
 
+## 2026-03-19: Navigation Focus Outline Removal
+
+**Decision:** Remove focus outline from header navigation links for cleaner UI
+**Rationale:**
+
+- User found the focus outline on navigation links (Projekti, Par mani, Kontakti) to look too basic/outdated
+- The 2px rust-colored outline was not considered high-tech enough for modern design
+- Need to provide cleaner appearance when clicking/pressing navigation links
+
+**Implementation Details:**
+
+1. **CSS Change:**
+   - Updated `.nav-links a:focus` rule in `assets/css/main.css`
+   - Changed from `outline: 2px solid var(--rust); outline-offset: 2px;` to `outline: none;`
+   - Results in no visible outline when clicking navigation links
+
+2. **Design Consideration:**
+   - Removed outline provides cleaner, more modern appearance
+   - Navigation links still have hover states for visual feedback
+   - Active link styling remains unchanged
+
+**Files Modified:**
+
+- `assets/css/main.css` - Updated navigation focus outline style
+
+**Result:** Navigation links no longer show basic outline when clicked/focused, providing a more high-tech, modern appearance.
+
 ## 2026-03-19: Homepage Navigation Inconsistencies Fix
 
 **Decision:** Fix broken pieredze link on homepage to point to embedded pieredze section in projekti page
