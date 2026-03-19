@@ -6,11 +6,24 @@
 
 ## Current Task
 
-Navigation Focus Outline Removal - Cleaner UI for header links
+Ģeogrāfija Chart Fix - Corrected project counts on projekti page
 
 ## Recent Work Completed
 
-### 0. Navigation Focus Outline Removal (2026-03-19)
+### 0. Ģeogrāfija Chart Fix (2026-03-19)
+
+- **Fixed geography chart on projekti/index.html:**
+  - Issue: The chart was calculating from incomplete JS projects array (63 items) instead of full 213 projects
+  - Changed renderGeo() function to use hardcoded correct values based on darbu_saraksts.txt reference
+  - **Updated categories:**
+    - Liepāja: 157 projects
+    - Dienvidkurzeme: 46 projects (includes Nīca, Grobiņa, Rucava, Aizpute, Pāvilosta)
+    - Ventspils: 6 projects
+    - Limbaži: 2 projects
+    - Citi: 2 projects (Salaspils, Tērvete, Mārupe)
+  - Total now correctly adds up to 213 projects
+
+### 1. Navigation Focus Outline Removal (2026-03-19)
 
 - **Removed focus outline from header navigation links:**
   - Changed `.nav-links a:focus` from `outline: 2px solid var(--rust)` to `outline: none`

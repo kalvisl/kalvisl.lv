@@ -930,21 +930,25 @@
       });
 
       // ── GEO BARS ──
+      // Hardcoded correct values based on full 213 projects from darbu_saraksts.txt
+      // Note: Dienvidkurzemes novads includes: Nīca, Grobiņa, Rucava, Aizpute, Pāvilosta
       function renderGeo() {
-        const locs = {};
-        projects.forEach((p) => {
-          locs[p.location] = (locs[p.location] || 0) + 1;
-        });
-        const sorted = Object.entries(locs).sort((a, b) => b[1] - a[1]);
-        const max = sorted[0][1];
+        const geoData = [
+          { loc: "Liepāja", count: 157 },
+          { loc: "Dienvidkurzeme", count: 46 }, // Nīca, Grobiņa, Rucava, Aizpute, Pāvilosta
+          { loc: "Ventspils", count: 6 },
+          { loc: "Limbaži", count: 2 },
+          { loc: "Citi", count: 2 }, // Salaspils, Tērvete, Mārupe
+        ];
+        const max = geoData[0].count;
         const geo = document.getElementById("geo-bars");
-        geo.innerHTML = sorted
+        geo.innerHTML = geoData
           .map(
-            ([loc, n]) => `
+            (item) => `
           <div class="geo-row">
-            <span class="geo-name">${loc}</span>
-            <div class="geo-bar-wrap"><div class="geo-bar" style="width:${(n / max) * 100}%"></div></div>
-            <span class="geo-num">${n}</span>
+            <span class="geo-name">${item.loc}</span>
+            <div class="geo-bar-wrap"><div class="geo-bar" style="width:${(item.count / max) * 100}%"></div></div>
+            <span class="geo-num">${item.count}</span>
           </div>
         `,
           )
