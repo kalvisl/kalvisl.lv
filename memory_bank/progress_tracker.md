@@ -209,10 +209,19 @@
 - [x] Verify existing `loading="lazy"` on below-fold images (already implemented on featured projects)
 - [x] Commit and push changes to GitHub (commit e60e43b)
 
+## CRITICAL FIX: Restore Corrupted Pages (2026-03-19)
+
+- [x] Discovered par-mani/index.html and kontakti/index.html were corrupted (filled with null bytes)
+- [x] Files showed correct file sizes but contained only `\x00` bytes
+- [x] Restored both files from earliest commit (ad2d25f)
+- [x] Verified files now contain valid HTML content
+- [x] Committed and pushed fixes to GitHub (commit 601a84c)
+
 ## Current Git State
 
-- **Current commit:** `e60e43b` - Implement image lazy loading: add decoding=async to logo images, restore projekti/index.html from previous commit (2026-03-19)
+- **Current commit:** `601a84c` - CRITICAL FIX: Restore corrupted par-mani and kontakti pages from commit ad2d25f (files were filled with null bytes) (2026-03-19)
 - **Previous commits:**
+  - `e60e43b` - Implement image lazy loading: add decoding=async to logo images, restore projekti/index.html from previous commit (2026-03-19)
   - `70e4f11` - Add SEO meta tags to all pages: description, keywords, Open Graph, Twitter Card, canonical URLs (2026-03-19)
   - `440b502` - Implement accessibility improvements: skip link, proper heading hierarchy, focus styles, ARIA attributes (2026-03-19)
   - `feae87d` - Fix homepage navigation inconsistencies and update memory bank (2026-03-19)
@@ -225,10 +234,11 @@
   - `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation (2026-03-17)
 - **Branch:** master (up to date with origin/master)
 - **Latest changes:**
-  - index.html: Added `decoding="async"` to logo image for better performance
-  - projekti/index.html: Restored from commit feae87d (was 0 bytes), added `decoding="async"` to logo
-  - memory_bank/progress_tracker.md: Updated with image lazy loading implementation completion
+  - par-mani/index.html: Restored from commit ad2d25f (was corrupted with null bytes)
+  - kontakti/index.html: Restored from commit ad2d25f (was corrupted with null bytes)
+  - memory_bank/activeContext.md: Updated with critical fix details
+  - memory_bank/progress_tracker.md: Updated with critical fix completion
 
 ## Last Updated
 
-2026-03-19 (Image lazy loading implementation completed)
+2026-03-19 (Critical fix: restored corrupted par-mani and kontakti pages)

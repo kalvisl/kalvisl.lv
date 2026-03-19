@@ -6,7 +6,7 @@
 
 ## Current Task
 
-Completed image lazy loading implementation and projekti/index.html restoration
+CRITICAL FIX: Restored corrupted par-mani and kontakti pages (files were filled with null bytes)
 
 ## Recent Work Completed
 
