@@ -43,7 +43,7 @@
 - [x] Mobile testing (basic)
 - [x] Live site verification (2026-03-18) - all pages and images return 200 OK
 - [x] Performance optimization (completed in commit 22c146d - 2026-03-19)
-- [ ] Accessibility testing
+- [x] Accessibility testing (completed in commit 440b502 - 2026-03-19)
 - [x] Content review (language localization completed)
 
 ## Phase 6: Deployment
@@ -187,8 +187,9 @@
 
 ## Current Git State
 
-- **Current commit:** `feae87d` - Fix homepage navigation inconsistencies and update memory bank (2026-03-19)
+- **Current commit:** `440b502` - Implement accessibility improvements: skip link, proper heading hierarchy, focus styles, ARIA attributes (2026-03-19)
 - **Previous commits:**
+  - `feae87d` - Fix homepage navigation inconsistencies and update memory bank (2026-03-19)
   - `90ab3cd` - Resolve merge conflicts in memory bank files after git pull (2026-03-19)
   - `8933bd5` - Update Sabri Jurmalciems project image to sabri.jpg (2026-03-19)
   - `22c146d` - Performance optimization: DNS prefetch, preconnect, critical CSS, defer scripts (2026-03-19)
@@ -198,12 +199,11 @@
   - `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation (2026-03-17)
 - **Branch:** master (up to date with origin/master)
 - **Latest changes:**
-  - index.html: Fixed homepage navigation inconsistencies (updated pieredze link to projekti/#pieredze-embedded)
-  - projekti/index.html: Added `id="pieredze-embedded"` to embedded pieredze section
-  - memory_bank/activeContext.md: Updated with latest work status
-  - memory_bank/decisions_log.md: Updated with recent decisions
-  - memory_bank/progress_tracker.md: Updated with current progress
+  - index.html: Added skip link, proper heading hierarchy, ARIA attributes, semantic HTML improvements
+  - assets/css/main.css: Added skip link styles, improved focus styles for interactive elements
+  - accessibility_testing_checklist.md: Created comprehensive accessibility testing checklist
+  - memory_bank/progress_tracker.md: Updated with accessibility testing completion
 
 ## Last Updated
 
-2026-03-19 (Homepage navigation inconsistencies fix completed, memory bank updated)
+2026-03-19 (Accessibility testing and improvements completed)
