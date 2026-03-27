@@ -528,8 +528,8 @@
           location: "Liepāja",
           year: 2025,
           type: "Renovācija",
-          image: "Brivibas%2097a/1.png",
-          images: ["Brivibas%2097a/1.png", "Brivibas%2097a/2.png"],
+          image: "Brivibas%2097a/1.webp",
+          images: ["Brivibas%2097a/1.webp", "Brivibas%2097a/2.webp"],
         },
         {
           id: "sabri-jurmalciems",
@@ -539,12 +539,8 @@
           location: "Jūrmalciems",
           year: 2024,
           type: "Jaunbūve",
-          image: "Sabri%20Jurmalciems/sabri.jpg",
-          images: [
-            "Sabri%20Jurmalciems/sabri.jpg",
-            "Sabri%20Jurmalciems/2024-11-29-14-39-30.png",
-            "Sabri%20Jurmalciems/Enscape_2024-12-12-15-54-34.png",
-          ],
+          image: "Sabri%20Jurmalciems/sabri.webp",
+          images: ["Sabri%20Jurmalciems/sabri.webp"],
         },
         {
           id: "kazdangas-35",
@@ -554,12 +550,8 @@
           location: "Liepāja",
           year: 2024,
           type: "Jaunbūve",
-          image: "Kazdangas%2035/kazdangas%2035.jpg",
-          images: [
-            "Kazdangas%2035/kazdangas%2035.jpg",
-            "Kazdangas%2035/Enscape_2024-06-06-09-47-26.png",
-            "Kazdangas%2035/Enscape_2024-06-06-10-05-02.png",
-          ],
+          image: "Kazdangas%2035/kazdangas-1.webp",
+          images: ["Kazdangas%2035/kazdangas-1.webp"],
         },
       ];
 
@@ -585,7 +577,10 @@
                    data-project-year="${project.year}"
                    data-images='${JSON.stringify(project.images.map((img) => "../projekti/" + img))}'>
             <div class="portfolio-card-image">
-              <img src="${project.image}" alt="${project.name}" loading="lazy" decoding="async" />
+              <picture>
+                <source srcset="${project.image}" type="image/webp" />
+                <img src="${project.image.replace(".webp", ".png").replace("Sabri%20Jurmalciems/sabri.webp", "Sabri%20Jurmalciems/misc/sabri.png").replace("Kazdangas%2035/kazdangas-1.webp", "Kazdangas%2035/misc/kazdangas%2035.jpg").replace("Brivibas%2097a/1.webp", "Brivibas%2097a/misc/1.png")}" alt="${project.name}" loading="lazy" decoding="async" />
+              </picture>
             </div>
             <div class="portfolio-card-content">
               <span class="portfolio-card-label">${project.type}</span>
