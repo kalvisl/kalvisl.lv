@@ -217,10 +217,27 @@
 - [x] Verified files now contain valid HTML content
 - [x] Committed and pushed fixes to GitHub (commit 601a84c)
 
+## New Task: Image Optimization and WebP Conversion (2026-03-27)
+
+- [x] Analyze project image structure and identify format mismatches
+- [x] Update index.html to reference WebP files instead of PNG/JPG
+- [x] Update projekti/index.html JavaScript portfolio data to use WebP files
+- [x] Remove duplicate PNG files where WebP equivalents exist (Kazdangas 35)
+- [x] Standardize file naming (use hyphens instead of spaces)
+  - Renamed `sabri 2.webp` → `sabri-2.webp`
+  - Renamed `kazdangas 1.webp` → `kazdangas-1.webp`
+  - Renamed `kazdangas 2.webp` → `kazdangas-2.webp`
+  - Updated HTML references in index.html and projekti/index.html
+- [x] Implement responsive image loading with `<picture>` element
+  - Updated index.html featured projects to use `<picture>` elements with WebP fallback
+  - Updated projekti/index.html JavaScript template to generate `<picture>` elements
+  - Added proper fallback images from `misc/` folders for older browsers
+
 ## Current Git State
 
-- **Current commit:** `601a84c` - CRITICAL FIX: Restore corrupted par-mani and kontakti pages from commit ad2d25f (files were filled with null bytes) (2026-03-19)
+- **Current commit:** `de988b8a2d0564db445a36f5a0cbafd94b3fa6fc` - Latest commit before image optimization work
 - **Previous commits:**
+  - `601a84c` - CRITICAL FIX: Restore corrupted par-mani and kontakti pages from commit ad2d25f (files were filled with null bytes) (2026-03-19)
   - `e60e43b` - Implement image lazy loading: add decoding=async to logo images, restore projekti/index.html from previous commit (2026-03-19)
   - `70e4f11` - Add SEO meta tags to all pages: description, keywords, Open Graph, Twitter Card, canonical URLs (2026-03-19)
   - `440b502` - Implement accessibility improvements: skip link, proper heading hierarchy, focus styles, ARIA attributes (2026-03-19)
@@ -233,12 +250,26 @@
   - `11633ac` - Featured projects section redesign - David Chipperfield layout (2026-03-18)
   - `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation (2026-03-17)
 - **Branch:** master (up to date with origin/master)
-- **Latest changes:**
-  - par-mani/index.html: Restored from commit ad2d25f (was corrupted with null bytes)
-  - kontakti/index.html: Restored from commit ad2d25f (was corrupted with null bytes)
-  - memory_bank/activeContext.md: Updated with critical fix details
-  - memory_bank/progress_tracker.md: Updated with critical fix completion
+- **Latest changes (not yet committed):**
+  - index.html: Updated image references from PNG/JPG to WebP
+  - projekti/index.html: Updated JavaScript portfolio data to use WebP files
+  - File system: Removed duplicate PNG files from Kazdangas 35 folder
+  - memory_bank/activeContext.md: Updated with image optimization progress
+  - memory_bank/progress_tracker.md: Updated with image optimization task
+
+## Next Session Tasks
+
+1. **Standardize File Naming:**
+   - Rename files to use hyphens instead of spaces (e.g., `kazdangas-1.webp`)
+   - Update HTML references to match new filenames
+   - Ensure consistent naming across all project folders
+
+2. **Implement Responsive Image Loading:**
+   - Add `<picture>` element with WebP fallback to JPEG/PNG
+   - Implement `srcset` for different screen resolutions
+   - Add `loading="lazy"` and `decoding="async"` attributes
+   - Use `fetchpriority="high"` for above-the-fold images
 
 ## Last Updated
 
-2026-03-19 (Critical fix: restored corrupted par-mani and kontakti pages)
+2026-03-27 (Image optimization phase 1 completed - WebP conversion and HTML updates)

@@ -65,13 +65,17 @@
   <body>
     <!-- Skip to main content link for keyboard users -->
     <a href="#main-content" class="skip-link">Pāriet uz galveno saturu</a>
-    
+
     <!-- NAVIGATION -->
     <nav id="main-nav" aria-label="Galvenā navigācija">
       <div class="nav-left">
         <a href="/" class="nav-name">kalvis lejasmeiers</a>
         <div class="nav-logo">
-          <img src="kllogo/kl.png" alt="Kalvis Lejasmeiers Logo" decoding="async" />
+          <img
+            src="kllogo/kl.png"
+            alt="Kalvis Lejasmeiers Logo"
+            decoding="async"
+          />
         </div>
       </div>
       <!-- Mobile hamburger button -->
@@ -95,176 +99,231 @@
 
     <main id="main-content">
       <h1 class="visually-hidden">Kalvis Lejasmeiers — Arhitekts</h1>
-      
+
       <!-- FEATURED PROJECTS — Chipperfield-style staggered layout -->
       <section class="featured-section" id="projekti">
-      <div class="chipperfield-grid reveal">
-        <!-- Left column -->
-        <div class="chip-col chip-col-left">
-          <div class="chip-project" 
-               data-lightbox="true"
-               data-project-name="Brīvības iela 97a"
-               data-project-type="Projekts"
-               data-project-location="Liepāja"
-               data-project-year="2025"
-               data-images='["projekti/Brivibas%2097a/1.png","projekti/Brivibas%2097a/2.png"]'>
-            <div class="chip-image-wrap">
-              <img
-                src="projekti/Brivibas%2097a/1.png"
-                alt="Brīvības 97a projekts"
-                fetchpriority="high"
-                decoding="async"
+        <div class="chipperfield-grid reveal">
+          <!-- Left column -->
+          <div class="chip-col chip-col-left">
+            <div
+              class="chip-project"
+              data-lightbox="true"
+              data-project-name="Brīvības iela 97a"
+              data-project-type="Projekts"
+              data-project-location="Liepāja"
+              data-project-year="2025"
+              data-images='["projekti/Brivibas%2097a/1.webp","projekti/Brivibas%2097a/2.webp"]'
+            >
+              <div class="chip-image-wrap">
+                <picture>
+                  <source
+                    srcset="projekti/Brivibas%2097a/1.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="projekti/Brivibas%2097a/misc/1.png"
+                    type="image/png"
+                  />
+                  <img
+                    src="projekti/Brivibas%2097a/misc/1.png"
+                    alt="Brīvības 97a projekts"
+                    fetchpriority="high"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
+              <div class="chip-meta">
+                <span class="chip-label">Projekts</span>
+                <span class="chip-title">Brīvības iela, Liepāja</span>
+                <span class="chip-date">2025</span>
+              </div>
+            </div>
+
+            <div
+              class="chip-project"
+              data-lightbox="true"
+              data-project-name="Sabri"
+              data-project-type="Projekts"
+              data-project-location="Jūrmalciems"
+              data-project-year="2024"
+              data-images='["projekti/Sabri%20Jurmalciems/sabri.webp"]'
+            >
+              <div class="chip-image-wrap">
+                <picture>
+                  <source
+                    srcset="projekti/Sabri%20Jurmalciems/sabri.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="projekti/Sabri%20Jurmalciems/misc/sabri.png"
+                    type="image/png"
+                  />
+                  <img
+                    src="projekti/Sabri%20Jurmalciems/misc/sabri.png"
+                    alt="Sabri Jurmalciems projekts"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
+              <div class="chip-meta">
+                <span class="chip-label">Projekts</span>
+                <span class="chip-title">Jūrmalciems</span>
+                <span class="chip-date">2024</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right column — offset down -->
+          <div class="chip-col chip-col-right">
+            <div
+              class="chip-project"
+              data-lightbox="true"
+              data-project-name="Kazdangas iela 35"
+              data-project-type="Projekts"
+              data-project-location="Liepāja"
+              data-project-year="2024"
+              data-images='["projekti/Kazdangas%2035/kazdangas-1.webp"]'
+            >
+              <div class="chip-image-wrap">
+                <picture>
+                  <source
+                    srcset="projekti/Kazdangas%2035/kazdangas-1.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="projekti/Kazdangas%2035/misc/kazdangas%2035.jpg"
+                    type="image/jpeg"
+                  />
+                  <img
+                    src="projekti/Kazdangas%2035/misc/kazdangas%2035.jpg"
+                    alt="Dzīvojamās ēkas būvniecība"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
+              <div class="chip-meta">
+                <span class="chip-label">Projekts</span>
+                <span class="chip-title">Kazdangas iela, Liepāja</span>
+                <span class="chip-date">2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lightbox Overlay -->
+      <div
+        class="lightbox-overlay"
+        id="projectLightbox"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Projekta attēlu galerija"
+      >
+        <button class="lightbox-close" aria-label="Aizvērt galeriju">
+          &times;
+        </button>
+        <div class="lightbox-container">
+          <button
+            class="lightbox-arrow lightbox-prev"
+            aria-label="Iepriekšējais attēls"
+          >
+            &#8249;
+          </button>
+          <div class="lightbox-content">
+            <div class="lightbox-image-wrapper">
+              <img class="lightbox-image" src="" alt="Projekta attēls" />
+            </div>
+            <div class="lightbox-info">
+              <h3 class="lightbox-title"></h3>
+              <div class="lightbox-meta">
+                <span class="lightbox-type"></span>
+                <span class="lightbox-location"></span>
+                <span class="lightbox-year"></span>
+              </div>
+              <div class="lightbox-counter"></div>
+            </div>
+          </div>
+          <button
+            class="lightbox-arrow lightbox-next"
+            aria-label="Nākamais attēls"
+          >
+            &#8250;
+          </button>
+        </div>
+      </div>
+
+      <!-- PIEREDZE SUMMARY -->
+      <section class="pieredze-summary">
+        <div class="pieredze-summary-content">
+          <span class="section-label reveal">Profesionālā pieredze</span>
+          <h2 class="pieredze-title reveal">213 projekti kopš 2018. gada</h2>
+          <p class="pieredze-text reveal">
+            Visaptverošs pārskats par visiem realizētajiem projektiem, to
+            ģeogrāfiju, tipoloģiju un attīstību laikā.
+          </p>
+
+          <div class="pieredze-stats reveal">
+            <div class="pieredze-stat">
+              <span class="pieredze-stat-number">213</span>
+              <span class="pieredze-stat-label">Projekti</span>
+            </div>
+            <div class="pieredze-stat">
+              <span class="pieredze-stat-number">14</span>
+              <span class="pieredze-stat-label">Pilsētas un pagasti</span>
+            </div>
+            <div class="pieredze-stat">
+              <span class="pieredze-stat-number">8+</span>
+              <span class="pieredze-stat-label">Gadi praksē</span>
+            </div>
+          </div>
+
+          <a href="projekti/#pieredze-embedded" class="pieredze-link reveal">
+            <span>Pilns pieredzes pārskats</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8H13M13 8L9 4M13 8L9 12"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
-            </div>
-            <div class="chip-meta">
-              <span class="chip-label">Projekts</span>
-              <span class="chip-title">Brīvības iela, Liepāja</span>
-              <span class="chip-date">2025</span>
-            </div>
-          </div>
+            </svg>
+          </a>
+        </div>
+      </section>
 
-          <div class="chip-project"
-               data-lightbox="true"
-               data-project-name="Sabri"
-               data-project-type="Projekts"
-               data-project-location="Jūrmalciems"
-               data-project-year="2024"
-               data-images='["projekti/Sabri%20Jurmalciems/sabri.jpg"]'>
-            <div class="chip-image-wrap">
-              <img
-                src="projekti/Sabri%20Jurmalciems/sabri.jpg"
-                alt="Sabri Jurmalciems projekts"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="chip-meta">
-              <span class="chip-label">Projekts</span>
-              <span class="chip-title">Jūrmalciems</span>
-              <span class="chip-date">2024</span>
-            </div>
+      <!-- ABOUT STRIP -->
+      <section class="about-strip" id="par-mani">
+        <div>
+          <span class="section-label">Par mani</span>
+          <p class="about-text">
+            Arhitekts ar vairāk nekā 8 gadu pieredzi dzīvojamo un komerciālo
+            projektu jomā. Strādāju ar privātiem klientiem no koncepta līdz
+            būvatļaujas saņemšanai. Mans pieeja koncentrējas uz telpām, kas ir
+            gan funkcionālas, gan mūžīgas.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number">8+</span>
+            <span class="stat-label">Gadi praksē</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">213</span>
+            <span class="stat-label">Realizēti projekti</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">LV</span>
+            <span class="stat-label">Liepāja, Latvija</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">5</span>
+            <span class="stat-label">Būvniecības veids</span>
           </div>
         </div>
-
-        <!-- Right column — offset down -->
-        <div class="chip-col chip-col-right">
-          <div class="chip-project"
-               data-lightbox="true"
-               data-project-name="Kazdangas iela 35"
-               data-project-type="Projekts"
-               data-project-location="Liepāja"
-               data-project-year="2024"
-               data-images='["projekti/Kazdangas%2035/kazdangas%2035.jpg"]'>
-            <div class="chip-image-wrap">
-              <img
-                src="projekti/Kazdangas%2035/kazdangas%2035.jpg"
-                alt="Dzīvojamās ēkas būvniecība"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="chip-meta">
-              <span class="chip-label">Projekts</span>
-              <span class="chip-title">Kazdangas iela, Liepāja</span>
-              <span class="chip-date">2024</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Lightbox Overlay -->
-    <div class="lightbox-overlay" id="projectLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Projekta attēlu galerija">
-      <button class="lightbox-close" aria-label="Aizvērt galeriju">&times;</button>
-      <div class="lightbox-container">
-        <button class="lightbox-arrow lightbox-prev" aria-label="Iepriekšējais attēls">&#8249;</button>
-        <div class="lightbox-content">
-          <div class="lightbox-image-wrapper">
-            <img class="lightbox-image" src="" alt="Projekta attēls" />
-          </div>
-          <div class="lightbox-info">
-            <h3 class="lightbox-title"></h3>
-            <div class="lightbox-meta">
-              <span class="lightbox-type"></span>
-              <span class="lightbox-location"></span>
-              <span class="lightbox-year"></span>
-            </div>
-            <div class="lightbox-counter"></div>
-          </div>
-        </div>
-        <button class="lightbox-arrow lightbox-next" aria-label="Nākamais attēls">&#8250;</button>
-      </div>
-    </div>
-
-    <!-- PIEREDZE SUMMARY -->
-    <section class="pieredze-summary">
-      <div class="pieredze-summary-content">
-        <span class="section-label reveal">Profesionālā pieredze</span>
-        <h2 class="pieredze-title reveal">213 projekti kopš 2018. gada</h2>
-        <p class="pieredze-text reveal">
-          Visaptverošs pārskats par visiem realizētajiem projektiem, to
-          ģeogrāfiju, tipoloģiju un attīstību laikā.
-        </p>
-
-        <div class="pieredze-stats reveal">
-          <div class="pieredze-stat">
-            <span class="pieredze-stat-number">213</span>
-            <span class="pieredze-stat-label">Projekti</span>
-          </div>
-          <div class="pieredze-stat">
-            <span class="pieredze-stat-number">14</span>
-            <span class="pieredze-stat-label">Pilsētas un pagasti</span>
-          </div>
-          <div class="pieredze-stat">
-            <span class="pieredze-stat-number">8+</span>
-            <span class="pieredze-stat-label">Gadi praksē</span>
-          </div>
-        </div>
-
-        <a href="projekti/#pieredze-embedded" class="pieredze-link reveal">
-          <span>Pilns pieredzes pārskats</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M3 8H13M13 8L9 4M13 8L9 12"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
-      </div>
-    </section>
-
-    <!-- ABOUT STRIP -->
-    <section class="about-strip" id="par-mani">
-      <div>
-        <span class="section-label">Par mani</span>
-        <p class="about-text">
-          Arhitekts ar vairāk nekā 8 gadu pieredzi dzīvojamo un komerciālo
-          projektu jomā. Strādāju ar privātiem klientiem no koncepta līdz
-          būvatļaujas saņemšanai. Mans pieeja koncentrējas uz telpām, kas ir gan
-          funkcionālas, gan mūžīgas.
-        </p>
-      </div>
-      <div class="about-stats">
-        <div class="stat-item">
-          <span class="stat-number">8+</span>
-          <span class="stat-label">Gadi praksē</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">213</span>
-          <span class="stat-label">Realizēti projekti</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">LV</span>
-          <span class="stat-label">Liepāja, Latvija</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">5</span>
-          <span class="stat-label">Būvniecības veids</span>
-        </div>
-      </div>
       </section>
     </main>
 
