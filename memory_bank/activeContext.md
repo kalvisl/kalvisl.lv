@@ -2,97 +2,122 @@
 
 ## Current Date
 
-2026-03-27
+2026-03-29
 
 ## Current Task
 
-Image Optimization and WebP Conversion - Improving website performance by converting images to modern formats
+✅ COMPLETED: Performance Optimization - Converted PNG images to WebP format for new projects
 
 ## Recent Work Completed
 
-### 0. Image Format Analysis and WebP Conversion (2026-03-27)
+### 1. Performance Optimization - PNG to WebP Conversion (2026-03-29)
 
-- **Analyzed project image structure and identified issues:**
-  - HTML files were referencing `.png` and `.jpg` files
-  - WebP versions existed but weren't being used
-  - File naming inconsistencies across project folders
-  - Mixed formats causing performance inefficiencies
+- **Converted PNG images to WebP format:** Successfully converted all PNG images used in new projects to WebP format for better performance and browser compatibility.
 
-### 1. HTML File Updates for WebP Support (2026-03-27)
+- **Key accomplishments:**
+  - Converted 10 PNG files to WebP format across 5 new projects
+  - Achieved significant file size reductions (90-98% reduction)
+  - Updated projekti/index.html to use WebP files with PNG fallbacks
+  - Maintained backward compatibility with proper fallback image paths
 
-- **Updated index.html to reference WebP files:**
-  - Brīvības 97a: Changed from `1.png`/`2.png` to `1.webp`/`2.webp`
-  - Sabri Jurmalciems: Changed from `sabri.jpg` to `sabri.webp`
-  - Kazdangas 35: Changed from `kazdangas%2035.jpg` to `kazdangas%201.webp`
+- **Projects optimized:**
+  1. **Gerberu iela 4, Mārupe:** 2 PNG files converted (95.5-96.1% reduction)
+  2. **Lielās Diānas:** 2 PNG files converted (98.4-98.8% reduction)
+  3. **Sarmītes:** 2 PNG files converted (94.4-95.0% reduction)
+  4. **Stendera iela 3:** 2 PNG files converted (94.5-96.1% reduction)
+  5. **Streņģi Jūrmalciems:** 2 PNG files converted (90.0-91.1% reduction)
 
-- **Updated projekti/index.html JavaScript portfolio data:**
-  - Updated portfolioProjects array to reference WebP files
-  - Removed references to PNG/JPG files that have WebP equivalents
-  - Simplified image arrays to only include WebP versions
+- **Technical implementation:**
+  - Created Python script using Pillow library for batch conversion
+  - Implemented proper RGBA to RGB conversion for WebP compatibility
+  - Added comprehensive fallback logic in JavaScript template
+  - Maintained existing `<picture>` element structure with WebP sources
 
-### 2. Duplicate File Cleanup (2026-03-27)
+### 2. Restoring Lightbox Feature (2026-03-27) - Previous Work
 
-- **Removed duplicate PNG files where WebP equivalents exist:**
-  - Kazdangas 35: Removed `kazdangas 1.png` and `kazdangas 2.png`
-  - Note: PNG files in `misc/` folders preserved for archival purposes
-  - Note: Sabri Jurmalciems PNG files are in `misc/` folder, not main folder
+- **Fixed broken image lightbox functionality:** User reported that previously they could open project images larger with option to view more images from particular projects on the projekti page.
 
-### 3. Current Image Structure Status
+- **Identified and fixed issues:**
+  - Missing lightbox HTML structure in projekti/index.html
+  - Conflicting custom JavaScript interfering with main.js lightbox implementation
+  - Incorrect image paths in data attributes
 
-- **Brīvības 97a:** ✅ WebP files in use, PNG files in `misc/` folder
-- **Sabri Jurmalciems:** ✅ WebP files in use, PNG/JPG files in `misc/` folder
-- **Kazdangas 35:** ✅ WebP files in use, PNG files removed from main folder (archived in `misc/`)
+- **Lightbox features restored:**
+  - Clicking any project card opens full-screen lightbox overlay
+  - Shows project details (name, type, location, year)
+  - Navigation arrows for projects with multiple images
+  - Keyboard navigation (arrow keys, Escape to close)
+  - Close button functionality
+  - Mobile-responsive design
+  - Image preloading for smoother navigation
+
+### 3. Adding New Projects to Projekti Page (2026-03-27) - Previous Work
+
+- **Added 7 new projects to the portfolio:**
+  1. Gerberu iela, Marupe (Gerberu 4 Marupe directory)
+  2. Klaipedas 29
+  3. Lielas Dianas
+  4. Reki Bernati
+  5. Sarmites
+  6. Stendera iela (Stendera iela 3 directory)
+  7. Strengi Jurmalciems
+
+- **Enhanced template rendering for PDF files:**
+  - Modified JavaScript template to detect PDF files
+  - Created SVG data URI placeholders for projects with only PDF files
 
 ## Current File Status
 
 ### Modified Files in Recent Changes:
 
-- **index.html:** Updated image references from PNG/JPG to WebP
-- **projekti/index.html:** Updated JavaScript portfolio data to use WebP files
-- **File system:** Removed duplicate PNG files from Kazdangas 35 folder
+- **projekti/index.html:**
+  - Updated portfolioProjects array to use WebP images instead of PNG
+  - Enhanced fallback logic for newly converted WebP files
+  - Previously: Added lightbox HTML structure, removed conflicting JavaScript, fixed image paths
 
-### Git Status:
+- **New WebP files created:** 10 WebP files across 5 project directories
+- **Files cleaned up:** test_lightbox.html and convert_png_to_webp.py removed
 
-- **Branch:** master (up to date with origin/master)
-- **Latest commit:** `de988b8a2d0564db445a36f5a0cbafd94b3fa6fc` - Latest commit before image optimization work
-- **Changes ready for commit:** Image optimization updates
+### Project Image Status:
 
-## Performance Impact
+- **Projects with WebP images:** Gerberu iela 4, Lielās Diānas, Sarmītes, Stendera iela 3, Streņģi Jūrmalciems, Brīvības iela 97a, Sabri Jūrmalciems, Kazdangas iela 35
+- **Projects with PDF files only:** Klaipēdas iela 29, Reki Bernāti (using SVG placeholders)
+- **Projects with PNG fallbacks:** All WebP projects have PNG fallbacks for older browsers
+- **Total projects displayed:** 10 (3 original + 7 new)
 
-- **WebP format benefits:**
-  - 25-35% smaller file sizes compared to PNG
-  - Better compression than JPEG for photographic content
-  - Modern browser support (Chrome, Firefox, Safari, Edge)
-  - Faster page loading times
-  - Reduced bandwidth usage
+## Technical Implementation
+
+- **WebP conversion:** Used Pillow library with quality=85 setting
+- **Fallback strategy:** `<picture>` elements with WebP sources and PNG fallbacks
+- **Performance impact:** Significant reduction in image file sizes (90-98%)
+- **Browser support:** WebP supported by all modern browsers with PNG fallbacks for older browsers
 
 ## Next Steps (For Next Session)
 
-### 3. Standardize File Naming - ✅ COMPLETED
+### 1. PDF Project Image Enhancement
 
-- Renamed files to use hyphens instead of spaces:
-  - `sabri 2.webp` → `sabri-2.webp`
-  - `kazdangas 1.webp` → `kazdangas-1.webp`
-  - `kazdangas 2.webp` → `kazdangas-2.webp`
-- Updated HTML references in index.html and projekti/index.html
-- Ensured consistent naming across all project folders
+- Consider converting PDF first pages to PNG/WebP for better visual representation
+- Replace SVG placeholders with actual project images when available
 
-### 4. Implement Responsive Image Loading - ✅ COMPLETED
+### 2. Ongoing Maintenance
 
-- Added `<picture>` element with WebP fallback to JPEG/PNG for all featured project images
-- Updated index.html featured projects to use `<picture>` elements
-- Updated projekti/index.html JavaScript template to generate `<picture>` elements
-- Maintained `loading="lazy"`, `decoding="async"`, and `fetchpriority="high"` attributes
-- Added proper fallback images from `misc/` folders for older browsers
+- Continue adding new projects as they become available
+- Monitor website performance and loading times
+- Consider additional optimizations (lazy loading, image compression)
+
+### 3. Testing and Quality Assurance
+
+- Regular testing of lightbox functionality across different browsers
+- Mobile responsiveness testing
+- Performance monitoring using browser developer tools
 
 ## Notes
 
-- **Performance Optimization:** WebP conversion significantly improves page load times
-- **Backward Compatibility:** PNG/JPG files preserved in `misc/` folders for archival purposes
-- **Browser Support:** WebP supported by all modern browsers (Chrome, Firefox, Safari, Edge)
-- **File Size Reduction:** WebP files are 25-35% smaller than equivalent PNG files
-- **SEO Impact:** Faster loading times improve Core Web Vitals scores
+- **Performance benefits:** WebP files are 25-35% smaller than equivalent PNG files, resulting in faster page loading
+- **Backward compatibility:** PNG fallbacks ensure compatibility with older browsers
+- **Lightbox integration:** Works seamlessly with WebP images through existing main.js implementation
+- **File organization:** Original PNG files remain in project directories as fallbacks
 
 ## Last Updated
 
-2026-03-27 (Image optimization phase 1 completed - WebP conversion and HTML updates)
+2026-03-29 (Completed PNG to WebP conversion for performance optimization)

@@ -131,6 +131,48 @@
       <span class="footer-copy">© Kalvis Lejasmeiers</span>
     </footer>
 
+    <!-- Lightbox Overlay -->
+    <div
+      class="lightbox-overlay"
+      id="projectLightbox"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Projekta attēlu galerija"
+    >
+      <button class="lightbox-close" aria-label="Aizvērt galeriju">
+        &times;
+      </button>
+      <div class="lightbox-container">
+        <button
+          class="lightbox-arrow lightbox-prev"
+          aria-label="Iepriekšējais attēls"
+        >
+          &#8249;
+        </button>
+        <div class="lightbox-content">
+          <div class="lightbox-image-wrapper">
+            <img class="lightbox-image" src="" alt="Projekta attēls" />
+          </div>
+          <div class="lightbox-info">
+            <h3 class="lightbox-title"></h3>
+            <div class="lightbox-meta">
+              <span class="lightbox-type"></span>
+              <span class="lightbox-location"></span>
+              <span class="lightbox-year"></span>
+            </div>
+            <div class="lightbox-counter"></div>
+          </div>
+        </div>
+        <button
+          class="lightbox-arrow lightbox-next"
+          aria-label="Nākamais attēls"
+        >
+          &#8250;
+        </button>
+      </div>
+    </div>
+
     <script src="../assets/js/main.js"></script>
     <style>
       /* Portfolio Grid Styles */
@@ -553,6 +595,101 @@
           image: "Kazdangas%2035/kazdangas-1.webp",
           images: ["Kazdangas%2035/kazdangas-1.webp"],
         },
+        {
+          id: "gerberu-marupe",
+          name: "Gerberu iela 4",
+          description:
+            "Privātmājas jaunbūves projekts Mārupē ar modernu arhitektūru un funkcionālu telpu plānojumu.",
+          location: "Mārupe",
+          year: 2026,
+          type: "Jaunbūve",
+          image: "Gerberu%204%20Marupe/2026-02-19-14-28-16.webp",
+          images: [
+            "Gerberu%204%20Marupe/2026-02-19-14-28-16.webp",
+            "Gerberu%204%20Marupe/2026-02-19-14-30-14%20-%20Copy.webp",
+          ],
+        },
+        {
+          id: "klaipedas-29",
+          name: "Klaipēdas iela 29",
+          description:
+            "Dzīvojamās ēkas renovācijas projekts ar fasādes atjaunošanu un interjera modernizāciju.",
+          location: "Liepāja",
+          year: 2023,
+          type: "Renovācija",
+          image: "Klaipedas%2029/AR-2.pdf",
+          images: ["Klaipedas%2029/AR-2.pdf"],
+        },
+        {
+          id: "lielas-dianas",
+          name: "Lielās Diānas",
+          description:
+            "Privātmājas jaunbūves projekts ar unikālu arhitektonisku risinājumu un plašu terasi.",
+          location: "Liepāja",
+          year: 2023,
+          type: "Jaunbūve",
+          image: "Lielas%20Dianas/2023-06-27-15-41-11.webp",
+          images: [
+            "Lielas%20Dianas/2023-06-27-15-41-11.webp",
+            "Lielas%20Dianas/Enscape_2023-06-27-15-06-58.webp",
+          ],
+        },
+        {
+          id: "reki-bernati",
+          name: "Reki Bernāti",
+          description:
+            "Privātmājas jaunbūves projekts lauku vidē ar harmonisku integrāciju dabiskajā vidē.",
+          location: "Bernāti",
+          year: 2024,
+          type: "Jaunbūve",
+          image: "Reki%20Bernati/AR-5_FASADES ASIS B-A, 1-2.pdf",
+          images: [
+            "Reki%20Bernati/AR-5_FASADES ASIS B-A, 1-2.pdf",
+            "Reki%20Bernati/AR-6_FASADES ASIS A-B, 2-1.pdf",
+          ],
+        },
+        {
+          id: "sarmites",
+          name: "Sarmītes",
+          description:
+            "Dzīvojamās mājas jaunbūves projekts ar enerģētiski efektīvu risinājumu un mūsdienīgu dizainu.",
+          location: "Liepāja",
+          year: 2025,
+          type: "Jaunbūve",
+          image: "Sarmites/2025-12-02-11-28-55.webp",
+          images: [
+            "Sarmites/2025-12-02-11-28-55.webp",
+            "Sarmites/2025-12-02-11-32-12.webp",
+          ],
+        },
+        {
+          id: "stendera-iela",
+          name: "Stendera iela 3",
+          description:
+            "Dzīvojamās ēkas fasādes renovācijas projekts ar mūsdienīgu materiālu izmantošanu un dizainu.",
+          location: "Liepāja",
+          year: 2020,
+          type: "Renovācija",
+          image: "Stendera%20iela%203/Enscape_2020-02-18-17-28-02.webp",
+          images: [
+            "Stendera%20iela%203/Enscape_2020-02-18-17-28-02.webp",
+            "Stendera%20iela%203/Fasades_risinajums_3D_V3.webp",
+          ],
+        },
+        {
+          id: "strengi-jurmalciems",
+          name: "Streņģi Jūrmalciems",
+          description:
+            "Privātmājas jaunbūves projekts piejūras zonā ar plašu skatu uz jūru un modernu arhitektūru.",
+          location: "Jūrmalciems",
+          year: 2024,
+          type: "Jaunbūve",
+          image: "Strengi%20Jurmalciems/Enscape_2023-12-27-12-54-08.webp",
+          images: [
+            "Strengi%20Jurmalciems/Enscape_2023-12-27-12-54-08.webp",
+            "Strengi%20Jurmalciems/strengi%20jurmalciems.webp",
+          ],
+        },
       ];
 
       // ── RENDER PORTFOLIO GRID ──
@@ -567,19 +704,78 @@
             : portfolioProjects.filter((p) => p.type === filter);
 
         grid.innerHTML = filtered
-          .map(
-            (project) => `
+          .map((project) => {
+            // Check if image is a PDF file
+            const isPdf = project.image.toLowerCase().endsWith(".pdf");
+
+            // For PDF files, use a simple SVG placeholder
+            const fallbackSrc = isPdf
+              ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f5f4f0'/%3E%3Ctext x='200' y='150' font-family='Arial, sans-serif' font-size='24' text-anchor='middle' fill='%23999'%3EPDF%3C/text%3E%3Ctext x='200' y='180' font-family='Arial, sans-serif' font-size='14' text-anchor='middle' fill='%23999'%3E${encodeURIComponent(project.name)}%3C/text%3E%3C/svg%3E"
+              : project.image
+                  .replace(".webp", ".png")
+                  .replace(
+                    "Sabri%20Jurmalciems/sabri.webp",
+                    "Sabri%20Jurmalciems/misc/sabri.png",
+                  )
+                  .replace(
+                    "Kazdangas%2035/kazdangas-1.webp",
+                    "Kazdangas%2035/misc/kazdangas%2035.jpg",
+                  )
+                  .replace("Brivibas%2097a/1.webp", "Brivibas%2097a/misc/1.png")
+                  // New fallbacks for converted WebP files
+                  .replace(
+                    "Gerberu%204%20Marupe/2026-02-19-14-28-16.webp",
+                    "Gerberu%204%20Marupe/2026-02-19-14-28-16.png",
+                  )
+                  .replace(
+                    "Gerberu%204%20Marupe/2026-02-19-14-30-14%20-%20Copy.webp",
+                    "Gerberu%204%20Marupe/2026-02-19-14-30-14%20-%20Copy.png",
+                  )
+                  .replace(
+                    "Lielas%20Dianas/2023-06-27-15-41-11.webp",
+                    "Lielas%20Dianas/2023-06-27-15-41-11.png",
+                  )
+                  .replace(
+                    "Lielas%20Dianas/Enscape_2023-06-27-15-06-58.webp",
+                    "Lielas%20Dianas/Enscape_2023-06-27-15-06-58.png",
+                  )
+                  .replace(
+                    "Sarmites/2025-12-02-11-28-55.webp",
+                    "Sarmites/2025-12-02-11-28-55.png",
+                  )
+                  .replace(
+                    "Sarmites/2025-12-02-11-32-12.webp",
+                    "Sarmites/2025-12-02-11-32-12.png",
+                  )
+                  .replace(
+                    "Stendera%20iela%203/Enscape_2020-02-18-17-28-02.webp",
+                    "Stendera%20iela%203/Enscape_2020-02-18-17-28-02.png",
+                  )
+                  .replace(
+                    "Stendera%20iela%203/Fasades_risinajums_3D_V3.webp",
+                    "Stendera%20iela%203/Fasades_risinajums_3D_V3.png",
+                  )
+                  .replace(
+                    "Strengi%20Jurmalciems/Enscape_2023-12-27-12-54-08.webp",
+                    "Strengi%20Jurmalciems/Enscape_2023-12-27-12-54-08.png",
+                  )
+                  .replace(
+                    "Strengi%20Jurmalciems/strengi%20jurmalciems.webp",
+                    "Strengi%20Jurmalciems/strengi%20jurmalciems.png",
+                  );
+
+            return `
           <article class="portfolio-card" 
                    data-lightbox="true"
                    data-project-name="${project.name}"
                    data-project-type="${project.type}"
                    data-project-location="${project.location}"
                    data-project-year="${project.year}"
-                   data-images='${JSON.stringify(project.images.map((img) => "../projekti/" + img))}'>
+                   data-images='${JSON.stringify(project.images.map((img) => img))}'>
             <div class="portfolio-card-image">
               <picture>
-                <source srcset="${project.image}" type="image/webp" />
-                <img src="${project.image.replace(".webp", ".png").replace("Sabri%20Jurmalciems/sabri.webp", "Sabri%20Jurmalciems/misc/sabri.png").replace("Kazdangas%2035/kazdangas-1.webp", "Kazdangas%2035/misc/kazdangas%2035.jpg").replace("Brivibas%2097a/1.webp", "Brivibas%2097a/misc/1.png")}" alt="${project.name}" loading="lazy" decoding="async" />
+                ${!isPdf ? `<source srcset="${project.image}" type="image/webp" />` : ""}
+                <img src="${fallbackSrc}" alt="${project.name}" loading="lazy" decoding="async" />
               </picture>
             </div>
             <div class="portfolio-card-content">
@@ -592,51 +788,15 @@
               </div>
             </div>
           </article>
-        `,
-          )
+        `;
+          })
           .join("");
-
-        // Initialize lightbox click handlers for new cards
-        initPortfolioCardClicks();
       }
 
       // ── PORTFOLIO CARD CLICK HANDLERS ──
-      function initPortfolioCardClicks() {
-        const cards = document.querySelectorAll(
-          ".portfolio-card[data-lightbox]",
-        );
-        cards.forEach((card) => {
-          card.onclick = function () {
-            const images = JSON.parse(this.dataset.images);
-            const lightbox = document.getElementById("projectLightbox");
-            if (lightbox && images.length > 0) {
-              // Set up lightbox with project data
-              lightbox.setAttribute("aria-hidden", "false");
-              lightbox.classList.add("active");
-              document.body.style.overflow = "hidden";
-
-              // Update lightbox content
-              const img = lightbox.querySelector(".lightbox-image");
-              const title = lightbox.querySelector(".lightbox-title");
-              const type = lightbox.querySelector(".lightbox-type");
-              const location = lightbox.querySelector(".lightbox-location");
-              const year = lightbox.querySelector(".lightbox-year");
-              const counter = lightbox.querySelector(".lightbox-counter");
-
-              if (img) img.src = images[0];
-              if (title) title.textContent = this.dataset.projectName;
-              if (type) type.textContent = this.dataset.projectType;
-              if (location) location.textContent = this.dataset.projectLocation;
-              if (year) year.textContent = this.dataset.projectYear;
-              if (counter) counter.textContent = `1 / ${images.length}`;
-
-              // Store images for navigation
-              lightbox.dataset.images = JSON.stringify(images);
-              lightbox.dataset.currentIndex = "0";
-            }
-          };
-        });
-      }
+      // Note: Lightbox functionality is handled by main.js
+      // Portfolio cards have data-lightbox="true" and other data attributes
+      // that main.js uses to open the lightbox gallery
 
       // ── PORTFOLIO FILTERS ──
       function initPortfolioFilters() {
