@@ -1,8 +1,8 @@
-# Project Context: Kalvis Lejasmeiers — Architect Portfolio
+# Project Context: Kalvis Lejasmeiers — Designer Portfolio
 
 ## Project Overview
 
-Personal portfolio website for **Kalvis Lejasmeiers**, an architect with 10 years of experience based in **Liepāja, Latvia**.
+Personal portfolio website for **Kalvis Lejasmeiers**, a designer with 10 years of experience based in **Liepāja, Latvia**.
 
 ## Core Purpose
 
