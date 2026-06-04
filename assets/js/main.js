@@ -40,28 +40,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileNavLinks = document.querySelector(".nav-links");
   
   if (hamburger && mobileNavLinks) {
+    function closeMobileMenu() {
+      hamburger.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+      mobileNavLinks.classList.remove("open");
+      document.body.classList.remove("menu-open");
+    }
+
+    function openMobileMenu() {
+      hamburger.classList.add("open");
+      hamburger.setAttribute("aria-expanded", "true");
+      mobileNavLinks.classList.add("open");
+      document.body.classList.add("menu-open");
+    }
+
     hamburger.addEventListener("click", () => {
       const isOpen = hamburger.classList.contains("open");
       
-      // Toggle hamburger icon
-      hamburger.classList.toggle("open");
-      hamburger.setAttribute("aria-expanded", !isOpen);
-      
-      // Toggle menu visibility
-      mobileNavLinks.classList.toggle("open");
-      
-      // Prevent body scroll when menu is open
-      document.body.style.overflow = isOpen ? "" : "hidden";
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
 
     // Close menu when clicking on a link
     mobileNavLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        hamburger.classList.remove("open");
-        hamburger.setAttribute("aria-expanded", "false");
-        mobileNavLinks.classList.remove("open");
-        document.body.style.overflow = "";
-      });
+      link.addEventListener("click", closeMobileMenu);
     });
 
     // Close menu when clicking outside
@@ -69,23 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (mobileNavLinks.classList.contains("open") && 
           !mobileNavLinks.contains(e.target) && 
           !hamburger.contains(e.target)) {
-        hamburger.classList.remove("open");
-        hamburger.setAttribute("aria-expanded", "false");
-        mobileNavLinks.classList.remove("open");
-        document.body.style.overflow = "";
+        closeMobileMenu();
       }
     });
 
     // Close menu with Escape key
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && mobileNavLinks.classList.contains("open")) {
-        hamburger.classList.remove("open");
-        hamburger.setAttribute("aria-expanded", "false");
-        mobileNavLinks.classList.remove("open");
-        document.body.style.overflow = "";
+        closeMobileMenu();
       }
     });
   }
+
 
   // Smooth scroll for nav links (only for same-page anchors)
   document.querySelectorAll('a[href^="#"]').forEach((a) => {

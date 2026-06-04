@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kontakti — Kalvis Lejasmeiers</title>
+    <meta name="description" content="Sazinieties ar projektētāju Kalvi Lejasmeieru — e-pasts, tālrunis un kontaktforma.">
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,11 +16,28 @@
   <body>
     <!-- NAVIGATION -->
     <nav id="main-nav">
-      <a href="../" class="nav-name">kalvis lejasmeiers</a>
-      <ul class="nav-links">
-        <li><a href="../#projekti">projekti</a></li>
-        <li><a href="../#par-mani">par mani</a></li>
-        <li><a href="../#kontakti" class="active">kontakti</a></li>
+      <div class="nav-left">
+        <a href="../" class="nav-name">kalvis lejasmeiers</a>
+        <div class="nav-logo">
+          <img src="../kllogo/kl.png" alt="Kalvis Lejasmeiers Logo" decoding="async" />
+        </div>
+      </div>
+      <!-- Mobile hamburger button -->
+      <button
+        class="nav-hamburger"
+        aria-label="Atvērt izvēlni"
+        aria-expanded="false"
+        aria-controls="main-menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <ul class="nav-links" id="main-menu" role="menu">
+        <li role="none"><a href="../projekti/" role="menuitem">projekti</a></li>
+        <li role="none"><a href="../par-mani/" role="menuitem">par mani</a></li>
+        <li role="none"><a href="./" role="menuitem" class="active">kontakti</a></li>
       </ul>
     </nav>
 
@@ -40,7 +58,9 @@
           "
         />
 
-        <form class="contact-form-simple" id="contactForm">
+        <form class="contact-form-simple" id="contactForm" name="kontakti" method="POST" data-netlify="true" netlify>
+          <input type="hidden" name="form-name" value="kontakti" />
+
           <div class="form-group-simple">
             <label for="name">Vārds</label>
             <input type="text" id="name" name="name" required />
@@ -57,6 +77,10 @@
           </div>
 
           <button type="submit" class="submit-btn-simple">Nosūtīt ziņu</button>
+
+          <div class="form-success" id="formSuccess" style="display: none;">
+            <p>Paldies! Sazināšos ar jums tuvākajā laikā.</p>
+          </div>
         </form>
       </div>
     </main>
@@ -72,25 +96,74 @@
       <span class="footer-copy">© Kalvis Lejasmeiers</span>
     </footer>
 
-    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/main.js" defer></script>
     <script>
-      // Simple form handling
+      // Netlify Forms handling with client-side validation
       document.addEventListener("DOMContentLoaded", () => {
         const contactForm = document.getElementById("contactForm");
+        const formSuccess = document.getElementById("formSuccess");
 
         if (contactForm) {
+          // Client-side validation
           contactForm.addEventListener("submit", (e) => {
-            e.preventDefault();
+            const name = document.getElementById("name");
+            const email = document.getElementById("email");
+            const message = document.getElementById("message");
+            let valid = true;
 
-            // Get form data
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
+            // Reset custom validity
+            [name, email, message].forEach((field) => {
+              field.setCustomValidity("");
+            });
 
-            // In a real implementation, you would send this to a server
-            // For now, just show a confirmation
-            alert("Paldies par ziņu! Es sazināšos ar Jums drīz.");
-            contactForm.reset();
+            if (!name.value.trim()) {
+              name.setCustomValidity("Lūdzu ievadiet vārdu");
+              valid = false;
+            }
+
+            if (!email.value.trim()) {
+              email.setCustomValidity("Lūdzu ievadiet e-pastu");
+              valid = false;
+            } else if (!email.value.includes("@")) {
+              email.setCustomValidity("Lūdzu ievadiet derīgu e-pasta adresi");
+              valid = false;
+            }
+
+            if (!message.value.trim()) {
+              message.setCustomValidity("Lūdzu ievadiet ziņojumu");
+              valid = false;
+            }
+
+            if (!valid) {
+              e.preventDefault();
+              // Focus first invalid field
+              [name, email, message].forEach((field) => {
+                if (!field.checkValidity()) {
+                  field.reportValidity();
+                }
+              });
+              return;
+            }
+
+            // For Netlify Forms, the form submits naturally
+            // Show success message after submission
+            if (e.type === "submit" && contactForm.getAttribute("data-netlify") === "true") {
+              // Netlify will handle the redirect, but we show inline success for JS users
+              setTimeout(() => {
+                contactForm.style.display = "none";
+                if (formSuccess) {
+                  formSuccess.style.display = "block";
+                }
+              }, 100);
+            }
           });
+        }
+
+        // Check URL params for Netlify success redirect
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("success") === "true" && contactForm && formSuccess) {
+          contactForm.style.display = "none";
+          formSuccess.style.display = "block";
         }
       });
     </script>
