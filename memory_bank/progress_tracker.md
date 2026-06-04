@@ -388,10 +388,80 @@
    - Committed and pushed to GitHub (commit `43b4e03`)
    - 12 files changed, 635 insertions(+), 365 deletions(-)
 
+## ✅ COMPLETED: Targeted Fixes from cline-prompt.md (2026-04-06)
+
+**Summary:** Implemented all three tasks from cline-prompt.md to improve website structure and functionality.
+
+### Task 3: Fixed index.html Homepage
+
+1. **Added Project List Section:**
+   - Created `<section class="list-section">` after featured projects
+   - Added real project links: Brīvības 97a, Sarmītes iela, Sabri Jūrmalciems
+   - Each link points to project detail page: `projekti/?project=folderName`
+
+2. **Updated Featured Card Links:**
+   - Wrapped all `.chip-project` elements in `<a>` tags
+   - Added proper `href` attributes pointing to project detail pages
+   - Maintained existing `data-lightbox` and other data attributes
+
+3. **Navigation Consistency:**
+   - All project links now use consistent URL structure
+   - Homepage navigation flows to project detail pages
+
+### Task 1: Rewrote projekti/index.html with PROJECTS Array
+
+1. **Centralized PROJECTS Array:**
+   - Created `const PROJECTS` array with 3 real projects
+   - Added comprehensive documentation for adding new projects
+   - Each project object has: folder, title, location, type, year, cover, images
+
+2. **Grid Rendering Function:**
+   - Implemented `renderGrid(filter)` function
+   - Filters projects by type (Jaunbūve, Renovācija, Interjers)
+   - Renders archive cards with proper image paths and metadata
+
+3. **Project Detail View:**
+   - Added URL parameter handling for `?project=folderName`
+   - Created `openProject(folderName)` function
+   - Dynamic rendering of project detail view with back link, gallery, and CTA
+
+4. **Filter Button Integration:**
+   - Wired up existing `.filter-btn` elements
+   - Buttons use `data-filter` attributes matching PROJECTS types
+   - Active state management for filter buttons
+
+5. **Maintained Existing Functionality:**
+   - Preserved embedded pieredze section
+   - Kept pieredze table and geography functionality
+   - Maintained responsive design
+
+### Task 2: CSS Rules (Already Completed)
+
+- CSS rules from cline-prompt.md were already appended to `assets/css/main.css` in previous work
+- Includes archive card links, project detail styles, and responsive gallery layouts
+
+### Technical Implementation:
+
+- **URL Parameter Handling:** Uses `URLSearchParams` API
+- **Dynamic Content:** JavaScript renders grid or detail view based on URL
+- **Centralized Data:** PROJECTS array is single source of truth
+- **Responsive Design:** Maintains mobile-friendly layouts
+- **Backward Compatibility:** Preserves all existing functionality
+
+### Files Modified:
+
+- **index.html:** Added project list section, updated featured card links
+- **projekti/index.html:** Completely rewritten with new architecture
+- **assets/css/main.css:** CSS rules already present from previous work
+
+**Status:** ✅ All three tasks completed successfully
+
 ## Current Git State
 
-- **Current commit:** `43b4e03` - Rebuild projekti page with portfolio grid, lightbox, and add Dzelzscelnieku_1_viz images (2026-04-06)
+- **Current commit:** `699f2c5` - Rebuild projekti page with portfolio grid, lightbox, and add Dzelzscelnieku_1_viz images (2026-04-06)
 - **Previous commits:**
+  - `6955244` - Fix Brivibas 97a image paths after WebP file reorganization (2026-03-29)
+  - `87b7fc5` - Performance optimization: Convert PNG images to WebP format for new projects (2026-03-29)
   - `e5577d3` - Complete image optimization: WebP conversion, file naming standardization, and responsive picture elements (2026-03-27)
   - `de988b8` - Latest commit before image optimization work
   - `601a84c` - CRITICAL FIX: Restore corrupted par-mani and kontakti pages from commit ad2d25f (files were filled with null bytes) (2026-03-19)
@@ -402,31 +472,4 @@
   - `90ab3cd` - Resolve merge conflicts in memory bank files after git pull (2026-03-19)
   - `8933bd5` - Update Sabri Jurmalciems project image to sabri.jpg (2026-03-19)
   - `22c146d` - Performance optimization: DNS prefetch, preconnect, critical CSS, defer scripts (2026-03-19)
-  - `96aacb5` - Add missing kazdangas 35.jpg image and restore original path (2026-03-18)
-  - `627044f` - Reduce horizontal padding in featured section from 40px to 30px (2026-03-18)
-  - `11633ac` - Featured projects section redesign - David Chipperfield layout (2026-03-18)
-  - `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation (2026-03-17)
-- **Branch:** master (up to date with origin/master)
-- **Status:** All changes committed and pushed
-
-## Next Session Tasks
-
-### 1. PDF Project Image Enhancement
-- Consider converting PDF first pages to PNG/WebP for better visual representation
-- Replace SVG placeholders with actual project images when available
-
-### 2. Ongoing Maintenance
-- Continue adding new projects as they become available
-
-- Monitor website performance and loading times
-- Consider additional optimizations (lazy loading, image compression)
-
-### 4. Testing and Quality Assurance
-
-- Regular testing of lightbox functionality across different browsers
-- Mobile responsiveness testing
-- Performance monitoring using browser developer tools
-
-## Last Updated
-
-2026-03-29 (Completed PNG to WebP conversion for performance optimization)
+  - `96aacb5` - Add missing kazdangas 35.jpg image and restore original path (2026-03-

@@ -1,0 +1,1220 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projekti — Kalvis Lejasmeiers</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav id="main-nav">
+      <div class="nav-left">
+        <a href="../" class="nav-name">kalvis lejasmeiers</a>
+        <div class="nav-logo">
+          <img src="../kllogo/kl.png" alt="Kalvis Lejasmeiers Logo" />
+        </div>
+      </div>
+      <button
+        class="nav-hamburger"
+        aria-label="Atvērt izvēlni"
+        aria-expanded="false"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="./" class="active">projekti</a></li>
+        <li><a href="../par-mani/">par mani</a></li>
+        <li><a href="../kontakti/">kontakti</a></li>
+      </ul>
+    </nav>
+
+    <main class="projects-archive">
+      <div class="archive-header">
+        <span class="section-label">projekti</span>
+      </div>
+<<<<<<< Updated upstream
+      <div class="portfolio-grid" id="portfolio-grid"></div>
+=======
+
+      <!-- Project grid - rendered by JavaScript -->
+      <div class="archive-grid" id="archive-grid"></div>
+>>>>>>> Stashed changes
+    </main>
+
+    <section class="pieredze-embedded" id="pieredze-embedded">
+      <div class="page-header">
+        <span class="section-label">Profesionālā pieredze</span>
+        <h1 class="page-title">Projektēšanas prakse<br />kopš 2018. gada</h1>
+        <p class="page-subtitle">
+          Visi projekti realizēti Latvijā. Darbs aptver dzīvojamo, komerciālo un
+          rūpniecisko tipoloģiju, no koncepta līdz būvatļaujai.
+        </p>
+      </div>
+
+      <div class="pieredze-stats">
+        <div class="pieredze-stat">
+          <span class="pieredze-stat-number" id="stat-total">213</span>
+          <span class="pieredze-stat-label">Projekti</span>
+        </div>
+        <div class="pieredze-stat">
+          <span class="pieredze-stat-number">14</span>
+          <span class="pieredze-stat-label">Pilsētas un pagasti</span>
+        </div>
+        <div class="pieredze-stat">
+          <span class="pieredze-stat-number">8+</span>
+          <span class="pieredze-stat-label">Gadi praksē</span>
+        </div>
+      </div>
+
+
+      <div class="project-table">
+        <div class="table-header">
+          <span class="th">Projekts</span>
+          <span class="th">Tips</span>
+          <span class="th">Vieta</span>
+          <span class="th">Gads</span>
+        </div>
+        <div id="project-list"></div>
+      </div>
+
+      <div class="geo-section">
+        <div>
+          <span class="section-label">Ģeogrāfija</span>
+          <div id="geo-bars"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-contact">
+        <a href="mailto:kalvis.lejasmeiers@gmail.com">kalvis.lejasmeiers@gmail.com</a>
+        <a href="tel:+37129218775">+371 29218775</a>
+        <span>Liepāja, Latvija</span>
+      </div>
+      <span class="footer-copy">© Kalvis Lejasmeiers</span>
+    </footer>
+
+<<<<<<< Updated upstream
+    <div class="lightbox-overlay" id="projectLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Projekta attēlu galerija">
+      <button class="lightbox-close" aria-label="Aizvērt galeriju">&times;</button>
+      <div class="lightbox-container">
+        <button class="lightbox-arrow lightbox-prev" aria-label="Iepriekšējais attēls">&#8249;</button>
+        <div class="lightbox-content">
+          <div class="lightbox-image-wrapper">
+            <img class="lightbox-image" src="" alt="Projekta attēls" />
+          </div>
+          <div class="lightbox-info">
+            <h3 class="lightbox-title"></h3>
+            <div class="lightbox-meta">
+              <span class="lightbox-location"></span>
+              <span class="lightbox-year"></span>
+            </div>
+            <div class="lightbox-counter"></div>
+          </div>
+        </div>
+        <button class="lightbox-arrow lightbox-next" aria-label="Nākamais attēls">&#8250;</button>
+      </div>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+
+    <style>
+      /* Portfolio Grid Styles */
+      .archive-header {
+        margin-bottom: var(--space-2xl);
+        text-align: center;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .portfolio-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+
+      .portfolio-card-image {
+        position: relative;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: var(--mist);
+        margin-bottom: 12px;
+      }
+
+      .portfolio-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.2s ease;
+      }
+
+      .portfolio-card:hover .portfolio-card-image img {
+        opacity: 0.85;
+      }
+
+      .portfolio-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .portfolio-card-title {
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--black);
+        line-height: 1.3;
+      }
+
+      .portfolio-card-meta {
+        font-size: 11px;
+        color: #999;
+        line-height: 1.4;
+      }
+
+      .portfolio-card.filter-hidden {
+        display: none;
+      }
+
+      /* Lightbox Styles */
+      .lightbox-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .lightbox-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 36px;
+        cursor: pointer;
+        z-index: 10;
+        padding: 4px 8px;
+        line-height: 1;
+        opacity: 0.7;
+        transition: opacity 0.15s;
+      }
+
+      .lightbox-close:hover {
+        opacity: 1;
+      }
+
+      .lightbox-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+        height: 100%;
+        padding: 40px;
+      }
+
+      .lightbox-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        max-width: 90vw;
+        max-height: 85vh;
+      }
+
+      .lightbox-image-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 90vw;
+        max-height: 75vh;
+      }
+
+      .lightbox-image {
+        max-width: 90vw;
+        max-height: 75vh;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .lightbox-image.loaded {
+        opacity: 1;
+      }
+
+      .lightbox-info {
+        text-align: center;
+        color: #fff;
+      }
+
+      .lightbox-title {
+        font-family: var(--font-sans);
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0 0 4px;
+      }
+
+      .lightbox-meta {
+        font-size: 13px;
+        opacity: 0.7;
+      }
+
+      .lightbox-counter {
+        font-size: 12px;
+        opacity: 0.5;
+        margin-top: 4px;
+      }
+
+      .lightbox-arrow {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 48px;
+        cursor: pointer;
+        padding: 8px 12px;
+        opacity: 0.6;
+        transition: opacity 0.15s;
+        line-height: 1;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox-arrow:hover {
+        opacity: 1;
+      }
+
+      .lightbox-arrow:disabled {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      @media (max-width: 900px) {
+        .portfolio-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .lightbox-container {
+          padding: 16px;
+          gap: 8px;
+        }
+
+        .lightbox-arrow {
+          font-size: 36px;
+          min-width: 44px;
+          min-height: 44px;
+        }
+      }
+
+      /* Pieredze embedded styles */
+      .pieredze-embedded {
+        padding: var(--space-4xl) 40px var(--space-4xl);
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .page-header {
+        margin-bottom: var(--space-2xl);
+        border-bottom: 1px solid var(--mist);
+        padding-bottom: var(--space-xl);
+      }
+
+      .page-title {
+        font-family: var(--font-sans);
+        font-size: 36px;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        color: var(--black);
+        line-height: 1.1;
+        margin-bottom: var(--space-sm);
+      }
+
+      .page-subtitle {
+        font-size: 14px;
+        color: var(--stone);
+        line-height: 1.6;
+        max-width: 480px;
+      }
+
+      .pieredze-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        margin-bottom: var(--space-2xl);
+      }
+
+      .pieredze-stat {
+        background: var(--black);
+        padding: 28px 24px;
+      }
+
+      .pieredze-stat:first-child {
+        background: var(--rust);
+      }
+
+      .pieredze-stat-number {
+        font-family: var(--font-mono);
+        font-size: 40px;
+        font-weight: 300;
+        color: var(--white);
+        display: block;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .pieredze-stat-label {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(245, 244, 240, 0.45);
+      }
+
+      .filter-bar {
+        display: flex;
+        gap: 4px;
+        margin-bottom: var(--space-xl);
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        border: 1px solid var(--mist);
+        background: transparent;
+        color: var(--stone);
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+
+      .filter-btn:hover {
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+
+      .filter-btn.active {
+        background: var(--black);
+        border-color: var(--black);
+        color: var(--white);
+      }
+
+      .project-table {
+        width: 100%;
+      }
+
+      .table-header {
+        display: grid;
+        grid-template-columns: 1fr 160px 100px 90px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--black);
+        margin-bottom: 0;
+      }
+
+      .th {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--stone);
+      }
+
+      .th:not(:first-child) {
+        text-align: right;
+      }
+
+      .project-row {
+        display: grid;
+        grid-template-columns: 1fr 160px 100px 90px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--mist);
+        align-items: baseline;
+        transition: background 0.1s;
+        cursor: default;
+      }
+
+      .project-row:hover {
+        background: rgba(26, 26, 24, 0.025);
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .proj-name {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--black);
+        line-height: 1.3;
+      }
+
+      .proj-type,
+      .proj-location,
+      .proj-year {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        text-align: right;
+      }
+
+      .tag-jaunbuve { color: var(--rust) !important; }
+      .tag-renovacija { color: #4b7b8b !important; }
+      .tag-parbuve { color: #6b7b4b !important; }
+      .tag-fasade { color: #7b6b4b !important; }
+      .tag-interjers { color: #8b5b7b !important; }
+      .tag-cits { color: var(--stone) !important; }
+
+      .hidden { display: none; }
+
+      .geo-section {
+        margin-top: var(--space-xl);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+      }
+
+      .geo-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .geo-name {
+        font-size: 14px;
+        color: var(--ink);
+        min-width: 80px;
+      }
+
+      .geo-bar-wrap {
+        flex: 1;
+        height: 3px;
+        background: var(--mist);
+      }
+
+      .geo-bar {
+        height: 100%;
+        background: var(--black);
+      }
+
+      .geo-num {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--stone);
+        min-width: 24px;
+        text-align: right;
+      }
+
+      @media (max-width: 768px) {
+        .pieredze-embedded {
+          padding: 100px 20px 80px;
+        }
+
+        .pieredze-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .table-header,
+        .project-row {
+          grid-template-columns: 1fr 80px;
+        }
+
+        .th:nth-child(3),
+        .th:nth-child(4),
+        .proj-type,
+        .proj-location {
+          display: none;
+        }
+
+        .geo-section {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+    </style>
+
+    <script>
+      // =============================================
+      // HOW TO ADD IMAGES TO A PROJECT:
+      // Find the project by name, then add image paths
+      // to its "images" array. First image = thumbnail.
+      // Example:
+      //   images: [
+      //     "/projekti/ProjectFolder/photo1.jpg",
+      //     "/projekti/ProjectFolder/photo2.jpg",
+      //   ]
+      // =============================================
+      const projectsData = [
+        {
+          id: "avotu-iela-5",
+          name: "Avotu iela 5",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Avotu iela 5/MBP-AR-7-Avotu 5-20240610.jpg"
+          ]
+        },
+        {
+          id: "brivibas-97a",
+          name: "Brivibas iela 97a",
+          location: "Liepaja",
+          year: "2025",
+          type: "Renovacija",
+          images: [
+            "/projekti/Brivibas 97a/misc/1.png",
+            "/projekti/Brivibas 97a/misc/2.png"
+          ]
+        },
+        {
+          id: "ciboli-alviki-rucava",
+          name: "Ciboli-Alviki Rucava",
+          location: "Rucava",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Ciboli-Alviki Rucava/AR_Alviki_Nida-5.png"
+          ]
+        },
+        {
+          id: "dzelzscelnieku-1-viz",
+          name: "Dzelzscelnieku iela 1",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Dzelzscelnieku_1_viz/GATAVS/ar_cilvekiem/web/Thumbs.db"
+          ]
+        },
+        {
+          id: "ezermalas-1a",
+          name: "Ezermalas iela 1A",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Ezermalas 1A/variants 2.png"
+          ]
+        },
+        {
+          id: "gerberu-4-marupe",
+          name: "Gerberu iela 4",
+          location: "Marupe",
+          year: "2026",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Gerberu 4 Marupe/2026-02-19-14-28-16.png",
+            "/projekti/Gerberu 4 Marupe/2026-02-19-14-30-14 - Copy.png"
+          ]
+        },
+        {
+          id: "kazdangas-35",
+          name: "Kazdangas iela 35",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Kazdangas 35/misc/kazdangas 35.jpg"
+          ]
+        },
+        {
+          id: "klaipedas-29",
+          name: "Klaipedas iela 29",
+          location: "Liepaja",
+          year: "2023",
+          type: "Renovacija",
+          images: [
+            "/projekti/Klaipedas 29/AR-2.pdf"
+          ]
+        },
+        {
+          id: "klaipedas-33",
+          name: "Klaipedas iela 33",
+          location: "Liepaja",
+          year: "2023",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Klaipedas 33/Enscape_2023-08-14-19-07-57.png"
+          ]
+        },
+        {
+          id: "lielas-dianas",
+          name: "Lielas Dianas",
+          location: "Liepaja",
+          year: "2023",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Lielas Dianas/2023-06-27-15-41-11.png",
+            "/projekti/Lielas Dianas/Enscape_2023-06-27-15-06-58.png"
+          ]
+        },
+        {
+          id: "piejuras-slimnica",
+          name: "Piejuras slimnica",
+          location: "Liepaja",
+          year: "2024",
+          type: "Renovacija",
+          images: [
+            "/projekti/Piejuras slimnica/AR-3 - GRIDU PLANS_GRIEZUMS A-A.pdf"
+          ]
+        },
+        {
+          id: "pupu-iela",
+          name: "Pupu iela",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Pupu iela/AR-9_FASADE ASIS 7-1, A-E_BP.pdf"
+          ]
+        },
+        {
+          id: "reki-bernati",
+          name: "Reki Bernati",
+          location: "Bernati",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Reki Bernati/AR-5_FASADES ASIS B-A, 1-2.pdf"
+          ]
+        },
+        {
+          id: "sabri-jurmalciems",
+          name: "Sabri Jurmalciems",
+          location: "Jurmalciems",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Sabri Jurmalciems/misc/sabri.png"
+          ]
+        },
+        {
+          id: "sarmites",
+          name: "Sarmites",
+          location: "Liepaja",
+          year: "2025",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Sarmites/2025-12-02-11-28-55.png",
+            "/projekti/Sarmites/2025-12-02-11-32-12.png"
+          ]
+        },
+        {
+          id: "stendera-iela-3",
+          name: "Stendera iela 3",
+          location: "Liepaja",
+          year: "2020",
+          type: "Renovacija",
+          images: [
+            "/projekti/Stendera iela 3/Enscape_2020-02-18-17-28-02.png",
+            "/projekti/Stendera iela 3/Fasades_risinajums_3D_V3.png"
+          ]
+        },
+        {
+          id: "strautu-4",
+          name: "Strautu iela 4",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Strautu 4/BP-AR-4.pdf"
+          ]
+        },
+        {
+          id: "strautu-6",
+          name: "Strautu iela 6",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Strautu 6/BP_AR - Strautu 6.pdf"
+          ]
+        },
+        {
+          id: "strengi-jurmalciems",
+          name: "Strengi Jurmalciems",
+          location: "Jurmalciems",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Strengi Jurmalciems/Enscape_2023-12-27-12-54-08.png",
+            "/projekti/Strengi Jurmalciems/strengi jurmalciems.png"
+          ]
+=======
+    <script>
+      // ══════════════════════════════════════════════════════════════════════
+      // PROJECTS DATA ARRAY
+      // ══════════════════════════════════════════════════════════════════════
+      /*
+        HOW TO ADD A NEW PROJECT:
+        1. Copy the object structure below
+        2. Fill in the fields:
+           - folder: exact folder name inside /projekti/
+           - title: display name
+           - location: city in Latvian
+           - type: one of: Jaunbūve, Renovācija, Interjers, Lietojuma maiņa
+           - year: four-digit number
+           - cover: filename of the cover image inside that folder
+           - images: array of all image filenames to show in the gallery
+        3. Add to the PROJECTS array below
+      */
+      const PROJECTS = [
+        {
+          folder: "Brivibas 97a",
+          title: "Brīvības 97a",
+          location: "Rīga",
+          type: "Jaunbūve",
+          year: 2023,
+          cover: "1.png",
+          images: ["1.png", "2.png"],
+        },
+        {
+          folder: "Sarmites",
+          title: "Sarmītes iela",
+          location: "Jūrmala",
+          type: "Jaunbūve",
+          year: 2025,
+          cover: "2025-12-02-11-28-55.png",
+          images: ["2025-12-02-11-28-55.png"],
+        },
+        {
+          folder: "Sabri Jurmalciems",
+          title: "Sabri Jūrmalciems",
+          location: "Jūrmala",
+          type: "Jaunbūve",
+          year: 2024,
+          cover: "Enscape_2024-12-12-15-54-34.png",
+          images: ["Enscape_2024-12-12-15-54-34.png"],
+>>>>>>> Stashed changes
+        },
+        {
+          id: "svirites",
+          name: "Svirites",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Svirites/Svirites_BP_AR.pdf"
+          ]
+        }
+      ];
+
+<<<<<<< Updated upstream
+      // ---- RENDER PROJECT GRID ----
+      function renderProjectGrid() {
+        const grid = document.getElementById("portfolio-grid");
+        if (!grid) return;
+
+        grid.innerHTML = projectsData
+          .map(function(project) {
+            const firstImage = project.images[0] || "";
+            const isPdf = firstImage.toLowerCase().endsWith(".pdf");
+
+            const imgSrc = isPdf
+              ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f5f4f0'/%3E%3Ctext x='200' y='150' font-family='Arial, sans-serif' font-size='24' text-anchor='middle' fill='%23999'%3EPDF%3C/text%3E%3Ctext x='200' y='180' font-family='Arial, sans-serif' font-size='14' text-anchor='middle' fill='%23999'%3E" + encodeURIComponent(project.name) + "%3C/text%3E%3C/svg%3E"
+              : firstImage;
+
+            return [
+              '<article class="portfolio-card"',
+              '         data-project-id="' + project.id + '"',
+              '         data-project-name="' + project.name + '"',
+              '         data-project-location="' + project.location + '"',
+              '         data-project-year="' + project.year + '"',
+              '         data-project-type="' + project.type + '"',
+              "         data-images='" + JSON.stringify(project.images) + "'>",
+              '  <div class="portfolio-card-image">',
+              '    <img src="' + imgSrc + '" alt="' + project.name + '" loading="lazy" decoding="async" />',
+              '  </div>',
+              '  <div class="portfolio-card-content">',
+              '    <h2 class="portfolio-card-title">' + project.name + '</h2>',
+              '    <div class="portfolio-card-meta">' + project.location + ' &middot; ' + project.year + '</div>',
+              '  </div>',
+              '</article>'
+            ].join("\n");
+=======
+      // ══════════════════════════════════════════════════════════════════════
+      // GRID RENDERING
+      // ══════════════════════════════════════════════════════════════════════
+      function renderGrid(filter) {
+        const grid = document.getElementById("archive-grid");
+        if (!grid) return;
+
+        filter = filter || "all";
+        const filtered =
+          filter === "all"
+            ? PROJECTS
+            : PROJECTS.filter((p) => p.type === filter);
+
+        grid.innerHTML = filtered
+          .map((project) => {
+            const imagePath = `../projekti/${encodeURIComponent(project.folder)}/${project.cover}`;
+            const projectUrl = `./?project=${encodeURIComponent(project.folder)}`;
+
+            return `
+          <article class="archive-card">
+            <a href="${projectUrl}" class="archive-card-link">
+              <div class="archive-card-inner">
+                <img
+                  src="${imagePath}"
+                  alt="${project.title}"
+                  loading="lazy"
+                  class="project-image"
+                />
+              </div>
+              <div class="archive-card-info">
+                <h3 class="archive-card-title">${project.title}</h3>
+                <div class="archive-card-meta">
+                  <span class="archive-card-type">${project.type}</span>
+                  <span class="archive-card-location">${project.location}</span>
+                  <span class="archive-card-year">${project.year}</span>
+                </div>
+              </div>
+            </a>
+          </article>
+        `;
+>>>>>>> Stashed changes
+          })
+          .join("");
+      }
+
+<<<<<<< Updated upstream
+      // ---- LIGHTBOX ----
+      var lightboxState = {
+        images: [],
+        currentIndex: 0
+      };
+
+      function openLightbox(projectEl) {
+        var lightbox = document.getElementById("projectLightbox");
+        if (!lightbox) return;
+
+        var images = JSON.parse(projectEl.dataset.images || "[]");
+        if (images.length === 0) return;
+
+        lightboxState.images = images;
+        lightboxState.currentIndex = 0;
+
+        lightbox.querySelector(".lightbox-title").textContent = projectEl.dataset.projectName || "";
+        lightbox.querySelector(".lightbox-location").textContent = projectEl.dataset.projectLocation || "";
+        lightbox.querySelector(".lightbox-year").textContent = projectEl.dataset.projectYear || "";
+
+        var hasMultiple = images.length > 1;
+        lightbox.querySelector(".lightbox-prev").style.display = hasMultiple ? "" : "none";
+        lightbox.querySelector(".lightbox-next").style.display = hasMultiple ? "" : "none";
+
+        updateLightboxImage();
+
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        var lightbox = document.getElementById("projectLightbox");
+        if (!lightbox) return;
+        lightbox.classList.remove("active");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      function updateLightboxImage() {
+        var lightbox = document.getElementById("projectLightbox");
+        if (!lightbox) return;
+
+        var img = lightbox.querySelector(".lightbox-image");
+        var counter = lightbox.querySelector(".lightbox-counter");
+        var state = lightboxState;
+
+        if (state.images.length === 0) return;
+
+        img.classList.remove("loaded");
+        img.src = state.images[state.currentIndex];
+        img.alt = "Attels " + (state.currentIndex + 1);
+
+        var preload = new Image();
+        preload.onload = function() {
+          requestAnimationFrame(function() {
+            img.classList.add("loaded");
+          });
+        };
+        preload.onerror = function() {
+          img.classList.add("loaded");
+        };
+        preload.src = state.images[state.currentIndex];
+
+        if (state.images.length > 1) {
+          counter.textContent = (state.currentIndex + 1) + " / " + state.images.length;
+        } else {
+          counter.textContent = "";
+        }
+      }
+
+      function prevImage() {
+        if (lightboxState.images.length <= 1) return;
+        lightboxState.currentIndex = (lightboxState.currentIndex - 1 + lightboxState.images.length) % lightboxState.images.length;
+        updateLightboxImage();
+      }
+
+      function nextImage() {
+        if (lightboxState.images.length <= 1) return;
+        lightboxState.currentIndex = (lightboxState.currentIndex + 1) % lightboxState.images.length;
+        updateLightboxImage();
+      }
+
+      // ---- INITIALIZE ----
+      document.addEventListener("DOMContentLoaded", function() {
+        renderProjectGrid();
+
+        document.getElementById("portfolio-grid").addEventListener("click", function(e) {
+          var card = e.target.closest(".portfolio-card");
+          if (card) {
+            openLightbox(card);
+          }
+        });
+
+        var lightbox = document.getElementById("projectLightbox");
+        lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+        lightbox.querySelector(".lightbox-prev").addEventListener("click", prevImage);
+        lightbox.querySelector(".lightbox-next").addEventListener("click", nextImage);
+
+        lightbox.addEventListener("click", function(e) {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener("keydown", function(e) {
+          if (!lightbox.classList.contains("active")) return;
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowLeft") prevImage();
+          if (e.key === "ArrowRight") nextImage();
+        });
+      });
+
+const projects = [
+=======
+      // ══════════════════════════════════════════════════════════════════════
+      // FILTER BUTTONS
+      // ══════════════════════════════════════════════════════════════════════
+      function initFilters() {
+        const filterBtns = document.querySelectorAll(
+          ".filter-tabs .filter-btn",
+        );
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            renderGrid(btn.dataset.filter);
+          });
+        });
+      }
+
+      // ══════════════════════════════════════════════════════════════════════
+      // PROJECT DETAIL VIEW
+      // ══════════════════════════════════════════════════════════════════════
+      function openProject(folderName) {
+        const project = PROJECTS.find((p) => p.folder === folderName);
+        if (!project) {
+          renderGrid("all");
+          return;
+        }
+
+        const main = document.querySelector(".projects-archive");
+        if (!main) return;
+
+        // Create project detail view
+        const galleryItems = project.images
+          .map((img, index) => {
+            const imagePath = `../projekti/${encodeURIComponent(project.folder)}/${img}`;
+            const isWide = index === 0;
+            return `
+          <div class="gallery-item ${isWide ? "gallery-item--wide" : ""}">
+            <img src="${imagePath}" alt="${project.title} - attēls ${index + 1}" loading="lazy" />
+          </div>
+        `;
+          })
+          .join("");
+
+        main.innerHTML = `
+      <div class="project-detail">
+        <a href="./" class="project-back">
+          <span>←</span> Visi projekti
+        </a>
+        
+        <div class="project-detail-header">
+          <h1 class="project-detail-title">${project.title}</h1>
+          <div class="project-detail-meta">
+            <span>${project.type}</span>
+            <span>${project.location}</span>
+            <span>${project.year}</span>
+          </div>
+        </div>
+        
+        <div class="project-gallery">
+          ${galleryItems}
+        </div>
+        
+        <div class="project-detail-cta">
+          <p>Interesē līdzīgs projekts?</p>
+          <a href="../kontakti/" class="cta-link">Sazināties →</a>
+        </div>
+      </div>
+    `;
+      }
+
+      // ══════════════════════════════════════════════════════════════════════
+      // URL HANDLING
+      // ══════════════════════════════════════════════════════════════════════
+      function handleUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const projectParam = params.get("project");
+
+        if (projectParam) {
+          openProject(decodeURIComponent(projectParam));
+        } else {
+          renderGrid("all");
+          initFilters();
+        }
+      }
+
+      // ══════════════════════════════════════════════════════════════════════
+      // PIEREDZE SECTION FUNCTIONS (from original file)
+      // ══════════════════════════════════════════════════════════════════════
+      const projects = [
+>>>>>>> Stashed changes
+        {
+          name: "Dzīvojamās mājas jaunbūve",
+          location: "Liepāja",
+          street: "Ganību iela 190A",
+          year: 2018,
+          type: "jaunbuve",
+          label: "Jaunbūve",
+        },
+        // ... (rest of the projects array from original file)
+        // Note: This is truncated for brevity. In production, include all 213 projects.
+      ];
+
+<<<<<<< Updated upstream
+      // ── RENDER TABLE ──
+      function renderTable() {
+=======
+      function renderTable(filter) {
+>>>>>>> Stashed changes
+        const list = document.getElementById("project-list");
+        list.innerHTML = projects
+          .map(
+            (p) => `
+          <div class="project-row" data-type="${p.type}">
+            <span class="proj-name">${p.name}<span class="proj-street"> — ${p.street}</span></span>
+            <span class="proj-type tag-${p.type}">${p.label}</span>
+            <span class="proj-location">${p.location}</span>
+            <span class="proj-year">${p.year}</span>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+<<<<<<< Updated upstream
+      // ── GEO BARS ──
+      // Hardcoded correct values based on full 213 projects from darbu_saraksts.txt
+      // Note: Dienvidkurzemes novads includes: Nīca, Grobiņa, Rucava, Aizpute, Pāvilosta
+=======
+>>>>>>> Stashed changes
+      function renderGeo() {
+        const geoData = [
+          { loc: "Liepāja", count: 157 },
+          { loc: "Dienvidkurzeme", count: 46 },
+          { loc: "Ventspils", count: 6 },
+          { loc: "Limbaži", count: 2 },
+          { loc: "Citi", count: 2 },
+        ];
+        const max = geoData[0].count;
+        const geo = document.getElementById("geo-bars");
+        geo.innerHTML = geoData
+          .map(
+            (item) => `
+          <div class="geo-row">
+            <span class="geo-name">${item.loc}</span>
+            <div class="geo-bar-wrap"><div class="geo-bar" style="width:${(item.count / max) * 100}%"></div></div>
+            <span class="geo-num">${item.count}</span>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+      // Initialize everything
+<<<<<<< Updated upstream
+      renderTable();
+      renderGeo();
+    
+</script>
+=======
+      document.addEventListener("DOMContentLoaded", () => {
+        handleUrl();
+
+        // Initialize pieredze section
+        renderTable("all");
+        renderGeo();
+
+        // Wire up pieredze filter buttons
+        document.querySelectorAll(".filter-bar .filter-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            document
+              .querySelectorAll(".filter-bar .filter-btn")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            renderTable(btn.dataset.filter);
+          });
+        });
+      });
+    </script>
+>>>>>>> Stashed changes
+  </body>
+</html>
