@@ -41,12 +41,6 @@
     <main class="projects-archive">
       <div class="archive-header">
         <span class="section-label">projekti</span>
-        <div class="filter-tabs">
-          <button class="filter-btn active" data-filter="all">Visi</button>
-          <button class="filter-btn" data-filter="Jaunbūve">Jaunbūve</button>
-          <button class="filter-btn" data-filter="Renovācija">Renovācija</button>
-          <button class="filter-btn" data-filter="Interjers">Interjers</button>
-        </div>
       </div>
       <div class="portfolio-grid" id="portfolio-grid"></div>
     </main>
@@ -76,14 +70,6 @@
         </div>
       </div>
 
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">Visi projekti</button>
-        <button class="filter-btn" data-filter="jaunbuve">Jaunbūve</button>
-        <button class="filter-btn" data-filter="renovacija">Renovācija / Atjaunošana</button>
-        <button class="filter-btn" data-filter="parbuve">Pārbūve</button>
-        <button class="filter-btn" data-filter="fasade">Fasāde / Jumts</button>
-        <button class="filter-btn" data-filter="cits">Cits</button>
-      </div>
 
       <div class="project-table">
         <div class="table-header">
@@ -806,17 +792,11 @@
       ];
 
       // ---- RENDER PROJECT GRID ----
-      function renderProjectGrid(filter) {
+      function renderProjectGrid() {
         const grid = document.getElementById("portfolio-grid");
         if (!grid) return;
 
-        filter = filter || "all";
-        const filtered =
-          filter === "all"
-            ? projectsData
-            : projectsData.filter(function(p) { return p.type === filter; });
-
-        grid.innerHTML = filtered
+        grid.innerHTML = projectsData
           .map(function(project) {
             const firstImage = project.images[0] || "";
             const isPdf = firstImage.toLowerCase().endsWith(".pdf");
@@ -932,15 +912,6 @@
       // ---- INITIALIZE ----
       document.addEventListener("DOMContentLoaded", function() {
         renderProjectGrid();
-
-        var filterBtns = document.querySelectorAll(".archive-header .filter-btn");
-        filterBtns.forEach(function(btn) {
-          btn.addEventListener("click", function() {
-            filterBtns.forEach(function(b) { b.classList.remove("active"); });
-            this.classList.add("active");
-            renderProjectGrid(this.dataset.filter);
-          });
-        });
 
         document.getElementById("portfolio-grid").addEventListener("click", function(e) {
           var card = e.target.closest(".portfolio-card");
@@ -1476,13 +1447,9 @@ const projects = [
       ];
 
       // ── RENDER TABLE ──
-      function renderTable(filter) {
+      function renderTable() {
         const list = document.getElementById("project-list");
-        const filtered =
-          filter === "all"
-            ? projects
-            : projects.filter((p) => p.type === filter);
-        list.innerHTML = filtered
+        list.innerHTML = projects
           .map(
             (p) => `
           <div class="project-row" data-type="${p.type}">
@@ -1495,17 +1462,6 @@ const projects = [
           )
           .join("");
       }
-
-      // ── FILTERS ──
-      document.querySelectorAll(".filter-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          document
-            .querySelectorAll(".filter-btn")
-            .forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          renderTable(btn.dataset.filter);
-        });
-      });
 
       // ── GEO BARS ──
       // Hardcoded correct values based on full 213 projects from darbu_saraksts.txt
@@ -1534,7 +1490,7 @@ const projects = [
       }
 
       // Initialize everything
-      renderTable("all");
+      renderTable();
       renderGeo();
     
 </script>
