@@ -357,11 +357,42 @@
 
 **Status:** ✅ Task completed - Lightbox functionality fully restored
 
+## ✅ COMPLETED: Rebuild Projekti Page with Portfolio Grid and Lightbox (2026-04-06)
+
+**Summary:** Successfully rebuilt the projekti/index.html page with a modern portfolio grid layout, lightbox gallery, and preserved pieredze section.
+
+### Key Accomplishments:
+
+1. **Portfolio Grid Implementation:**
+   - 3-column responsive grid showing all 20 projects with thumbnail images
+   - Filterable by type (Visi/Jaunbūve/Renovācija/Interjers)
+   - Responsive: 2 columns on tablets, 1 column on mobile
+   - PDF placeholder SVG for projects with only PDF files
+
+2. **Lightbox Gallery:**
+   - Click any project card to open full-screen lightbox overlay
+   - Image navigation with prev/next arrows
+   - Keyboard support (arrow keys, Escape to close)
+   - Image preloading for smooth transitions
+   - Project metadata display (name, location, year)
+
+3. **Preserved Pieredze Section:**
+   - Extracted and preserved the existing pieredze data (213 projects table, geo bars)
+   - All filter functionality maintained
+   - Geography visualization kept intact
+
+4. **New Images Added:**
+   - Added 10 new Dzelzscelnieku_1_viz images (kl_27042020_1.jpg through kl_27042020_10.jpg)
+
+5. **Git Operations:**
+   - Committed and pushed to GitHub (commit `43b4e03`)
+   - 12 files changed, 635 insertions(+), 365 deletions(-)
+
 ## Current Git State
 
-- **Current commit:** `e5577d3` - Complete image optimization: WebP conversion, file naming standardization, and responsive picture elements (2026-03-27)
-- **Note:** New WebP conversions (2026-03-29) have not been committed yet
+- **Current commit:** `43b4e03` - Rebuild projekti page with portfolio grid, lightbox, and add Dzelzscelnieku_1_viz images (2026-04-06)
 - **Previous commits:**
+  - `e5577d3` - Complete image optimization: WebP conversion, file naming standardization, and responsive picture elements (2026-03-27)
   - `de988b8` - Latest commit before image optimization work
   - `601a84c` - CRITICAL FIX: Restore corrupted par-mani and kontakti pages from commit ad2d25f (files were filled with null bytes) (2026-03-19)
   - `e60e43b` - Implement image lazy loading: add decoding=async to logo images, restore projekti/index.html from previous commit (2026-03-19)
@@ -376,23 +407,17 @@
   - `11633ac` - Featured projects section redesign - David Chipperfield layout (2026-03-18)
   - `d257b8e` - Embed pieredze content into projekti page and remove pieredze from navigation (2026-03-17)
 - **Branch:** master (up to date with origin/master)
-- **Status:** New WebP files and code changes need to be committed
+- **Status:** All changes committed and pushed
 
 ## Next Session Tasks
 
-### 1. Git Commit and Push
-
-- Commit new WebP files and updated projekti/index.html
-- Push changes to GitHub repository
-
-### 2. PDF Project Image Enhancement
-
+### 1. PDF Project Image Enhancement
 - Consider converting PDF first pages to PNG/WebP for better visual representation
 - Replace SVG placeholders with actual project images when available
 
-### 3. Ongoing Maintenance
-
+### 2. Ongoing Maintenance
 - Continue adding new projects as they become available
+
 - Monitor website performance and loading times
 - Consider additional optimizations (lazy loading, image compression)
 
