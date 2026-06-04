@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kontakti — Kalvis Lejasmeiers</title>
-    <meta name="description" content="Sazinieties ar projektētāju Kalvi Lejasmeieru — e-pasts, tālrunis un kontaktforma.">
+    <meta
+      name="description"
+      content="Sazinieties ar projektētāju Kalvi Lejasmeieru — e-pasts, tālrunis un kontaktforma."
+    />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,7 +22,13 @@
       <div class="nav-left">
         <a href="../" class="nav-name">kalvis lejasmeiers</a>
         <div class="nav-logo">
-          <img src="../kllogo/kl.png" alt="Kalvis Lejasmeiers Logo" decoding="async" />
+          <a href="../" aria-label="Uz sākumlapu">
+            <img
+              src="../kllogo/kl.png"
+              alt="Kalvis Lejasmeiers Logo"
+              decoding="async"
+            />
+          </a>
         </div>
       </div>
       <!-- Mobile hamburger button -->
@@ -37,7 +46,9 @@
       <ul class="nav-links" id="main-menu" role="menu">
         <li role="none"><a href="../projekti/" role="menuitem">projekti</a></li>
         <li role="none"><a href="../par-mani/" role="menuitem">par mani</a></li>
-        <li role="none"><a href="./" role="menuitem" class="active">kontakti</a></li>
+        <li role="none">
+          <a href="./" role="menuitem" class="active">kontakti</a>
+        </li>
       </ul>
     </nav>
 
@@ -58,7 +69,14 @@
           "
         />
 
-        <form class="contact-form-simple" id="contactForm" name="kontakti" method="POST" data-netlify="true" netlify>
+        <form
+          class="contact-form-simple"
+          id="contactForm"
+          name="kontakti"
+          method="POST"
+          data-netlify="true"
+          netlify
+        >
           <input type="hidden" name="form-name" value="kontakti" />
 
           <div class="form-group-simple">
@@ -78,7 +96,7 @@
 
           <button type="submit" class="submit-btn-simple">Nosūtīt ziņu</button>
 
-          <div class="form-success" id="formSuccess" style="display: none;">
+          <div class="form-success" id="formSuccess" style="display: none">
             <p>Paldies! Sazināšos ar jums tuvākajā laikā.</p>
           </div>
         </form>
@@ -147,7 +165,10 @@
 
             // For Netlify Forms, the form submits naturally
             // Show success message after submission
-            if (e.type === "submit" && contactForm.getAttribute("data-netlify") === "true") {
+            if (
+              e.type === "submit" &&
+              contactForm.getAttribute("data-netlify") === "true"
+            ) {
               // Netlify will handle the redirect, but we show inline success for JS users
               setTimeout(() => {
                 contactForm.style.display = "none";
