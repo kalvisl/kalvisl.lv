@@ -349,8 +349,9 @@ nav.scrolled {
   display: flex;
   flex-direction: column;
   gap: 100px;
-  margin-top: 400px; /* Vertical offset — key Chipperfield element */
+  margin-top: 500px; /* Vertical offset — key Chipperfield element */
 }
+
 
 /* Individual project link */
 .chip-project {
@@ -1099,10 +1100,88 @@ footer {
 }
 
 /* ==========================================================================
+   Services Section (Homepage)
+   ========================================================================== */
+
+.services-section {
+  padding: var(--space-4xl) 40px;
+  background: var(--white);
+  border-top: 1px solid var(--mist);
+}
+
+.services-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.service-card {
+  padding: var(--space-lg);
+  border: 1px solid var(--mist);
+  transition: border-color 0.2s;
+}
+
+.service-card:hover {
+  border-color: var(--stone);
+}
+
+.service-title {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--black);
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 60px 20px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .service-card {
+    padding: var(--space-md);
+  }
+
+  .service-title {
+    font-size: 18px;
+  }
+}
+
+/* ==========================================================================
+   Body scroll lock for mobile menu
+   ========================================================================== */
+
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* ==========================================================================
    Utility Classes
    ========================================================================== */
 
 .visually-hidden {
+
   position: absolute;
   width: 1px;
   height: 1px;
