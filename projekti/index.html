@@ -70,7 +70,6 @@
         </div>
       </div>
 
-
       <div class="project-table">
         <div class="table-header">
           <span class="th">Projekts</span>
@@ -91,17 +90,33 @@
 
     <footer>
       <div class="footer-contact">
-        <a href="mailto:kalvis.lejasmeiers@gmail.com">kalvis.lejasmeiers@gmail.com</a>
+        <a href="mailto:kalvis.lejasmeiers@gmail.com"
+          >kalvis.lejasmeiers@gmail.com</a
+        >
         <a href="tel:+37129218775">+371 29218775</a>
         <span>Liepāja, Latvija</span>
       </div>
       <span class="footer-copy">© Kalvis Lejasmeiers</span>
     </footer>
 
-    <div class="lightbox-overlay" id="projectLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Projekta attēlu galerija">
-      <button class="lightbox-close" aria-label="Aizvērt galeriju">&times;</button>
+    <div
+      class="lightbox-overlay"
+      id="projectLightbox"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Projekta attēlu galerija"
+    >
+      <button class="lightbox-close" aria-label="Aizvērt galeriju">
+        &times;
+      </button>
       <div class="lightbox-container">
-        <button class="lightbox-arrow lightbox-prev" aria-label="Iepriekšējais attēls">&#8249;</button>
+        <button
+          class="lightbox-arrow lightbox-prev"
+          aria-label="Iepriekšējais attēls"
+        >
+          &#8249;
+        </button>
         <div class="lightbox-content">
           <div class="lightbox-image-wrapper">
             <img class="lightbox-image" src="" alt="Projekta attēls" />
@@ -115,7 +130,12 @@
             <div class="lightbox-counter"></div>
           </div>
         </div>
-        <button class="lightbox-arrow lightbox-next" aria-label="Nākamais attēls">&#8250;</button>
+        <button
+          class="lightbox-arrow lightbox-next"
+          aria-label="Nākamais attēls"
+        >
+          &#8250;
+        </button>
       </div>
     </div>
 
@@ -181,6 +201,13 @@
         font-size: 11px;
         color: #999;
         line-height: 1.4;
+      }
+
+      .portfolio-card-description {
+        font-size: 12px;
+        color: var(--stone);
+        line-height: 1.5;
+        margin-top: 6px;
       }
 
       .portfolio-card.filter-hidden {
@@ -495,14 +522,28 @@
         text-align: right;
       }
 
-      .tag-jaunbuve { color: var(--rust) !important; }
-      .tag-renovacija { color: #4b7b8b !important; }
-      .tag-parbuve { color: #6b7b4b !important; }
-      .tag-fasade { color: #7b6b4b !important; }
-      .tag-interjers { color: #8b5b7b !important; }
-      .tag-cits { color: var(--stone) !important; }
+      .tag-jaunbuve {
+        color: var(--rust) !important;
+      }
+      .tag-renovacija {
+        color: #4b7b8b !important;
+      }
+      .tag-parbuve {
+        color: #6b7b4b !important;
+      }
+      .tag-fasade {
+        color: #7b6b4b !important;
+      }
+      .tag-interjers {
+        color: #8b5b7b !important;
+      }
+      .tag-cits {
+        color: var(--stone) !important;
+      }
 
-      .hidden { display: none; }
+      .hidden {
+        display: none;
+      }
 
       .geo-section {
         margin-top: var(--space-xl);
@@ -589,9 +630,14 @@
           location: "Liepaja",
           year: "2024",
           type: "Jaunbuve",
+          description:
+            "Kafejnīcas ēkas pārbūve par daudzdzīvokļu dzīvojamo māju, Avotu ielā 5, Liepājā",
           images: [
-            "/projekti/Avotu iela 5/MBP-AR-7-Avotu 5-20240610.jpg"
-          ]
+            "/projekti/Avotu_iela_5/avotu-iela-5-1.jpg",
+            "/projekti/Avotu_iela_5/avotu-iela-5-2.jpg",
+            "/projekti/Avotu_iela_5/avotu-iela-5-3.jpg",
+            "/projekti/Avotu_iela_5/avotu-iela-5-4.jpg",
+          ],
         },
         {
           id: "brivibas-97a",
@@ -599,10 +645,12 @@
           location: "Liepaja",
           year: "2025",
           type: "Renovacija",
+          description:
+            "Ceha ēkas vienkāršotā pārbūve - vēsturisko loga ailu atjaunošana, jumta ieseguma nomaiņa.",
           images: [
-            "/projekti/Brivibas 97a/misc/1.png",
-            "/projekti/Brivibas 97a/misc/2.png"
-          ]
+            "/projekti/Brivibas_97a/brivibas-97a-1.webp",
+            "/projekti/Brivibas_97a/brivibas-97a-2.webp",
+          ],
         },
         {
           id: "ciboli-alviki-rucava",
@@ -610,9 +658,8 @@
           location: "Rucava",
           year: "2024",
           type: "Jaunbuve",
-          images: [
-            "/projekti/Ciboli-Alviki Rucava/AR_Alviki_Nida-5.png"
-          ]
+          description: "Divu dzīvokļu dzīvojamās mājas pārbūve Papē.",
+          images: ["/projekti/Ciboli_Alviki_Rucava/ciboli-alviki-rucava-1.jpg"],
         },
         {
           id: "dzelzscelnieku-1-viz",
@@ -620,19 +667,18 @@
           location: "Liepaja",
           year: "2024",
           type: "Jaunbuve",
+          description: "Interjera vizualizāciju izveide.",
           images: [
-            "/projekti/Dzelzscelnieku_1_viz/GATAVS/ar_cilvekiem/web/Thumbs.db"
-          ]
-        },
-        {
-          id: "ezermalas-1a",
-          name: "Ezermalas iela 1A",
-          location: "Liepaja",
-          year: "2024",
-          type: "Jaunbuve",
-          images: [
-            "/projekti/Ezermalas 1A/variants 2.png"
-          ]
+            "/projekti/Dzelzscelnieku_1_viz/dzelzscelnieku-1-viz-1.jpg",
+            "/projekti/Dzelzscelnieku_1_viz/dzelzscelnieku-1-viz-2.jpg",
+            "/projekti/Dzelzscelnieku_1_viz/dzelzscelnieku-1-viz-3.jpg",
+            "/projekti/Dzelzscelnieku_1_viz/dzelzscelnieku-1-viz-4.jpg",
+            "/projekti/Dzelzscelnieku_1_viz/dzelzscelnieku-1-viz-5.jpg",
+            "/projekti/Dzelzscelnieku_1_viz/dzelzscelnieku-1-viz-6.jpg",
+            "/projekti/Dzelzscelnieku_1_viz/dzelzscelnieku-1-viz-7.jpg",
+            "/projekti/Dzelzscelnieku_1_viz/dzelzscelnieku-1-viz-8.jpg",
+            "/projekti/Dzelzscelnieku_1_viz/dzelzscelnieku-1-viz-9.jpg",
+          ],
         },
         {
           id: "gerberu-4-marupe",
@@ -640,10 +686,11 @@
           location: "Marupe",
           year: "2026",
           type: "Jaunbuve",
+          description: "Dzīvojamās mājas jaunbūve Mārupē.",
           images: [
-            "/projekti/Gerberu 4 Marupe/2026-02-19-14-28-16.png",
-            "/projekti/Gerberu 4 Marupe/2026-02-19-14-30-14 - Copy.png"
-          ]
+            "/projekti/Gerberu_4_Marupe/gerberu-4-marupe-1.png",
+            "/projekti/Gerberu_4_Marupe/gerberu-4-marupe-2.png",
+          ],
         },
         {
           id: "kazdangas-35",
@@ -651,9 +698,11 @@
           location: "Liepaja",
           year: "2024",
           type: "Jaunbuve",
+          description: "Dzīvojamās mājas jaunbūve Liepājā, Zaļā birzī.",
           images: [
-            "/projekti/Kazdangas 35/misc/kazdangas 35.jpg"
-          ]
+            "/projekti/Kazdangas_35/kazdangas-35-1.webp",
+            "/projekti/Kazdangas_35/kazdangas-35-2.webp",
+          ],
         },
         {
           id: "klaipedas-29",
@@ -661,19 +710,9 @@
           location: "Liepaja",
           year: "2023",
           type: "Renovacija",
-          images: [
-            "/projekti/Klaipedas 29/AR-2.pdf"
-          ]
-        },
-        {
-          id: "klaipedas-33",
-          name: "Klaipedas iela 33",
-          location: "Liepaja",
-          year: "2023",
-          type: "Jaunbuve",
-          images: [
-            "/projekti/Klaipedas 33/Enscape_2023-08-14-19-07-57.png"
-          ]
+          description:
+            "Daudzīvokļu dzīvojamās mājas fasāžu vienkāršotā atjaunošana Liepājā, Klaipēdas ielā.",
+          images: ["/projekti/Klaipedas_29/klaipedas-29-1.jpg"],
         },
         {
           id: "lielas-dianas",
@@ -681,20 +720,9 @@
           location: "Liepaja",
           year: "2023",
           type: "Jaunbuve",
-          images: [
-            "/projekti/Lielas Dianas/2023-06-27-15-41-11.png",
-            "/projekti/Lielas Dianas/Enscape_2023-06-27-15-06-58.png"
-          ]
-        },
-        {
-          id: "piejuras-slimnica",
-          name: "Piejuras slimnica",
-          location: "Liepaja",
-          year: "2024",
-          type: "Renovacija",
-          images: [
-            "/projekti/Piejuras slimnica/AR-3 - GRIDU PLANS_GRIEZUMS A-A.pdf"
-          ]
+          description:
+            "Dzīvojamās mājas un garāžas ēkas jauna būvniecība Liepājas novadā, Grīnvaltos.",
+          images: ["/projekti/Lielas_Dianas/lielas-dianas-1.png"],
         },
         {
           id: "pupu-iela",
@@ -702,9 +730,9 @@
           location: "Liepaja",
           year: "2024",
           type: "Jaunbuve",
-          images: [
-            "/projekti/Pupu iela/AR-9_FASADE ASIS 7-1, A-E_BP.pdf"
-          ]
+          description:
+            "Četru stāvu daudzdzīvokļu dzīvojamās mājas būvniecība Liepājā, Pupu ielā. 24 plaši dzīvokļi, pagrabstāva auto novietne, dzīvokļu palīgtelpas pagrabstāvā, labiekārtots pagalms ar auto novietni un atpūtas zonu.",
+          images: ["/projekti/Pupu_iela/pupu-iela-1.jpg"],
         },
         {
           id: "reki-bernati",
@@ -712,9 +740,12 @@
           location: "Bernati",
           year: "2024",
           type: "Jaunbuve",
+          description:
+            "Dzīvojamās mājas pārbūve Bernātos - fasāžu siltināšana, sienu un jumta apdares atjaunošana; bēniņu pārbūve par dzīvojamām telpām.",
           images: [
-            "/projekti/Reki Bernati/AR-5_FASADES ASIS B-A, 1-2.pdf"
-          ]
+            "/projekti/Reki_Bernati/reki-bernati-1.jpg",
+            "/projekti/Reki_Bernati/reki-bernati-2.jpg",
+          ],
         },
         {
           id: "sabri-jurmalciems",
@@ -722,9 +753,11 @@
           location: "Jurmalciems",
           year: "2024",
           type: "Jaunbuve",
+          description: "Dzīvojamās mājas jauna būvniecība Bernātos.",
           images: [
-            "/projekti/Sabri Jurmalciems/misc/sabri.png"
-          ]
+            "/projekti/Sabri_Jurmalciems/sabri-jurmalciems-1.webp",
+            "/projekti/Sabri_Jurmalciems/sabri-jurmalciems-2.webp",
+          ],
         },
         {
           id: "sarmites",
@@ -732,31 +765,11 @@
           location: "Liepaja",
           year: "2025",
           type: "Jaunbuve",
+          description: "Atpūtas mājas jauna būvniecība Dienvidkurzemes novadā.",
           images: [
-            "/projekti/Sarmites/2025-12-02-11-28-55.png",
-            "/projekti/Sarmites/2025-12-02-11-32-12.png"
-          ]
-        },
-        {
-          id: "stendera-iela-3",
-          name: "Stendera iela 3",
-          location: "Liepaja",
-          year: "2020",
-          type: "Renovacija",
-          images: [
-            "/projekti/Stendera iela 3/Enscape_2020-02-18-17-28-02.png",
-            "/projekti/Stendera iela 3/Fasades_risinajums_3D_V3.png"
-          ]
-        },
-        {
-          id: "strautu-4",
-          name: "Strautu iela 4",
-          location: "Liepaja",
-          year: "2024",
-          type: "Jaunbuve",
-          images: [
-            "/projekti/Strautu 4/BP-AR-4.pdf"
-          ]
+            "/projekti/Sarmites/sarmites-1.jpg",
+            "/projekti/Sarmites/sarmites-2.png",
+          ],
         },
         {
           id: "strautu-6",
@@ -764,9 +777,9 @@
           location: "Liepaja",
           year: "2024",
           type: "Jaunbuve",
-          images: [
-            "/projekti/Strautu 6/BP_AR - Strautu 6.pdf"
-          ]
+          description:
+            "Daudzdzīvokļu dzīvojamās mājas pārbūve Strautu ielā, Liepājā.",
+          images: ["/projekti/Strautu_6/strautu-6-1.jpg"],
         },
         {
           id: "strengi-jurmalciems",
@@ -774,21 +787,9 @@
           location: "Jurmalciems",
           year: "2024",
           type: "Jaunbuve",
-          images: [
-            "/projekti/Strengi Jurmalciems/Enscape_2023-12-27-12-54-08.png",
-            "/projekti/Strengi Jurmalciems/strengi jurmalciems.png"
-          ]
+          description: "Vasaras mājas jauna būvniecība Jūrmalciemā.",
+          images: ["/projekti/Strengi_Jurmalciems/strengi-jurmalciems-1.jpg"],
         },
-        {
-          id: "svirites",
-          name: "Svirites",
-          location: "Liepaja",
-          year: "2024",
-          type: "Jaunbuve",
-          images: [
-            "/projekti/Svirites/Svirites_BP_AR.pdf"
-          ]
-        }
       ];
 
       // ---- RENDER PROJECT GRID ----
@@ -797,12 +798,14 @@
         if (!grid) return;
 
         grid.innerHTML = projectsData
-          .map(function(project) {
+          .map(function (project) {
             const firstImage = project.images[0] || "";
             const isPdf = firstImage.toLowerCase().endsWith(".pdf");
 
             const imgSrc = isPdf
-              ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f5f4f0'/%3E%3Ctext x='200' y='150' font-family='Arial, sans-serif' font-size='24' text-anchor='middle' fill='%23999'%3EPDF%3C/text%3E%3Ctext x='200' y='180' font-family='Arial, sans-serif' font-size='14' text-anchor='middle' fill='%23999'%3E" + encodeURIComponent(project.name) + "%3C/text%3E%3C/svg%3E"
+              ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f5f4f0'/%3E%3Ctext x='200' y='150' font-family='Arial, sans-serif' font-size='24' text-anchor='middle' fill='%23999'%3EPDF%3C/text%3E%3Ctext x='200' y='180' font-family='Arial, sans-serif' font-size='14' text-anchor='middle' fill='%23999'%3E" +
+                encodeURIComponent(project.name) +
+                "%3C/text%3E%3C/svg%3E"
               : firstImage;
 
             return [
@@ -814,13 +817,24 @@
               '         data-project-type="' + project.type + '"',
               "         data-images='" + JSON.stringify(project.images) + "'>",
               '  <div class="portfolio-card-image">',
-              '    <img src="' + imgSrc + '" alt="' + project.name + '" loading="lazy" decoding="async" />',
-              '  </div>',
+              '    <img src="' +
+                imgSrc +
+                '" alt="' +
+                project.name +
+                '" loading="lazy" decoding="async" />',
+              "  </div>",
               '  <div class="portfolio-card-content">',
-              '    <h2 class="portfolio-card-title">' + project.name + '</h2>',
-              '    <div class="portfolio-card-meta">' + project.location + ' &middot; ' + project.year + '</div>',
-              '  </div>',
-              '</article>'
+              '    <h2 class="portfolio-card-title">' + project.name + "</h2>",
+              '    <div class="portfolio-card-meta">' +
+                project.location +
+                " &middot; " +
+                project.year +
+                "</div>",
+              '    <div class="portfolio-card-description">' +
+                (project.description || "") +
+                "</div>",
+              "  </div>",
+              "</article>",
             ].join("\n");
           })
           .join("");
@@ -829,7 +843,7 @@
       // ---- LIGHTBOX ----
       var lightboxState = {
         images: [],
-        currentIndex: 0
+        currentIndex: 0,
       };
 
       function openLightbox(projectEl) {
@@ -842,13 +856,20 @@
         lightboxState.images = images;
         lightboxState.currentIndex = 0;
 
-        lightbox.querySelector(".lightbox-title").textContent = projectEl.dataset.projectName || "";
-        lightbox.querySelector(".lightbox-location").textContent = projectEl.dataset.projectLocation || "";
-        lightbox.querySelector(".lightbox-year").textContent = projectEl.dataset.projectYear || "";
+        lightbox.querySelector(".lightbox-title").textContent =
+          projectEl.dataset.projectName || "";
+        lightbox.querySelector(".lightbox-location").textContent =
+          projectEl.dataset.projectLocation || "";
+        lightbox.querySelector(".lightbox-year").textContent =
+          projectEl.dataset.projectYear || "";
 
         var hasMultiple = images.length > 1;
-        lightbox.querySelector(".lightbox-prev").style.display = hasMultiple ? "" : "none";
-        lightbox.querySelector(".lightbox-next").style.display = hasMultiple ? "" : "none";
+        lightbox.querySelector(".lightbox-prev").style.display = hasMultiple
+          ? ""
+          : "none";
+        lightbox.querySelector(".lightbox-next").style.display = hasMultiple
+          ? ""
+          : "none";
 
         updateLightboxImage();
 
@@ -880,18 +901,19 @@
         img.alt = "Attels " + (state.currentIndex + 1);
 
         var preload = new Image();
-        preload.onload = function() {
-          requestAnimationFrame(function() {
+        preload.onload = function () {
+          requestAnimationFrame(function () {
             img.classList.add("loaded");
           });
         };
-        preload.onerror = function() {
+        preload.onerror = function () {
           img.classList.add("loaded");
         };
         preload.src = state.images[state.currentIndex];
 
         if (state.images.length > 1) {
-          counter.textContent = (state.currentIndex + 1) + " / " + state.images.length;
+          counter.textContent =
+            state.currentIndex + 1 + " / " + state.images.length;
         } else {
           counter.textContent = "";
         }
@@ -899,39 +921,50 @@
 
       function prevImage() {
         if (lightboxState.images.length <= 1) return;
-        lightboxState.currentIndex = (lightboxState.currentIndex - 1 + lightboxState.images.length) % lightboxState.images.length;
+        lightboxState.currentIndex =
+          (lightboxState.currentIndex - 1 + lightboxState.images.length) %
+          lightboxState.images.length;
         updateLightboxImage();
       }
 
       function nextImage() {
         if (lightboxState.images.length <= 1) return;
-        lightboxState.currentIndex = (lightboxState.currentIndex + 1) % lightboxState.images.length;
+        lightboxState.currentIndex =
+          (lightboxState.currentIndex + 1) % lightboxState.images.length;
         updateLightboxImage();
       }
 
       // ---- INITIALIZE ----
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         renderProjectGrid();
 
-        document.getElementById("portfolio-grid").addEventListener("click", function(e) {
-          var card = e.target.closest(".portfolio-card");
-          if (card) {
-            openLightbox(card);
-          }
-        });
+        document
+          .getElementById("portfolio-grid")
+          .addEventListener("click", function (e) {
+            var card = e.target.closest(".portfolio-card");
+            if (card) {
+              openLightbox(card);
+            }
+          });
 
         var lightbox = document.getElementById("projectLightbox");
-        lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
-        lightbox.querySelector(".lightbox-prev").addEventListener("click", prevImage);
-        lightbox.querySelector(".lightbox-next").addEventListener("click", nextImage);
+        lightbox
+          .querySelector(".lightbox-close")
+          .addEventListener("click", closeLightbox);
+        lightbox
+          .querySelector(".lightbox-prev")
+          .addEventListener("click", prevImage);
+        lightbox
+          .querySelector(".lightbox-next")
+          .addEventListener("click", nextImage);
 
-        lightbox.addEventListener("click", function(e) {
+        lightbox.addEventListener("click", function (e) {
           if (e.target === lightbox) {
             closeLightbox();
           }
         });
 
-        document.addEventListener("keydown", function(e) {
+        document.addEventListener("keydown", function (e) {
           if (!lightbox.classList.contains("active")) return;
           if (e.key === "Escape") closeLightbox();
           if (e.key === "ArrowLeft") prevImage();
@@ -939,7 +972,7 @@
         });
       });
 
-const projects = [
+      const projects = [
         {
           name: "Dzīvojamās mājas jaunbūve",
           location: "Liepāja",
@@ -1492,7 +1525,6 @@ const projects = [
       // Initialize everything
       renderTable();
       renderGeo();
-    
-</script>
+    </script>
   </body>
 </html>

@@ -456,9 +456,50 @@
 
 **Status:** ✅ All three tasks completed successfully
 
+## ✅ COMPLETED: Standardize Folder and File Names in Projekti Directory (2026-06-04)
+
+**Summary:** Successfully standardized all folder and file names in the `projekti/` directory to use underscores instead of spaces, and renamed all image files to follow a consistent project-based naming convention.
+
+### Key Accomplishments:
+
+1. **Folder Renames (spaces → underscores):**
+   - `Avotu iela 5` → `Avotu_iela_5`
+   - `Brivibas 97a` → `Brivibas_97a`
+   - `Ciboli-Alviki Rucava` → `Ciboli_Alviki_Rucava`
+   - `Gerberu 4 Marupe` → `Gerberu_4_Marupe`
+   - `Kazdangas 35` → `Kazdangas_35`
+   - `Klaipedas 29` → `Klaipedas_29`
+   - `Lielas Dianas` → `Lielas_Dianas`
+   - `Pupu iela` → `Pupu_iela`
+   - `Reki Bernati` → `Reki_Bernati`
+   - `Sabri Jurmalciems` → `Sabri_Jurmalciems`
+   - `Strautu 6` → `Strautu_6`
+   - `Strengi Jurmalciems` → `Strengi_Jurmalciems`
+
+2. **Image File Renames (generic → project-based):**
+   - `AR_Alviki_Nida-5.jpg` → `ciboli-alviki-rucava-1.jpg`
+   - `AR-2.jpg` → `klaipedas-29-1.jpg`
+   - `2023-06-27-15-42-24.png` → `lielas-dianas-1.png`
+   - `AR-9_FASADE-ASIS-7-1,-A-E_BP.jpg` → `pupu-iela-1.jpg`
+   - `BP_AR---Strautu-6-8.jpg` → `strautu-6-1.jpg`
+   - `Gemini_Generated_Image_xvpa1qxvpa1qxvpa.jpg` → `strengi-jurmalciems-1.jpg`
+
+3. **Updated projekti/index.html:**
+   - All image paths updated to use new folder and file names
+   - Removed projects that had no actual image files (Ezermalas 1A, Klaipedas 33, Stendera iela 3, Strautu 4, Svirites, Piejuras slimnica)
+   - Cleaned up to only include projects with existing image files
+
+4. **File Organization:**
+   - Created `rename_projekti.ps1` PowerShell script for future reference
+   - All folders now use underscores (no spaces) for consistent URL-safe paths
+   - All image files follow `project-name-N.ext` naming convention
+
+**Status:** ✅ Task completed
+
 ## Current Git State
 
-- **Current commit:** `699f2c5` - Rebuild projekti page with portfolio grid, lightbox, and add Dzelzscelnieku_1_viz images (2026-04-06)
+- **Current commit:** `3bfa313` - (latest commit before file renaming work)
+
 - **Previous commits:**
   - `6955244` - Fix Brivibas 97a image paths after WebP file reorganization (2026-03-29)
   - `87b7fc5` - Performance optimization: Convert PNG images to WebP format for new projects (2026-03-29)

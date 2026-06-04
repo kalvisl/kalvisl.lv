@@ -407,3 +407,42 @@
 - `projekti/index.html` - Added anchor ID to pieredze-embedded section
 
 **Result:** Homepage navigation is now fully consistent. The "Pilns pieredzes pārskats" link correctly navigates users to the embedded pieredze section within the projekti page, maintaining a seamless user experience without broken links.
+
+## 2026-06-04: Standardize Folder and File Names in Projekti Directory
+
+**Decision:** Rename all project folders to use underscores instead of spaces, and rename all image files to follow a consistent project-based naming convention.
+
+**Rationale:**
+
+- Spaces in folder/file names cause issues with URL encoding and git
+- Inconsistent naming made it difficult to maintain and update the projekti page
+- Image files had auto-generated names (e.g., `Gemini_Generated_Image_xvpa1qxvpa1qxvpa.jpg`, `2023-06-27-15-42-24.png`) that were not descriptive
+- Need a consistent naming convention for easier maintenance and better organization
+
+**Implementation Details:**
+
+1. **Folder Renames (12 folders):**
+   - Used PowerShell `Rename-Item` to replace spaces with underscores
+   - All folders now follow `Project_Name` format (e.g., `Avotu_iela_5`, `Brivibas_97a`)
+   - One folder (`Strengi Jurmalciems`) required closing VS Code processes to release file lock
+
+2. **Image File Renames (6 files):**
+   - Renamed auto-generated filenames to `project-name-N.ext` format
+   - Examples: `AR_Alviki_Nida-5.jpg` → `ciboli-alviki-rucava-1.jpg`, `Gemini_Generated_Image_xvpa1qxvpa1qxvpa.jpg` → `strengi-jurmalciems-1.jpg`
+
+3. **Updated projekti/index.html:**
+   - All image paths updated to use new folder and file names
+   - Removed projects that had no actual image files (only PDFs or no files at all)
+   - Cleaned up to only include projects with existing image files
+
+4. **Created rename_projekti.ps1:**
+   - Saved the PowerShell script for future reference
+   - Can be reused if new projects are added with spaces in names
+
+**Files Modified:**
+
+- `projekti/index.html` - Updated all image paths
+- `rename_projekti.ps1` - Created PowerShell script (new file)
+- `memory_bank/*` - Updated documentation
+
+**Result:** All project folders now use underscores instead of spaces, and all image files follow a consistent `project-name-N.ext` naming convention. The projekti page references are updated to match the new paths.
