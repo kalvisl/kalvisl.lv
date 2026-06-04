@@ -127,6 +127,7 @@
               <span class="lightbox-location"></span>
               <span class="lightbox-year"></span>
             </div>
+            <div class="lightbox-description"></div>
             <div class="lightbox-counter"></div>
           </div>
         </div>
@@ -310,6 +311,14 @@
       .lightbox-meta {
         font-size: 13px;
         opacity: 0.7;
+      }
+
+      .lightbox-description {
+        font-size: 13px;
+        opacity: 0.8;
+        margin-top: 8px;
+        max-width: 500px;
+        line-height: 1.5;
       }
 
       .lightbox-counter {
@@ -659,7 +668,7 @@
           year: "2024",
           type: "Jaunbuve",
           description: "Divu dzīvokļu dzīvojamās mājas pārbūve Papē.",
-          images: ["/projekti/Ciboli_Alviki_Rucava/ciboli-alviki-rucava-1.jpg"],
+          images: ["/projekti/Rucava/ciboli-alviki-rucava-1.jpg"],
         },
         {
           id: "dzelzscelnieku-1-viz",
@@ -688,8 +697,8 @@
           type: "Jaunbuve",
           description: "Dzīvojamās mājas jaunbūve Mārupē.",
           images: [
-            "/projekti/Gerberu_4_Marupe/gerberu-4-marupe-1.png",
-            "/projekti/Gerberu_4_Marupe/gerberu-4-marupe-2.png",
+            "/projekti/Marupe/gerberu-4-marupe-1.png",
+            "/projekti/Marupe/gerberu-4-marupe-2.png",
           ],
         },
         {
@@ -700,8 +709,8 @@
           type: "Jaunbuve",
           description: "Dzīvojamās mājas jaunbūve Liepājā, Zaļā birzī.",
           images: [
-            "/projekti/Kazdangas_35/kazdangas-35-1.webp",
-            "/projekti/Kazdangas_35/kazdangas-35-2.webp",
+            "/projekti/Zala_birzs/kazdangas-35-1.webp",
+            "/projekti/Zala_birzs/kazdangas-35-2.webp",
           ],
         },
         {
@@ -722,7 +731,7 @@
           type: "Jaunbuve",
           description:
             "Dzīvojamās mājas un garāžas ēkas jauna būvniecība Liepājas novadā, Grīnvaltos.",
-          images: ["/projekti/Lielas_Dianas/lielas-dianas-1.png"],
+          images: ["/projekti/Grinvalti/lielas-dianas-1.png"],
         },
         {
           id: "pupu-iela",
@@ -743,8 +752,8 @@
           description:
             "Dzīvojamās mājas pārbūve Bernātos - fasāžu siltināšana, sienu un jumta apdares atjaunošana; bēniņu pārbūve par dzīvojamām telpām.",
           images: [
-            "/projekti/Reki_Bernati/reki-bernati-1.jpg",
-            "/projekti/Reki_Bernati/reki-bernati-2.jpg",
+            "/projekti/Bernati/reki-bernati-1.jpg",
+            "/projekti/Bernati/reki-bernati-2.jpg",
           ],
         },
         {
@@ -755,8 +764,8 @@
           type: "Jaunbuve",
           description: "Dzīvojamās mājas jauna būvniecība Bernātos.",
           images: [
-            "/projekti/Sabri_Jurmalciems/sabri-jurmalciems-1.webp",
-            "/projekti/Sabri_Jurmalciems/sabri-jurmalciems-2.webp",
+            "/projekti/Jurmalciems/sabri-jurmalciems-1.webp",
+            "/projekti/Jurmalciems/sabri-jurmalciems-2.webp",
           ],
         },
         {
@@ -766,10 +775,7 @@
           year: "2025",
           type: "Jaunbuve",
           description: "Atpūtas mājas jauna būvniecība Dienvidkurzemes novadā.",
-          images: [
-            "/projekti/Sarmites/sarmites-1.jpg",
-            "/projekti/Sarmites/sarmites-2.png",
-          ],
+          images: ["/projekti/Aizputes_novads/sarmites-1.jpg"],
         },
         {
           id: "strautu-6",
@@ -815,6 +821,9 @@
               '         data-project-location="' + project.location + '"',
               '         data-project-year="' + project.year + '"',
               '         data-project-type="' + project.type + '"',
+              '         data-project-description="' +
+                (project.description || "") +
+                '"',
               "         data-images='" + JSON.stringify(project.images) + "'>",
               '  <div class="portfolio-card-image">',
               '    <img src="' +
@@ -862,6 +871,8 @@
           projectEl.dataset.projectLocation || "";
         lightbox.querySelector(".lightbox-year").textContent =
           projectEl.dataset.projectYear || "";
+        lightbox.querySelector(".lightbox-description").textContent =
+          projectEl.dataset.projectDescription || "";
 
         var hasMultiple = images.length > 1;
         lightbox.querySelector(".lightbox-prev").style.display = hasMultiple
