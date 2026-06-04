@@ -2,216 +2,96 @@
 
 ## Current Task
 
-Completed: Standardized folder and file names in projekti/ directory - renamed all folders to use underscores instead of spaces, renamed all image files to follow project-based naming convention, and updated projekti/index.html with correct paths.
+Completed: Added project descriptions from apraksts.txt files to the projekti page, and verified removed projects are correctly excluded.
 
 ## Todo List
 
-- [x] Read the task file (cline_task_add_projects 04-06-2026 2nd task.md)
-- [x] Read the current projekti/index.html
-- [x] Extract and preserve the pieredze data (projects table, geo data)
-- [x] Build new HTML with portfolio grid, lightbox, and preserved pieredze section
-- [x] Write the new file
-- [x] Clean up temporary files
+- [x] Compare projekti folders with projekti - Copy to identify removed projects
+- [x] Read all apraksts.txt files from each project folder
+- [x] Add description field to projectsData array in index.html
+- [x] Update renderProjectGrid() to display description under the image
+- [x] Add CSS styling for .portfolio-card-description
+- [x] Fix typo: rename aprakts.txt → apraksts.txt in Strengi_Jurmalciems
 - [x] Git commit and push all changes
 - [x] Update memory bank files
 
-✅ COMPLETED: Updated website terminology from "Arhitekts" to "Projektētājs" throughout the website
+## Changes Made
 
-### 1. Terminology Update - "Arhitekts" to "Projektētājs" (2026-04-06)
+### 1. Added Project Descriptions to Projekti Page (2026-06-04)
 
-- **Updated website terminology:** Changed all instances of "Arhitekts" to "Projektētājs" throughout the website to better communicate services to private clients.
+- **Added `description` field to all 14 projects in `projectsData` array**, sourced from each project folder's `apraksts.txt` file
+- **Updated `renderProjectGrid()` function** to display the description in a `.portfolio-card-description` div under the image and metadata
+- **Added CSS styling** for `.portfolio-card-description` (12px font, stone color, 1.5 line-height, 6px top margin)
+- **Fixed typo:** Renamed `aprakts.txt` → `apraksts.txt` in the Strengi_Jurmalciems folder
 
-- **Key changes made:**
-  - Updated page title in index.html: "Kalvis Lejasmeiers — Projektētājs"
-  - Updated visually-hidden h1 in index.html: "Kalvis Lejasmeiers — Projektētājs"
-  - Updated about-text section in index.html: "Projektētājs ar vairāk nekā 8 gadu pieredzi..."
-  - Updated content in par-mani/index.html: "Projektētājs ar vairāk nekā 10 gadu pieredzi..."
-  - Updated biography in par-mani/index.html: "strādāju kā neatkarīgs projektētājs"
+### 2. Verified Removed Projects
 
-- **Reason for change:** "Projektētājs" is more specific and understandable for private clients seeking help with documentation, not just for legal precision.
+Compared `projekti` (current) with `projekti - Copy` (backup). The following 5 projects were already removed from the `projectsData` array (no changes needed):
 
-### 2. Performance Optimization - PNG to WebP Conversion (2026-03-29)
-
-- **Converted PNG images to WebP format:** Successfully converted all PNG images used in new projects to WebP format for better performance and browser compatibility.
-
-- **Key accomplishments:**
-  - Converted 10 PNG files to WebP format across 5 new projects
-  - Achieved significant file size reductions (90-98% reduction)
-  - Updated projekti/index.html to use WebP files with PNG fallbacks
-  - Maintained backward compatibility with proper fallback image paths
-
-- **Projects optimized:**
-  1. **Gerberu iela 4, Mārupe:** 2 PNG files converted (95.5-96.1% reduction)
-  2. **Lielās Diānas:** 2 PNG files converted (98.4-98.8% reduction)
-  3. **Sarmītes:** 2 PNG files converted (94.4-95.0% reduction)
-  4. **Stendera iela 3:** 2 PNG files converted (94.5-96.1% reduction)
-  5. **Streņģi Jūrmalciems:** 2 PNG files converted (90.0-91.1% reduction)
-
-- **Technical implementation:**
-  - Created Python script using Pillow library for batch conversion
-  - Implemented proper RGBA to RGB conversion for WebP compatibility
-  - Added comprehensive fallback logic in JavaScript template
-  - Maintained existing `<picture>` element structure with WebP sources
-
-### 2. Restoring Lightbox Feature (2026-03-27) - Previous Work
-
-- **Fixed broken image lightbox functionality:** User reported that previously they could open project images larger with option to view more images from particular projects on the projekti page.
-
-- **Identified and fixed issues:**
-  - Missing lightbox HTML structure in projekti/index.html
-  - Conflicting custom JavaScript interfering with main.js lightbox implementation
-  - Incorrect image paths in data attributes
-
-- **Lightbox features restored:**
-  - Clicking any project card opens full-screen lightbox overlay
-  - Shows project details (name, type, location, year)
-  - Navigation arrows for projects with multiple images
-  - Keyboard navigation (arrow keys, Escape to close)
-  - Close button functionality
-  - Mobile-responsive design
-  - Image preloading for smoother navigation
-
-### 3. Adding New Projects to Projekti Page (2026-03-27) - Previous Work
-
-- **Added 7 new projects to the portfolio:**
-  1. Gerberu iela, Marupe (Gerberu 4 Marupe directory)
-  2. Klaipedas 29
-  3. Lielas Dianas
-  4. Reki Bernati
-  5. Sarmites
-  6. Stendera iela (Stendera iela 3 directory)
-  7. Strengi Jurmalciems
-
-- **Enhanced template rendering for PDF files:**
-  - Modified JavaScript template to detect PDF files
-  - Created SVG data URI placeholders for projects with only PDF files
+- Ezermalas 1A
+- Klaipedas 33
+- Stendera iela 3
+- Strautu 4
+- Svirites
 
 ## Current File Status
 
-### Modified Files in Recent Changes:
+### Modified Files:
 
 - **projekti/index.html:**
-  - Updated portfolioProjects array to use WebP images instead of PNG
-  - Enhanced fallback logic for newly converted WebP files
-  - Previously: Added lightbox HTML structure, removed conflicting JavaScript, fixed image paths
+  - Added `description` field to all 14 projects in `projectsData`
+  - Updated `renderProjectGrid()` to render description in `.portfolio-card-description`
+  - Added CSS for `.portfolio-card-description` styling
 
-- **New WebP files created:** 10 WebP files across 5 project directories
-- **Files cleaned up:** test_lightbox.html and convert_png_to_webp.py removed
+### Renamed File:
 
-### Project Image Status:
+- `projekti/Strengi_Jurmalciems/aprakts.txt` → `projekti/Strengi_Jurmalciems/apraksts.txt` (fixed typo)
 
-- **Projects with WebP images:** Gerberu iela 4, Lielās Diānas, Sarmītes, Stendera iela 3, Streņģi Jūrmalciems, Brīvības iela 97a, Sabri Jūrmalciems, Kazdangas iela 35
-- **Projects with PDF files only:** Klaipēdas iela 29, Reki Bernāti (using SVG placeholders)
-- **Projects with PNG fallbacks:** All WebP projects have PNG fallbacks for older browsers
-- **Total projects displayed:** 10 (3 original + 7 new)
+## Project Descriptions Added
 
-## Technical Implementation
+| Project               | Description                                                                                                                                                                                                      |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Avotu iela 5          | Kafejnīcas ēkas pārbūve par daudzdzīvokļu dzīvojamo māju, Avotu ielā 5, Liepājā                                                                                                                                  |
+| Brivibas iela 97a     | Ceha ēkas vienkāršotā pārbūve - vēsturisko loga ailu atjaunošana, jumta ieseguma nomaiņa.                                                                                                                        |
+| Ciboli-Alviki Rucava  | Divu dzīvokļu dzīvojamās mājas pārbūve Papē.                                                                                                                                                                     |
+| Dzelzscelnieku iela 1 | Interjera vizualizāciju izveide.                                                                                                                                                                                 |
+| Gerberu iela 4        | Dzīvojamās mājas jaunbūve Mārupē.                                                                                                                                                                                |
+| Kazdangas iela 35     | Dzīvojamās mājas jaunbūve Liepājā, Zaļā birzī.                                                                                                                                                                   |
+| Klaipedas iela 29     | Daudzīvokļu dzīvojamās mājas fasāžu vienkāršotā atjaunošana Liepājā, Klaipēdas ielā.                                                                                                                             |
+| Lielas Dianas         | Dzīvojamās mājas un garāžas ēkas jauna būvniecība Liepājas novadā, Grīnvaltos.                                                                                                                                   |
+| Pupu iela             | Četru stāvu daudzdzīvokļu dzīvojamās mājas būvniecība Liepājā, Pupu ielā. 24 plaši dzīvokļi, pagrabstāva auto novietne, dzīvokļu palīgtelpas pagrabstāvā, labiekārtots pagalms ar auto novietni un atpūtas zonu. |
+| Reki Bernati          | Dzīvojamās mājas pārbūve Bernātos - fasāžu siltināšana, sienu un jumta apdares atjaunošana; bēniņu pārbūve par dzīvojamām telpām.                                                                                |
+| Sabri Jurmalciems     | Dzīvojamās mājas jauna būvniecība Bernātos.                                                                                                                                                                      |
+| Sarmites              | Atpūtas mājas jauna būvniecība Dienvidkurzemes novadā.                                                                                                                                                           |
+| Strautu iela 6        | Daudzdzīvokļu dzīvojamās mājas pārbūve Strautu ielā, Liepājā.                                                                                                                                                    |
+| Strengi Jurmalciems   | Vasaras mājas jauna būvniecība Jūrmalciemā.                                                                                                                                                                      |
 
-- **WebP conversion:** Used Pillow library with quality=85 setting
-- **Fallback strategy:** `<picture>` elements with WebP sources and PNG fallbacks
-- **Performance impact:** Significant reduction in image file sizes (90-98%)
-- **Browser support:** WebP supported by all modern browsers with PNG fallbacks for older browsers
+## Git State
 
-## Next Steps (For Next Session)
+- **Current commit:** `dbd1df8` - "Update projekti page: add descriptions from apraksts.txt files, fix Strengi_Jurmalciems filename typo"
+- **Pushed to remote:** ✅ Yes
 
-### 1. PDF Project Image Enhancement
+## Next Steps
 
-- Consider converting PDF first pages to PNG/WebP for better visual representation
-- Replace SVG placeholders with actual project images when available
-
-### 2. Ongoing Maintenance
+### 1. Ongoing Maintenance
 
 - Continue adding new projects as they become available
 - Monitor website performance and loading times
-- Consider additional optimizations (lazy loading, image compression)
-
-### 3. Testing and Quality Assurance
-
-- Regular testing of lightbox functionality across different browsers
-- Mobile responsiveness testing
-- Performance monitoring using browser developer tools
-
-## Notes
-
-- **Performance benefits:** WebP files are 25-35% smaller than equivalent PNG files, resulting in faster page loading
-- **Backward compatibility:** PNG fallbacks ensure compatibility with older browsers
-- **Lightbox integration:** Works seamlessly with WebP images through existing main.js implementation
-- **File organization:** Original PNG files remain in project directories as fallbacks
-
-### 4. Targeted Fixes from cline-prompt.md (2026-04-06)
-
-- **Task 3: Fixed index.html homepage:**
-  - Added project list section with real project links
-  - Updated featured card links to wrap in `<a>` tags pointing to project detail pages
-  - Project list includes: Brīvības 97a, Sarmītes iela, Sabri Jūrmalciems
-  - Featured cards now link to: `projekti/?project=Brivibas%2097a`, `projekti/?project=Sabri%20Jurmalciems`, `projekti/?project=Kazdangas%2035`
-
-- **Task 1: Rewrote projekti/index.html with PROJECTS array and detail view:**
-  - Created `const PROJECTS` array with 3 real projects (Brivibas 97a, Sarmites, Sabri Jurmalciems)
-  - Implemented `renderGrid(filter)` function for filtering by project type
-  - Added project detail view functionality with URL parameter handling (`?project=folderName`)
-  - Created comprehensive project detail view with back link, gallery, and CTA section
-  - Maintained embedded pieredze section functionality
-  - Added clear documentation for adding new projects
-
-- **Task 2: CSS rules already appended to assets/css/main.css** (completed previously)
-
-## Current File Status
-
-### Modified Files in Recent Changes:
-
-- **index.html:**
-  - Added project list section with real project links
-  - Wrapped featured cards in `<a>` tags with proper href attributes
-  - All links now point to project detail pages with URL parameters
-
-- **projekti/index.html:**
-  - Completely rewritten with new PROJECTS array structure
-  - Added project detail view functionality
-  - Implemented URL parameter handling for `?project=folderName`
-  - Maintained pieredze embedded section functionality
-
-### Project Navigation Flow:
-
-- Homepage featured cards → `projekti/?project=Brivibas%2097a` (etc.)
-- Homepage project list → `projekti/?project=Brivibas%2097a` (etc.)
-- Projekti page grid → `projekti/?project=folderName`
-- Project detail view has back link to `projekti/`
-
-## Technical Implementation
-
-- **PROJECTS array:** Centralized data structure for all projects
-- **URL parameter handling:** Uses `URLSearchParams` to detect `?project=` parameter
-- **Dynamic rendering:** JavaScript renders grid or detail view based on URL
-- **Filtering:** Projects filterable by type (Jaunbūve, Renovācija, Interjers)
-- **Responsive gallery:** Project detail view has responsive image grid
-
-## Next Steps (For Next Session)
-
-### 1. Expand PROJECTS Array
-
-- Add remaining 7 projects from existing folders
-- Ensure all image paths are correct
-- Add proper WebP/PNG fallback support
+- Consider additional optimizations (image compression, lazy loading)
 
 ### 2. Testing and Quality Assurance
 
-- Test project detail view functionality
-- Verify all links work correctly
-- Test mobile responsiveness of new layouts
-
-### 3. Performance Optimization
-
-- Consider lazy loading for project detail gallery images
-- Optimize image sizes for faster loading
+- Regular testing of lightbox functionality across different browsers
+- Mobile responsiveness testing
+- Verify descriptions display correctly on all screen sizes
 
 ## Notes
 
-- **Centralized data:** PROJECTS array is the single source of truth for project data
-- **Easy maintenance:** Adding new projects only requires adding to PROJECTS array
-- **Backward compatibility:** Maintains existing pieredze section functionality
-- **User experience:** Clean project detail view with intuitive navigation
+- **Description source:** Each project folder contains an `apraksts.txt` file with the project description
+- **Display location:** Description appears below the project title and metadata (location · year) in the portfolio card
+- **Styling:** Small text (12px) in stone color to keep visual hierarchy clean
+- **Empty state:** If no description is available, an empty string is rendered (no visible element)
 
 ## Last Updated
 
-2026-04-06 (Completed targeted fixes from cline-prompt.md: index.html and projekti/index.html updates)
+2026-06-04 (Added project descriptions from apraksts.txt files)

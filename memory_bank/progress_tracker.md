@@ -496,11 +496,42 @@
 
 **Status:** ✅ Task completed
 
+## ✅ COMPLETED: Add Project Descriptions from apraksts.txt Files (2026-06-04)
+
+**Summary:** Added project descriptions from each project folder's `apraksts.txt` file to the projekti page, displaying them under the project images.
+
+### Key Accomplishments:
+
+1. **Verified Removed Projects:**
+   - Compared `projekti` (current) with `projekti - Copy` (backup)
+   - Confirmed 5 projects already removed: Ezermalas 1A, Klaipedas 33, Stendera iela 3, Strautu 4, Svirites
+   - No changes needed to the projectsData array
+
+2. **Added Descriptions to All 14 Projects:**
+   - Read all `apraksts.txt` files from each project folder
+   - Added `description` field to each project in `projectsData` array
+   - Descriptions are in Latvian, matching the website language
+
+3. **Updated UI to Display Descriptions:**
+   - Modified `renderProjectGrid()` to render description in `.portfolio-card-description`
+   - Added CSS styling: 12px font, stone color, 1.5 line-height, 6px top margin
+   - Description appears below project title and metadata (location · year)
+
+4. **Fixed File Typo:**
+   - Renamed `aprakts.txt` → `apraksts.txt` in Strengi_Jurmalciems folder
+
+5. **Git Operations:**
+   - Committed and pushed to GitHub (commit `dbd1df8`)
+   - 155 files changed, 503 insertions(+), 151 deletions(-)
+
+**Status:** ✅ Task completed
+
 ## Current Git State
 
-- **Current commit:** `3bfa313` - (latest commit before file renaming work)
+- **Current commit:** `dbd1df8` - "Update projekti page: add descriptions from apraksts.txt files, fix Strengi_Jurmalciems filename typo"
 
 - **Previous commits:**
+  - `3bfa313` - Standardize folder and file names in projekti directory (2026-06-04)
   - `6955244` - Fix Brivibas 97a image paths after WebP file reorganization (2026-03-29)
   - `87b7fc5` - Performance optimization: Convert PNG images to WebP format for new projects (2026-03-29)
   - `e5577d3` - Complete image optimization: WebP conversion, file naming standardization, and responsive picture elements (2026-03-27)
@@ -512,5 +543,4 @@
   - `feae87d` - Fix homepage navigation inconsistencies and update memory bank (2026-03-19)
   - `90ab3cd` - Resolve merge conflicts in memory bank files after git pull (2026-03-19)
   - `8933bd5` - Update Sabri Jurmalciems project image to sabri.jpg (2026-03-19)
-  - `22c146d` - Performance optimization: DNS prefetch, preconnect, critical CSS, defer scripts (2026-03-19)
-  - `96aacb5` - Add missing kazdangas 35.jpg image and restore original path (2026-03-
+  - `22c146d` - Performance optimization: DNS prefetch, preconnect, critical
