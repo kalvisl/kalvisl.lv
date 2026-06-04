@@ -2,7 +2,7 @@
 
 ## Current Task
 
-Completed: Rebuild projekti page with portfolio grid, lightbox gallery, and preserved pieredze section. Added Dzelzscelnieku_1_viz images.
+Completed: Standardized folder and file names in projekti/ directory - renamed all folders to use underscores instead of spaces, renamed all image files to follow project-based naming convention, and updated projekti/index.html with correct paths.
 
 ## Todo List
 
