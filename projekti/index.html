@@ -21,7 +21,6 @@
           <img src="../kllogo/kl.png" alt="Kalvis Lejasmeiers Logo" />
         </div>
       </div>
-      <!-- Mobile hamburger button -->
       <button
         class="nav-hamburger"
         aria-label="Atvērt izvēlni"
@@ -42,25 +41,17 @@
     <main class="projects-archive">
       <div class="archive-header">
         <span class="section-label">projekti</span>
-
-        <!-- Filter tabs -->
         <div class="filter-tabs">
           <button class="filter-btn active" data-filter="all">Visi</button>
           <button class="filter-btn" data-filter="Jaunbūve">Jaunbūve</button>
-          <button class="filter-btn" data-filter="Renovācija">
-            Renovācija
-          </button>
+          <button class="filter-btn" data-filter="Renovācija">Renovācija</button>
           <button class="filter-btn" data-filter="Interjers">Interjers</button>
         </div>
       </div>
-
-      <!-- Project grid - rendered by JavaScript -->
       <div class="portfolio-grid" id="portfolio-grid"></div>
     </main>
 
-    <!-- PIEREDZE SECTION (Embedded from pieredze page) -->
     <section class="pieredze-embedded" id="pieredze-embedded">
-      <!-- HEADER -->
       <div class="page-header">
         <span class="section-label">Profesionālā pieredze</span>
         <h1 class="page-title">Projektēšanas prakse<br />kopš 2018. gada</h1>
@@ -70,7 +61,6 @@
         </p>
       </div>
 
-      <!-- STATS -->
       <div class="pieredze-stats">
         <div class="pieredze-stat">
           <span class="pieredze-stat-number" id="stat-total">213</span>
@@ -86,21 +76,15 @@
         </div>
       </div>
 
-      <!-- FILTER -->
       <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">
-          Visi projekti
-        </button>
+        <button class="filter-btn active" data-filter="all">Visi projekti</button>
         <button class="filter-btn" data-filter="jaunbuve">Jaunbūve</button>
-        <button class="filter-btn" data-filter="renovacija">
-          Renovācija / Atjaunošana
-        </button>
+        <button class="filter-btn" data-filter="renovacija">Renovācija / Atjaunošana</button>
         <button class="filter-btn" data-filter="parbuve">Pārbūve</button>
         <button class="filter-btn" data-filter="fasade">Fasāde / Jumts</button>
         <button class="filter-btn" data-filter="cits">Cits</button>
       </div>
 
-      <!-- TABLE -->
       <div class="project-table">
         <div class="table-header">
           <span class="th">Projekts</span>
@@ -111,7 +95,6 @@
         <div id="project-list"></div>
       </div>
 
-      <!-- GEO -->
       <div class="geo-section">
         <div>
           <span class="section-label">Ģeogrāfija</span>
@@ -122,34 +105,17 @@
 
     <footer>
       <div class="footer-contact">
-        <a href="mailto:kalvis.lejasmeiers@gmail.com"
-          >kalvis.lejasmeiers@gmail.com</a
-        >
+        <a href="mailto:kalvis.lejasmeiers@gmail.com">kalvis.lejasmeiers@gmail.com</a>
         <a href="tel:+37129218775">+371 29218775</a>
         <span>Liepāja, Latvija</span>
       </div>
       <span class="footer-copy">© Kalvis Lejasmeiers</span>
     </footer>
 
-    <!-- Lightbox Overlay -->
-    <div
-      class="lightbox-overlay"
-      id="projectLightbox"
-      aria-hidden="true"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Projekta attēlu galerija"
-    >
-      <button class="lightbox-close" aria-label="Aizvērt galeriju">
-        &times;
-      </button>
+    <div class="lightbox-overlay" id="projectLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Projekta attēlu galerija">
+      <button class="lightbox-close" aria-label="Aizvērt galeriju">&times;</button>
       <div class="lightbox-container">
-        <button
-          class="lightbox-arrow lightbox-prev"
-          aria-label="Iepriekšējais attēls"
-        >
-          &#8249;
-        </button>
+        <button class="lightbox-arrow lightbox-prev" aria-label="Iepriekšējais attēls">&#8249;</button>
         <div class="lightbox-content">
           <div class="lightbox-image-wrapper">
             <img class="lightbox-image" src="" alt="Projekta attēls" />
@@ -157,23 +123,18 @@
           <div class="lightbox-info">
             <h3 class="lightbox-title"></h3>
             <div class="lightbox-meta">
-              <span class="lightbox-type"></span>
               <span class="lightbox-location"></span>
               <span class="lightbox-year"></span>
             </div>
             <div class="lightbox-counter"></div>
           </div>
         </div>
-        <button
-          class="lightbox-arrow lightbox-next"
-          aria-label="Nākamais attēls"
-        >
-          &#8250;
-        </button>
+        <button class="lightbox-arrow lightbox-next" aria-label="Nākamais attēls">&#8250;</button>
       </div>
     </div>
 
     <script src="../assets/js/main.js"></script>
+
     <style>
       /* Portfolio Grid Styles */
       .archive-header {
@@ -181,27 +142,10 @@
         text-align: center;
       }
 
-      .archive-title {
-        font-family: var(--font-sans);
-        font-size: 48px;
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        color: var(--black);
-        line-height: 1.1;
-        margin-bottom: var(--space-sm);
-      }
-
-      .archive-subtitle {
-        font-size: 15px;
-        color: var(--stone);
-        line-height: 1.6;
-        margin-bottom: var(--space-xl);
-      }
-
       .portfolio-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 60px 40px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
         max-width: 1200px;
         margin: 0 auto;
       }
@@ -211,6 +155,7 @@
         text-decoration: none;
         color: inherit;
         cursor: pointer;
+        transition: opacity 0.3s ease;
       }
 
       .portfolio-card-image {
@@ -218,94 +163,200 @@
         aspect-ratio: 4 / 3;
         overflow: hidden;
         background: var(--mist);
-        margin-bottom: var(--space-md);
+        margin-bottom: 12px;
       }
 
       .portfolio-card-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition:
-          transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-          opacity 0.4s ease;
+        transition: opacity 0.2s ease;
       }
 
       .portfolio-card:hover .portfolio-card-image img {
-        transform: scale(1.03);
-        opacity: 0.9;
+        opacity: 0.85;
       }
 
       .portfolio-card-content {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-      }
-
-      .portfolio-card-label {
-        font-family: var(--font-mono);
-        font-size: 10px;
-        font-weight: 400;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--rust);
+        gap: 2px;
       }
 
       .portfolio-card-title {
         font-family: var(--font-sans);
-        font-size: 22px;
+        font-size: 15px;
         font-weight: 400;
-        letter-spacing: -0.01em;
-        line-height: 1.2;
         color: var(--black);
-      }
-
-      .portfolio-card-description {
-        font-family: var(--font-sans);
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 1.6;
-        color: var(--ink);
-        max-width: 400px;
+        line-height: 1.3;
       }
 
       .portfolio-card-meta {
-        display: flex;
-        gap: 16px;
-        font-family: var(--font-mono);
         font-size: 11px;
-        color: var(--stone);
-        letter-spacing: 0.06em;
+        color: #999;
+        line-height: 1.4;
+      }
+
+      .portfolio-card.filter-hidden {
+        display: none;
+      }
+
+      /* Lightbox Styles */
+      .lightbox-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .lightbox-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 36px;
+        cursor: pointer;
+        z-index: 10;
+        padding: 4px 8px;
+        line-height: 1;
+        opacity: 0.7;
+        transition: opacity 0.15s;
+      }
+
+      .lightbox-close:hover {
+        opacity: 1;
+      }
+
+      .lightbox-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+        height: 100%;
+        padding: 40px;
+      }
+
+      .lightbox-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        max-width: 90vw;
+        max-height: 85vh;
+      }
+
+      .lightbox-image-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 90vw;
+        max-height: 75vh;
+      }
+
+      .lightbox-image {
+        max-width: 90vw;
+        max-height: 75vh;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .lightbox-image.loaded {
+        opacity: 1;
+      }
+
+      .lightbox-info {
+        text-align: center;
+        color: #fff;
+      }
+
+      .lightbox-title {
+        font-family: var(--font-sans);
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0 0 4px;
+      }
+
+      .lightbox-meta {
+        font-size: 13px;
+        opacity: 0.7;
+      }
+
+      .lightbox-counter {
+        font-size: 12px;
+        opacity: 0.5;
         margin-top: 4px;
       }
 
-      .portfolio-card-meta span:not(:last-child)::after {
-        content: "·";
-        margin-left: 16px;
-        opacity: 0.5;
+      .lightbox-arrow {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 48px;
+        cursor: pointer;
+        padding: 8px 12px;
+        opacity: 0.6;
+        transition: opacity 0.15s;
+        line-height: 1;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox-arrow:hover {
+        opacity: 1;
+      }
+
+      .lightbox-arrow:disabled {
+        opacity: 0;
+        pointer-events: none;
       }
 
       @media (max-width: 900px) {
         .portfolio-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .portfolio-grid {
           grid-template-columns: 1fr;
-          gap: 48px;
+          gap: 24px;
         }
 
-        .archive-title {
+        .lightbox-container {
+          padding: 16px;
+          gap: 8px;
+        }
+
+        .lightbox-arrow {
           font-size: 36px;
+          min-width: 44px;
+          min-height: 44px;
         }
       }
 
-      @media (max-width: 768px) {
-        .portfolio-card-title {
-          font-size: 18px;
-        }
-
-        .portfolio-card-description {
-          font-size: 13px;
-        }
-      }
-
-      /* Additional styles for pieredze embedded section */
+      /* Pieredze embedded styles */
       .pieredze-embedded {
         padding: var(--space-4xl) 40px var(--space-4xl);
         max-width: 1100px;
@@ -336,24 +387,23 @@
         max-width: 480px;
       }
 
-      /* Stats Row */
-      .stats-row {
+      .pieredze-stats {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 2px;
         margin-bottom: var(--space-2xl);
       }
 
-      .stat-block {
+      .pieredze-stat {
         background: var(--black);
         padding: 28px 24px;
       }
 
-      .stat-block:first-child {
+      .pieredze-stat:first-child {
         background: var(--rust);
       }
 
-      .stat-num {
+      .pieredze-stat-number {
         font-family: var(--font-mono);
         font-size: 40px;
         font-weight: 300;
@@ -363,7 +413,7 @@
         margin-bottom: 8px;
       }
 
-      .stat-lbl {
+      .pieredze-stat-label {
         font-family: var(--font-mono);
         font-size: 10px;
         letter-spacing: 0.14em;
@@ -371,7 +421,6 @@
         color: rgba(245, 244, 240, 0.45);
       }
 
-      /* Filter Bar */
       .filter-bar {
         display: flex;
         gap: 4px;
@@ -403,7 +452,6 @@
         color: var(--white);
       }
 
-      /* Project Table */
       .project-table {
         width: 100%;
       }
@@ -461,36 +509,15 @@
         text-align: right;
       }
 
-      /* Type tag colors */
-      .tag-jaunbuve {
-        color: var(--rust) !important;
-      }
+      .tag-jaunbuve { color: var(--rust) !important; }
+      .tag-renovacija { color: #4b7b8b !important; }
+      .tag-parbuve { color: #6b7b4b !important; }
+      .tag-fasade { color: #7b6b4b !important; }
+      .tag-interjers { color: #8b5b7b !important; }
+      .tag-cits { color: var(--stone) !important; }
 
-      .tag-renovacija {
-        color: #4b7b8b !important;
-      }
+      .hidden { display: none; }
 
-      .tag-parbuve {
-        color: #6b7b4b !important;
-      }
-
-      .tag-fasade {
-        color: #7b6b4b !important;
-      }
-
-      .tag-interjers {
-        color: #8b5b7b !important;
-      }
-
-      .tag-cits {
-        color: var(--stone) !important;
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      /* Geography */
       .geo-section {
         margin-top: var(--space-xl);
         display: grid;
@@ -535,7 +562,7 @@
           padding: 100px 20px 80px;
         }
 
-        .stats-row {
+        .pieredze-stats {
           grid-template-columns: 1fr 1fr;
         }
 
@@ -557,274 +584,391 @@
         }
       }
     </style>
+
     <script>
-      // ══════════════════════════════════════════════════════════════════════
-      // PORTFOLIO PROJECTS - Featured projects with images and descriptions
-      // ══════════════════════════════════════════════════════════════════════
-      const portfolioProjects = [
+      // =============================================
+      // HOW TO ADD IMAGES TO A PROJECT:
+      // Find the project by name, then add image paths
+      // to its "images" array. First image = thumbnail.
+      // Example:
+      //   images: [
+      //     "/projekti/ProjectFolder/photo1.jpg",
+      //     "/projekti/ProjectFolder/photo2.jpg",
+      //   ]
+      // =============================================
+      const projectsData = [
         {
-          id: "brivibas-97a",
-          name: "Brīvības iela 97a",
-          description:
-            "Daudzdzīvokļu dzīvojamās mājas fasādes atjaunošanas projekts ar mūsdienīgu arhitektonisku risinājumu.",
-          location: "Liepāja",
-          year: 2025,
-          type: "Renovācija",
-          image: "Brivibas%2097a/misc/1.webp",
-          images: ["Brivibas%2097a/misc/1.webp", "Brivibas%2097a/misc/2.webp"],
+          id: "avotu-iela-5",
+          name: "Avotu iela 5",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Avotu iela 5/MBP-AR-7-Avotu 5-20240610.jpg"
+          ]
         },
         {
-          id: "sabri-jurmalciems",
-          name: "Sabri",
-          description:
-            "Privātmājas jaunbūves projekts piejūras zonā ar funkcionālu plānojumu un dabai draudzīgu pieeju.",
-          location: "Jūrmalciems",
-          year: 2024,
-          type: "Jaunbūve",
-          image: "Sabri%20Jurmalciems/sabri.webp",
-          images: ["Sabri%20Jurmalciems/sabri.webp"],
+          id: "brivibas-97a",
+          name: "Brivibas iela 97a",
+          location: "Liepaja",
+          year: "2025",
+          type: "Renovacija",
+          images: [
+            "/projekti/Brivibas 97a/misc/1.png",
+            "/projekti/Brivibas 97a/misc/2.png"
+          ]
+        },
+        {
+          id: "ciboli-alviki-rucava",
+          name: "Ciboli-Alviki Rucava",
+          location: "Rucava",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Ciboli-Alviki Rucava/AR_Alviki_Nida-5.png"
+          ]
+        },
+        {
+          id: "dzelzscelnieku-1-viz",
+          name: "Dzelzscelnieku iela 1",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Dzelzscelnieku_1_viz/GATAVS/ar_cilvekiem/web/Thumbs.db"
+          ]
+        },
+        {
+          id: "ezermalas-1a",
+          name: "Ezermalas iela 1A",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Ezermalas 1A/variants 2.png"
+          ]
+        },
+        {
+          id: "gerberu-4-marupe",
+          name: "Gerberu iela 4",
+          location: "Marupe",
+          year: "2026",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Gerberu 4 Marupe/2026-02-19-14-28-16.png",
+            "/projekti/Gerberu 4 Marupe/2026-02-19-14-30-14 - Copy.png"
+          ]
         },
         {
           id: "kazdangas-35",
           name: "Kazdangas iela 35",
-          description:
-            "Dzīvojamās ēkas būvniecības projekts ar racionālu telpu plānojumu un modernu fasādes dizainu.",
-          location: "Liepāja",
-          year: 2024,
-          type: "Jaunbūve",
-          image: "Kazdangas%2035/kazdangas-1.webp",
-          images: ["Kazdangas%2035/kazdangas-1.webp"],
-        },
-        {
-          id: "gerberu-marupe",
-          name: "Gerberu iela 4",
-          description:
-            "Privātmājas jaunbūves projekts Mārupē ar modernu arhitektūru un funkcionālu telpu plānojumu.",
-          location: "Mārupe",
-          year: 2026,
-          type: "Jaunbūve",
-          image: "Gerberu%204%20Marupe/2026-02-19-14-28-16.webp",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
           images: [
-            "Gerberu%204%20Marupe/2026-02-19-14-28-16.webp",
-            "Gerberu%204%20Marupe/2026-02-19-14-30-14%20-%20Copy.webp",
-          ],
+            "/projekti/Kazdangas 35/misc/kazdangas 35.jpg"
+          ]
         },
         {
           id: "klaipedas-29",
-          name: "Klaipēdas iela 29",
-          description:
-            "Dzīvojamās ēkas renovācijas projekts ar fasādes atjaunošanu un interjera modernizāciju.",
-          location: "Liepāja",
-          year: 2023,
-          type: "Renovācija",
-          image: "Klaipedas%2029/AR-2.pdf",
-          images: ["Klaipedas%2029/AR-2.pdf"],
+          name: "Klaipedas iela 29",
+          location: "Liepaja",
+          year: "2023",
+          type: "Renovacija",
+          images: [
+            "/projekti/Klaipedas 29/AR-2.pdf"
+          ]
+        },
+        {
+          id: "klaipedas-33",
+          name: "Klaipedas iela 33",
+          location: "Liepaja",
+          year: "2023",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Klaipedas 33/Enscape_2023-08-14-19-07-57.png"
+          ]
         },
         {
           id: "lielas-dianas",
-          name: "Lielās Diānas",
-          description:
-            "Privātmājas jaunbūves projekts ar unikālu arhitektonisku risinājumu un plašu terasi.",
-          location: "Liepāja",
-          year: 2023,
-          type: "Jaunbūve",
-          image: "Lielas%20Dianas/2023-06-27-15-41-11.webp",
+          name: "Lielas Dianas",
+          location: "Liepaja",
+          year: "2023",
+          type: "Jaunbuve",
           images: [
-            "Lielas%20Dianas/2023-06-27-15-41-11.webp",
-            "Lielas%20Dianas/Enscape_2023-06-27-15-06-58.webp",
-          ],
+            "/projekti/Lielas Dianas/2023-06-27-15-41-11.png",
+            "/projekti/Lielas Dianas/Enscape_2023-06-27-15-06-58.png"
+          ]
+        },
+        {
+          id: "piejuras-slimnica",
+          name: "Piejuras slimnica",
+          location: "Liepaja",
+          year: "2024",
+          type: "Renovacija",
+          images: [
+            "/projekti/Piejuras slimnica/AR-3 - GRIDU PLANS_GRIEZUMS A-A.pdf"
+          ]
+        },
+        {
+          id: "pupu-iela",
+          name: "Pupu iela",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Pupu iela/AR-9_FASADE ASIS 7-1, A-E_BP.pdf"
+          ]
         },
         {
           id: "reki-bernati",
-          name: "Reki Bernāti",
-          description:
-            "Privātmājas jaunbūves projekts lauku vidē ar harmonisku integrāciju dabiskajā vidē.",
-          location: "Bernāti",
-          year: 2024,
-          type: "Jaunbūve",
-          image: "Reki%20Bernati/AR-5_FASADES ASIS B-A, 1-2.pdf",
+          name: "Reki Bernati",
+          location: "Bernati",
+          year: "2024",
+          type: "Jaunbuve",
           images: [
-            "Reki%20Bernati/AR-5_FASADES ASIS B-A, 1-2.pdf",
-            "Reki%20Bernati/AR-6_FASADES ASIS A-B, 2-1.pdf",
-          ],
+            "/projekti/Reki Bernati/AR-5_FASADES ASIS B-A, 1-2.pdf"
+          ]
+        },
+        {
+          id: "sabri-jurmalciems",
+          name: "Sabri Jurmalciems",
+          location: "Jurmalciems",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Sabri Jurmalciems/misc/sabri.png"
+          ]
         },
         {
           id: "sarmites",
-          name: "Sarmītes",
-          description:
-            "Dzīvojamās mājas jaunbūves projekts ar enerģētiski efektīvu risinājumu un mūsdienīgu dizainu.",
-          location: "Liepāja",
-          year: 2025,
-          type: "Jaunbūve",
-          image: "Sarmites/2025-12-02-11-28-55.webp",
+          name: "Sarmites",
+          location: "Liepaja",
+          year: "2025",
+          type: "Jaunbuve",
           images: [
-            "Sarmites/2025-12-02-11-28-55.webp",
-            "Sarmites/2025-12-02-11-32-12.webp",
-          ],
+            "/projekti/Sarmites/2025-12-02-11-28-55.png",
+            "/projekti/Sarmites/2025-12-02-11-32-12.png"
+          ]
         },
         {
-          id: "stendera-iela",
+          id: "stendera-iela-3",
           name: "Stendera iela 3",
-          description:
-            "Dzīvojamās ēkas fasādes renovācijas projekts ar mūsdienīgu materiālu izmantošanu un dizainu.",
-          location: "Liepāja",
-          year: 2020,
-          type: "Renovācija",
-          image: "Stendera%20iela%203/Enscape_2020-02-18-17-28-02.webp",
+          location: "Liepaja",
+          year: "2020",
+          type: "Renovacija",
           images: [
-            "Stendera%20iela%203/Enscape_2020-02-18-17-28-02.webp",
-            "Stendera%20iela%203/Fasades_risinajums_3D_V3.webp",
-          ],
+            "/projekti/Stendera iela 3/Enscape_2020-02-18-17-28-02.png",
+            "/projekti/Stendera iela 3/Fasades_risinajums_3D_V3.png"
+          ]
+        },
+        {
+          id: "strautu-4",
+          name: "Strautu iela 4",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Strautu 4/BP-AR-4.pdf"
+          ]
+        },
+        {
+          id: "strautu-6",
+          name: "Strautu iela 6",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Strautu 6/BP_AR - Strautu 6.pdf"
+          ]
         },
         {
           id: "strengi-jurmalciems",
-          name: "Streņģi Jūrmalciems",
-          description:
-            "Privātmājas jaunbūves projekts piejūras zonā ar plašu skatu uz jūru un modernu arhitektūru.",
-          location: "Jūrmalciems",
-          year: 2024,
-          type: "Jaunbūve",
-          image: "Strengi%20Jurmalciems/Enscape_2023-12-27-12-54-08.webp",
+          name: "Strengi Jurmalciems",
+          location: "Jurmalciems",
+          year: "2024",
+          type: "Jaunbuve",
           images: [
-            "Strengi%20Jurmalciems/Enscape_2023-12-27-12-54-08.webp",
-            "Strengi%20Jurmalciems/strengi%20jurmalciems.webp",
-          ],
+            "/projekti/Strengi Jurmalciems/Enscape_2023-12-27-12-54-08.png",
+            "/projekti/Strengi Jurmalciems/strengi jurmalciems.png"
+          ]
         },
+        {
+          id: "svirites",
+          name: "Svirites",
+          location: "Liepaja",
+          year: "2024",
+          type: "Jaunbuve",
+          images: [
+            "/projekti/Svirites/Svirites_BP_AR.pdf"
+          ]
+        }
       ];
 
-      // ── RENDER PORTFOLIO GRID ──
-      function renderPortfolioGrid(filter) {
+      // ---- RENDER PROJECT GRID ----
+      function renderProjectGrid(filter) {
         const grid = document.getElementById("portfolio-grid");
         if (!grid) return;
 
         filter = filter || "all";
         const filtered =
           filter === "all"
-            ? portfolioProjects
-            : portfolioProjects.filter((p) => p.type === filter);
+            ? projectsData
+            : projectsData.filter(function(p) { return p.type === filter; });
 
         grid.innerHTML = filtered
-          .map((project) => {
-            // Check if image is a PDF file
-            const isPdf = project.image.toLowerCase().endsWith(".pdf");
+          .map(function(project) {
+            const firstImage = project.images[0] || "";
+            const isPdf = firstImage.toLowerCase().endsWith(".pdf");
 
-            // For PDF files, use a simple SVG placeholder
-            const fallbackSrc = isPdf
-              ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f5f4f0'/%3E%3Ctext x='200' y='150' font-family='Arial, sans-serif' font-size='24' text-anchor='middle' fill='%23999'%3EPDF%3C/text%3E%3Ctext x='200' y='180' font-family='Arial, sans-serif' font-size='14' text-anchor='middle' fill='%23999'%3E${encodeURIComponent(project.name)}%3C/text%3E%3C/svg%3E"
-              : project.image
-                  .replace(".webp", ".png")
-                  .replace(
-                    "Sabri%20Jurmalciems/sabri.webp",
-                    "Sabri%20Jurmalciems/misc/sabri.png",
-                  )
-                  .replace(
-                    "Kazdangas%2035/kazdangas-1.webp",
-                    "Kazdangas%2035/misc/kazdangas%2035.jpg",
-                  )
-                  .replace(
-                    "Brivibas%2097a/misc/1.webp",
-                    "Brivibas%2097a/misc/1.png",
-                  )
-                  // New fallbacks for converted WebP files
-                  .replace(
-                    "Gerberu%204%20Marupe/2026-02-19-14-28-16.webp",
-                    "Gerberu%204%20Marupe/2026-02-19-14-28-16.png",
-                  )
-                  .replace(
-                    "Gerberu%204%20Marupe/2026-02-19-14-30-14%20-%20Copy.webp",
-                    "Gerberu%204%20Marupe/2026-02-19-14-30-14%20-%20Copy.png",
-                  )
-                  .replace(
-                    "Lielas%20Dianas/2023-06-27-15-41-11.webp",
-                    "Lielas%20Dianas/2023-06-27-15-41-11.png",
-                  )
-                  .replace(
-                    "Lielas%20Dianas/Enscape_2023-06-27-15-06-58.webp",
-                    "Lielas%20Dianas/Enscape_2023-06-27-15-06-58.png",
-                  )
-                  .replace(
-                    "Sarmites/2025-12-02-11-28-55.webp",
-                    "Sarmites/2025-12-02-11-28-55.png",
-                  )
-                  .replace(
-                    "Sarmites/2025-12-02-11-32-12.webp",
-                    "Sarmites/2025-12-02-11-32-12.png",
-                  )
-                  .replace(
-                    "Stendera%20iela%203/Enscape_2020-02-18-17-28-02.webp",
-                    "Stendera%20iela%203/Enscape_2020-02-18-17-28-02.png",
-                  )
-                  .replace(
-                    "Stendera%20iela%203/Fasades_risinajums_3D_V3.webp",
-                    "Stendera%20iela%203/Fasades_risinajums_3D_V3.png",
-                  )
-                  .replace(
-                    "Strengi%20Jurmalciems/Enscape_2023-12-27-12-54-08.webp",
-                    "Strengi%20Jurmalciems/Enscape_2023-12-27-12-54-08.png",
-                  )
-                  .replace(
-                    "Strengi%20Jurmalciems/strengi%20jurmalciems.webp",
-                    "Strengi%20Jurmalciems/strengi%20jurmalciems.png",
-                  );
+            const imgSrc = isPdf
+              ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f5f4f0'/%3E%3Ctext x='200' y='150' font-family='Arial, sans-serif' font-size='24' text-anchor='middle' fill='%23999'%3EPDF%3C/text%3E%3Ctext x='200' y='180' font-family='Arial, sans-serif' font-size='14' text-anchor='middle' fill='%23999'%3E" + encodeURIComponent(project.name) + "%3C/text%3E%3C/svg%3E"
+              : firstImage;
 
-            return `
-          <article class="portfolio-card" 
-                   data-lightbox="true"
-                   data-project-name="${project.name}"
-                   data-project-type="${project.type}"
-                   data-project-location="${project.location}"
-                   data-project-year="${project.year}"
-                   data-images='${JSON.stringify(project.images.map((img) => img))}'>
-            <div class="portfolio-card-image">
-              <picture>
-                ${!isPdf ? `<source srcset="${project.image}" type="image/webp" />` : ""}
-                <img src="${fallbackSrc}" alt="${project.name}" loading="lazy" decoding="async" />
-              </picture>
-            </div>
-            <div class="portfolio-card-content">
-              <span class="portfolio-card-label">${project.type}</span>
-              <h2 class="portfolio-card-title">${project.name}</h2>
-              <p class="portfolio-card-description">${project.description}</p>
-              <div class="portfolio-card-meta">
-                <span>${project.location}</span>
-                <span>${project.year}</span>
-              </div>
-            </div>
-          </article>
-        `;
+            return [
+              '<article class="portfolio-card"',
+              '         data-project-id="' + project.id + '"',
+              '         data-project-name="' + project.name + '"',
+              '         data-project-location="' + project.location + '"',
+              '         data-project-year="' + project.year + '"',
+              '         data-project-type="' + project.type + '"',
+              "         data-images='" + JSON.stringify(project.images) + "'>",
+              '  <div class="portfolio-card-image">',
+              '    <img src="' + imgSrc + '" alt="' + project.name + '" loading="lazy" decoding="async" />',
+              '  </div>',
+              '  <div class="portfolio-card-content">',
+              '    <h2 class="portfolio-card-title">' + project.name + '</h2>',
+              '    <div class="portfolio-card-meta">' + project.location + ' &middot; ' + project.year + '</div>',
+              '  </div>',
+              '</article>'
+            ].join("\n");
           })
           .join("");
       }
 
-      // ── PORTFOLIO CARD CLICK HANDLERS ──
-      // Note: Lightbox functionality is handled by main.js
-      // Portfolio cards have data-lightbox="true" and other data attributes
-      // that main.js uses to open the lightbox gallery
+      // ---- LIGHTBOX ----
+      var lightboxState = {
+        images: [],
+        currentIndex: 0
+      };
 
-      // ── PORTFOLIO FILTERS ──
-      function initPortfolioFilters() {
-        const filterBtns = document.querySelectorAll(
-          ".archive-header .filter-btn",
-        );
-        filterBtns.forEach((btn) => {
-          btn.onclick = function () {
-            filterBtns.forEach((b) => b.classList.remove("active"));
-            this.classList.add("active");
-            renderPortfolioGrid(this.dataset.filter);
-          };
-        });
+      function openLightbox(projectEl) {
+        var lightbox = document.getElementById("projectLightbox");
+        if (!lightbox) return;
+
+        var images = JSON.parse(projectEl.dataset.images || "[]");
+        if (images.length === 0) return;
+
+        lightboxState.images = images;
+        lightboxState.currentIndex = 0;
+
+        lightbox.querySelector(".lightbox-title").textContent = projectEl.dataset.projectName || "";
+        lightbox.querySelector(".lightbox-location").textContent = projectEl.dataset.projectLocation || "";
+        lightbox.querySelector(".lightbox-year").textContent = projectEl.dataset.projectYear || "";
+
+        var hasMultiple = images.length > 1;
+        lightbox.querySelector(".lightbox-prev").style.display = hasMultiple ? "" : "none";
+        lightbox.querySelector(".lightbox-next").style.display = hasMultiple ? "" : "none";
+
+        updateLightboxImage();
+
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
       }
 
-      // Initialize portfolio on page load
-      document.addEventListener("DOMContentLoaded", function () {
-        renderPortfolioGrid();
-        initPortfolioFilters();
+      function closeLightbox() {
+        var lightbox = document.getElementById("projectLightbox");
+        if (!lightbox) return;
+        lightbox.classList.remove("active");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      function updateLightboxImage() {
+        var lightbox = document.getElementById("projectLightbox");
+        if (!lightbox) return;
+
+        var img = lightbox.querySelector(".lightbox-image");
+        var counter = lightbox.querySelector(".lightbox-counter");
+        var state = lightboxState;
+
+        if (state.images.length === 0) return;
+
+        img.classList.remove("loaded");
+        img.src = state.images[state.currentIndex];
+        img.alt = "Attels " + (state.currentIndex + 1);
+
+        var preload = new Image();
+        preload.onload = function() {
+          requestAnimationFrame(function() {
+            img.classList.add("loaded");
+          });
+        };
+        preload.onerror = function() {
+          img.classList.add("loaded");
+        };
+        preload.src = state.images[state.currentIndex];
+
+        if (state.images.length > 1) {
+          counter.textContent = (state.currentIndex + 1) + " / " + state.images.length;
+        } else {
+          counter.textContent = "";
+        }
+      }
+
+      function prevImage() {
+        if (lightboxState.images.length <= 1) return;
+        lightboxState.currentIndex = (lightboxState.currentIndex - 1 + lightboxState.images.length) % lightboxState.images.length;
+        updateLightboxImage();
+      }
+
+      function nextImage() {
+        if (lightboxState.images.length <= 1) return;
+        lightboxState.currentIndex = (lightboxState.currentIndex + 1) % lightboxState.images.length;
+        updateLightboxImage();
+      }
+
+      // ---- INITIALIZE ----
+      document.addEventListener("DOMContentLoaded", function() {
+        renderProjectGrid();
+
+        var filterBtns = document.querySelectorAll(".archive-header .filter-btn");
+        filterBtns.forEach(function(btn) {
+          btn.addEventListener("click", function() {
+            filterBtns.forEach(function(b) { b.classList.remove("active"); });
+            this.classList.add("active");
+            renderProjectGrid(this.dataset.filter);
+          });
+        });
+
+        document.getElementById("portfolio-grid").addEventListener("click", function(e) {
+          var card = e.target.closest(".portfolio-card");
+          if (card) {
+            openLightbox(card);
+          }
+        });
+
+        var lightbox = document.getElementById("projectLightbox");
+        lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+        lightbox.querySelector(".lightbox-prev").addEventListener("click", prevImage);
+        lightbox.querySelector(".lightbox-next").addEventListener("click", nextImage);
+
+        lightbox.addEventListener("click", function(e) {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener("keydown", function(e) {
+          if (!lightbox.classList.contains("active")) return;
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowLeft") prevImage();
+          if (e.key === "ArrowRight") nextImage();
+        });
       });
 
-      // ══════════════════════════════════════════════════════════════════════
-      // PIEREDZE TABLE - Full projects array from work experience - 213 total
-      // ══════════════════════════════════════════════════════════════════════
-      const projects = [
+const projects = [
         {
           name: "Dzīvojamās mājas jaunbūve",
           location: "Liepāja",
@@ -1392,6 +1536,7 @@
       // Initialize everything
       renderTable("all");
       renderGeo();
-    </script>
+    
+</script>
   </body>
 </html>
