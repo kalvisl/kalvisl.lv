@@ -349,13 +349,13 @@ nav.scrolled {
   gap: 100px; /* Generous spacing between projects */
 }
 
-/* Right column: ~40% width, offset down by ~200px */
+/* Right column: ~40% width, offset down */
 .chip-col-right {
   flex: 0 0 40%;
   display: flex;
   flex-direction: column;
   gap: 100px;
-  margin-top: 500px; /* Vertical offset — key Chipperfield element */
+  margin-top: 200px; /* Vertical offset — key Chipperfield element */
 }
 
 /* Individual project link */
