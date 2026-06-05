@@ -485,7 +485,7 @@ nav.scrolled {
    ========================================================================== */
 
 .about-strip {
-  background: var(--black);
+  background: var(--white);
   padding: var(--space-2xl) 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -494,13 +494,13 @@ nav.scrolled {
 }
 
 .about-strip .section-label {
-  color: rgba(200, 196, 187, 0.4);
+  color: var(--stone);
   margin-bottom: var(--space-lg);
   text-align: left;
 }
 
 .about-text {
-  color: var(--stone);
+  color: var(--ink);
   font-size: 15px;
   line-height: 1.7;
   max-width: 400px;
