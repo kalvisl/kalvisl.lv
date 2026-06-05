@@ -582,6 +582,44 @@
 
 **Status:** ✅ All 12 audit tasks completed
 
+## ✅ COMPLETED: SEO Tasks from cline_seo_tasks 05-06-2026 (2026-06-05)
+
+**Summary:** Completed comprehensive SEO improvements across all pages to enhance search engine visibility and user experience.
+
+### Key Accomplishments:
+
+1. **Enhanced Meta Tags on All Pages:**
+   - **index.html:** Updated title with "Projektētājs Liepājā | Legalizācija, Pārbūve, Jaunbūve — Kalvis Lejasmeiers", added rich meta description with location keywords, added meta keywords tag
+   - **pakalpojumi/index.html:** Updated title with "Projektēšanas Pakalpojumi Liepājā | Legalizācija, Pārbūve, Renovācija", added meta description with service keywords, added meta keywords, added canonical URL
+   - **par-mani/index.html:** Updated title with "Par mani — Kalvis Lejasmeiers | Projektētājs Liepājā", added meta description with experience keywords, added canonical URL
+   - **kontakti/index.html:** Updated title with "Kontakti — Kalvis Lejasmeiers | Projektētājs Liepāja", added meta description with phone number and services, added canonical URL
+   - **projekti/index.html:** Updated title with "Projekti — Kalvis Lejasmeiers | Projektētājs Liepājā", added meta description with project locations, added canonical URL
+
+2. **Added FAQ Section with Schema.org Markup:**
+   - Created FAQ accordion on pakalpojumi page with 5 common questions
+   - Added `itemscope itemtype="https://schema.org/FAQPage"` structured data
+   - Each Q&A pair uses `itemprop="mainEntity"` and `itemprop="acceptedAnswer"`
+   - Questions cover: required documents, timeline, pricing, service area, paskaidrojuma raksts
+   - FAQ accordion with smooth open/close animation and ARIA accessibility
+
+3. **Updated Sitemap.xml:**
+   - Added all 5 pages with proper priorities and change frequencies
+   - Homepage: priority 1.0, monthly
+   - Pakalpojumi: priority 0.9, monthly
+   - Projekti: priority 0.8, monthly
+   - Par-mani: priority 0.7, yearly
+   - Kontakti: priority 0.7, yearly
+
+### Files Modified:
+- **index.html:** Enhanced meta tags (title, description, keywords)
+- **pakalpojumi/index.html:** Enhanced meta tags, added FAQ section with Schema.org markup, added FAQ accordion JavaScript
+- **par-mani/index.html:** Enhanced meta tags, added canonical URL
+- **kontakti/index.html:** Enhanced meta tags, added canonical URL
+- **projekti/index.html:** Enhanced meta tags, added canonical URL
+- **sitemap.xml:** Updated with all pages, priorities, and change frequencies
+
+**Status:** ✅ All SEO tasks completed
+
 ## Current Git State
 
 - **Current commit:** `dbd1df8` - "Update projekti page: add descriptions from apraksts.txt files, fix Strengi_Jurmalciems filename typo"

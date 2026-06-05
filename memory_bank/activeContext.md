@@ -2,69 +2,60 @@
 
 ## Current Task
 
-Completed: All 12 audit tasks from cline_audit_tasks 05-06-2026.md — performance, accessibility, SEO, and privacy improvements. Changes committed and pushed to GitHub.
+Completed: All SEO tasks from cline_seo_tasks 05-06-2026.md — enhanced meta tags, FAQ section with Schema.org markup, sitemap update.
 
 ## Todo List
 
-- [x] Task 1: Add `defer` to all `<script>` tags
-- [x] Task 2: Add `decoding="async"` to all `<img>` tags
-- [x] Task 3: Add `loading="lazy"` to all project images
-- [x] Task 4: Add `role="menu"` and `role="menuitem"` to navigation
-- [x] Task 5: Add `aria-controls` to hamburger button
-- [x] Task 6: Add `loading="lazy"` to project images (verified already done)
-- [x] Task 7: Add `defer` to all `<script>` tags (verified already done)
-- [x] Task 8: Add `decoding="async"` to all `<img>` tags (verified already done)
-- [x] Task 9: Add `role="menu"` and `role="menuitem"` to navigation (verified already done)
-- [x] Task 10: Add `aria-controls` to hamburger button (verified already done)
-- [x] Task 11: Create privacy policy page
-- [x] Task 12: Update H1 for SEO
+- [x] Enhanced meta tags on all pages (title, description, keywords, canonical)
+- [x] Added FAQ section with Schema.org FAQPage markup on pakalpojumi page
+- [x] Added FAQ accordion JavaScript with ARIA accessibility
+- [x] Updated sitemap.xml with all pages, priorities, and change frequencies
+- [x] Updated memory bank documentation
 
 ## Changes Made
 
-### 1. Performance Improvements (Tasks 1-3, 6-8)
+### 1. Enhanced Meta Tags on All Pages
 
-- **Added `defer`** to all `<script src="assets/js/main.js">` tags across all pages
-- **Added `decoding="async"`** to all `<img>` tags (logo images and project images)
-- **Verified `loading="lazy"`** already implemented on project images (2nd/3rd featured images, all portfolio grid images)
-- First hero image kept with `fetchpriority="high"` (above the fold, should not be lazy)
+- **index.html:** Updated title to "Projektētājs Liepājā | Legalizācija, Pārbūve, Jaunbūve — Kalvis Lejasmeiers", added rich meta description with location keywords, added meta keywords tag
+- **pakalpojumi/index.html:** Updated title to "Projektēšanas Pakalpojumi Liepājā | Legalizācija, Pārbūve, Renovācija", added meta description with service keywords, added meta keywords, added canonical URL
+- **par-mani/index.html:** Updated title to "Par mani — Kalvis Lejasmeiers | Projektētājs Liepājā", added meta description with experience keywords, added canonical URL
+- **kontakti/index.html:** Updated title to "Kontakti — Kalvis Lejasmeiers | Projektētājs Liepāja", added meta description with phone number and services, added canonical URL
+- **projekti/index.html:** Updated title to "Projekti — Kalvis Lejasmeiers | Projektētājs Liepājā", added meta description with project locations, added canonical URL
 
-### 2. Accessibility Improvements (Tasks 4-5, 9-10)
+### 2. FAQ Section with Schema.org Markup
 
-- **Added `role="menu"`** to `<ul class="nav-links">` on all pages
-- **Added `role="menuitem"`** to `<li>` elements wrapping nav links
-- **Added `aria-controls="main-menu"`** to hamburger buttons on all pages
-- Added `id="main-menu"` to nav `<ul>` elements for aria-controls reference
+- Created FAQ accordion on pakalpojumi page with 5 common questions:
+  1. Kādi dokumenti man ir nepieciešami, lai sāktu projektēšanu?
+  2. Cik ilgi notiek projekta izstrāde?
+  3. Cik maksā projektēšana?
+  4. Vai strādājat tikai Liepājā?
+  5. Kas ir paskaidrojuma raksts un kad tas ir nepieciešams?
+- Added `itemscope itemtype="https://schema.org/FAQPage"` structured data
+- Each Q&A pair uses `itemprop="mainEntity"` and `itemprop="acceptedAnswer"`
+- FAQ accordion with smooth open/close animation and ARIA accessibility
 
-### 3. Privacy Policy Page (Task 11)
+### 3. Sitemap Update
 
-- **Created `/privatuma-politika/index.html`** with full privacy policy content:
-  - What data is collected (contact form: name, email, message)
-  - Data storage (not shared with third parties, processed via Netlify Forms)
-  - Cookies policy (no analytics/tracking cookies)
-  - Contact information
-- **Added privacy policy link** to footer on all pages (index.html, par-mani, kontakti, projekti)
-- **Added CSS styles** to main.css: `.footer-bottom` and `.privacy-link`
-
-### 4. SEO Improvement (Task 12)
-
-- **Updated H1** on index.html from "Kalvis Lejasmeiers — Projektētājs" to "Projektētājs Liepājā — legalizācija, pārbūve, būvatļauja · Kalvis Lejasmeiers"
-- Includes key search terms: Liepāja, legalizācija, pārbūve, būvatļauja
+- Updated sitemap.xml with all 5 pages
+- Proper priorities: Homepage 1.0, Pakalpojumi 0.9, Projekti 0.8, Par-mani 0.7, Kontakti 0.7
+- Change frequencies: monthly for main pages, yearly for static pages
 
 ## Files Modified
 
 | File | Changes |
 |------|---------|
-| **index.html** | Added defer, decoding="async", role attributes, aria-controls, updated H1, updated footer with privacy link |
-| **par-mani/index.html** | Added defer, decoding="async", role attributes, aria-controls, updated footer with privacy link |
-| **kontakti/index.html** | Added defer, decoding="async", role attributes, aria-controls, updated footer with privacy link |
-| **projekti/index.html** | Added defer, decoding="async", role attributes, aria-controls, updated footer with privacy link |
-| **privatuma-politika/index.html** | Created new privacy policy page |
-| **assets/css/main.css** | Added .footer-bottom and .privacy-link styles |
+| **index.html** | Enhanced meta tags (title, description, keywords) |
+| **pakalpojumi/index.html** | Enhanced meta tags, added FAQ section with Schema.org markup, added FAQ accordion JavaScript |
+| **par-mani/index.html** | Enhanced meta tags, added canonical URL |
+| **kontakti/index.html** | Enhanced meta tags, added canonical URL |
+| **projekti/index.html** | Enhanced meta tags, added canonical URL |
+| **sitemap.xml** | Updated with all pages, priorities, and change frequencies |
+| **memory_bank/progress_tracker.md** | Updated with SEO tasks completion |
 
 ## Git State
 
-- **Current commit:** `f9d96a2` - "Complete all 12 audit tasks: performance, accessibility, SEO, privacy policy"
-- **Pushed to GitHub:** ✅ Yes
+- **Current commit:** `dbd1df8` - "Update projekti page: add descriptions from apraksts.txt files, fix Strengi_Jurmalciems filename typo"
+- **Pushed to GitHub:** Pending (changes not yet committed)
 
 ## Next Steps
 
@@ -72,14 +63,15 @@ Completed: All 12 audit tasks from cline_audit_tasks 05-06-2026.md — performan
 
 - Continue adding new projects as they become available
 - Monitor website performance and loading times
-- Regular accessibility audits
+- Regular SEO audits
 
 ## Notes
 
-- **Privacy page URL:** `/privatuma-politika/` — linked from all page footers
-- **H1 strategy:** Uses visually-hidden class for SEO without affecting visual design
-- **Performance attributes:** `defer` ensures scripts don't block rendering; `decoding="async"` allows images to decode off the main thread; `loading="lazy"` defers offscreen images
+- **FAQ Schema:** FAQPage structured data helps Google display rich results in search
+- **Canonical URLs:** Added to all subpages to prevent duplicate content issues
+- **Meta keywords:** Added to main pages for additional SEO signal
+- **Sitemap priorities:** Homepage has highest priority (1.0), static pages lower (0.7)
 
 ## Last Updated
 
-2026-06-05 (Completed all 12 audit tasks from cline_audit_tasks 05-06-2026.md)
+2026-06-05 (Completed all SEO tasks from cline_seo_tasks 05-06-2026.md)
