@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projekti — Kalvis Lejasmeiers | Projektētājs Liepājā</title>
-    <meta name="description" content="Realizēti projektēšanas darbi — jaunbūves, pārbūves, renovācijas projekti Liepājā, Jūrmalā, Rīgā un Kurzemē.">
-    <link rel="canonical" href="https://kalvisl.lv/projekti/">
+    <meta
+      name="description"
+      content="Realizēti projektēšanas darbi — jaunbūves, pārbūves, renovācijas projekti Liepājā, Jūrmalā, Rīgā un Kurzemē."
+    />
+    <link rel="canonical" href="https://kalvisl.lv/projekti/" />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -103,7 +106,9 @@
       </div>
       <div class="footer-bottom">
         <span class="footer-copy">© Kalvis Lejasmeiers</span>
-        <a href="/privatuma-politika/" class="privacy-link">Privātuma politika</a>
+        <a href="/privatuma-politika/" class="privacy-link"
+          >Privātuma politika</a
+        >
       </div>
     </footer>
 
@@ -372,6 +377,16 @@
         .portfolio-grid {
           grid-template-columns: 1fr;
           gap: 24px;
+        }
+
+        .portfolio-card-image {
+          aspect-ratio: auto; /* Remove fixed aspect ratio on mobile */
+        }
+
+        .portfolio-card-image img {
+          object-fit: contain; /* Show full image without cropping */
+          width: 100%;
+          height: auto;
         }
 
         .lightbox-container {

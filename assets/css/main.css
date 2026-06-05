@@ -641,7 +641,15 @@ footer {
   }
 
   .nav-logo {
-    display: none; /* Hide logo on mobile - takes too much space */
+    display: flex; /* Show logo on mobile */
+    position: static; /* Remove absolute positioning */
+    transform: none;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .nav-logo img {
+    height: 32px; /* Slightly smaller on mobile */
   }
 
   /* Mobile hamburger menu */
