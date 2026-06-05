@@ -486,24 +486,29 @@ nav.scrolled {
 
 .about-strip {
   background: var(--white);
-  padding: var(--space-2xl) 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-2xl);
-  align-items: start;
+  padding: var(--space-4xl) 40px;
+  border-top: 1px solid var(--mist);
+}
+
+.about-strip-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .about-strip .section-label {
   color: var(--stone);
   margin-bottom: var(--space-lg);
-  text-align: left;
+  text-align: center;
 }
 
 .about-text {
   color: var(--ink);
   font-size: 15px;
   line-height: 1.7;
-  max-width: 400px;
+  text-align: justify;
+  text-justify: inter-word;
+  max-width: 100%;
 }
 
 .about-stats {
@@ -742,8 +747,6 @@ footer {
 
   /* About Strip */
   .about-strip {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
     padding: 60px 20px;
   }
 
