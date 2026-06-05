@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pakalpojumi — Kalvis Lejasmeiers</title>
+    <meta
+      name="description"
+      content="Projektēšanas pakalpojumi privātiem klientiem — legalizācija, pārbūve, renovācija, jaunbūve. Liepāja un Latvija."
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .services-page {
+        padding: var(--space-4xl) 40px var(--space-4xl);
+        margin-top: 80px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .services-intro {
+        font-size: 15px;
+        color: var(--ink);
+        line-height: 1.7;
+        max-width: 600px;
+        margin-bottom: var(--space-xl);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+        margin-top: 48px;
+      }
+
+      .service-card {
+        padding: 40px 36px;
+        border: 1px solid #e8e8e8;
+        background: #fff;
+      }
+
+      .service-card h3 {
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 12px;
+        color: #111;
+      }
+
+      .service-card p {
+        font-size: 13px;
+        color: #555;
+        line-height: 1.75;
+        margin-bottom: 12px;
+      }
+
+      .service-card .service-note {
+        font-size: 11px;
+        color: #999;
+        font-style: italic;
+      }
+
+      .cta-section {
+        text-align: center;
+        padding: 80px 40px;
+        border-top: 1px solid #e8e8e8;
+      }
+
+      .cta-text {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 24px;
+        letter-spacing: 0;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 14px 36px;
+        background: #111;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 400;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        transition: background 0.2s ease;
+      }
+
+      .cta-button:hover {
+        background: #333;
+      }
+
+      @media (max-width: 768px) {
+        .services-page {
+          padding: 100px 20px 60px;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-card {
+          padding: 28px 20px;
+        }
+
+        .cta-section {
+          padding: 60px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav id="main-nav">
+      <div class="nav-left">
+        <a href="../" class="nav-name">kalvis lejasmeiers</a>
+        <div class="nav-logo">
+          <a href="../" aria-label="Uz sākumlapu">
+            <img
+              src="../kllogo/kl.png"
+              alt="Kalvis Lejasmeiers Logo"
+              decoding="async"
+            />
+          </a>
+        </div>
+      </div>
+      <!-- Mobile hamburger button -->
+      <button
+        class="nav-hamburger"
+        aria-label="Atvērt izvēlni"
+        aria-expanded="false"
+        aria-controls="main-menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <ul class="nav-links" id="main-menu" role="menu">
+        <li role="none"><a href="../projekti/" role="menuitem">projekti</a></li>
+        <li role="none"><a href="./" role="menuitem" class="active">pakalpojumi</a></li>
+        <li role="none"><a href="../par-mani/" role="menuitem">par mani</a></li>
+        <li role="none"><a href="../kontakti/" role="menuitem">kontakti</a></li>
+      </ul>
+    </nav>
+
+    <main class="services-page">
+      <span class="section-label">PAKALPOJUMI</span>
+
+      <p class="services-intro">
+        Strādāju ar privātiem klientiem, kuriem nepieciešama dokumentācija būvniecībai vai ēkas legalizācijai. Katrs projekts ir atšķirīgs — zvaniet vai rakstiet, lai noskaidrotu, kāds dokuments jums nepieciešams.
+      </p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>1. Jaunbūves projekts</h3>
+          <p>Ja plānojat celt jaunu māju, garāžu, saimniecības ēku vai citu objektu. Izstrādāju visu nepieciešamo dokumentāciju un iesniedzu Būvniecības informācijas sistēmā (BIS).</p>
+          <p class="service-note">Nepieciešams: būvatļauja vai paskaidrojuma raksts atkarībā no ēkas apjoma.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>2. Pārbūve</h3>
+          <p>Ja vēlaties mainīt ēkas plānojumu — nojaukt vai izveidot sienu, paplašināt telpas, pievienot piebūvi vai veikt citas būtiskas izmaiņas konstrukcijās.</p>
+          <p class="service-note">Nepieciešams: paskaidrojuma raksts vai būvatļauja.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>3. Vienkāršotā pārbūve</h3>
+          <p>Ja plānojat ierīkot jaunu logu vai durvju aili, uzbūvēt terasi, ārējās kāpnes vai pandusu. Vienkāršāka procedūra nekā pilnai pārbūvei.</p>
+          <p class="service-note">Nepieciešams: paskaidrojuma raksts.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>4. Renovācija un atjaunošana</h3>
+          <p>Ja vēlaties atjaunot fasādi, jumtu, inženiertīklus vai veikt iekšējos uzlabojumus, nemainot ēkas konstrukcijas. Ietver arī vienkāršoto atjaunošanu.</p>
+          <p class="service-note">Nepieciešams: paziņojums par būvniecību vai paskaidrojuma raksts.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>5. Legalizācija</h3>
+          <p>Ja ēka vai piebūve uzcelta bez atļaujas un nav reģistrēta kadastrā. Izstrādāju nepieciešamo dokumentāciju, lai ēka tiktu legalizēta un ierakstīta zemesgrāmatā.</p>
+          <p class="service-note">Nepieciešams: paskaidrojuma raksts vai būvatļauja atkarībā no situācijas.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>6. Lietošanas veida maiņa</h3>
+          <p>Ja vēlaties mainīt ēkas vai telpu grupas lietošanas veidu — piemēram, no noliktavas uz dzīvokli vai no biroja uz veikalu.</p>
+          <p class="service-note">Nepieciešams: paskaidrojuma raksts.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>7. Konsultācija</h3>
+          <p>Neesat pārliecināti, kāds dokuments jums nepieciešams vai ar ko sākt? Sazināmies — bez maksas izskaidrošu, kāda ir situācija jūsu gadījumā un kādi būs nākamie soļi.</p>
+          <p class="service-note">Bezmaksas, bez saistībām.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+      <p class="cta-text">Neesat pārliecināti, kāds pakalpojums jums nepieciešams?</p>
+      <a href="/kontakti/" class="cta-button">Rakstīt ziņu →</a>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer id="kontakti">
+      <div class="footer-contact">
+        <a href="mailto:kalvis.lejasmeiers@gmail.com"
+          >kalvis.lejasmeiers@gmail.com</a
+        >
+        <a href="tel:+37129218775">+371 29218775</a>
+        <span>Liepāja, Latvija</span>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© Kalvis Lejasmeiers</span>
+        <a href="/privatuma-politika/" class="privacy-link">Privātuma politika</a>
+      </div>
+    </footer>
+
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>
