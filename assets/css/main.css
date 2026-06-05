@@ -642,10 +642,11 @@ footer {
 
   .nav-logo {
     display: flex; /* Show logo on mobile */
-    position: static; /* Remove absolute positioning */
-    transform: none;
-    margin-left: auto;
-    margin-right: 0;
+    position: absolute; /* Center in nav bar */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
   }
 
   .nav-logo img {
