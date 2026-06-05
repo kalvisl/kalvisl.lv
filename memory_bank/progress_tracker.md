@@ -620,9 +620,41 @@
 
 **Status:** ✅ All SEO tasks completed
 
+## ✅ COMPLETED: Update Pakalpojumi Section on Homepage (2026-06-05)
+
+**Summary:** Replaced the original 4 service cards (Jaunbūves, Pārbūve, Renovācija, Dokumentācija) with 6 new linked cards on the homepage.
+
+### Key Accomplishments:
+
+1. **Replaced 4 Cards with 6 New Cards:**
+   - Jaunbūves projekts — Mājas, garāžas vai saimniecības ēkas projekts no koncepta līdz būvatļaujai.
+   - Pārbūve — Plānojuma maiņa, sienu nojaukšana, piebūve vai citas izmaiņas ēkas konstrukcijās.
+   - Vienkāršotā pārbūve — Jauns logs, durvis, terase vai kāpnes. Vienkāršāka procedūra nekā pilnai pārbūvei.
+   - Renovācija — Fasādes, jumta vai iekštelpu atjaunošana, nemainot ēkas konstrukcijas.
+   - Legalizācija — Bez atļaujas uzcelta ēka vai piebūve. Izstrādāju dokumentāciju reģistrācijai kadastrā.
+   - Konsultācija — Neesat pārliecināti ar ko sākt? Bezmaksas konsultācija — noskaidrosim kopā.
+
+2. **Card Links:**
+   - Each card is wrapped in `<a href="/pakalpojumi/">` making the whole card clickable
+   - Added "Uzzināt vairāk →" link at the bottom of each card
+
+3. **CSS Additions:**
+   - Added `.service-link` class: DM Mono 11px, stone color, with hover transition to rust
+   - Added `margin-bottom` to `.service-desc` for spacing before the link
+
+4. **Bug Fix:**
+   - Fixed missing opening CSS comment line (`/* ==========================================================================`) in main.css that was accidentally dropped during save
+   - This caused font/layout rendering issues in some browsers
+
+### Files Modified:
+- **index.html:** Replaced 4 old service cards with 6 new linked cards
+- **assets/css/main.css:** Added `.service-link` styles, fixed missing CSS comment line
+
+**Status:** ✅ Task completed
+
 ## Current Git State
 
-- **Current commit:** `dbd1df8` - "Update projekti page: add descriptions from apraksts.txt files, fix Strengi_Jurmalciems filename typo"
+- **Current commit:** `b7ee05d` - "Fix: restore missing opening CSS comment line in main.css"
 
 - **Previous commits:**
   - `3bfa313` - Standardize folder and file names in projekti directory (2026-06-04)
