@@ -2,60 +2,57 @@
 
 ## Current Task
 
-Completed: All SEO tasks from cline_seo_tasks 05-06-2026.md — enhanced meta tags, FAQ section with Schema.org markup, sitemap update.
+Completed: Updated "Pakalpojumi" section on homepage — replaced 4 old cards with 6 new linked cards, added `.service-link` CSS styles, fixed missing CSS comment line that caused rendering issues.
 
 ## Todo List
 
-- [x] Enhanced meta tags on all pages (title, description, keywords, canonical)
-- [x] Added FAQ section with Schema.org FAQPage markup on pakalpojumi page
-- [x] Added FAQ accordion JavaScript with ARIA accessibility
-- [x] Updated sitemap.xml with all pages, priorities, and change frequencies
-- [x] Updated memory bank documentation
+- [x] Read index.html to find the Pakalpojumi section
+- [x] Read main.css to understand existing card styling
+- [x] Replace 4 old cards with 6 new cards in index.html
+- [x] Add .service-link CSS styles to main.css
+- [x] Verify the final result
+- [x] Fix missing opening CSS comment line in main.css
+- [x] Update memory bank documentation
+- [x] Push changes to GitHub
 
 ## Changes Made
 
-### 1. Enhanced Meta Tags on All Pages
+### 1. Updated Pakalpojumi Section (index.html)
 
-- **index.html:** Updated title to "Projektētājs Liepājā | Legalizācija, Pārbūve, Jaunbūve — Kalvis Lejasmeiers", added rich meta description with location keywords, added meta keywords tag
-- **pakalpojumi/index.html:** Updated title to "Projektēšanas Pakalpojumi Liepājā | Legalizācija, Pārbūve, Renovācija", added meta description with service keywords, added meta keywords, added canonical URL
-- **par-mani/index.html:** Updated title to "Par mani — Kalvis Lejasmeiers | Projektētājs Liepājā", added meta description with experience keywords, added canonical URL
-- **kontakti/index.html:** Updated title to "Kontakti — Kalvis Lejasmeiers | Projektētājs Liepāja", added meta description with phone number and services, added canonical URL
-- **projekti/index.html:** Updated title to "Projekti — Kalvis Lejasmeiers | Projektētājs Liepājā", added meta description with project locations, added canonical URL
+Replaced the original 4 service cards (Jaunbūves, Pārbūve, Renovācija, Dokumentācija) with 6 new cards:
 
-### 2. FAQ Section with Schema.org Markup
+1. **Jaunbūves projekts** — Mājas, garāžas vai saimniecības ēkas projekts no koncepta līdz būvatļaujai.
+2. **Pārbūve** — Plānojuma maiņa, sienu nojaukšana, piebūve vai citas izmaiņas ēkas konstrukcijās.
+3. **Vienkāršotā pārbūve** — Jauns logs, durvis, terase vai kāpnes. Vienkāršāka procedūra nekā pilnai pārbūvei.
+4. **Renovācija** — Fasādes, jumta vai iekštelpu atjaunošana, nemainot ēkas konstrukcijas.
+5. **Legalizācija** — Bez atļaujas uzcelta ēka vai piebūve. Izstrādāju dokumentāciju reģistrācijai kadastrā.
+6. **Konsultācija** — Neesat pārliecināti ar ko sākt? Bezmaksas konsultācija — noskaidrosim kopā.
 
-- Created FAQ accordion on pakalpojumi page with 5 common questions:
-  1. Kādi dokumenti man ir nepieciešami, lai sāktu projektēšanu?
-  2. Cik ilgi notiek projekta izstrāde?
-  3. Cik maksā projektēšana?
-  4. Vai strādājat tikai Liepājā?
-  5. Kas ir paskaidrojuma raksts un kad tas ir nepieciešams?
-- Added `itemscope itemtype="https://schema.org/FAQPage"` structured data
-- Each Q&A pair uses `itemprop="mainEntity"` and `itemprop="acceptedAnswer"`
-- FAQ accordion with smooth open/close animation and ARIA accessibility
+Each card is wrapped in `<a href="/pakalpojumi/">` making the whole card clickable, with a "Uzzināt vairāk →" link at the bottom.
 
-### 3. Sitemap Update
+### 2. Added CSS Styles (main.css)
 
-- Updated sitemap.xml with all 5 pages
-- Proper priorities: Homepage 1.0, Pakalpojumi 0.9, Projekti 0.8, Par-mani 0.7, Kontakti 0.7
-- Change frequencies: monthly for main pages, yearly for static pages
+- Added `.service-link` class: DM Mono 11px, stone color, with hover transition to rust
+- Added `margin-bottom` to `.service-desc` for spacing before the link
+- Fixed missing opening CSS comment line (`/* ==========================================================================`) that was accidentally dropped during save
+
+### 3. Bug Fix
+
+The `main.css` file was missing its very first line (`/* ==========================================================================`) due to a save glitch during `replace_in_file`. This caused the CSS file to start mid-comment, potentially breaking browser parsing and affecting fonts/layout. The line was restored in commit `b7ee05d`.
 
 ## Files Modified
 
 | File | Changes |
 |------|---------|
-| **index.html** | Enhanced meta tags (title, description, keywords) |
-| **pakalpojumi/index.html** | Enhanced meta tags, added FAQ section with Schema.org markup, added FAQ accordion JavaScript |
-| **par-mani/index.html** | Enhanced meta tags, added canonical URL |
-| **kontakti/index.html** | Enhanced meta tags, added canonical URL |
-| **projekti/index.html** | Enhanced meta tags, added canonical URL |
-| **sitemap.xml** | Updated with all pages, priorities, and change frequencies |
-| **memory_bank/progress_tracker.md** | Updated with SEO tasks completion |
+| **index.html** | Replaced 4 old service cards with 6 new linked cards |
+| **assets/css/main.css** | Added `.service-link` styles, fixed missing opening CSS comment line |
+| **memory_bank/activeContext.md** | Updated with latest changes |
+| **memory_bank/progress_tracker.md** | Updated with latest task completion |
 
 ## Git State
 
-- **Current commit:** `dbd1df8` - "Update projekti page: add descriptions from apraksts.txt files, fix Strengi_Jurmalciems filename typo"
-- **Pushed to GitHub:** Pending (changes not yet committed)
+- **Current commit:** `b7ee05d` - "Fix: restore missing opening CSS comment line in main.css"
+- **Pushed to GitHub:** ✅ Yes
 
 ## Next Steps
 
@@ -67,11 +64,9 @@ Completed: All SEO tasks from cline_seo_tasks 05-06-2026.md — enhanced meta ta
 
 ## Notes
 
-- **FAQ Schema:** FAQPage structured data helps Google display rich results in search
-- **Canonical URLs:** Added to all subpages to prevent duplicate content issues
-- **Meta keywords:** Added to main pages for additional SEO signal
-- **Sitemap priorities:** Homepage has highest priority (1.0), static pages lower (0.7)
+- **CSS save glitch:** The `replace_in_file` tool dropped the first line of `main.css`. Always verify the beginning of CSS files after edits.
+- **Card links:** Each service card is now a clickable `<a>` tag linking to `/pakalpojumi/` for better UX and SEO.
 
 ## Last Updated
 
-2026-06-05 (Completed all SEO tasks from cline_seo_tasks 05-06-2026.md)
+2026-06-05 (Updated Pakalpojumi section with 6 new cards, fixed CSS comment line)
