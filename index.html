@@ -33,6 +33,26 @@
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="assets/css/main.css" />
 
+    <!-- Schema.org Person markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kalvis Lejasmeiers",
+      "jobTitle": "Projektētājs",
+      "url": "https://kalvisl.lv",
+      "email": "kalvis.lejasmeiers@gmail.com",
+      "telephone": "+37129218775",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Liepāja",
+        "addressCountry": "LV"
+      },
+      "knowsAbout": ["legalizācija", "pārbūve", "renovācija", "jaunbūve", "būvatļauja", "projektēšana"],
+      "areaServed": ["Liepāja", "Kurzeme", "Latvija"]
+    }
+    </script>
+
     <!-- Critical inline styles for above-the-fold content -->
     <style>
       /* Prevent layout shift while fonts load */
@@ -63,6 +83,86 @@
         position: relative;
         background: #e8e6e1;
         min-height: 200px;
+      }
+
+      /* Visually hidden for accessibility */
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        text-align: center;
+        padding: 80px 40px;
+        border-top: 1px solid #e8e8e8;
+      }
+      .cta-text {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 24px;
+        letter-spacing: 0;
+      }
+      .cta-button {
+        display: inline-block;
+        padding: 14px 36px;
+        background: #111;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 400;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        transition: background 0.2s ease;
+      }
+      .cta-button:hover {
+        background: #333;
+      }
+
+      /* Process Section */
+      .process-section {
+        padding: 80px 60px;
+        border-top: 1px solid #e8e8e8;
+      }
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+        margin-top: 40px;
+      }
+      .step-number {
+        display: block;
+        font-size: 11px;
+        color: #999;
+        letter-spacing: 0.1em;
+        margin-bottom: 12px;
+      }
+      .process-step h3 {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      .process-step p {
+        font-size: 13px;
+        color: #555;
+        line-height: 1.7;
+      }
+      @media (max-width: 768px) {
+        .process-steps {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .process-section {
+          padding: 60px 24px;
+        }
+        .cta-section {
+          padding: 60px 24px;
+        }
       }
     </style>
   </head>
@@ -104,7 +204,7 @@
     </nav>
 
     <main id="main-content">
-      <h1 class="visually-hidden">Kalvis Lejasmeiers — Projektētājs</h1>
+      <h1 class="visually-hidden">Projektētājs Liepājā — legalizācija, pārbūve, būvatļauja · Kalvis Lejasmeiers</h1>
 
       <!-- FEATURED PROJECTS — Chipperfield-style staggered layout -->
 
@@ -366,6 +466,34 @@
           </div>
         </div>
       </section>
+
+      <!-- PROCESS SECTION — How it works -->
+      <section class="process-section">
+        <p class="section-label">Process</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <span class="step-number">01</span>
+            <h3>Konsultācija</h3>
+            <p>Apspriežam projekta ideju, apjomu un iespējas. Bez maksas, bez saistībām.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-number">02</span>
+            <h3>Līgums un sākums</h3>
+            <p>Vienojamies par apjomu, termiņu un cenu. Sākam darbu pēc avansa maksājuma.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-number">03</span>
+            <h3>Projekts un iesniegšana</h3>
+            <p>Izstrādāju dokumentāciju un iesniedzu BIS. Esmu sasniedzams visā procesā.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA SECTION -->
+      <section class="cta-section">
+        <p class="cta-text">Interesē sadarbība? Sazināsimies.</p>
+        <a href="/kontakti/" class="cta-button">Rakstīt ziņu →</a>
+      </section>
     </main>
 
     <!-- FOOTER / CONTACT -->
@@ -377,7 +505,10 @@
         <a href="tel:+37129218775">+371 29218775</a>
         <span>Liepāja, Latvija</span>
       </div>
-      <span class="footer-copy">© Kalvis Lejasmeiers</span>
+      <div class="footer-bottom">
+        <span class="footer-copy">© Kalvis Lejasmeiers</span>
+        <a href="/privatuma-politika/" class="privacy-link">Privātuma politika</a>
+      </div>
     </footer>
 
     <script src="assets/js/main.js" defer></script>

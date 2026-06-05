@@ -90,3 +90,12 @@ Thumbs.db
 # Local development files
 *.local
 *.local.*
+
+# Backup directories
+projekti - backup/
+projekti - Copy/
+
+# Archives
+*.zip
+*.rar
+*.7z

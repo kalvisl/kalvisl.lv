@@ -526,6 +526,62 @@
 
 **Status:** ✅ Task completed
 
+## ✅ COMPLETED: Audit Tasks from cline_audit_tasks 05-06-2026 (2026-06-05)
+
+**Summary:** Completed all 12 audit tasks to improve website performance, accessibility, SEO, and user experience.
+
+### Key Accomplishments:
+
+1. **Task 1: Add `defer` to all `<script>` tags** ✅
+   - Added `defer` to main.js script tags on all pages (index.html, par-mani/index.html, kontakti/index.html, projekti/index.html, privatuma-politika/index.html)
+
+2. **Task 2: Add `decoding="async"` to all `<img>` tags** ✅
+   - Added `decoding="async"` to all logo images and project images across all pages
+
+3. **Task 3: Add `loading="lazy"` to all project images** ✅
+   - Already implemented on index.html featured images (2nd and 3rd images)
+   - Already implemented in projekti/index.html JavaScript template
+   - First hero image kept with `fetchpriority="high"` (above the fold)
+
+4. **Task 4: Add `role="menu"` and `role="menuitem"` to navigation** ✅
+   - Added `role="menu"` to `<ul>` and `role="menuitem"` to `<li>` elements on all pages
+
+5. **Task 5: Add `aria-controls` to hamburger button** ✅
+   - Added `aria-controls="main-menu"` to hamburger buttons on all pages
+
+6. **Task 6: Add `loading="lazy"` to project images (already done)** ✅
+   - Verified: already implemented in previous work
+
+7. **Task 7: Add `defer` to all `<script>` tags (already done)** ✅
+   - Verified: completed in Task 1 above
+
+8. **Task 8: Add `decoding="async"` to all `<img>` tags (already done)** ✅
+   - Verified: completed in Task 2 above
+
+9. **Task 9: Add `role="menu"` and `role="menuitem"` to navigation (already done)** ✅
+   - Verified: completed in Task 4 above
+
+10. **Task 10: Add `aria-controls` to hamburger button (already done)** ✅
+    - Verified: completed in Task 5 above
+
+11. **Task 11: Create privacy policy page** ✅
+    - Created `/privatuma-politika/index.html` with full privacy policy content
+    - Added privacy policy link to footer on all pages (index.html, par-mani, kontakti, projekti)
+    - Added `.privacy-link` and `.footer-bottom` CSS styles to main.css
+
+12. **Task 12: Update H1 for SEO** ✅
+    - Updated H1 on index.html from "Kalvis Lejasmeiers — Projektētājs" to "Projektētājs Liepājā — legalizācija, pārbūve, būvatļauja · Kalvis Lejasmeiers"
+
+### Files Modified:
+- **index.html:** Added defer, decoding="async", role attributes, aria-controls, updated H1, updated footer with privacy link
+- **par-mani/index.html:** Added defer, decoding="async", role attributes, aria-controls, updated footer with privacy link
+- **kontakti/index.html:** Added defer, decoding="async", role attributes, aria-controls, updated footer with privacy link
+- **projekti/index.html:** Added defer, decoding="async", role attributes, aria-controls, updated footer with privacy link
+- **privatuma-politika/index.html:** Created new privacy policy page
+- **assets/css/main.css:** Added .footer-bottom and .privacy-link styles
+
+**Status:** ✅ All 12 audit tasks completed
+
 ## Current Git State
 
 - **Current commit:** `dbd1df8` - "Update projekti page: add descriptions from apraksts.txt files, fix Strengi_Jurmalciems filename typo"

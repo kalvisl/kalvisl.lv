@@ -568,6 +568,24 @@ footer {
   color: var(--mist);
 }
 
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.privacy-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #999;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.privacy-link:hover {
+  color: var(--rust);
+}
+
 /* ==========================================================================
    Scroll Animations
    ========================================================================== */

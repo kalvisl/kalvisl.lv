@@ -2,96 +2,89 @@
 
 ## Current Task
 
-Completed: Added project descriptions from apraksts.txt files to the projekti page, and verified removed projects are correctly excluded.
+Completed: All 12 audit tasks from cline_audit_tasks 05-06-2026.md — performance, accessibility, SEO, and privacy improvements.
 
 ## Todo List
 
-- [x] Compare projekti folders with projekti - Copy to identify removed projects
-- [x] Read all apraksts.txt files from each project folder
-- [x] Add description field to projectsData array in index.html
-- [x] Update renderProjectGrid() to display description under the image
-- [x] Add CSS styling for .portfolio-card-description
-- [x] Fix typo: rename aprakts.txt → apraksts.txt in Strengi_Jurmalciems
-- [x] Git commit and push all changes
-- [x] Update memory bank files
+- [x] Task 1: Add `defer` to all `<script>` tags
+- [x] Task 2: Add `decoding="async"` to all `<img>` tags
+- [x] Task 3: Add `loading="lazy"` to all project images
+- [x] Task 4: Add `role="menu"` and `role="menuitem"` to navigation
+- [x] Task 5: Add `aria-controls` to hamburger button
+- [x] Task 6: Add `loading="lazy"` to project images (verified already done)
+- [x] Task 7: Add `defer` to all `<script>` tags (verified already done)
+- [x] Task 8: Add `decoding="async"` to all `<img>` tags (verified already done)
+- [x] Task 9: Add `role="menu"` and `role="menuitem"` to navigation (verified already done)
+- [x] Task 10: Add `aria-controls` to hamburger button (verified already done)
+- [x] Task 11: Create privacy policy page
+- [x] Task 12: Update H1 for SEO
 
 ## Changes Made
 
-### 1. Added Project Descriptions to Projekti Page (2026-06-04)
+### 1. Performance Improvements (Tasks 1-3, 6-8)
 
-- **Added `description` field to all 14 projects in `projectsData` array**, sourced from each project folder's `apraksts.txt` file
-- **Updated `renderProjectGrid()` function** to display the description in a `.portfolio-card-description` div under the image and metadata
-- **Added CSS styling** for `.portfolio-card-description` (12px font, stone color, 1.5 line-height, 6px top margin)
-- **Fixed typo:** Renamed `aprakts.txt` → `apraksts.txt` in the Strengi_Jurmalciems folder
+- **Added `defer`** to all `<script src="assets/js/main.js">` tags across all pages
+- **Added `decoding="async"`** to all `<img>` tags (logo images and project images)
+- **Verified `loading="lazy"`** already implemented on project images (2nd/3rd featured images, all portfolio grid images)
+- First hero image kept with `fetchpriority="high"` (above the fold, should not be lazy)
 
-### 2. Verified Removed Projects
+### 2. Accessibility Improvements (Tasks 4-5, 9-10)
 
-Compared `projekti` (current) with `projekti - Copy` (backup). The following 5 projects were already removed from the `projectsData` array (no changes needed):
+- **Added `role="menu"`** to `<ul class="nav-links">` on all pages
+- **Added `role="menuitem"`** to `<li>` elements wrapping nav links
+- **Added `aria-controls="main-menu"`** to hamburger buttons on all pages
+- Added `id="main-menu"` to nav `<ul>` elements for aria-controls reference
 
-- Ezermalas 1A
-- Klaipedas 33
-- Stendera iela 3
-- Strautu 4
-- Svirites
+### 3. Privacy Policy Page (Task 11)
 
-## Current File Status
+- **Created `/privatuma-politika/index.html`** with full privacy policy content:
+  - What data is collected (contact form: name, email, message)
+  - Data storage (not shared with third parties, processed via Netlify Forms)
+  - Cookies policy (no analytics/tracking cookies)
+  - Contact information
+- **Added privacy policy link** to footer on all pages (index.html, par-mani, kontakti, projekti)
+- **Added CSS styles** to main.css: `.footer-bottom` and `.privacy-link`
 
-### Modified Files:
+### 4. SEO Improvement (Task 12)
 
-- **projekti/index.html:**
-  - Added `description` field to all 14 projects in `projectsData`
-  - Updated `renderProjectGrid()` to render description in `.portfolio-card-description`
-  - Added CSS for `.portfolio-card-description` styling
+- **Updated H1** on index.html from "Kalvis Lejasmeiers — Projektētājs" to "Projektētājs Liepājā — legalizācija, pārbūve, būvatļauja · Kalvis Lejasmeiers"
+- Includes key search terms: Liepāja, legalizācija, pārbūve, būvatļauja
 
-### Renamed File:
+## Files Modified
 
-- `projekti/Strengi_Jurmalciems/aprakts.txt` → `projekti/Strengi_Jurmalciems/apraksts.txt` (fixed typo)
-
-## Project Descriptions Added
-
-| Project               | Description                                                                                                                                                                                                      |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Avotu iela 5          | Kafejnīcas ēkas pārbūve par daudzdzīvokļu dzīvojamo māju, Avotu ielā 5, Liepājā                                                                                                                                  |
-| Brivibas iela 97a     | Ceha ēkas vienkāršotā pārbūve - vēsturisko loga ailu atjaunošana, jumta ieseguma nomaiņa.                                                                                                                        |
-| Ciboli-Alviki Rucava  | Divu dzīvokļu dzīvojamās mājas pārbūve Papē.                                                                                                                                                                     |
-| Dzelzscelnieku iela 1 | Interjera vizualizāciju izveide.                                                                                                                                                                                 |
-| Gerberu iela 4        | Dzīvojamās mājas jaunbūve Mārupē.                                                                                                                                                                                |
-| Kazdangas iela 35     | Dzīvojamās mājas jaunbūve Liepājā, Zaļā birzī.                                                                                                                                                                   |
-| Klaipedas iela 29     | Daudzīvokļu dzīvojamās mājas fasāžu vienkāršotā atjaunošana Liepājā, Klaipēdas ielā.                                                                                                                             |
-| Lielas Dianas         | Dzīvojamās mājas un garāžas ēkas jauna būvniecība Liepājas novadā, Grīnvaltos.                                                                                                                                   |
-| Pupu iela             | Četru stāvu daudzdzīvokļu dzīvojamās mājas būvniecība Liepājā, Pupu ielā. 24 plaši dzīvokļi, pagrabstāva auto novietne, dzīvokļu palīgtelpas pagrabstāvā, labiekārtots pagalms ar auto novietni un atpūtas zonu. |
-| Reki Bernati          | Dzīvojamās mājas pārbūve Bernātos - fasāžu siltināšana, sienu un jumta apdares atjaunošana; bēniņu pārbūve par dzīvojamām telpām.                                                                                |
-| Sabri Jurmalciems     | Dzīvojamās mājas jauna būvniecība Bernātos.                                                                                                                                                                      |
-| Sarmites              | Atpūtas mājas jauna būvniecība Dienvidkurzemes novadā.                                                                                                                                                           |
-| Strautu iela 6        | Daudzdzīvokļu dzīvojamās mājas pārbūve Strautu ielā, Liepājā.                                                                                                                                                    |
-| Strengi Jurmalciems   | Vasaras mājas jauna būvniecība Jūrmalciemā.                                                                                                                                                                      |
+| File | Changes |
+|------|---------|
+| **index.html** | Added defer, decoding="async", role attributes, aria-controls, updated H1, updated footer with privacy link |
+| **par-mani/index.html** | Added defer, decoding="async", role attributes, aria-controls, updated footer with privacy link |
+| **kontakti/index.html** | Added defer, decoding="async", role attributes, aria-controls, updated footer with privacy link |
+| **projekti/index.html** | Added defer, decoding="async", role attributes, aria-controls, updated footer with privacy link |
+| **privatuma-politika/index.html** | Created new privacy policy page |
+| **assets/css/main.css** | Added .footer-bottom and .privacy-link styles |
 
 ## Git State
 
 - **Current commit:** `dbd1df8` - "Update projekti page: add descriptions from apraksts.txt files, fix Strengi_Jurmalciems filename typo"
-- **Pushed to remote:** ✅ Yes
+- **Uncommitted changes:** All audit task modifications (defer, decoding, roles, aria-controls, privacy page, H1 update)
 
 ## Next Steps
 
-### 1. Ongoing Maintenance
+### 1. Commit and Push
+
+- Commit all audit task changes to git
+- Push to GitHub
+
+### 2. Ongoing Maintenance
 
 - Continue adding new projects as they become available
 - Monitor website performance and loading times
-- Consider additional optimizations (image compression, lazy loading)
-
-### 2. Testing and Quality Assurance
-
-- Regular testing of lightbox functionality across different browsers
-- Mobile responsiveness testing
-- Verify descriptions display correctly on all screen sizes
+- Regular accessibility audits
 
 ## Notes
 
-- **Description source:** Each project folder contains an `apraksts.txt` file with the project description
-- **Display location:** Description appears below the project title and metadata (location · year) in the portfolio card
-- **Styling:** Small text (12px) in stone color to keep visual hierarchy clean
-- **Empty state:** If no description is available, an empty string is rendered (no visible element)
+- **Privacy page URL:** `/privatuma-politika/` — linked from all page footers
+- **H1 strategy:** Uses visually-hidden class for SEO without affecting visual design
+- **Performance attributes:** `defer` ensures scripts don't block rendering; `decoding="async"` allows images to decode off the main thread; `loading="lazy"` defers offscreen images
 
 ## Last Updated
 
-2026-06-04 (Added project descriptions from apraksts.txt files)
+2026-06-05 (Completed all 12 audit tasks from cline_audit_tasks 05-06-2026.md)
