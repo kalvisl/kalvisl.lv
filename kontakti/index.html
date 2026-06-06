@@ -73,39 +73,43 @@
           "
         />
 
-        <form
-          class="contact-form-simple"
-          id="contactForm"
-          name="kontakti"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-        >
+        <form name="kontakti" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="kontakti" />
-          <p style="display: none">
-            <label>Don't fill this out: <input name="bot-field" /></label>
-          </p>
 
           <div class="form-group-simple">
-            <label for="name">Vārds</label>
-            <input type="text" id="name" name="name" required />
+            <label for="vards" class="visually-hidden">Vārds</label>
+            <input
+              type="text"
+              id="vards"
+              name="vards"
+              placeholder="Vārds"
+              required
+            />
           </div>
 
           <div class="form-group-simple">
-            <label for="email">E-pasts</label>
-            <input type="email" id="email" name="email" required />
+            <label for="epasts" class="visually-hidden">E-pasts</label>
+            <input
+              type="email"
+              id="epasts"
+              name="epasts"
+              placeholder="E-pasts"
+              required
+            />
           </div>
 
           <div class="form-group-simple">
-            <label for="message">Ziņojums</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="zinojums" class="visually-hidden">Ziņojums</label>
+            <textarea
+              id="zinojums"
+              name="zinojums"
+              placeholder="Ziņojums"
+              rows="5"
+              required
+            ></textarea>
           </div>
 
           <button type="submit" class="submit-btn-simple">Nosūtīt ziņu</button>
-
-          <div class="form-success" id="formSuccess" style="display: none">
-            <p>Paldies! Sazināšos ar jums tuvākajā laikā.</p>
-          </div>
         </form>
       </div>
     </main>
@@ -127,78 +131,5 @@
     </footer>
 
     <script src="../assets/js/main.js" defer></script>
-    <script>
-      // Netlify Forms handling with client-side validation
-      document.addEventListener("DOMContentLoaded", () => {
-        const contactForm = document.getElementById("contactForm");
-        const formSuccess = document.getElementById("formSuccess");
-
-        if (contactForm) {
-          // Client-side validation
-          contactForm.addEventListener("submit", (e) => {
-            const name = document.getElementById("name");
-            const email = document.getElementById("email");
-            const message = document.getElementById("message");
-            let valid = true;
-
-            // Reset custom validity
-            [name, email, message].forEach((field) => {
-              field.setCustomValidity("");
-            });
-
-            if (!name.value.trim()) {
-              name.setCustomValidity("Lūdzu ievadiet vārdu");
-              valid = false;
-            }
-
-            if (!email.value.trim()) {
-              email.setCustomValidity("Lūdzu ievadiet e-pastu");
-              valid = false;
-            } else if (!email.value.includes("@")) {
-              email.setCustomValidity("Lūdzu ievadiet derīgu e-pasta adresi");
-              valid = false;
-            }
-
-            if (!message.value.trim()) {
-              message.setCustomValidity("Lūdzu ievadiet ziņojumu");
-              valid = false;
-            }
-
-            if (!valid) {
-              e.preventDefault();
-              // Focus first invalid field
-              [name, email, message].forEach((field) => {
-                if (!field.checkValidity()) {
-                  field.reportValidity();
-                }
-              });
-              return;
-            }
-
-            // For Netlify Forms, the form submits naturally
-            // Show success message after submission
-            if (
-              e.type === "submit" &&
-              contactForm.getAttribute("data-netlify") === "true"
-            ) {
-              // Netlify will handle the redirect, but we show inline success for JS users
-              setTimeout(() => {
-                contactForm.style.display = "none";
-                if (formSuccess) {
-                  formSuccess.style.display = "block";
-                }
-              }, 100);
-            }
-          });
-        }
-
-        // Check URL params for Netlify success redirect
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get("success") === "true" && contactForm && formSuccess) {
-          contactForm.style.display = "none";
-          formSuccess.style.display = "block";
-        }
-      });
-    </script>
   </body>
 </html>
