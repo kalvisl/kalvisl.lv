@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kontakti — Kalvis Lejasmeiers | Projektētājs Liepāja</title>
-    <meta name="description" content="Sazinieties ar projektētāju Liepājā. Tālrunis: +371 29218775. Konsultācija bez maksas — legalizācija, pārbūve, renovācija, jaunbūve.">
-    <link rel="canonical" href="https://kalvisl.lv/kontakti/">
+    <meta
+      name="description"
+      content="Sazinieties ar projektētāju Liepājā. Tālrunis: +371 29218775. Konsultācija bez maksas — legalizācija, pārbūve, renovācija, jaunbūve."
+    />
+    <link rel="canonical" href="https://kalvisl.lv/kontakti/" />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,7 +46,9 @@
 
       <ul class="nav-links" id="main-menu" role="menu">
         <li role="none"><a href="../projekti/" role="menuitem">projekti</a></li>
-        <li role="none"><a href="../pakalpojumi/" role="menuitem">pakalpojumi</a></li>
+        <li role="none">
+          <a href="../pakalpojumi/" role="menuitem">pakalpojumi</a>
+        </li>
         <li role="none"><a href="../par-mani/" role="menuitem">par mani</a></li>
         <li role="none">
           <a href="./" role="menuitem" class="active">kontakti</a>
@@ -74,9 +79,12 @@
           name="kontakti"
           method="POST"
           data-netlify="true"
-          netlify
+          netlify-honeypot="bot-field"
         >
           <input type="hidden" name="form-name" value="kontakti" />
+          <p style="display: none">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
 
           <div class="form-group-simple">
             <label for="name">Vārds</label>
@@ -112,7 +120,9 @@
       </div>
       <div class="footer-bottom">
         <span class="footer-copy">© Kalvis Lejasmeiers</span>
-        <a href="/privatuma-politika/" class="privacy-link">Privātuma politika</a>
+        <a href="/privatuma-politika/" class="privacy-link"
+          >Privātuma politika</a
+        >
       </div>
     </footer>
 
