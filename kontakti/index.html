@@ -73,44 +73,18 @@
           "
         />
 
-        <form name="kontakti" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="kontakti" />
-
-          <div class="form-group-simple">
-            <label for="vards" class="visually-hidden">Vārds</label>
-            <input
-              type="text"
-              id="vards"
-              name="vards"
-              placeholder="Vārds"
-              required
-            />
-          </div>
-
-          <div class="form-group-simple">
-            <label for="epasts" class="visually-hidden">E-pasts</label>
-            <input
-              type="email"
-              id="epasts"
-              name="epasts"
-              placeholder="E-pasts"
-              required
-            />
-          </div>
-
-          <div class="form-group-simple">
-            <label for="zinojums" class="visually-hidden">Ziņojums</label>
-            <textarea
-              id="zinojums"
-              name="zinojums"
-              placeholder="Ziņojums"
-              rows="5"
-              required
-            ></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn-simple">Nosūtīt ziņu</button>
-        </form>
+        <form action="https://formspree.io/f/xlgkvjgd" method="POST">
+  <div>
+    <input type="text" name="vards" placeholder="Vārds" required>
+  </div>
+  <div>
+    <input type="email" name="email" placeholder="E-pasts" required>
+  </div>
+  <div>
+    <textarea name="zinojums" placeholder="Ziņojums" rows="5" required></textarea>
+  </div>
+  <button type="submit">Nosūtīt ziņu</button>
+</form>
       </div>
     </main>
 
