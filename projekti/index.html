@@ -56,7 +56,7 @@
     <section class="pieredze-embedded" id="pieredze-embedded">
       <div class="page-header">
         <span class="section-label">Profesionālā pieredze</span>
-        <h1 class="page-title">Projektēšanas prakse<br />kopš 2018. gada</h1>
+        <h1 class="page-title">Projektēšanas prakse kopš 2018. gada</h1>
         <p class="page-subtitle">
           Visi projekti realizēti Latvijā. Darbs aptver dzīvojamo, komerciālo un
           rūpniecisko tipoloģiju, no koncepta līdz būvatļaujai.
@@ -73,7 +73,7 @@
           <span class="pieredze-stat-label">Pilsētas un pagasti</span>
         </div>
         <div class="pieredze-stat">
-          <span class="pieredze-stat-number">8+</span>
+          <span class="pieredze-stat-number">10</span>
           <span class="pieredze-stat-label">Gadi praksē</span>
         </div>
       </div>
@@ -413,13 +413,14 @@
 
       .page-title {
         font-family: var(--font-sans);
-        font-size: 36px;
+        font-size: 32px;
         font-weight: 300;
         letter-spacing: -0.02em;
         color: var(--black);
         line-height: 1.1;
         margin-bottom: var(--space-sm);
         text-align: center;
+        white-space: nowrap;
       }
 
       .page-subtitle {
@@ -435,24 +436,28 @@
       .pieredze-stats {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 2px;
+        gap: 0;
         margin-bottom: var(--space-2xl);
+        border-top: 1px solid var(--mist);
+        border-bottom: 1px solid var(--mist);
       }
 
       .pieredze-stat {
-        background: var(--black);
+        background: transparent;
         padding: 28px 24px;
+        text-align: center;
+        border-right: 1px solid var(--mist);
       }
 
-      .pieredze-stat:first-child {
-        background: var(--rust);
+      .pieredze-stat:last-child {
+        border-right: none;
       }
 
       .pieredze-stat-number {
         font-family: var(--font-mono);
         font-size: 40px;
         font-weight: 300;
-        color: var(--white);
+        color: var(--black);
         display: block;
         line-height: 1;
         margin-bottom: 8px;
@@ -463,7 +468,7 @@
         font-size: 10px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: rgba(245, 244, 240, 0.45);
+        color: var(--stone);
       }
 
       .project-table {
