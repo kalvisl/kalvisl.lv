@@ -1024,37 +1024,40 @@ footer {
 .pieredze-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 0;
   max-width: 600px;
   margin: 0 auto var(--space-2xl) auto;
+  border-top: 1px solid var(--mist);
+  border-bottom: 1px solid var(--mist);
 }
 
 .pieredze-stat {
-  background: var(--black);
-  padding: 24px 20px;
+  background: transparent;
+  padding: 28px 24px;
   text-align: center;
+  border-right: 1px solid var(--mist);
 }
 
-.pieredze-stat:first-child {
-  background: var(--rust);
+.pieredze-stat:last-child {
+  border-right: none;
 }
 
 .pieredze-stat-number {
   font-family: var(--font-mono);
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 300;
-  color: var(--white);
+  color: var(--black);
   display: block;
   line-height: 1;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .pieredze-stat-label {
   font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(245, 244, 240, 0.45);
+  color: var(--stone);
 }
 
 .pieredze-timeline {
