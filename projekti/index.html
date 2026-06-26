@@ -604,6 +604,19 @@
         .projekti-cta { padding: 60px 24px; }
       }
 
+      @media (max-width: 768px) {
+        .experience-heading, .pieredze-title, h1, h2 {
+          font-size: clamp(20px, 6vw, 36px);
+          word-break: break-word;
+          overflow-wrap: break-word;
+        }
+        .experience-section {
+          padding: 40px 20px;
+          overflow-x: hidden;
+        }
+      }
+      body { overflow-x: hidden; }
+
       .geo-section {
         margin-top: var(--space-xl);
         display: grid;
