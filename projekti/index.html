@@ -1549,7 +1549,7 @@
 
       // ── EXPAND LIST ──
       function expandList() {
-        document.querySelectorAll('.project-row.hidden').forEach(el => el.style.display = '');
+        document.querySelectorAll('.project-row.hidden').forEach(el => el.classList.remove('hidden'));
         document.querySelector('.expand-list-btn').style.display = 'none';
       }
 
