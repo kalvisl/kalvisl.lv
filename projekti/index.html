@@ -86,6 +86,7 @@
           <span class="th">Gads</span>
         </div>
         <div id="project-list"></div>
+        <button class="expand-list-btn" onclick="expandList()">Pilns darbu saraksts →</button>
       </div>
 
       <div class="geo-section">
@@ -94,6 +95,12 @@
           <div id="geo-bars"></div>
         </div>
       </div>
+    </section>
+
+    <section class="projekti-cta">
+      <p class="projekti-cta-title">Interesē projekta izmaksas?</p>
+      <p class="projekti-cta-text">Nosūti pieteikumu — bezmaksas konsultācijā apspriedīsim jūsu projektu, apjomu un orientējošās cenas.</p>
+      <a href="/kontakti/" class="cta-button">Nosūtīt pieteikumu →</a>
     </section>
 
     <footer>
@@ -549,6 +556,42 @@
 
       .hidden {
         display: none;
+      }
+
+      .expand-list-btn {
+        display: block;
+        margin: 32px auto 0;
+        background: none;
+        border: 1px solid #111;
+        padding: 12px 32px;
+        font-size: 13px;
+        cursor: pointer;
+        letter-spacing: 0.05em;
+        color: #111;
+      }
+      .expand-list-btn:hover { background: #111; color: #fff; }
+
+      .projekti-cta {
+        text-align: center;
+        padding: 100px 60px;
+        border-top: 1px solid #e8e8e8;
+        margin-top: 80px;
+      }
+      .projekti-cta-title {
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 16px;
+        color: #111;
+      }
+      .projekti-cta-text {
+        font-size: 14px;
+        color: #666;
+        max-width: 480px;
+        margin: 0 auto 32px;
+        line-height: 1.7;
+      }
+      @media (max-width: 768px) {
+        .projekti-cta { padding: 60px 24px; }
       }
 
       .geo-section {
@@ -1492,8 +1535,8 @@
         const list = document.getElementById("project-list");
         list.innerHTML = projects
           .map(
-            (p) => `
-          <div class="project-row" data-type="${p.type}">
+            (p, i) => `
+          <div class="project-row${i >= 10 ? ' hidden' : ''}" data-type="${p.type}">
             <span class="proj-name">${p.name}<span class="proj-street"> — ${p.street}</span></span>
             <span class="proj-type tag-${p.type}">${p.label}</span>
             <span class="proj-location">${p.location}</span>
@@ -1502,6 +1545,12 @@
         `,
           )
           .join("");
+      }
+
+      // ── EXPAND LIST ──
+      function expandList() {
+        document.querySelectorAll('.project-row.hidden').forEach(el => el.style.display = '');
+        document.querySelector('.expand-list-btn').style.display = 'none';
       }
 
       // ── GEO BARS ──
