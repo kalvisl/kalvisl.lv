@@ -61,6 +61,12 @@
 
       <div class="about-page-content">
         <p>
+          Piedāvāju arhitektu pakalpojumus – projektēju gan dzīvojamās mājas,
+          gan sabiedriskās, gan ražošanas ēkas. No Jūsu idejas līdz pat
+          pabeigtai ēkai.
+        </p>
+
+        <p>
           Projektētājs ar vairāk nekā 10 gadu pieredzi dzīvojamo un publisko ēku
           projektēšanā. Strādāju gan ar privātiem klientiem, gan uzņēmumiem,
           nodrošinot projekta izstrādi no sākotnējās idejas līdz būvatļaujas
