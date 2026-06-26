@@ -427,7 +427,6 @@
         line-height: 1.1;
         margin-bottom: var(--space-sm);
         text-align: center;
-        white-space: nowrap;
       }
 
       .page-subtitle {
@@ -657,6 +656,13 @@
       }
 
       @media (max-width: 768px) {
+        .page-title {
+          font-size: clamp(20px, 6vw, 36px);
+          word-break: break-word;
+          overflow-wrap: break-word;
+          hyphens: auto;
+        }
+
         .pieredze-embedded {
           padding: 100px 20px 80px;
         }
