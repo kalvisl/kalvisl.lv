@@ -73,18 +73,50 @@
           "
         />
 
-        <form action="https://formspree.io/f/xlgkvjgd" method="POST" class="contact-form-simple">
+        <form action="https://formspree.io/f/xlgkvjgd" method="POST">
   <input type="hidden" name="_next" value="https://kalvisl.lv/success/">
-  <div class="form-group-simple">
-    <input type="text" name="vards" placeholder="Vārds" required>
+
+  <div class="form-group">
+    <label>Vārds, uzvārds *</label>
+    <input type="text" name="vards" placeholder="Jūsu vārds un uzvārds" required>
   </div>
-  <div class="form-group-simple">
-    <input type="email" name="email" placeholder="E-pasts" required>
+
+  <div class="form-group">
+    <label>E-pasta adrese *</label>
+    <input type="email" name="epasts" placeholder="jusu@epasts.lv" required>
   </div>
-  <div class="form-group-simple">
-    <textarea name="zinojums" placeholder="Ziņojums" rows="5" required></textarea>
+
+  <div class="form-group">
+    <label>Telefona numurs</label>
+    <input type="tel" name="telefons" placeholder="+371">
   </div>
-  <button type="submit" class="submit-btn-simple">Nosūtīt ziņu</button>
+
+  <div class="form-group">
+    <label>Objekta adrese</label>
+    <input type="text" name="adrese" placeholder="Piemēram, Liepāja, Rīgas iela 5">
+  </div>
+
+  <div class="form-group">
+    <label>Pakalpojuma veids</label>
+    <select name="pakalpojums">
+      <option value="" disabled selected>Izvēlieties pakalpojumu</option>
+      <option>Legalizācija</option>
+      <option>Vienkāršotā pārbūve</option>
+      <option>Pārbūve</option>
+      <option>Renovācija / atjaunošana</option>
+      <option>Jaunbūves projekts</option>
+      <option>Lietošanas veida maiņa</option>
+      <option>Konsultācija</option>
+      <option>Cits</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Papildus informācija *</label>
+    <textarea name="zinojums" placeholder="Pastāstiet īsi par projektu — kas jāizdara, kāds ir objekts, kādi termiņi..." rows="5" required></textarea>
+  </div>
+
+  <button type="submit" class="cta-button">Nosūtīt pieteikumu →</button>
 </form>
       </div>
     </main>
