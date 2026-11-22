@@ -99,3 +99,15 @@ projekti - Copy/
 *.zip
 *.rar
 *.7z
+
+# Prakses konsultanti (privāti: stratēģija, cenas, dati) — nepublicēt
+konsultanti/
+
+# Iekšējie dokumenti un piezīmes — nepublicēt
+*ligums*.docx
+/projekti/Darbu saraksts.docx
+memory_bank/
+cline tasks/
+cline-prompt.md
+cline_prompt_kalvis_website.md
+kalvisl-cline-prompt.md
